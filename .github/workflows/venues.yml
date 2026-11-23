@@ -1,0 +1,58 @@
+name: 공연장 실감형 콘텐츠(GLB) 변환 · 주차 API 점검
+
+on:
+  push:
+    paths: [".github/workflows/venues.yml", "pipeline/venues/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
+jobs:
+  venues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install trimesh numpy
+      - name: 실시간 주차 API 응답 확인
+        run: |
+          mkdir -p pipeline/venues/raw
+          curl -sS -m 30 -A "Mozilla/5.0" "https://www.ksponco.or.kr/online/main/parkingorsApi.do?apiKey=PARKING21803504" -o pipeline/venues/raw/parking_sample.xml -w "%{http_code}\n" || true
+          head -c 2000 pipeline/venues/raw/parking_sample.xml || true
+      - name: GLB·좌석배치도 내려받기
+        run: |
+          mkdir -p /tmp/v
+          for f in skhandball_glb woori_glb; do
+            curl -sS -L -m 600 -A "Mozilla/5.0" "https://www.ksponco.or.kr/attachFiles/download/kspo/$f.zip" -o /tmp/v/$f.zip -w "$f %{http_code} %{size_download}\n"
+            mkdir -p /tmp/v/$f && unzip -o -q /tmp/v/$f.zip -d /tmp/v/$f || true
+          done
+          curl -sS -m 60 -A "Mozilla/5.0" "https://www.ksponco.or.kr/attachFiles/download/kspo/popimg_fencing_4f.jpg" -o pipeline/venues/raw/handball_seatmap.jpg || true
+          find /tmp/v -type f -exec ls -la {} \; | head -40
+      - name: 형상 점검
+        run: python3 pipeline/venues/inspect_glb.py /tmp/v > pipeline/venues/raw/report.txt 2>&1 || true; cat pipeline/venues/raw/report.txt
+      - name: 웹용 압축 (meshopt)
+        run: |
+          mkdir -p public/models
+          for f in skhandball_glb woori_glb; do
+            g=$(find /tmp/v/$f -iname "*.glb" | head -1)
+            [ -z "$g" ] && continue
+            name=$([ "$f" = skhandball_glb ] && echo handball || echo woori)
+            npx -y @gltf-transform/cli@4 optimize "$g" public/models/$name.glb --compress meshopt --texture-compress webp --texture-size 1024 --simplify true --simplify-ratio 0.25 --simplify-error 0.002 || true
+            ls -la public/models/$name.glb || true
+          done
+      - name: 커밋
+        run: |
+          git config user.name "olpark-bot"
+          git config user.email "olpark-bot@users.noreply.github.com"
+          git add pipeline/venues/raw public/models/handball.glb public/models/woori.glb 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "data: 공연장 실감형 콘텐츠(GLB) 변환·주차 API 응답"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
