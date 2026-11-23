@@ -282,7 +282,9 @@ export function findRoute(origin: Place, dest: Place, p: Profile): RouteResult |
 export const places = graph.places;
 export const venues = places.filter((p) => p.kind === "venue");
 export const exits = places.filter((p) => p.kind === "exit");
-export const parkings = places.filter((p) => p.kind === "parking");
+export const parkings = places
+  .filter((p) => p.kind === "parking")
+  .sort((a, b) => (parseInt(a.name.replace(/\D/g, "") || "99", 10) - parseInt(b.name.replace(/\D/g, "") || "99", 10)) || a.name.localeCompare(b.name));
 export const toilets = places.filter((p) => p.kind === "toilet");
 export const stations = [...new Set(exits.map((e) => e.station!))];
 

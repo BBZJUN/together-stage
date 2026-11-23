@@ -9,12 +9,16 @@ export function ParkMap({
   dest,
   showToilets = true,
   highlightSteps = true,
+  aspect = 4 / 3,
+  topInset = 0,
 }: {
   route?: Pt[];
   origin?: Place | null;
   dest?: Place | null;
   showToilets?: boolean;
   highlightSteps?: boolean;
+  aspect?: number; // 화면 가로/세로 비율
+  topInset?: number; // 위쪽을 덮는 UI 비율(0~1) — 경로가 가려지지 않게
 }) {
   // 경로가 있으면 경로 중심으로 확대
   const pts = route && route.length ? route : graph.nodes;
@@ -28,15 +32,16 @@ export function ParkMap({
     if (x > maxX) maxX = x;
     if (y > maxY) maxY = y;
   }
-  const pad = route ? 90 : 20;
+  const pad = route ? 110 : 20;
   minX -= pad;
   minY -= pad;
   maxX += pad;
   maxY += pad;
-  // 화면 비율(4:3)에 맞추기
+  if (topInset > 0) minY -= ((maxY - minY) * topInset) / (1 - topInset);
+  // 화면 비율에 맞추기
   const w = maxX - minX;
   const h = maxY - minY;
-  const target = 4 / 3;
+  const target = aspect;
   if (w / h > target) {
     const nh = w / target;
     minY -= (nh - h) / 2;
@@ -47,13 +52,14 @@ export function ParkMap({
     maxX += (nw - w) / 2;
   }
   const vw = maxX - minX;
-  const k = vw / 400; // 화면 1px 당 m
+  const k = vw / 400 / Math.max(0.8, Math.min(1.6, aspect / (4 / 3))); // 화면 1px 당 m (대략)
   const path = (p: Pt[]) => p.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join("");
 
   return (
     <svg
       viewBox={`${minX} ${minY} ${vw} ${maxY - minY}`}
       className="block h-full w-full"
+      preserveAspectRatio="xMidYMid slice"
       role="img"
       aria-label={origin && dest ? `${origin.name}에서 ${dest.name}까지 경로 지도` : "올림픽공원 지도"}
     >
