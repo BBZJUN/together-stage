@@ -59,6 +59,13 @@ export default function Insight() {
         <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">
           한국체육산업개발이 공개한 실감형 콘텐츠·연계 데이터·공연정보와 OpenStreetMap을 분석했어요. 공연장 운영과 데이터 개방에 바로 쓸 수 있는 내용만 모았어요.
         </p>
+        <Link href="/check" className="press mt-4 flex items-center justify-between rounded-2xl bg-ink px-4 py-4 text-white">
+          <span>
+            <span className="block text-[1rem] font-bold">무대 접근성 사전 점검</span>
+            <span className="block text-[0.8125rem] opacity-75">대관 무대 배치 → 시야제한석·휠체어석·단상 권고 리포트</span>
+          </span>
+          <span aria-hidden className="text-[1.25rem]">›</span>
+        </Link>
       </section>
 
       <section className="band px-5 py-6" aria-labelledby="voices">

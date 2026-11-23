@@ -200,15 +200,17 @@ export function generateSeats(stage: StageConfig = DEFAULT_STAGE): Seat[] {
 interface Box {
   min: Vec3;
   max: Vec3;
+  /** 가림 원인 이름 */
+  kind?: BlockCause;
 }
 
 export function stageObstacles(stage: StageConfig): Box[] {
   const boxes: Box[] = [];
   if (stage.speakers) {
     const zOff = stage.width / 2 + 1.8;
-    for (const s of [-1, 1]) boxes.push({ min: [STAGE_FRONT_X - 2, 6, s * zOff - 1.1], max: [STAGE_FRONT_X + 0.4, 13, s * zOff + 1.1] });
+    for (const s of [-1, 1]) boxes.push({ min: [STAGE_FRONT_X - 2, 6, s * zOff - 1.1], max: [STAGE_FRONT_X + 0.4, 13, s * zOff + 1.1], kind: "스피커" });
   }
-  boxes.push({ min: [6, 0, -3.5], max: [10.5, 2.6, 3.5] }); // 음향 콘솔
+  boxes.push({ min: [6, 0, -3.5], max: [10.5, 2.6, 3.5], kind: "구조물" }); // 음향·조명 콘솔(FOH)
   return boxes;
 }
 
@@ -284,8 +286,9 @@ export function seatVisibility(
       const k = i / steps;
       const p: Vec3 = [eye[0] + d[0] * k, eye[1] + d[1] * k, eye[2] + d[2] * k];
       if (Math.hypot(p[0] - eye[0], p[2] - eye[2]) < 0.7) continue;
-      if (obstacles.some((b) => inBox(p, b))) {
-        blocked = "스피커";
+      const ob = obstacles.find((b) => inBox(p, b));
+      if (ob) {
+        blocked = ob.kind ?? "구조물";
         break;
       }
       const b = blockAt(p[0], p[2], opts.standing, stage);

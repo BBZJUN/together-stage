@@ -409,6 +409,10 @@ export default function SeatViewer() {
           <p className="mt-4 rounded-2xl bg-[#e6f7ee] px-3.5 py-3 text-[0.875rem] leading-relaxed text-[#075c38]">
             휠체어석 바닥을 60cm 높이면 앞사람이 일어서도 평균 시야가 {compare[1].avg}% → {compare[2].avg}%로 돌아와요.
           </p>
+          <a href="/check" className="press mt-3 flex items-center justify-between rounded-2xl bg-ink px-4 py-3.5 text-[0.9375rem] font-semibold text-white">
+            전체 좌석 점검 리포트 만들기
+            <span aria-hidden>›</span>
+          </a>
         </section>
 
         <h2 className="mt-6 text-[1.125rem] font-bold">휠체어석 {wheelSeats.length}석</h2>

@@ -104,3 +104,17 @@ body {
     transition: none;
   }
 }
+
+/* 점검 리포트 인쇄(PDF 저장) */
+@media print {
+  header,
+  nav[aria-label="주요 메뉴"] {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  .band {
+    break-inside: avoid;
+  }
+}
