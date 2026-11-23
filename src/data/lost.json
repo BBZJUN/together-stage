@@ -1,6 +1,6 @@
 {
  "source": "official",
- "fetched_at": "2026-11-23T12:36:06",
+ "fetched_at": "2026-11-23T12:39:44",
  "center": {
   "name": "올림픽공원 유실물센터",
   "place": "우리금융아트홀 내 (서울 송파구 올림픽로 424)",
@@ -13,131 +13,102 @@
  "notices": [
   {
    "no": 85831,
-   "title": "올림픽수영장 11월 3주차 유실물 습득공고 --> 작성일 2026-11-16 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 154",
-   "date": null,
+   "title": "올림픽수영장 11월 3주차 유실물 습득공고",
+   "date": "2026-11-16",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85831",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 11월 3주차 유실물 습득공고"
   },
   {
    "no": 85772,
-   "title": "올림픽수영장 11월 2주차 유실물 습득공고 --> 작성일 2026-11-10 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 175",
-   "date": null,
+   "title": "올림픽수영장 11월 2주차 유실물 습득공고",
+   "date": "2026-11-10",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85772",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 11월 2주차 유실물 습득공고"
   },
   {
-   "no": 85689,
-   "title": "미사경정공원 11월 1주차 유실물 습득공고 --> 작성일 2026-11-02 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 210",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85689",
-   "items": [],
-   "summary": "미사경정공원 11월 1주차 유실물 습득공고"
-  },
-  {
-   "no": 85663,
-   "title": "일산 올림픽스포츠센터 2026년 10월 유실물 안내 --> 작성일 2026-10-30 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 279",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85663",
-   "items": [],
-   "summary": "일산 올림픽스포츠센터 2026년 10월 유실물 안내"
-  },
-  {
-   "no": 85566,
-   "title": "미사경정공원 10월 5주차 유실물 습득 공고 --> 작성일 2026-10-26 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 185",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85566",
-   "items": [],
-   "summary": "미사경정공원 10월 5주차 유실물 습득 공고"
-  },
-  {
    "no": 85562,
-   "title": "올림픽수영장 10월 5주차 유실물 습득공고 --> 작성일 2026-10-26 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 308",
-   "date": null,
+   "title": "올림픽수영장 10월 5주차 유실물 습득공고",
+   "date": "2026-10-26",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85562",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 10월 5주차 유실물 습득공고"
   },
   {
-   "no": 85553,
-   "title": "일산 올림픽스포츠센터 2026년 9월 유실물 안내 --> 작성일 2026-10-26 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 237",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85553",
-   "items": [],
-   "summary": "일산 올림픽스포츠센터 2026년 9월 유실물 안내"
-  },
-  {
    "no": 85511,
-   "title": "올림픽테니스장 10월 3주차 유실물 습득 공고 --> 작성일 2026-10-19 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 254",
-   "date": null,
+   "title": "올림픽테니스장 10월 3주차 유실물 습득 공고",
+   "date": "2026-10-19",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85511",
    "items": [],
+   "lines": [],
    "summary": "올림픽테니스장 10월 3주차 유실물 습득 공고"
   },
   {
    "no": 85491,
-   "title": "올림픽수영장 2026년 9월 유실물(습득물) 이관 안내 --> 작성일 2026-10-15 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 313",
-   "date": null,
+   "title": "올림픽수영장 2026년 9월 유실물(습득물) 이관 안내",
+   "date": "2026-10-15",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85491",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 2026년 9월 유실물(습득물) 이관 안내"
   },
   {
    "no": 85454,
-   "title": "올림픽수영장 10월 3주차 유실물 습득공고 --> 작성일 2026-10-13 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 385",
-   "date": null,
+   "title": "올림픽수영장 10월 3주차 유실물 습득공고",
+   "date": "2026-10-13",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85454",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 10월 3주차 유실물 습득공고"
   },
   {
-   "no": 85438,
-   "title": "미사경정공원 10월 3주차 유실물 습득공고 --> 작성일 2026-10-12 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 278",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85438",
-   "items": [],
-   "summary": "미사경정공원 10월 3주차 유실물 습득공고"
-  },
-  {
    "no": 85436,
-   "title": "올림픽테니스장 10월 2주차 유실물 습득 공고 --> 작성일 2026-10-12 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 244",
-   "date": null,
+   "title": "올림픽테니스장 10월 2주차 유실물 습득 공고",
+   "date": "2026-10-12",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85436",
    "items": [],
+   "lines": [],
    "summary": "올림픽테니스장 10월 2주차 유실물 습득 공고"
   },
   {
-   "no": 85247,
-   "title": "미사경정공원 9월 4주차 유실물 습득공고 --> 작성일 2026-09-21 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 294",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85247",
-   "items": [],
-   "summary": "미사경정공원 9월 4주차 유실물 습득공고"
-  },
-  {
    "no": 85238,
-   "title": "올림픽수영장 9월 4주차 유실물 습득 공고 --> 작성일 2026-09-21 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 422",
-   "date": null,
+   "title": "올림픽수영장 9월 4주차 유실물 습득 공고",
+   "date": "2026-09-21",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85238",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 9월 4주차 유실물 습득 공고"
   },
   {
-   "no": 85164,
-   "title": "미사경정공원 9월 3주차 유실물 습득공고 --> 작성일 2026-09-15 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 324",
-   "date": null,
-   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85164",
-   "items": [],
-   "summary": "미사경정공원 9월 3주차 유실물 습득공고"
-  },
-  {
    "no": 85146,
-   "title": "올림픽수영장 9월 3주차 유실물 습득 공고 --> 작성일 2026-09-14 1 ? #strings.substring(rs.member_nm, 0, 1) + '**' : rs.member_nm}\"/> --> Hit 413",
-   "date": null,
+   "title": "올림픽수영장 9월 3주차 유실물 습득 공고",
+   "date": "2026-09-14",
    "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85146",
    "items": [],
+   "lines": [],
    "summary": "올림픽수영장 9월 3주차 유실물 습득 공고"
+  },
+  {
+   "no": 85113,
+   "title": "올림픽수영장 2026년 8월 유실물(습득물) 이관 안내",
+   "date": "2026-09-10",
+   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85113",
+   "items": [],
+   "lines": [],
+   "summary": "올림픽수영장 2026년 8월 유실물(습득물) 이관 안내"
+  },
+  {
+   "no": 85072,
+   "title": "올림픽수영장 9월 2주차 유실물 습득 공고",
+   "date": "2026-09-07",
+   "url": "https://www.ksponco.or.kr/board.es?mid=a10310000000&bid=0094&act=view&list_no=85072",
+   "items": [],
+   "lines": [],
+   "summary": "올림픽수영장 9월 2주차 유실물 습득 공고"
   }
  ]
 }
