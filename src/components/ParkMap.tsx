@@ -12,6 +12,7 @@ export function ParkMap({
   aspect = 4 / 3,
   topInset = 0,
   bottomInset = 0,
+  focus,
 }: {
   route?: Pt[];
   origin?: Place | null;
@@ -21,6 +22,7 @@ export function ParkMap({
   aspect?: number; // 화면 가로/세로 비율
   topInset?: number; // 위쪽을 덮는 UI 비율(0~1) — 경로가 가려지지 않게
   bottomInset?: number; // 아래쪽을 덮는 UI 비율(0~1)
+  focus?: Pt | null; // 강조할 지점 (안내 모드의 현재 단계)
 }) {
   // 경로가 있으면 경로 중심으로 확대
   const pts = route && route.length ? route : graph.nodes;
@@ -131,6 +133,14 @@ export function ParkMap({
           <text fontSize={9 * k} fill="#fff" textAnchor="middle" dominantBaseline="central" fontWeight={700}>
             {origin.kind === "exit" ? origin.ref : "P"}
           </text>
+        </g>
+      )}
+      {focus && (
+        <g transform={`translate(${focus[0]},${focus[1]})`}>
+          <circle r={18 * k} fill="#3182f6" opacity={0.18}>
+            <animate attributeName="r" values={`${12 * k};${24 * k};${12 * k}`} dur="1.6s" repeatCount="indefinite" />
+          </circle>
+          <circle r={7 * k} fill="#ffffff" stroke="#3182f6" strokeWidth={3.5 * k} />
         </g>
       )}
       {dest && (

@@ -145,6 +145,7 @@ export interface Step {
   text: string;
   meters: number;
   warn?: boolean;
+  at?: Pt; // 이 단계가 끝나는 지점
 }
 
 export interface RouteResult {
@@ -240,7 +241,11 @@ function directions(path: number[], edges: number[], dest: string): Step[] {
     } else merged.push({ ...sg });
   }
 
-  const out: Step[] = merged.map((sg, i) => {
+  const out: Step[] = merged.map((sg, i): Step => ({ ...stepOf(sg, i), at: graph.nodes[sg.end] }));
+  out.push({ icon: "📍", text: `${dest} 도착`, meters: 0, at: graph.nodes[path[path.length - 1]] });
+  return out;
+
+  function stepOf(sg: Seg, i: number): Step {
     const m = Math.round(sg.m / 5) * 5 || Math.round(sg.m);
     const lm = landmarkNear(graph.nodes[sg.end]);
     const until = lm && !dest.includes(lm) ? `${lm} 쪽으로 ` : "";
@@ -250,9 +255,7 @@ function directions(path: number[], edges: number[], dest: string): Step[] {
     if (sg.kind === 3) return { icon: "🚗", text: `${turn}${until}차가 다닐 수 있는 길 ${m}m, 차 조심`, meters: m };
     const icon = sg.turn === "오른쪽으로" && i ? "↱" : sg.turn === "왼쪽으로" && i ? "↰" : "⬆️";
     return { icon, text: `${turn}${until}${m}m 가요`, meters: m };
-  });
-  out.push({ icon: "📍", text: `${dest} 도착`, meters: 0 });
-  return out;
+  }
 }
 
 const SPEED = (p: Profile) => (p.wheelchair ? 0.9 : p.mobility || p.companion ? 0.75 : 1.15); // m/s

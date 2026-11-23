@@ -10,6 +10,7 @@ import {
   Check,
   ChevronDown,
   CloudRain,
+  Navigation2,
   CornerUpLeft,
   CornerUpRight,
   MapPin,
@@ -24,6 +25,7 @@ import { bestExit, findRoute, parkings, profileFrom, stations, toilets, venues, 
 import { ParkMap } from "./ParkMap";
 import { IconTile } from "./ui";
 import { BottomSheet } from "./BottomSheet";
+import { GuideMode } from "./GuideMode";
 
 const STEP_ICON: Record<string, typeof ArrowUp> = { "⚠️": TriangleAlert, "🪨": TriangleAlert, "🚗": Car, "↱": CornerUpRight, "↰": CornerUpLeft, "⬆️": ArrowUp, "📍": MapPin };
 
@@ -100,6 +102,7 @@ export default function RouteFinder() {
   const [sheet, setSheet] = useState<null | "from" | "to">(null);
   const [allSteps, setAllSteps] = useState(false);
   const [snap, setSnap] = useState(0);
+  const [guide, setGuide] = useState(false);
   const [boxH, setBoxH] = useState(640);
   const [sheetH, setSheetH] = useState(200);
   const box = useRef<HTMLDivElement>(null);
@@ -110,7 +113,7 @@ export default function RouteFinder() {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
-  const PEEK = 118;
+  const PEEK = 186;
   const snaps = useMemo(() => [PEEK, Math.max(PEEK + 120, Math.round(boxH * 0.55)), boxH - 12], [boxH]);
   const onSheetH = useCallback((h: number) => setSheetH(h), []);
   const wheelchair = wheel ?? has("wheelchair");
@@ -145,9 +148,11 @@ export default function RouteFinder() {
             <span className="num text-[1rem] font-semibold text-ink-3">{km}</span>
           </p>
         </div>
-        <span className={`shrink-0 rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#c4500c]" : "bg-[#e6f7ee] text-[#0a8550]"}`}>
-          {r.stepsCount ? `계단 ${r.stepsCount}곳` : "계단 없는 길"}
-        </span>
+        <div className="flex shrink-0 flex-col items-end gap-2">
+          <span className={`rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#c4500c]" : "bg-[#e6f7ee] text-[#0a8550]"}`}>
+            {r.stepsCount ? `계단 ${r.stepsCount}곳` : "계단 없는 길"}
+          </span>
+        </div>
       </div>
     ) : (
       <p className="pb-4 text-[0.9375rem] text-ink-3">조건에 맞는 길을 찾지 못했어요. 다른 역이나 주차장을 골라보세요.</p>
@@ -216,6 +221,12 @@ export default function RouteFinder() {
       <BottomSheet snaps={snaps} index={snap} onIndexChange={setSnap} header={summary} onHeightChange={onSheetH} label="경로 안내">
         {result && r && (
           <>
+            <button
+              onClick={() => setGuide(true)}
+              className="press mb-4 flex h-14 w-full items-center justify-center gap-2 rounded-2xl bg-blue text-[1.0625rem] font-bold text-white"
+            >
+              <Navigation2 size={20} fill="currentColor" /> 안내 시작
+            </button>
             <div className="flex gap-2">
               <Stat label="계단" value={r.stepsCount ? `${r.stepsCount}곳` : "없음"} warn={r.stepsCount > 0} />
               <Stat label="고르지 않은 바닥" value={r.roughMeters ? `${r.roughMeters}m` : "없음"} warn={r.roughMeters > 0} />
@@ -286,6 +297,8 @@ export default function RouteFinder() {
           </>
         )}
       </BottomSheet>
+
+      {guide && result && r && <GuideMode route={r} origin={result.origin} dest={dest} onClose={() => setGuide(false)} />}
 
       <Sheet open={sheet === "from"} title="어디서 출발하세요?" onClose={() => setSheet(null)}>
         <p className="px-3 pb-1 pt-2 text-[0.8125rem] font-semibold text-ink-3">지하철 — 조건에 맞는 출구를 골라드려요</p>
