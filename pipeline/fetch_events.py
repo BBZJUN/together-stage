@@ -5,9 +5,13 @@
 """
 import json, re, sys, time, pathlib, html
 import urllib.request
+from datetime import date
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from showtime import schedule  # noqa: E402
 
 BASE = "https://www.ksponco.or.kr/olympicpark"
 LIST = BASE + "/menu.es?mid=a20301010200"
+LIST_AJAX = BASE + "/eventInfo/eventInfoListTextAjax.es"  # 공식 일정안내 화면이 쓰는 월별 목록(JSON)
 VIEW = BASE + "/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq={}"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "pipeline" / "raw_events"
@@ -16,10 +20,13 @@ VENUES = ["KSPO DOME", "티켓링크 라이브 아레나", "올림픽홀", "뮤�
 UA = {"User-Agent": "Mozilla/5.0 (together-stage public-data contest; +https://together-stage.vercel.app)"}
 
 
-def get(url, tries=3):
+def get(url, tries=3, body=None):
     for i in range(tries):
         try:
-            req = urllib.request.Request(url, headers=UA)
+            req = urllib.request.Request(url, headers=UA, data=body)
+            if body is not None:
+                req.add_header("Content-Type", "application/json;charset=UTF-8")
+                req.add_header("Referer", LIST)
             with urllib.request.urlopen(req, timeout=30) as r:
                 return r.read().decode("utf-8", "replace")
         except Exception as e:  # noqa
@@ -68,25 +75,42 @@ def parse_view(page):
                 info.setdefault(f, lines[i + 1])
             elif l.startswith(f + " ") or l.startswith(f + ":") or l.startswith(f + " :"):
                 info.setdefault(f, l[len(f):].lstrip(" :"))
-    m = re.search(r'<h\d[^>]*class="[^"]*(tit|title|subject)[^"]*"[^>]*>(.*?)</h\d>', page, re.S)
+    m = re.search(r'class="concert_title".*?<strong class="title">(.*?)</strong>', page, re.S)
     if m:
-        info.setdefault("제목", text(m.group(2)))
+        info["제목"] = text(m.group(1))
+    for k, v in re.findall(r"<li>\s*<em>([^<]+)</em>\s*<span[^>]*>(.*?)</span>", page, re.S):
+        info[k.strip()] = text(v).replace("\n", " ")
     poster = re.search(r'(/olympicpark/attachFiles/eventInfo/[^"\']+\.(?:gif|jpg|jpeg|png))', page, re.I)
     if poster:
         info["poster"] = "https://www.ksponco.or.kr" + poster.group(1)
     return info
 
 
+def month_list(ym: str):
+    raw = get(LIST_AJAX, body=json.dumps({"nowYM": ym, "plcCd": ""}).encode())
+    try:
+        data = json.loads(raw)
+    except Exception:  # noqa
+        print("JSON 아님", ym, raw[:200], file=sys.stderr)
+        return []
+    rows = data[0] if isinstance(data, list) and data else []
+    return rows
+
+
 def main():
     RAW.mkdir(parents=True, exist_ok=True)
-    page = get(LIST)
-    if not page:
-        print("목록 수집 실패"); sys.exit(1)
-    (RAW / "list.html").write_text(page[:400000])
-    items = parse_list(page)
-    # 다음 달·이전 달 목록도 시도 (파라미터 이름 추정)
-    for extra in ["&year={y}&month={m}", "&srchYear={y}&srchMonth={m}"]:
-        pass
+    today = date.today()
+    items = {}
+    for k in range(-1, 4):  # 지난달 ~ 3개월 뒤
+        y, mo = today.year + (today.month - 1 + k) // 12, (today.month - 1 + k) % 12 + 1
+        for r in month_list(f"{y}{mo:02d}"):
+            seq = str(r.get("evtSeq"))
+            items[seq] = {"seq": int(seq), "title_list": html.unescape(r.get("title", "")), "dates": [r.get("beginDt", ""), r.get("endDt", "")], "venue": r.get("plc", "")}
+        time.sleep(0.8)
+    if not items:  # 예비: 텍스트보기 HTML
+        page = get(LIST)
+        (RAW / "list.html").write_text(page[:400000])
+        items = parse_list(page)
     print("목록", len(items))
     events, first = [], True
     for seq, it in sorted(items.items(), key=lambda x: -int(x[0])):
@@ -96,16 +120,17 @@ def main():
         info = parse_view(vp) if vp else {}
         period = info.get("기간", "")
         dates = re.findall(r"(20\d\d)[.\-/](\d{1,2})[.\-/](\d{1,2})", period) or []
-        dates = ["%s-%02d-%02d" % (y, int(mo), int(d)) for y, mo, d in dates] or it["dates"]
-        tm = re.findall(r"(\d{1,2}):(\d{2})", info.get("시간", ""))
-        venue = next((v for v in VENUES if v in (info.get("장소", "") + info.get("공연장", ""))), it["venue"])
+        dates = ["%s-%02d-%02d" % (y, int(mo), int(d)) for y, mo, d in dates] or [x.replace(".", "-") for x in it["dates"] if x]
+        venue_raw = it["venue"] or info.get("장소", "") or info.get("공연장", "")
+        venue = next((v for v in VENUES if v in venue_raw), venue_raw)
+        sched = schedule(info.get("시간", ""), date.fromisoformat(dates[0]), date.fromisoformat(dates[-1])) if dates else {}
         events.append({
             "seq": int(seq),
-            "title": info.get("공연명") or info.get("제목") or it["title_list"],
+            "title": it["title_list"] or info.get("제목") or info.get("공연명", ""),
             "venue": venue,
             "start_date": dates[0] if dates else None,
             "end_date": dates[-1] if dates else None,
-            "times": sorted({"%02d:%s" % (int(h), mi) for h, mi in tm}),
+            "schedule": sched,
             "time_text": info.get("시간", ""),
             "age": info.get("관람연령", ""),
             "runtime": info.get("소요시간", ""),
