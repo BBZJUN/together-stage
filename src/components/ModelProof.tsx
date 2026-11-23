@@ -67,7 +67,8 @@ function LineChart({ d }: { d: Day }) {
 
 export default function ModelProof() {
   const r = v.report;
-  const [idx, setIdx] = useState(0);
+  // 처음엔 가장 붐볐던 공연 날을 보여줌
+  const [idx, setIdx] = useState(() => v.days.reduce((b, d, i, a) => (Math.max(...d.actual) > Math.max(...a[b].actual) ? i : b), 0));
   const d = v.days[idx];
   const cut = Math.round((1 - r.all.mae_model / r.all.mae_baseline) * 100);
   return (
