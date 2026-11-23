@@ -37,7 +37,8 @@ export default function ShowDetail({ show }: { show: Show }) {
   const peak = peakOf(show);
   const end = endTime(show);
   const fullHour = show.forecast.hours.find((p) => p.occ >= 95);
-  const busyHour = show.forecast.hours.find((p) => p.occ >= 75);
+  // 그날 최고치의 80%를 처음 넘는 시각 = 사람이 몰리기 시작하는 때
+  const busyHour = peak.occ >= 30 ? show.forecast.hours.find((p) => p.cars >= peak.cars * 0.8) : undefined;
   // 붐비기 30분 전 도착 권장 (없으면 공연 1시간 30분 전)
   const arrive = busyHour ? shiftTime(`${String(busyHour.h).padStart(2, "0")}:00`, -30) : shiftTime(show.start, -90);
   const best = r.exits.find((e) => e.waitMin <= 10) ?? r.exits[r.exits.length - 1];
@@ -135,19 +136,19 @@ export default function ShowDetail({ show }: { show: Show }) {
               <>
                 {fullHour.h}시쯤
                 <br />
-                공원이 가장 붐벼요
+                주차장이 가득 차요
               </>
             ) : (
               <>
-                가장 붐빌 때도
+                {peak.h}시쯤
                 <br />
-                여유가 있어요
+                공원이 가장 붐벼요
               </>
             )}
           </h2>
           <LevelPill level={peak.level} big />
         </div>
-        <p className="mt-1.5 text-[0.875rem] text-ink-3">올림픽공원 주차장 이용 기준, 시간대별 예상</p>
+        <p className="mt-1.5 text-[0.875rem] text-ink-3">2025년 공연·날씨·주차 기록으로 학습한 예측 (100% = 2025년 가장 붐빈 시간)</p>
         <div className="mt-4">
           <ForecastChart hours={show.forecast.hours} start={show.start} end={end} />
         </div>

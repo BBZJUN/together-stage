@@ -1,0 +1,49 @@
+{
+ "rows_total": 7803,
+ "rows_used": 7265,
+ "excluded": "2025-11~12 (결측·인위적 증감 구간)",
+ "period": [
+  "2025-01-01 00:00:00",
+  "2025-10-31 23:00:00"
+ ],
+ "features": [
+  "hour",
+  "dow",
+  "weekend",
+  "month",
+  "holiday",
+  "temp",
+  "rain",
+  "humid",
+  "day_audience",
+  "to_show",
+  "has_show"
+ ],
+ "show_day_count": 120,
+ "cv": "주 단위 5-겹 교차검증 (같은 주는 학습·검증에 동시에 들어가지 않음)",
+ "all": {
+  "mae_model": 181.5,
+  "mae_baseline": 399.1,
+  "r2_model": 0.805,
+  "r2_baseline": 0.522
+ },
+ "show_days": {
+  "mae_model": 239.4,
+  "mae_baseline": 405.3,
+  "r2_model": 0.734,
+  "r2_baseline": 0.502
+ },
+ "importance": {
+  "temp": 3384,
+  "hour": 2419,
+  "humid": 2387,
+  "month": 1860,
+  "day_audience": 1672,
+  "dow": 1604,
+  "to_show": 982,
+  "holiday": 310,
+  "rain": 189,
+  "has_show": 155,
+  "weekend": 38
+ }
+}

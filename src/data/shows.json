@@ -1,6 +1,55 @@
 {
- "generatedAt": "2026-11-23T07:35:02",
+ "generatedAt": "2026-11-23T16:37:16",
  "source": "sample",
+ "model": {
+  "rows_total": 7803,
+  "rows_used": 7265,
+  "excluded": "2025-11~12 (결측·인위적 증감 구간)",
+  "period": [
+   "2025-01-01 00:00:00",
+   "2025-10-31 23:00:00"
+  ],
+  "features": [
+   "hour",
+   "dow",
+   "weekend",
+   "month",
+   "holiday",
+   "temp",
+   "rain",
+   "humid",
+   "day_audience",
+   "to_show",
+   "has_show"
+  ],
+  "show_day_count": 120,
+  "cv": "주 단위 5-겹 교차검증 (같은 주는 학습·검증에 동시에 들어가지 않음)",
+  "all": {
+   "mae_model": 181.5,
+   "mae_baseline": 399.1,
+   "r2_model": 0.805,
+   "r2_baseline": 0.522
+  },
+  "show_days": {
+   "mae_model": 239.4,
+   "mae_baseline": 405.3,
+   "r2_model": 0.734,
+   "r2_baseline": 0.502
+  },
+  "importance": {
+   "temp": 3384,
+   "hour": 2419,
+   "humid": 2387,
+   "month": 1860,
+   "day_audience": 1672,
+   "dow": 1604,
+   "to_show": 982,
+   "holiday": 310,
+   "rain": 189,
+   "has_show": 155,
+   "weekend": 38
+  }
+ },
  "calibration": {
   "source": "한국체육산업개발_올림픽공원 입출차 정보(2024-07, 215,528건)",
   "records": 215528,
@@ -67,98 +116,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 22,
-      "cars": 517,
+      "occ": 23,
+      "cars": 990,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 35,
-      "cars": 815,
+      "occ": 27,
+      "cars": 1187,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 40,
-      "cars": 925,
+      "occ": 29,
+      "cars": 1267,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 817,
+      "occ": 27,
+      "cars": 1188,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "cars": 612,
+      "occ": 26,
+      "cars": 1151,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 27,
-      "cars": 613,
+      "occ": 28,
+      "cars": 1219,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 30,
-      "cars": 690,
+      "occ": 29,
+      "cars": 1271,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 31,
-      "cars": 702,
+      "occ": 30,
+      "cars": 1324,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 31,
-      "cars": 724,
+      "cars": 1357,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 41,
-      "cars": 938,
+      "occ": 34,
+      "cars": 1516,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 53,
-      "cars": 1224,
-      "level": "보통"
+      "occ": 30,
+      "cars": 1336,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 62,
-      "cars": 1416,
-      "level": "보통"
+      "occ": 30,
+      "cars": 1306,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 62,
-      "cars": 1421,
-      "level": "보통"
+      "occ": 27,
+      "cars": 1183,
+      "level": "원활"
      },
      {
       "h": 21,
-      "occ": 53,
-      "cars": 1221,
-      "level": "보통"
+      "occ": 19,
+      "cars": 835,
+      "level": "원활"
      },
      {
       "h": 22,
-      "occ": 15,
-      "cars": 344,
+      "occ": 14,
+      "cars": 615,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 1,
-      "cars": 34,
+      "occ": 10,
+      "cars": 445,
       "level": "원활"
      }
     ]
@@ -217,98 +266,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 22,
-      "cars": 517,
+      "occ": 24,
+      "cars": 1067,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 35,
-      "cars": 815,
+      "occ": 29,
+      "cars": 1274,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 40,
-      "cars": 925,
+      "occ": 31,
+      "cars": 1350,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 819,
+      "occ": 29,
+      "cars": 1270,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "cars": 620,
+      "occ": 28,
+      "cars": 1252,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 28,
-      "cars": 649,
+      "occ": 32,
+      "cars": 1395,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 37,
-      "cars": 843,
+      "occ": 35,
+      "cars": 1534,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 50,
-      "cars": 1146,
-      "level": "보통"
+      "occ": 40,
+      "cars": 1751,
+      "level": "원활"
      },
      {
       "h": 16,
-      "occ": 60,
-      "cars": 1377,
-      "level": "보통"
+      "occ": 38,
+      "cars": 1681,
+      "level": "원활"
      },
      {
       "h": 17,
-      "occ": 64,
-      "cars": 1476,
-      "level": "보통"
+      "occ": 37,
+      "cars": 1640,
+      "level": "원활"
      },
      {
       "h": 18,
-      "occ": 65,
-      "cars": 1487,
-      "level": "보통"
+      "occ": 33,
+      "cars": 1462,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 67,
-      "cars": 1540,
-      "level": "보통"
+      "occ": 33,
+      "cars": 1442,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 38,
-      "cars": 879,
+      "occ": 31,
+      "cars": 1353,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 17,
-      "cars": 393,
+      "occ": 19,
+      "cars": 845,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 4,
-      "cars": 96,
+      "occ": 13,
+      "cars": 575,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 1,
-      "cars": 34,
+      "occ": 11,
+      "cars": 494,
       "level": "원활"
      }
     ]
@@ -367,98 +416,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 22,
-      "cars": 517,
+      "occ": 43,
+      "cars": 1909,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 35,
-      "cars": 815,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2230,
+      "level": "보통"
      },
      {
       "h": 10,
-      "occ": 40,
-      "cars": 925,
-      "level": "원활"
+      "occ": 53,
+      "cars": 2311,
+      "level": "보통"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 817,
+      "occ": 49,
+      "cars": 2175,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "cars": 612,
+      "occ": 49,
+      "cars": 2151,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 27,
-      "cars": 612,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2247,
+      "level": "보통"
      },
      {
       "h": 14,
-      "occ": 30,
-      "cars": 684,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2264,
+      "level": "보통"
      },
      {
       "h": 15,
-      "occ": 29,
-      "cars": 673,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2261,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 26,
-      "cars": 599,
+      "occ": 49,
+      "cars": 2146,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 25,
-      "cars": 575,
+      "occ": 42,
+      "cars": 1839,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 28,
-      "cars": 649,
+      "occ": 33,
+      "cars": 1472,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 33,
-      "cars": 754,
+      "occ": 30,
+      "cars": 1334,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 33,
-      "cars": 759,
+      "occ": 26,
+      "cars": 1126,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 24,
-      "cars": 559,
+      "occ": 18,
+      "cars": 785,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 4,
-      "cars": 96,
+      "occ": 12,
+      "cars": 536,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 1,
-      "cars": 34,
+      "occ": 11,
+      "cars": 469,
       "level": "원활"
      }
     ]
@@ -480,8 +529,8 @@
     "precip": true
    },
    "reco": {
-    "carArrive": "15:00",
-    "fullAt": "16:00",
+    "carArrive": "17:00",
+    "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "남2문",
     "exits": [
@@ -511,104 +560,104 @@
      }
     ],
     "expectedCars": 2063,
-    "overflowCars": 417
+    "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 12,
-      "cars": 279,
+      "occ": 22,
+      "cars": 947,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 24,
-      "cars": 553,
+      "occ": 26,
+      "cars": 1152,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 33,
-      "cars": 748,
+      "occ": 28,
+      "cars": 1219,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 35,
-      "cars": 802,
+      "occ": 28,
+      "cars": 1222,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 32,
-      "cars": 735,
+      "occ": 28,
+      "cars": 1230,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 33,
-      "cars": 751,
+      "occ": 29,
+      "cars": 1285,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 45,
-      "cars": 1026,
+      "occ": 32,
+      "cars": 1411,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 68,
-      "cars": 1564,
-      "level": "보통"
+      "occ": 34,
+      "cars": 1507,
+      "level": "원활"
      },
      {
       "h": 16,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 39,
+      "cars": 1704,
+      "level": "원활"
      },
      {
       "h": 17,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 36,
+      "cars": 1576,
+      "level": "원활"
      },
      {
       "h": 18,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 33,
+      "cars": 1457,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 32,
+      "cars": 1387,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 27,
+      "cars": 1188,
+      "level": "원활"
      },
      {
       "h": 21,
-      "occ": 8,
-      "cars": 183,
+      "occ": 18,
+      "cars": 780,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 11,
+      "cars": 480,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 10,
+      "cars": 453,
       "level": "원활"
      }
     ]
@@ -630,8 +679,8 @@
     "precip": true
    },
    "reco": {
-    "carArrive": "11:00",
-    "fullAt": "12:00",
+    "carArrive": "13:00",
+    "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "남2문",
     "exits": [
@@ -661,104 +710,104 @@
      }
     ],
     "expectedCars": 2063,
-    "overflowCars": 687
+    "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 13,
-      "cars": 310,
+      "occ": 23,
+      "cars": 994,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 29,
-      "cars": 660,
+      "occ": 30,
+      "cars": 1330,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 45,
-      "cars": 1036,
+      "occ": 34,
+      "cars": 1474,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 69,
-      "cars": 1579,
-      "level": "보통"
+      "occ": 36,
+      "cars": 1571,
+      "level": "원활"
      },
      {
       "h": 12,
-      "occ": 100,
-      "cars": 2290,
-      "level": "만차"
+      "occ": 39,
+      "cars": 1706,
+      "level": "원활"
      },
      {
       "h": 13,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 46,
+      "cars": 2009,
+      "level": "원활"
      },
      {
       "h": 14,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 51,
+      "cars": 2256,
+      "level": "보통"
      },
      {
       "h": 15,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 54,
+      "cars": 2370,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 55,
+      "cars": 2412,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 35,
-      "cars": 808,
+      "occ": 46,
+      "cars": 2018,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 28,
-      "cars": 654,
+      "occ": 37,
+      "cars": 1646,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 24,
-      "cars": 556,
+      "occ": 33,
+      "cars": 1451,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 18,
-      "cars": 418,
+      "occ": 26,
+      "cars": 1124,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 8,
-      "cars": 183,
+      "occ": 16,
+      "cars": 714,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 11,
+      "cars": 468,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 10,
+      "cars": 445,
       "level": "원활"
      }
     ]
@@ -781,7 +830,7 @@
    },
    "reco": {
     "carArrive": "10:00",
-    "fullAt": "12:00",
+    "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "북2문",
     "exits": [
@@ -811,104 +860,104 @@
      }
     ],
     "expectedCars": 140,
-    "overflowCars": 687
+    "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 13,
-      "cars": 310,
+      "occ": 23,
+      "cars": 994,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 29,
-      "cars": 660,
+      "occ": 30,
+      "cars": 1330,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 45,
-      "cars": 1036,
+      "occ": 34,
+      "cars": 1474,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 69,
-      "cars": 1579,
-      "level": "보통"
+      "occ": 36,
+      "cars": 1571,
+      "level": "원활"
      },
      {
       "h": 12,
-      "occ": 100,
-      "cars": 2290,
-      "level": "만차"
+      "occ": 39,
+      "cars": 1706,
+      "level": "원활"
      },
      {
       "h": 13,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 46,
+      "cars": 2009,
+      "level": "원활"
      },
      {
       "h": 14,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 51,
+      "cars": 2256,
+      "level": "보통"
      },
      {
       "h": 15,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 54,
+      "cars": 2370,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 55,
+      "cars": 2412,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 35,
-      "cars": 808,
+      "occ": 46,
+      "cars": 2018,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 28,
-      "cars": 654,
+      "occ": 37,
+      "cars": 1646,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 24,
-      "cars": 556,
+      "occ": 33,
+      "cars": 1451,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 18,
-      "cars": 418,
+      "occ": 26,
+      "cars": 1124,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 8,
-      "cars": 183,
+      "occ": 16,
+      "cars": 714,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 11,
+      "cars": 468,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 10,
+      "cars": 445,
       "level": "원활"
      }
     ]
@@ -967,98 +1016,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 22,
-      "cars": 517,
+      "occ": 42,
+      "cars": 1844,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 35,
-      "cars": 815,
+      "occ": 49,
+      "cars": 2162,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 40,
-      "cars": 925,
-      "level": "원활"
+      "occ": 50,
+      "cars": 2203,
+      "level": "보통"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 817,
+      "occ": 47,
+      "cars": 2072,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "cars": 613,
+      "occ": 47,
+      "cars": 2066,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 27,
-      "cars": 615,
+      "occ": 48,
+      "cars": 2118,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 30,
-      "cars": 698,
+      "occ": 49,
+      "cars": 2171,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 32,
-      "cars": 734,
+      "occ": 49,
+      "cars": 2171,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 34,
-      "cars": 775,
+      "occ": 48,
+      "cars": 2111,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 37,
-      "cars": 841,
+      "occ": 41,
+      "cars": 1803,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 40,
-      "cars": 916,
+      "occ": 32,
+      "cars": 1412,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 42,
-      "cars": 969,
+      "occ": 28,
+      "cars": 1254,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 42,
-      "cars": 974,
+      "occ": 24,
+      "cars": 1060,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
-      "cars": 393,
+      "cars": 741,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 4,
-      "cars": 96,
+      "occ": 10,
+      "cars": 458,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 1,
-      "cars": 34,
+      "occ": 11,
+      "cars": 465,
       "level": "원활"
      }
     ]
@@ -1117,98 +1166,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 22,
-      "cars": 517,
+      "occ": 44,
+      "cars": 1936,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 35,
-      "cars": 816,
-      "level": "원활"
+      "occ": 52,
+      "cars": 2282,
+      "level": "보통"
      },
      {
       "h": 10,
-      "occ": 40,
-      "cars": 931,
-      "level": "원활"
+      "occ": 53,
+      "cars": 2343,
+      "level": "보통"
      },
      {
       "h": 11,
-      "occ": 37,
-      "cars": 847,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2259,
+      "level": "보통"
      },
      {
       "h": 12,
-      "occ": 31,
-      "cars": 723,
-      "level": "원활"
+      "occ": 51,
+      "cars": 2225,
+      "level": "보통"
      },
      {
       "h": 13,
-      "occ": 37,
-      "cars": 860,
-      "level": "원활"
+      "occ": 55,
+      "cars": 2427,
+      "level": "보통"
      },
      {
       "h": 14,
-      "occ": 44,
-      "cars": 1012,
-      "level": "원활"
+      "occ": 56,
+      "cars": 2466,
+      "level": "보통"
      },
      {
       "h": 15,
-      "occ": 45,
-      "cars": 1029,
-      "level": "원활"
+      "occ": 55,
+      "cars": 2430,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 41,
-      "cars": 944,
-      "level": "원활"
+      "occ": 52,
+      "cars": 2292,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 31,
-      "cars": 715,
+      "occ": 45,
+      "cars": 1981,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 23,
-      "cars": 535,
+      "occ": 35,
+      "cars": 1524,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 26,
-      "cars": 588,
+      "occ": 31,
+      "cars": 1364,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
-      "cars": 593,
+      "cars": 1151,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 17,
-      "cars": 393,
+      "occ": 18,
+      "cars": 810,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 4,
-      "cars": 96,
+      "occ": 12,
+      "cars": 547,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 1,
-      "cars": 34,
+      "occ": 12,
+      "cars": 528,
       "level": "원활"
      }
     ]
@@ -1230,7 +1279,7 @@
     "precip": false
    },
    "reco": {
-    "carArrive": "16:00",
+    "carArrive": "17:00",
     "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "남2문",
@@ -1267,98 +1316,98 @@
     "hours": [
      {
       "h": 8,
-      "occ": 12,
-      "cars": 279,
+      "occ": 22,
+      "cars": 963,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 24,
-      "cars": 553,
+      "occ": 26,
+      "cars": 1141,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 33,
-      "cars": 748,
+      "occ": 28,
+      "cars": 1212,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 35,
-      "cars": 801,
+      "occ": 28,
+      "cars": 1251,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 32,
-      "cars": 730,
+      "occ": 28,
+      "cars": 1233,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 32,
-      "cars": 726,
+      "occ": 29,
+      "cars": 1290,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 40,
-      "cars": 913,
+      "occ": 33,
+      "cars": 1438,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 51,
-      "cars": 1179,
-      "level": "보통"
+      "occ": 36,
+      "cars": 1569,
+      "level": "원활"
      },
      {
       "h": 16,
-      "occ": 73,
-      "cars": 1679,
-      "level": "보통"
+      "occ": 41,
+      "cars": 1813,
+      "level": "원활"
      },
      {
       "h": 17,
-      "occ": 90,
-      "cars": 2071,
-      "level": "혼잡"
+      "occ": 37,
+      "cars": 1621,
+      "level": "원활"
      },
      {
       "h": 18,
-      "occ": 94,
-      "cars": 2172,
-      "level": "혼잡"
+      "occ": 31,
+      "cars": 1383,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 90,
-      "cars": 2074,
-      "level": "혼잡"
+      "occ": 29,
+      "cars": 1274,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 84,
-      "cars": 1936,
-      "level": "혼잡"
+      "occ": 24,
+      "cars": 1058,
+      "level": "원활"
      },
      {
       "h": 21,
-      "occ": 12,
-      "cars": 284,
+      "occ": 16,
+      "cars": 686,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 9,
+      "cars": 414,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 9,
+      "cars": 409,
       "level": "원활"
      }
     ]
@@ -1380,8 +1429,8 @@
     "precip": false
    },
    "reco": {
-    "carArrive": "15:00",
-    "fullAt": "16:00",
+    "carArrive": "16:00",
+    "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "남2문",
     "exits": [
@@ -1411,104 +1460,104 @@
      }
     ],
     "expectedCars": 1518,
-    "overflowCars": 26
+    "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 12,
-      "cars": 279,
+      "occ": 21,
+      "cars": 916,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 24,
-      "cars": 554,
+      "cars": 1040,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 33,
-      "cars": 753,
+      "occ": 28,
+      "cars": 1214,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 823,
+      "occ": 32,
+      "cars": 1411,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 35,
-      "cars": 800,
+      "occ": 39,
+      "cars": 1734,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 38,
-      "cars": 874,
+      "occ": 44,
+      "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 53,
-      "cars": 1230,
-      "level": "보통"
+      "occ": 48,
+      "cars": 2122,
+      "level": "원활"
      },
      {
       "h": 15,
-      "occ": 78,
-      "cars": 1804,
-      "level": "혼잡"
+      "occ": 52,
+      "cars": 2268,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 95,
-      "cars": 2183,
-      "level": "만차"
+      "occ": 53,
+      "cars": 2345,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 48,
+      "cars": 2123,
+      "level": "원활"
      },
      {
       "h": 18,
-      "occ": 94,
-      "cars": 2172,
-      "level": "혼잡"
+      "occ": 39,
+      "cars": 1695,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 90,
-      "cars": 2074,
-      "level": "혼잡"
+      "occ": 32,
+      "cars": 1401,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 23,
-      "cars": 519,
+      "occ": 26,
+      "cars": 1151,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 8,
-      "cars": 183,
+      "occ": 18,
+      "cars": 782,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 12,
+      "cars": 519,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 11,
+      "cars": 500,
       "level": "원활"
      }
     ]
@@ -1531,7 +1580,7 @@
    },
    "reco": {
     "carArrive": "13:00",
-    "fullAt": "16:00",
+    "fullAt": null,
     "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
     "bestGate": "북2문",
     "exits": [
@@ -1561,104 +1610,104 @@
      }
     ],
     "expectedCars": 121,
-    "overflowCars": 26
+    "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 12,
-      "cars": 279,
+      "occ": 21,
+      "cars": 916,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 24,
-      "cars": 554,
+      "cars": 1040,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 33,
-      "cars": 753,
+      "occ": 28,
+      "cars": 1214,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 36,
-      "cars": 823,
+      "occ": 32,
+      "cars": 1411,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 35,
-      "cars": 800,
+      "occ": 39,
+      "cars": 1734,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 38,
-      "cars": 874,
+      "occ": 44,
+      "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 53,
-      "cars": 1230,
-      "level": "보통"
+      "occ": 48,
+      "cars": 2122,
+      "level": "원활"
      },
      {
       "h": 15,
-      "occ": 78,
-      "cars": 1804,
-      "level": "혼잡"
+      "occ": 52,
+      "cars": 2268,
+      "level": "보통"
      },
      {
       "h": 16,
-      "occ": 95,
-      "cars": 2183,
-      "level": "만차"
+      "occ": 53,
+      "cars": 2345,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 100,
-      "cars": 2300,
-      "level": "만차"
+      "occ": 48,
+      "cars": 2123,
+      "level": "원활"
      },
      {
       "h": 18,
-      "occ": 94,
-      "cars": 2172,
-      "level": "혼잡"
+      "occ": 39,
+      "cars": 1695,
+      "level": "원활"
      },
      {
       "h": 19,
-      "occ": 90,
-      "cars": 2074,
-      "level": "혼잡"
+      "occ": 32,
+      "cars": 1401,
+      "level": "원활"
      },
      {
       "h": 20,
-      "occ": 23,
-      "cars": 519,
+      "occ": 26,
+      "cars": 1151,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 8,
-      "cars": 183,
+      "occ": 18,
+      "cars": 782,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 3,
-      "cars": 61,
+      "occ": 12,
+      "cars": 519,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 2,
-      "cars": 36,
+      "occ": 11,
+      "cars": 500,
       "level": "원활"
      }
     ]

@@ -100,6 +100,32 @@ def event_cars(s: dict) -> float:
     return s["capacity"] * 0.92 * CARS_PER_ATTENDEE[s["audience"]] * rain
 
 
+MODEL_PATH = ROOT / "pipeline" / "model.txt"
+FULL_CARS = 4400  # 2025년 시간대별 주차대수 최대치(4,359대) 부근 = '가득 참' 기준
+
+
+def model_forecast(show: dict, all_shows_that_day: list[dict]):
+    """2025 연계 데이터로 학습한 LightGBM으로 시간대별 주차대수 예측"""
+    import lightgbm as lgb
+
+    booster = lgb.Booster(model_file=str(MODEL_PATH))
+    d = date.fromisoformat(show["date"])
+    first_start = min(int(s["start"][:2]) for s in all_shows_that_day)
+    day_aud = max(s["capacity"] * 0.92 for s in all_shows_that_day)
+    w = show["weather"]
+    rows, hours = [], list(range(8, 24))
+    for h in hours:
+        in_show = any(int(s["start"][:2]) <= h <= int(s["start"][:2]) + s["runtime"] // 60 for s in all_shows_that_day)
+        rows.append([h, d.weekday(), int(d.weekday() >= 5), d.month, 0, w["temp"], 3.0 if w["precip"] else 0.0, 75 if w["precip"] else 50,
+                     day_aud, max(-12, min(12, first_start - h)), int(in_show)])
+    pred = booster.predict(rows)
+    series = []
+    for h, c in zip(hours, pred):
+        c = max(0.0, float(c))
+        series.append({"h": h, "occ": min(100, round(c / FULL_CARS * 100)), "cars": round(c), "cars_raw": round(c)})
+    return {"hours": series}
+
+
 def level(occ: int) -> str:
     if occ >= 95:
         return "만차"
@@ -139,7 +165,7 @@ def recommendations(show: dict, hours: list[dict]) -> dict:
         "bestGate": gate,
         "exits": exits,
         "expectedCars": round(cars),
-        "overflowCars": max(0, round(max(p["cars_raw"] for p in hours) - TOTAL_SPACES)),
+        "overflowCars": max(0, round(max(p["cars_raw"] for p in hours) - (FULL_CARS if MODEL_PATH.exists() else TOTAL_SPACES))),
     }
 
 
@@ -167,7 +193,7 @@ def build_sample() -> list[dict]:
 
     for s in shows:
         same_day = [x for x in shows if x["date"] == s["date"]]
-        fc = heuristic_forecast(s, same_day)
+        fc = model_forecast(s, same_day) if MODEL_PATH.exists() else heuristic_forecast(s, same_day)
         for p in fc["hours"]:
             p["level"] = level(p["occ"])
         s["reco"] = recommendations(s, fc["hours"])
@@ -185,7 +211,8 @@ def main() -> None:
     shows = build_sample()
     payload = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
-        "source": "sample",  # 공연 목록은 샘플, 기본 수요·출차 처리량은 2024-07 실측 보정
+        "source": "sample",  # 공연 목록은 샘플, 예측은 2025 연계 데이터 학습 모델
+        "model": json.loads((ROOT / "pipeline" / "model_report.json").read_text()) if MODEL_PATH.exists() else None,
         "calibration": {k: CAL[k] for k in ("source", "records", "maxConcurrent", "exitThroughputPerHour", "normalDailyPeakMedian")},
         "gates": GATES,
         "shows": shows,

@@ -35,7 +35,12 @@ export function SampleNotice() {
   return (
     <div className="flex items-start gap-2.5 rounded-2xl bg-grey-50 p-4 text-[0.8125rem] leading-relaxed text-ink-2">
       <span aria-hidden>ℹ️</span>
-      <p>지금은 샘플 공연과 예측값으로 보여드리고 있어요. 공공데이터 실데이터를 연결하면 실제 값으로 바뀌어요.</p>
+      <p>
+        공연 목록은 예시예요. 붐비는 시간은 2025년 실제 공연·날씨·주차 기록으로 학습한 모델이 계산해요.{" "}
+        <a href="/data" className="font-semibold text-blue underline">
+          예측 방법 보기
+        </a>
+      </p>
     </div>
   );
 }
