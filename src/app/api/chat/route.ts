@@ -31,8 +31,8 @@ export async function POST(req: Request) {
       const reply = await geminiReply(gkey, systemPrompt(needs, showId), messages);
       if (cacheKey) cache.set(cacheKey, reply);
       return Response.json({ reply, engine: "gemini" });
-    } catch {
-      /* 무료 한도 초과 등 → 아래로 */
+    } catch (e) {
+      console.error("[gemini]", e instanceof Error ? e.message : e); // 무료 한도 초과 등 → 아래로
     }
   }
 

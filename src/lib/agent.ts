@@ -25,7 +25,7 @@ export const TOOLS = [
   },
   {
     name: "wheelchair_seat_view",
-    description: "공연장 휠체어석의 무대 시야(앞사람이 앉았을 때/일어섰을 때)를 3D 시뮬레이션으로 계산해 요약한다.",
+    description: "휠체어석의 무대 시야(앞사람이 앉았을 때/일어섰을 때)를 실측 3D 형상으로 계산해 요약한다. 현재 KSPO DOME만 지원하므로 공연장을 묻지 말고 바로 호출한다.",
     input_schema: { type: "object" as const, properties: { venue: { type: "string" } } },
   },
   {
@@ -168,7 +168,7 @@ export async function runTool(name: string, input: Record<string, string>) {
 
 function toneFor(needs: Need[]) {
   const rules = ["존댓말로, 짧고 쉬운 문장으로 말한다. 한 문장에 정보 하나."];
-  if (needs.includes("lowvision") || needs.includes("companion")) rules.push("전체 4문장 이내, 이모지·영어 금지, 시각은 '오후 4시'처럼.");
+  if (needs.includes("lowvision") || needs.includes("companion")) rules.push("전체 4문장 이내, 이모지 금지, 어려운 외래어 금지(고유명사는 그대로), 시각은 '오후 4시'처럼.");
   if (needs.includes("wheelchair")) rules.push("휠체어 이용자다. 계단·턱·경사·엘리베이터 정보를 가장 먼저 말한다.");
   if (needs.includes("mobility")) rules.push("계단이 힘든 사람이다. 계단과 오르막을 피하는 길을 우선한다.");
   if (needs.includes("hearing")) rules.push("청각장애인일 수 있다. 소리 안내 대신 글로 분명히, 방향은 랜드마크로 설명한다.");
@@ -185,7 +185,11 @@ export function systemPrompt(needs: Need[], showId?: string) {
 규칙:
 - 길은 반드시 find_route로 조회해서 답한다. 계단 수, 추천 출구, 소요시간을 말한다.
 - 출구 엘리베이터 여부가 '미확인'이면 역 안내도에서 엘리베이터 위치를 확인하라고 덧붙인다.
-- 화장실은 find_toilets, 휠체어석 시야는 wheelchair_seat_view로 조회한다.
+- 화장실은 find_toilets, 휠체어석 시야는 wheelchair_seat_view로 조회한다. 공연장을 말하지 않았으면 KSPO DOME으로 보고 바로 조회한다.
+- 출발지가 없으면 올림픽공원역을 기준으로 안내하고, 다른 역에서 오면 말해달라고 덧붙인다.
+- 답은 5문장 이내. 마크다운 기호(**, #, -)를 쓰지 말고 평범한 문장으로.
+- [가장 중요] 툴 결과에 없는 시설 정보(엘리베이터·경사로·휠체어석 동선·장애인 주차·셔틀 유무 등)는 절대 지어내거나 단정하지 않는다. 툴 결과에 없으면 "아직 확인되지 않았어요. 방문 전 공연장에 문의해 주세요"라고 말한다. 잘못된 안내는 이동이 어려운 사람에게 실제 위험이 된다.
+- 공연장·역 이름은 바꾸지 않고 그대로 쓴다 (예: KSPO DOME).
 - 공연 일정·혼잡·주차·유실물은 반드시 툴로 조회한 값만 말한다. 추측한 숫자를 만들지 않는다.
 - 공연을 특정할 수 없으면 search_shows로 찾고, 여러 개면 짧게 되묻는다.
 - 주차장이 넘칠 것으로 예측되면(overflowCars>0) 대중교통(5·9호선 올림픽공원역, 8호선 몽촌토성역)을 권한다.
