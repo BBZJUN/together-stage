@@ -33,16 +33,44 @@ def get(url):
     return ""
 
 
+# 올림픽공원 안 시설만 (공연 관람객 동선과 겹치는 곳)
+OUTSIDE = ("미사", "일산", "분당", "경정")
+
+
 def parse_list(page):
     out = []
-    for m in re.finditer(r'list_no=(\d+)[^"\']*["\'][^>]*>(.*?)</a>', page, re.S):
-        no, title = m.group(1), text(m.group(2)).replace("\n", " ").strip()
-        if not title or any(o["no"] == int(no) for o in out):
+    for li in re.findall(r'<li class="list_li">(.*?)</li>', page, re.S):
+        no = re.search(r"list_no=(\d+)", li)
+        title = re.search(r'<strong class="title">(.*?)</strong>', li, re.S)
+        d = re.search(r'class="date"[^>]*>.*?(20\d\d-\d{2}-\d{2})', li, re.S)
+        if not (no and title):
             continue
-        tail = page[m.end(): m.end() + 800]
-        d = re.search(r"(20\d\d)[.\-](\d{2})[.\-](\d{2})", tail)
-        out.append({"no": int(no), "title": title, "date": "-".join(d.groups()) if d else None})
+        t = text(title.group(1)).replace("\n", " ").strip()
+        if any(o in t for o in OUTSIDE):
+            continue
+        out.append({"no": int(no.group(1)), "title": t, "date": d.group(1) if d else None})
     return out
+
+
+def hwp_lines(no):
+    """첨부 HWP(유실물 관리대장) → 텍스트 줄"""
+    import subprocess, tempfile
+    url = f"{BASE}/boardDownload.es?bid=0094&list_no={no}&seq=1"
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+            data = r.read()
+    except Exception as e:  # noqa
+        print("download fail", no, e, file=sys.stderr)
+        return []
+    with tempfile.NamedTemporaryFile(suffix=".hwp", delete=False) as f:
+        f.write(data)
+        path = f.name
+    try:
+        txt = subprocess.run(["hwp5txt", path], capture_output=True, text=True, timeout=60).stdout
+    except Exception as e:  # noqa
+        print("hwp5txt fail", e, file=sys.stderr)
+        return []
+    return [l.strip() for l in txt.splitlines() if l.strip()]
 
 
 def parse_view(page):
@@ -82,7 +110,10 @@ def main():
         if i == 0 and vp:
             (RAW / "lost_view.html").write_text(vp[:300000])
         items, summary = parse_view(vp) if vp else ([], "")
-        out.append({**ps, "url": VIEW.format(ps["no"]), "items": items[:60], "summary": summary})
+        lines = hwp_lines(ps["no"]) if 'boardDownload.es' in (vp or "") else []
+        if i == 0:
+            (RAW / "lost_hwp_sample.txt").write_text("\n".join(lines[:200]))
+        out.append({**ps, "url": VIEW.format(ps["no"]), "items": items[:60], "lines": lines[:150], "summary": summary})
         time.sleep(1)
     if not out:
         print("수집 실패 — 기존 파일 유지")

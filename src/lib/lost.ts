@@ -10,7 +10,7 @@ export interface LostItem {
   notice?: string;
 }
 
-type Notice = { no: number; title: string; date: string | null; url: string; items: Record<string, string>[]; summary: string };
+type Notice = { no: number; title: string; date: string | null; url: string; items: Record<string, string>[]; lines?: string[]; summary: string };
 type Data = {
   source: string;
   center?: { name: string; place: string; phone: string[]; url: string };
@@ -36,6 +36,14 @@ export function lostItems(): LostItem[] {
   if (data.items) return data.items;
   const out: LostItem[] = [];
   for (const n of data.notices ?? []) {
+    if (n.items.length === 0 && n.lines?.length) {
+      // 첨부 관리대장(HWP)에서 뽑은 줄: 물품명이 들어 있는 줄만
+      for (const l of n.lines) {
+        if (l.length < 2 || /^(연번|번호|습득일|습득장소|물품|보관|비고|처리|유실물|관리대장|순번)/.test(l) || /^\d+$/.test(l)) continue;
+        out.push({ date: n.date ?? "", name: l, place: n.title.replace(/\s*\d+월.*$/, ""), storage: lostCenter.name, url: n.url, notice: n.title });
+      }
+      continue;
+    }
     if (n.items.length === 0) {
       out.push({ date: n.date ?? "", name: n.title, place: "", storage: lostCenter.name, url: n.url, notice: n.title });
       continue;
