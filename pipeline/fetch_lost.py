@@ -66,9 +66,11 @@ def hwp_lines(no):
         f.write(data)
         path = f.name
     try:
-        txt = subprocess.run(["hwp5txt", path], capture_output=True, text=True, timeout=60).stdout
+        r = subprocess.run(["hwp5txt", path], capture_output=True, text=True, timeout=60)
+        txt = r.stdout
+        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} head={data[:8]!r} rc={r.returncode}\nSTDERR:\n{r.stderr[-3000:]}\nSTDOUT:\n{txt[:3000]}")
     except Exception as e:  # noqa
-        print("hwp5txt fail", e, file=sys.stderr)
+        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} head={data[:8]!r} EXC {e!r}")
         return []
     return [l.strip() for l in txt.splitlines() if l.strip()]
 
