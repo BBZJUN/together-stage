@@ -3,6 +3,8 @@ name: 공공데이터 수집·예측 갱신
 on:
   schedule:
     - cron: "17 18 * * *" # 매일 03:17 KST
+  push:
+    paths: ["pipeline/fetch_api.py", "pipeline/train_model.py", ".github/workflows/data.yml"]
   workflow_dispatch:
     inputs:
       full_inout:
@@ -43,5 +45,8 @@ jobs:
           mkdir -p pipeline/samples
           cp pipeline/raw/api_*_sample.json pipeline/raw/api_*_first_page.txt pipeline/samples/ 2>/dev/null || true
           git add src/data/shows.json pipeline/samples
+          [ -f pipeline/raw/api_linked.json ] && cp pipeline/raw/api_linked.json pipeline/samples/linked_2025.json && git add pipeline/samples/linked_2025.json
+          [ -f pipeline/raw/api_perf.json ] && cp pipeline/raw/api_perf.json pipeline/samples/perf_all.json && git add pipeline/samples/perf_all.json
           git diff --cached --quiet || git commit -m "data: 공공데이터 자동 갱신"
+          git pull --rebase -q || true
           git push
