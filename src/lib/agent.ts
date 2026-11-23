@@ -122,7 +122,7 @@ export async function runTool(name: string, input: Record<string, string>) {
         const vs = seats.map((x) => seatVisibility(x, DEFAULT_STAGE, { standing }, T, O).ratio);
         return { avgVisible: Math.round((vs.reduce((a, b) => a + b, 0) / vs.length) * 100), poorSeats: vs.filter((x) => x < 0.6).length };
       };
-      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 예시 배치" };
+      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 공식 좌석배치도의 C블록(무대 정면) 뒤편 장애인석 기준, 세부 좌석은 추정. 휠체어석 앞 펜스·표지판은 계산에 미포함" };
     }
     case "find_toilets": {
       const v = venueOf(input.venue) ?? venues[0];
@@ -229,7 +229,7 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
 
   if (/시야|보여|보일|휠체어석|좌석/.test(text)) {
     const r = (await runTool("wheelchair_seat_view", {})) as { wheelchairSeats: number; seated: { avgVisible: number }; standing: { avgVisible: number; poorSeats: number } };
-    return `KSPO DOME 휠체어석은 앞사람이 앉아 있으면 무대가 평균 ${r.seated.avgVisible}% 보여요. 하지만 앞사람이 일어서면 ${r.standing.avgVisible}%로 줄고, ${r.wheelchairSeats}석 중 ${r.standing.poorSeats}석은 많이 가려요. '좌석 시야' 탭에서 자리별로 직접 확인해 보세요. (실측 3D 형상 기준, 휠체어석 위치는 예시)`;
+    return `KSPO DOME 휠체어석은 앞사람이 앉아 있으면 무대가 평균 ${r.seated.avgVisible}% 보여요. 하지만 앞사람이 일어서면 ${r.standing.avgVisible}%로 줄고, ${r.wheelchairSeats}석 중 ${r.standing.poorSeats}석은 많이 가려요. '좌석 시야' 탭에서 자리별로 직접 확인해 보세요. (실측 3D 형상과 공식 좌석배치도의 C블록 뒤편 휠체어석 기준)`;
   }
 
   const st = stationOf(text);

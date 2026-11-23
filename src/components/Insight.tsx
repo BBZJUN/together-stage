@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { Accessibility, CarFront, ChartLine, Database, MapPinned } from "lucide-react";
+import { Accessibility, CarFront, ChartLine, Database, MapPinned, MessageSquareQuote } from "lucide-react";
+import ev from "@/data/evidence.json";
 import ins from "@/data/insight.json";
 import val from "@/data/validation.json";
 import { generateSeats, seatVisibility, STAGE_PRESETS, stageObstacles, stageTargets } from "@/lib/venue";
@@ -60,6 +61,57 @@ export default function Insight() {
         </p>
       </section>
 
+      <section className="band px-5 py-6" aria-labelledby="voices">
+        <div className="flex items-center gap-3">
+          <IconTile icon={MessageSquareQuote} tone="purple" size="sm" />
+          <span className="text-[0.8125rem] font-semibold text-ink-3">왜 필요한가</span>
+        </div>
+        <h2 id="voices" className="mt-3 text-[1.25rem] font-bold leading-snug tracking-tight">
+          보도와 조사로 확인한
+          <br />
+          관람 현장의 목소리
+        </h2>
+        <ul className="mt-4 grid grid-cols-1 gap-2">
+          {ev.stats.map((s) => (
+            <li key={s.value} className="rounded-2xl bg-grey-50 px-4 py-3">
+              <b className="num text-[1.375rem] tracking-tight">{s.value}</b>
+              <p className="mt-0.5 text-[0.9375rem] leading-relaxed text-ink-2">{s.label}</p>
+              <a href={s.url} target="_blank" rel="noreferrer" className="mt-1 inline-block text-[0.75rem] text-ink-3 underline underline-offset-2">
+                {s.source}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-5 flex flex-col gap-4">
+          {ev.voices.map((v) => (
+            <li key={v.quote}>
+              <blockquote className="border-l-[3px] border-blue pl-4">
+                <p className="text-[1.0625rem] font-semibold leading-relaxed">&ldquo;{v.quote}&rdquo;</p>
+                <footer className="mt-1 text-[0.8125rem] text-ink-3">
+                  {v.who} ·{" "}
+                  <a href={v.url} target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                    {v.source}
+                  </a>
+                </footer>
+              </blockquote>
+              <p className="mt-1.5 pl-[19px] text-[0.875rem] leading-relaxed text-ink-2">{v.context}</p>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-5 flex flex-col divide-y divide-grey-100">
+          {ev.cases.map((c) => (
+            <li key={c.title} className="py-3">
+              <p className="text-[0.9375rem] font-semibold">{c.title}</p>
+              <p className="mt-0.5 text-[0.875rem] leading-relaxed text-ink-2">{c.body}</p>
+              <a href={c.url} target="_blank" rel="noreferrer" className="mt-0.5 inline-block text-[0.75rem] text-ink-3 underline underline-offset-2">
+                {c.source}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3 text-[0.75rem] text-ink-3">{ev.note}</p>
+      </section>
+
       <Card
         n={1}
         icon={Accessibility}
@@ -89,7 +141,7 @@ export default function Insight() {
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 예시 휠체어석 {wheel.n}석 평균</p>
+        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (펜스·표지판은 미반영)</p>
         <Proposal>
           <b>제안</b> 콘서트처럼 관객이 일어서는 공연은 휠체어석 구역에 이동식 단상을 두고, 무대 배치 단계에서 휠체어석 시야를 미리 점검해 주세요.{" "}
           <Link href="/seats" className="font-semibold text-blue underline underline-offset-2">

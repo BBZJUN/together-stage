@@ -96,8 +96,11 @@ function sectionLabel(tier: string, angle: number) {
   return tier === "1층" ? `${idx}구역` : `${idx + 24}구역`;
 }
 
-/** 휠체어석 예시 배치: 1층 마지막 줄(가로 통로 앞) 정면·측면 구역 — 실제 위치 확인 후 교체 */
-const WHEEL_ANGLES = [0, 60, 300, 90, 270].map((d) => (d * Math.PI) / 180);
+/**
+ * 휠체어석: 올림픽공원 공식 좌석배치도 기준 "C블록(무대 정면, 5~11구역) 뒤편 장애인석"
+ * (ksponco.or.kr 일정안내 좌석배치도). 정면 스탠드 하단 구역 끝줄에 배치. 세부 좌석 번호는 추정.
+ */
+const WHEEL_ANGLES = [-36, -24, -12, 0, 12, 24, 36].map((d) => (d * Math.PI) / 180);
 
 /** 무대 뒤로 시야가 막히는 각도(무대 뒤편 스탠드)는 좌석 판매 안 함 */
 function behindStage(a: number) {
@@ -163,7 +166,7 @@ export function generateSeats(stage: StageConfig = DEFAULT_STAGE): Seat[] {
           row: fr,
           num,
           pos: [x, 0, z],
-          wheelchair: x + 0.75 >= FLOOR_R - 4 && num % 5 === 0 && Math.abs(z) < 10,
+          wheelchair: false, // 공식 배치도상 플로어 장애인석 없음
           aisleAccess: true,
         });
       }

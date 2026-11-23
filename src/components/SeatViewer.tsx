@@ -292,7 +292,7 @@ export default function SeatViewer() {
           })}
         </ul>
         <p className="mt-4 text-[0.75rem] leading-relaxed text-ink-3">
-          공연장 형상은 한국체육산업개발이 공개한 KSPO DOME 실감형 콘텐츠(3D)에서 가져왔어요. 휠체어석 위치와 무대 배치는 예시라 공연마다 달라질 수 있어요.
+          공연장 형상은 한국체육산업개발이 공개한 KSPO DOME 실감형 콘텐츠(3D)에서 가져왔어요. 휠체어석은 올림픽공원 공식 좌석배치도의 ‘C블록 뒤편 장애인석’ 위치를 따랐어요(세부 좌석 번호는 추정). 무대 배치는 공연마다 달라요.
         </p>
       </BottomSheet>
     </div>

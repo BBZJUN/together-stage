@@ -1,0 +1,75 @@
+{
+  "note": "현장 조사를 대신해 공개된 보도·공식 자료만 모았어요. 인용은 원문 그대로 짧게, 나머지는 요약이에요.",
+  "stats": [
+    {
+      "value": "64.5%",
+      "label": "최근 1년간 오프라인 문화예술을 한 번도 관람하지 못한 서울 장애인 (일반시민 23.9%)",
+      "source": "서울문화재단 2024 서울시민 문화향유 실태조사 · 한국경제 2025.7",
+      "url": "https://www.hankyung.com/article/2025071351081"
+    },
+    {
+      "value": "10석 중 7석",
+      "label": "3대 영화관 장애인석이 맨 앞줄에 있는 비율. 공연장 휠체어석은 대부분 맨 뒷줄 사이드",
+      "source": "영화진흥위원회 조사 · 이데일리",
+      "url": "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01285766632366640"
+    },
+    {
+      "value": "C블록 뒤편",
+      "label": "KSPO DOME 공식 좌석배치도의 장애인석 위치. 2층 C블록은 무대 정면 5~11구역",
+      "source": "올림픽공원 일정안내 좌석배치도",
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=4627"
+    }
+  ],
+  "voices": [
+    {
+      "quote": "체계적인 개선이 이루어지고 있다기보다, 복불복이에요.",
+      "who": "K-POP 공연을 관람한 장애인 팬",
+      "context": "한국장총 분석: KSPO돔은 휠체어석 앞 펜스·표지판이 시야를 가리고, 관객이 일어서면 무대를 보기 어려운 구조",
+      "source": "비마이너",
+      "url": "https://www.beminor.com/news/articleView.html?idxno=30041",
+      "links": "seats"
+    },
+    {
+      "quote": "랜덤으로 배정하기 때문에 선택권이 없다",
+      "who": "휠체어 이용 관객 B양",
+      "context": "2021년 올림픽공원 핸드볼경기장 콘서트에서 조형물로 시야가 가린다는 사실을 공연 1~2주 전에야 안내받음",
+      "source": "한국일보",
+      "url": "https://v.daum.net/v/EshrORuGGj",
+      "links": "seats"
+    },
+    {
+      "quote": "대부분의 공연장 휠체어석은 객석 맨 뒷줄 사이드에 있다",
+      "who": "전동휠체어 이용자 A씨",
+      "context": "좌석 선택지가 없어 시야를 미리 알 방법도 없음",
+      "source": "이데일리",
+      "url": "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01285766632366640",
+      "links": "seats"
+    }
+  ],
+  "cases": [
+    {
+      "title": "앞사람이 일어서면 가려지는 장애인석",
+      "body": "대전 신구장 장애인석은 관중이 일어서는 순간 시야가 완전히 가려졌어요. 미국은 '앞사람이 가리지 않는 시야'를 법으로 보장해요.",
+      "source": "한국일보 2026.4 장애인의 날 기획",
+      "url": "https://www.hankookilbo.com/news/article/A2026041500540000803"
+    },
+    {
+      "title": "해외 공연장의 키 높이 휠체어 단상",
+      "body": "공연장 중간에 관객 키 높이만큼 좌석을 올리고 경사로를 둔 사례가 있어요. 이 서비스의 '단상 60cm' 제안의 근거예요.",
+      "source": "경남도민일보 칼럼",
+      "url": "https://www.idomin.com/news/articleView.html?idxno=509502"
+    },
+    {
+      "title": "관람을 막는 건 공연장 밖에서부터",
+      "body": "장애예술인이 꼽은 관람 어려움 1순위는 대중교통 등 이동의 어려움, 다음이 편의시설과 지원 서비스 부족이었어요.",
+      "source": "경북매일 2026.9",
+      "url": "https://www.kbmaeil.com/article/20260926500044"
+    },
+    {
+      "title": "휠체어석 미제공은 차별",
+      "body": "국가인권위원회는 야외 공연이라도 휠체어석과 이동 동선을 마련하지 않으면 차별이라고 판단했어요.",
+      "source": "더인디고",
+      "url": "https://theindigo.co.kr/archives/68473"
+    }
+  ]
+}
