@@ -74,14 +74,22 @@ def hwp_lines(no):
     with tempfile.NamedTemporaryFile(suffix=".hwp", delete=False) as f:
         f.write(data)
         path = f.name
+    # 표 내용까지 나오도록 HTML로 변환한 뒤 표의 행을 읽는다
+    out_dir = tempfile.mkdtemp()
     try:
-        r = subprocess.run(["hwp5txt", path], capture_output=True, text=True, timeout=60)
-        txt = r.stdout
-        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} head={data[:8]!r} rc={r.returncode}\nSTDERR:\n{r.stderr[-3000:]}\nSTDOUT:\n{txt[:3000]}")
+        r = subprocess.run(["hwp5html", "--output", out_dir, path], capture_output=True, text=True, timeout=90)
+        xs = list(pathlib.Path(out_dir).glob("*.xhtml")) + list(pathlib.Path(out_dir).glob("*.html"))
+        doc = xs[0].read_text(errors="replace") if xs else ""
+        rows = []
+        for tr in re.findall(r"<tr.*?</tr>", doc, re.S | re.I):
+            cells = [text(c).replace("\n", " ").strip() for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S | re.I)]
+            if any(cells):
+                rows.append(" | ".join(cells))
+        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} rc={r.returncode} files={[x.name for x in xs]}\nSTDERR:{r.stderr[-1500:]}\nROWS:\n" + "\n".join(rows[:80]))
+        return rows
     except Exception as e:  # noqa
-        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} head={data[:8]!r} EXC {e!r}")
+        (RAW / "lost_hwp_debug.txt").write_text(f"bytes={len(data)} EXC {e!r}")
         return []
-    return [l.strip() for l in txt.splitlines() if l.strip()]
 
 
 def parse_view(page):
