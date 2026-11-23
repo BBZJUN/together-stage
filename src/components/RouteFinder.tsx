@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Accessibility,
   ArrowUp,
@@ -23,6 +23,7 @@ import { useNeeds } from "@/lib/mode";
 import { bestExit, findRoute, parkings, profileFrom, stations, toilets, venues, type Place, type RouteResult } from "@/lib/route";
 import { ParkMap } from "./ParkMap";
 import { IconTile } from "./ui";
+import { BottomSheet } from "./BottomSheet";
 
 const STEP_ICON: Record<string, typeof ArrowUp> = { "⚠️": TriangleAlert, "🪨": TriangleAlert, "🚗": Car, "↱": CornerUpRight, "↰": CornerUpLeft, "⬆️": ArrowUp, "📍": MapPin };
 
@@ -98,6 +99,20 @@ export default function RouteFinder() {
   const [wheel, setWheel] = useState<boolean | null>(null);
   const [sheet, setSheet] = useState<null | "from" | "to">(null);
   const [allSteps, setAllSteps] = useState(false);
+  const [snap, setSnap] = useState(0);
+  const [boxH, setBoxH] = useState(640);
+  const [sheetH, setSheetH] = useState(200);
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setBoxH(el.clientHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  const PEEK = 118;
+  const snaps = useMemo(() => [PEEK, Math.max(PEEK + 120, Math.round(boxH * 0.55)), boxH - 12], [boxH]);
+  const onSheetH = useCallback((h: number) => setSheetH(h), []);
   const wheelchair = wheel ?? has("wheelchair");
 
   const dest = venues.find((v) => v.id === destId) ?? venues[0];
@@ -120,78 +135,92 @@ export default function RouteFinder() {
   const originSub = result?.origin.kind === "exit" ? `${result.origin.ref}번 출구로 안내해요` : origin.kind === "parking" ? "올림픽공원 주차장" : "";
   const km = r ? (r.meters >= 1000 ? `${(r.meters / 1000).toFixed(1)}km` : `${r.meters}m`) : "";
 
+  const summary =
+    result && r ? (
+      <div className="flex items-end justify-between pb-4">
+        <div className="min-w-0">
+          <p className="truncate text-[0.875rem] text-ink-3">{result.origin.name.replace(/ \(.+?\)/, "")}에서 {dest.name}까지</p>
+          <p className="mt-1 flex items-baseline gap-2">
+            <span className="num text-[2rem] font-bold leading-none tracking-tight">{r.minutes}분</span>
+            <span className="num text-[1rem] font-semibold text-ink-3">{km}</span>
+          </p>
+        </div>
+        <span className={`shrink-0 rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#c4500c]" : "bg-[#e6f7ee] text-[#0a8550]"}`}>
+          {r.stepsCount ? `계단 ${r.stepsCount}곳` : "계단 없는 길"}
+        </span>
+      </div>
+    ) : (
+      <p className="pb-4 text-[0.9375rem] text-ink-3">조건에 맞는 길을 찾지 못했어요. 다른 역이나 주차장을 골라보세요.</p>
+    );
+
   return (
-    <div className="pb-24">
-      {/* 지도 + 출발·도착 카드 */}
-      <section className="relative">
-        <div className="h-[46vh] min-h-[300px] w-full bg-[#eef3ec]">
-          <ParkMap route={r?.points} origin={result?.origin} dest={dest} aspect={1} topInset={0.36} />
-        </div>
-        <div className="absolute inset-x-4 top-3 rounded-2xl bg-bg p-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
-          <button onClick={() => setSheet("from")} className="press flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-full border-[2.5px] border-ink" aria-hidden />
-            <span className="min-w-0 flex-1">
-              <span className="block text-[0.75rem] text-ink-3">출발</span>
-              <span className="block truncate text-[1rem] font-semibold">{originLabel}</span>
-            </span>
-            <ChevronDown size={18} className="text-ink-3" />
-          </button>
-          <div className="mx-3 flex items-center gap-3">
-            <span className="h-px flex-1 bg-grey-100" />
-            <ArrowUpDown size={14} className="text-grey-300" aria-hidden />
-            <span className="h-px flex-1 bg-grey-100" />
-          </div>
-          <button onClick={() => setSheet("to")} className="press flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-blue" aria-hidden />
-            <span className="min-w-0 flex-1">
-              <span className="block text-[0.75rem] text-ink-3">도착</span>
-              <span className="block truncate text-[1rem] font-semibold">{dest.name}</span>
-            </span>
-            <ChevronDown size={18} className="text-ink-3" />
-          </button>
-        </div>
-        <div className="absolute bottom-9 left-4 flex gap-2">
-          <button
-            onClick={() => setWheel(!wheelchair)}
-            aria-pressed={wheelchair}
-            className={`press flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] font-semibold shadow-[0_2px_10px_rgba(0,0,0,0.12)] ${wheelchair ? "bg-ink text-white" : "bg-bg text-ink-2"}`}
-          >
-            <Accessibility size={16} /> 휠체어
-          </button>
-          <button
-            onClick={() => setRain(!rain)}
-            aria-pressed={rain}
-            className={`press flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] font-semibold shadow-[0_2px_10px_rgba(0,0,0,0.12)] ${rain ? "bg-ink text-white" : "bg-bg text-ink-2"}`}
-          >
-            <CloudRain size={16} /> 비 오는 날
-          </button>
-        </div>
-      </section>
+    <div ref={box} className="relative h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden">
+      {/* 지도 (전체 화면) */}
+      <div className="absolute inset-0 bg-[#eef3ec]">
+        <ParkMap
+          route={r?.points}
+          origin={result?.origin}
+          dest={dest}
+          aspect={390 / Math.max(400, boxH)}
+          topInset={0.26}
+          bottomInset={Math.min(0.5, PEEK / Math.max(400, boxH) + 0.04)}
+        />
+      </div>
 
-      {/* 결과 시트 */}
-      <section className="relative z-10 -mt-6 rounded-t-[28px] bg-bg px-5 pb-6 pt-3">
-        <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-grey-200" aria-hidden />
-        {result && r ? (
+      {/* 출발·도착 카드 */}
+      <div className="absolute inset-x-4 top-3 z-10 rounded-2xl bg-bg p-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
+        <button onClick={() => setSheet("from")} className="press flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left">
+          <span className="h-2.5 w-2.5 shrink-0 rounded-full border-[2.5px] border-ink" aria-hidden />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[0.75rem] text-ink-3">출발</span>
+            <span className="block truncate text-[1rem] font-semibold">{originLabel}</span>
+          </span>
+          <ChevronDown size={18} className="text-ink-3" />
+        </button>
+        <div className="mx-3 flex items-center gap-3">
+          <span className="h-px flex-1 bg-grey-100" />
+          <ArrowUpDown size={14} className="text-grey-300" aria-hidden />
+          <span className="h-px flex-1 bg-grey-100" />
+        </div>
+        <button onClick={() => setSheet("to")} className="press flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left">
+          <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-blue" aria-hidden />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[0.75rem] text-ink-3">도착</span>
+            <span className="block truncate text-[1rem] font-semibold">{dest.name}</span>
+          </span>
+          <ChevronDown size={18} className="text-ink-3" />
+        </button>
+      </div>
+
+      {/* 조건 버튼 — 시트 바로 위에 붙어 다님 */}
+      <div
+        className={`absolute left-4 z-10 flex gap-2 transition-opacity duration-200 ${sheetH > snaps[1] + 40 ? "pointer-events-none opacity-0" : "opacity-100"}`}
+        style={{ bottom: sheetH + 12 }}
+      >
+        <button
+          onClick={() => setWheel(!wheelchair)}
+          aria-pressed={wheelchair}
+          className={`press flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] font-semibold shadow-[0_2px_10px_rgba(0,0,0,0.12)] ${wheelchair ? "bg-ink text-white" : "bg-bg text-ink-2"}`}
+        >
+          <Accessibility size={16} /> 휠체어
+        </button>
+        <button
+          onClick={() => setRain(!rain)}
+          aria-pressed={rain}
+          className={`press flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.875rem] font-semibold shadow-[0_2px_10px_rgba(0,0,0,0.12)] ${rain ? "bg-ink text-white" : "bg-bg text-ink-2"}`}
+        >
+          <CloudRain size={16} /> 비 오는 날
+        </button>
+      </div>
+
+      <BottomSheet snaps={snaps} index={snap} onIndexChange={setSnap} header={summary} onHeightChange={onSheetH}>
+        {result && r && (
           <>
-            <div className="flex items-end justify-between">
-              <div>
-                <p className="text-[0.875rem] text-ink-3">{result.origin.name.replace(/ \(.+?\)/, "")}에서</p>
-                <p className="mt-0.5 flex items-baseline gap-2">
-                  <span className="num text-[2rem] font-bold leading-none tracking-tight">{r.minutes}분</span>
-                  <span className="num text-[1rem] font-semibold text-ink-3">{km}</span>
-                </p>
-              </div>
-              <span className={`rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#c4500c]" : "bg-[#e6f7ee] text-[#0a8550]"}`}>
-                {r.stepsCount ? `계단 ${r.stepsCount}곳` : "계단 없는 길"}
-              </span>
-            </div>
-
-            <div className="mt-4 flex gap-2">
+            <div className="flex gap-2">
               <Stat label="계단" value={r.stepsCount ? `${r.stepsCount}곳` : "없음"} warn={r.stepsCount > 0} />
               <Stat label="고르지 않은 바닥" value={r.roughMeters ? `${r.roughMeters}m` : "없음"} warn={r.roughMeters > 0} />
               <Stat label="차 다니는 길" value={r.roadMeters ? `${r.roadMeters}m` : "없음"} />
             </div>
-
             {(r.avoidedSteps > 0 || r.extraMeters > 0) && (
               <p className="mt-3 rounded-2xl bg-blue-soft px-4 py-3 text-[0.9375rem] leading-relaxed text-ink-2">
                 {r.avoidedSteps > 0 ? `계단 ${r.avoidedSteps}곳을 피하려고` : rain ? "미끄러운 길을 피하려고" : "더 편한 길로 가려고"} 가장 짧은 길보다{" "}
@@ -219,7 +248,10 @@ export default function RouteFinder() {
                   <li key={i}>
                     {hiddenBefore && (
                       <button
-                        onClick={() => setAllSteps(true)}
+                        onClick={() => {
+                          setAllSteps(true);
+                          setSnap(2);
+                        }}
                         className="press relative z-[1] my-1 ml-[50px] rounded-full bg-grey-100 px-3 py-1.5 text-[0.8125rem] font-semibold text-ink-2"
                       >
                         {r.steps.length - 5}단계 더 보기
@@ -240,7 +272,6 @@ export default function RouteFinder() {
                 );
               })}
             </ol>
-
             {wc && (
               <div className="mt-4 flex items-center gap-3 rounded-2xl bg-grey-50 px-4 py-3">
                 <IconTile icon={Toilet} tone="grey" size="sm" />
@@ -249,14 +280,12 @@ export default function RouteFinder() {
                 </p>
               </div>
             )}
+            <p className="mt-5 text-[0.75rem] leading-relaxed text-ink-3">
+              길 정보: OpenStreetMap 기여자 (ODbL). 계단·바닥 정보는 지도에 표시된 곳 기준이라 실제와 다를 수 있어요.
+            </p>
           </>
-        ) : (
-          <p className="py-6 text-[0.9375rem] text-ink-3">조건에 맞는 길을 찾지 못했어요. 다른 역이나 주차장을 골라보세요.</p>
         )}
-        <p className="mt-5 text-[0.75rem] leading-relaxed text-ink-3">
-          길 정보: OpenStreetMap 기여자 (ODbL). 계단·바닥 정보는 지도에 표시된 곳 기준이라 실제와 다를 수 있어요.
-        </p>
-      </section>
+      </BottomSheet>
 
       <Sheet open={sheet === "from"} title="어디서 출발하세요?" onClose={() => setSheet(null)}>
         <p className="px-3 pb-1 pt-2 text-[0.8125rem] font-semibold text-ink-3">지하철 — 조건에 맞는 출구를 골라드려요</p>

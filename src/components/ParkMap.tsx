@@ -11,6 +11,7 @@ export function ParkMap({
   highlightSteps = true,
   aspect = 4 / 3,
   topInset = 0,
+  bottomInset = 0,
 }: {
   route?: Pt[];
   origin?: Place | null;
@@ -19,6 +20,7 @@ export function ParkMap({
   highlightSteps?: boolean;
   aspect?: number; // 화면 가로/세로 비율
   topInset?: number; // 위쪽을 덮는 UI 비율(0~1) — 경로가 가려지지 않게
+  bottomInset?: number; // 아래쪽을 덮는 UI 비율(0~1)
 }) {
   // 경로가 있으면 경로 중심으로 확대
   const pts = route && route.length ? route : graph.nodes;
@@ -37,7 +39,12 @@ export function ParkMap({
   minY -= pad;
   maxX += pad;
   maxY += pad;
-  if (topInset > 0) minY -= ((maxY - minY) * topInset) / (1 - topInset);
+  if (topInset + bottomInset > 0) {
+    const free = 1 - topInset - bottomInset;
+    const hh = maxY - minY;
+    minY -= (hh * topInset) / free;
+    maxY += (hh * bottomInset) / free;
+  }
   // 화면 비율에 맞추기
   const w = maxX - minX;
   const h = maxY - minY;
