@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="title" content="올림픽수영장 11월 3주차 유실물 습득공고 | 유실물센터 | 알림·홍보 : 한국체육산업개발">
+    <meta name="description" content="설명 한국체육산업개발 대표 홈페이지 입니다.,올림픽수영장 11월 3주차 유실물 습득공고 | 유실물센터 | 알림·홍보">
+    <meta name="keyword" content="소개 한국체육산업개발 대표 홈페이지 입니다.">
+    <meta name="author" content="한국체육산업개발">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="한국체육산업개발">
+    <meta property="og:title" content="한국체육산업개발">
+    <meta property="og:url" content="https://www.ksponco.or.kr/">
+    <meta property="og:description" content="설명 한국체육산업개발 대표 홈페이지 입니다.">
+    <meta property="og:image" content="/img/common/og_image.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    
+    <title>올림픽수영장 11월 3주차 유실물 습득공고 | 유실물센터 | 알림·홍보 | 한국체육산업개발</title>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/common/apple-touch-icon-57x57.png">
+    <link rel="icon" type="image/png" href="/img/common/favicon-16x16.png" sizes="16x16">
+    <link rel="stylesheet"  href="/css/common.css">
+    <link rel="stylesheet"  href="/css/webfonts.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/sub.css">
+
+    <script src="/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/jquery/slick.min.js"></script>
+    <script src="/js/func.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/sub.js"></script>
+    <script src="/js/board.js"></script>
+    <script src="/js/global.js"></script>
+    <script src="/js/event.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js" />
+    <![endif]-->
+
+    <!-- 카카오톡 공유하기 -->
+    <!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
+    
+    <script>
+        var anyidAdaptor = anyidAdaptor || {};
+
+        /*이용기관 수정 영역 Start*/
+        anyidAdaptor.orgLogin = function(data){
+            const params = new URLSearchParams(location.search);
+            var obj ={
+                ssob : data.ssob
+                , tag : params.get("tx")
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/orgLogin", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                	//debugger;
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.status == "success") {
+		                window.location.href = "/";
+                    	return;
+                    }
+                    else if (response.status == "not") {
+                    	if(!confirm('한국체육산업개발 홈페이지 회원이 아닙니다.\n홈페이지 회원가입을 하시겠습니까?')) {
+	                    	window.location.href = "/join.es?mid=a10802000000";
+	                    	return;
+                    	}
+                    }
+                    else {
+                    	alert(response.sResult);
+                    }
+                }
+            };
+            xhr.send(JSON.stringify(obj));
+            
+        }
+        /*이용기관 수정 영역 End*/
+        
+        
+        /*이용기관 문구수정 영역 Start*/
+        anyidAdaptor.JoinConfirm = function(portalJoinUri, memberData){
+            if(!confirm('Any-ID 사용자등록 하시겠습니까?')) {
+                anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                return;
+            }else{
+                anyidAdaptor.receiveAnyIdJoin(portalJoinUri, memberData);
+            }
+        }
+        /*이용기관 문구수정 영역 End*/
+        
+        anyidAdaptor.portalJoinUri = null;
+        anyidAdaptor.certData = null;
+        anyidAdaptor.ssoByPass = 0;
+        anyidAdaptor.niRegYn = null;
+        anyidAdaptor.agencyContextPath = "";
+        
+        anyidAdaptor.success = function(data){
+            if(anyidAdaptor.ssoByPass != 0 || !data.useSso) {
+                anyidAdaptor.orgLogin(data);
+            } else {
+                anyidAdaptor.certData = data;
+                anyidAdaptor.userCheck();
+            }  
+        }
+        
+        anyidAdaptor.userCheck = function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", anyidAdaptor.agencyContextPath + "/oidc/userCheck", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        anyidAdaptor.ssoLogin();
+                    } else {
+                        setTimeout(function() {
+                            anyidAdaptor.receiveAnyIdJoin(response.uri, response.data);
+                        }, 100);  
+                    }
+                }
+            };
+
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            
+            let jsonStr = JSON.stringify(jsonObject);
+            let encodedString = btoa(jsonStr);
+            
+            var data = "data=" + encodedString + "&txId=" + anyidAdaptor.certData.txId;
+            xhr.send(data);
+            
+        }
+
+        //anyid가입
+        anyidAdaptor.receiveAnyIdJoin = function(portalJoinUri, memberData){
+        
+            var url = portalJoinUri+encodeURIComponent(memberData);
+            anyidAdaptor.popup(url,"openAnyIdRegistUserIdv",700,740);
+
+            window.addEventListener("message", function(event) {
+                var result;
+                try {
+                    result = JSON.parse(event.data);
+                } catch (error) {
+                    console.error("Received message is not valid JSON:", error);
+                    return;
+                }
+                
+                if(!result.funcName || (result.funcName !== "trmsAgreComplete" && result.funcName !== "registUserComplete")) {
+                    return;
+                }
+                if(result.status === "success") {
+                    if(result.trmsAgreYn == "Y"){
+                        anyidAdaptor.ssoLogin();
+                    }else{
+                        anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                    }
+                }else{
+                    
+                    anyidAdaptor.orgLogin(anyidAdaptor.certData);
+                }
+
+            }, false);
+        }
+
+        // 팝업 호출
+        anyidAdaptor.popup = function(url, name, width, height){
+            let left = (screen.width) ? (screen.width-width)/2 : 0;
+            let top = (screen.height) ? (screen.height-height)/2 : 0;
+            let popup=window.open(url, name ,"resizable=yes,toolbar=no,scrollbars=yes,location=no,top="+top+"px,left="+left+"px,width="+width+"px,height="+height+"px");
+            if(popup){
+                popup.focus();
+            }
+        }
+
+        anyidAdaptor.ssoLogin = function(){
+            let jsonObject = new Object();
+            jsonObject.txId = anyidAdaptor.certData.txId;
+            jsonObject.ssob = anyidAdaptor.certData.ssob;
+            jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+            jsonObject.afData = anyidAdaptor.certData.afData;
+            let jsonStr = JSON.stringify(jsonObject);
+            
+            let encodedString = btoa(jsonStr);
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogin";
+            var urlWithParams = baseUrl + "?data=" + encodedString;
+            window.location.href = urlWithParams;
+            
+        }
+        
+        anyidAdaptor.ssoLoginPageSub = function(baseUrl, endPoint, acrValues){
+            var subUrl = "";
+            
+            if (endPoint && endPoint.trim() !== "") {
+                subUrl = "?endPoint=" + encodeURIComponent(endPoint);
+            }
+            
+            if (!acrValues && acrValues.trim() == "") {
+                acrValues = "3";
+            }
+            
+            if (acrValues && acrValues.trim() !== "") {
+                if(subUrl == ""){
+                    subUrl = "?";
+                }else{
+                    subUrl = subUrl + "&";
+                }
+                subUrl = subUrl + "acrValues=" + acrValues;
+            }
+            
+            window.location.replace(baseUrl+subUrl);
+        }
+        
+        /**/
+        anyidAdaptor.ssoLogout = function(endPoint) {
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogout";
+            baseUrl = baseUrl + "?endPoint=" + encodeURIComponent(endPoint);
+            window.location.replace(baseUrl);
+        }
+        /**/
+        anyidAdaptor.reAuthLevel = function(endPoint, acrValues){
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/reAuthLevel";
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+
+        }
+        /**/
+        anyidAdaptor.ssoLoginPage = function(endPoint, acrValues){
+            endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+            var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/auth";
+            anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+        }
+        
+        /**/
+        anyidAdaptor.ssoSvcToSvc = function(url, endPoint){
+            var baseUrl = url + "/oidc/svcToSvc?endPoint=" + encodeURIComponent(endPoint);
+            window.open(baseUrl, "_blank");
+        }
+        
+        /* =======================================================================================
+    	통합검색 검색어 삭제 버튼
+    	======================================================================================= */
+        document.addEventListener('DOMContentLoaded', function (event) {            
+            const searchInput = document.getElementById('query');
+        	const resetButton = document.querySelector('.btn_sch_reset');
+        	
+        	if (searchInput && resetButton) {
+        	    resetButton.addEventListener('click', function () {
+        	        searchInput.value = '';
+        	        searchInput.focus();
+        	
+        	        // 입력값 변경 상태를 다른 스크립트에서도 감지할 수 있도록 처리
+        	        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        	    });
+        	}
+        });
+    </script>
+        <script type="text/javascript" src="/ease_src/js/board.js"></script>
+        <script type="text/javascript">
+      //<![CDATA[
+      // 글쓰기
+      function form() {
+        var fm = document.vewForm;
+        fm.list_no.value = "";
+        fm.act.value = "form";
+        fm.target = "_self";
+        fm.submit();
+      }
+
+
+      // 답변 등록
+      function re_ins(arg) {
+        var fm = document.vewForm;
+        fm.list_no.value = arg;
+        fm.act.value = "reply";
+        fm.target = "_self";
+        fm.submit();
+      }
+
+      // 바로 삭제
+      function del_question(arg) {
+        if (confirm("[경고] 글을 삭제 하시겠습니까?\n\n* 삭제후에는 복원이 불가능합니다.")) {
+          var fm = document.vewForm;
+          fm.gubunInsUpt.value = "";
+          fm.list_no.value = arg;
+          fm.act.value = "del";
+          fm.submit();
+        }
+      }
+
+      // 삭제전 비번 체크
+      function del_passCheck(arg) {
+        if (confirm("[경고] 글을 삭제 하시겠습니까?\n\n* 삭제후에는 복원이 불가능합니다.")) {
+          var fm = document.vewForm;
+          fm.gubunInsUpt.value = "pwd";
+          fm.list_no.value = arg;
+          fm.act.value = "del";
+          fm.submit();
+        }
+      }
+
+      // 바로 수정
+      function upt(arg) {
+        var fm = document.vewForm;
+        fm.gubunInsUpt.value = "upt";
+        fm.list_no.value = arg;
+        fm.act.value = 'form';
+        fm.target = "_self";
+        fm.submit();
+      }
+
+      // 수정전 비번 체크
+      function upt_passCheck(arg) {
+        var fm = document.vewForm;
+        fm.gubunInsUpt.value = "pwd";
+        fm.list_no.value = arg;
+        fm.act.value = 'form';
+        fm.target = "_self";
+        fm.submit();
+      }
+
+    </script>
+</head>
+<body>
+<div id="skipNav">
+    <a href="#content">본문으로 바로가기</a>
+    <a href="#gnb">주메뉴 바로가기</a>
+    <a href="#quick">퀵메뉴 바로가기</a>
+</div>
+
+<!-- 대한민국 공식 전자정부 누리집 안내 -->
+<div class="krds-head" role="note" aria-label="대한민국 공식 전자정부 누리집 안내">
+    <div class="krds-head__inner">
+        <span class="krds-head__text">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
+    </div>
+</div>
+
+<!--<div id="hiddenLayer" style="display:none"></div>-->
+<!--<div class="mw" id="mw_temp" style="display:none;"></div>-->
+<div id="wrap">
+<!--    <th:block th:if="${#strings.isEmpty(param.mid)}">-->
+<!--        <th:block th:text="${#servletContext.getRequestDispatcher('/popupCheck.es?sid=' + siteDetail?.sid).include(#request,#response)}"/>-->
+<!--        <th:block th:text="${#servletContext.getRequestDispatcher('/hotissueCheck.es').include(#request,#response)}"/>-->
+<!--    </th:block>-->
+<!--    <th:block th:include="~{__${site_url}__/etc_menu::body}"/>-->
+    <header id="header" class="header">
+        <div class="gnb_site">
+            <div class="container">
+                
+<nav class="site_area">
+    <div class="list">
+        <a href="/"><span>한국체육산업개발(주)</span></a>
+        <a href="/olympicpark"><span>올림픽공원</span></a>
+        <a href="/sports"><span>스포츠센터</span></a>
+        <a href="/boatracepark"><span>미사경정공원</span></a>
+        <!--
+        <a href="/edu"><span>평생교육원</span></a>
+        -->
+        <a href="/lib"><span>지샘터도서관</span></a>
+        <a href="/recruit"><span>KSPO&amp;CO채용</span></a>
+        <a href="/onlinesports"><span>온라인스포츠센터</span></a>
+        <a href="/online" target="_blank"><span>온라인예약</span></a>
+        <a href="/culture/" target="_blank"><span>대관예약</span></a>
+        <a href="/spm" target="_blank"><span>수강신청</span></a>
+        <a href="/programProposal?mid=a10201060000"><span>프로그램제안</span></a>
+    </div>
+</nav>
+<nav class="site_area_mobile">
+    <a href="#siteAreaMobile" class="title" title="패밀리사이트열기">한국체육산업개발<i class="xi-angle-down-min"></i></a>
+    <div class="list_wrap" id="siteAreaMobile">
+        <div class="represent">
+            <a href="/"><img src="/img/common/gnb_site_represent.svg" alt=""><span>한국체육산업개발(주)</span></a>
+            <button type="button"><i class="xi-angle-down-min"></i></button>
+        </div>
+        <div class="list">
+            <ul class="group1">
+                <li><a href="/olympicpark"><span>올림픽공원</span></a></li>
+                <li><a href="/boatracepark"><span>미사경정공원</span></a></li>
+                <!-- <li><a href="/edu"><span>평생교육원</span></a></li> -->
+                <li><a href="/lib"><span>지샘터도서관</span></a></li>
+                <li><a href="/recruit"><span>KSPO&CO채용</span></a></li>
+                <li><a href="/onlinesports"><span>온라인스포츠센터</span></a></li>
+                <li><a href="/online" target="_blank"><span>온라인예약</span></a></li>
+                <li><a href="/culture/" target="_blank"><span>대관예약</span></a></li>
+                <li><a href="/programProposal?mid=a10201060000"><span>프로그램제안</span></a></li>
+            </ul>
+            <ul class="group2">
+                <li><a href="/sports"><span>스포츠센터</span></a></li>
+                <li><a href="/sports/olparkswim"><span>올림픽수영장</span></a></li>
+                <li><a href="/sports/olparksports"><span>올림픽공원스포츠센터</span></a></li>
+                <li><a href="/sports/olparktennis"><span>올림픽테니스장</span></a></li>
+                <li><a href="/sports/olparksoccer"><span>올팍축구장</span></a></li>
+                <li><a href="/sports/ilsansports"><span>일산올림픽스포츠센터</span></a></li>
+                <li><a href="/sports/bundangsports"><span>분당올림픽스포츠센터</span></a></li>
+                <li><a href="/spm" target="_blank"><span>온라인수강신청</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+                <div class="gnb_util login">
+                    <ul class="nav">
+                        
+<!-- 
+                        <th:block th:if="${not #strings.isEmpty(#session?.getValue('checkName')) and not #strings.isEmpty(#session?.getValue('loginMethod'))}">
+                            <li><a th:href="@{/onepass/login.es(serviceType='LOGOUT')}"><i class="icon_logout"></i><span>디지털원패스 로그아웃</span></a></li>
+                        </th:block>
+-->                     
+                        <!--    
+                        <th:block th:if="${not #strings.isEmpty(#session?.getValue('loginName')) and not #strings.isEmpty(#session?.getValue('loginMethod'))}">
+                            <li><a th:href="@{/logout}"><i class="icon_logout"></i><span>로그아웃</span></a></li>
+                            <li><a th:href="@{/menu.es(mid='a10900000000')}"><i class="icon_join"></i><span>마이페이지</span></a></li>
+                        </th:block>
+                        -->
+                        
+                        
+                         
+                        
+                        
+                        
+
+                        
+                        <!-- <th:block th:if="${#strings.isEmpty(#session?.getValue('loginName')) and #strings.isEmpty(#session?.getValue('checkName'))}"> -->
+                            <!-- <li><a th:href="@{/memberLogin.es(mid=a10801000000)}"><i class="icon_login"></i><span>로그인</span></a></li> -->
+                            <li><a href='javascript:anyidAdaptor.ssoLoginPage(window.location.href,"");'><i class="icon_login"></i><span>로그인</span></a></li>
+                            <li><a href="/join.es?mid=a10802000000"><i class="icon_join"></i><span>회원가입</span></a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- //container -->
+        </div>
+        <!-- //gnb_site -->
+
+        <div class="gnb_area">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="/" class="link"><span class="sr-only">kspo&co케이스포앤코 한국체육산업개발주식회사</span></a>
+                </h1>
+                <div class="gnb_wrap">
+                    <nav class="nav" id="gnb">
+                        <h2 class="pop_title">사이트맵</h2>
+                        <span class="pop_eng_title" lang="en">Site map</span>
+                        
+<!-- eCMS v3.0 Generator Start. -->
+<ul id="head_menu" class="topmenu">
+    <li class="depth1">
+        <a href="/menu.es?mid=a10101010000">
+            <span>정보공개</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">정보공개</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10101010000">
+                        정보공개제도 안내
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10101010000">
+                                개요
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10101020000">
+                                처리절차
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10101030000">
+                                공개방법
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10101040000">
+                                불복구제철차
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10101050000">
+                                비공개 대상 정보
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10109010000">
+                        경영공시
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10109010000">
+                                경영공시
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10109020100">
+                                자체공시
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10109030000">
+                                경영공시 소개
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10109040000">
+                                경영공시 담당자
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10109050000">
+                                자주묻는 질문
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10109060000">
+                                경영공시 개선센터
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10102000000">
+                        정보목록
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10103000000">
+                        사전정보공표
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10105000000">
+                        사업실명제
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10106010000">
+                        공공데이터
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10106060000">
+                                공공데이터 활용 동영상
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10106050000">
+                                공공데이터 카드뉴스
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10106010000">
+                                공공데이터 이용안내
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10106040000">
+                                공공데이터 활용안내
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10106020000">
+                                공공데이터 개방목록
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10106030000">
+                                공공데이터 의견제안
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10110000000">
+                        계약정보
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.open.go.kr/com/main/mainView.do" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                        정보공개청구
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10201010000">
+            <span>국민참여</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">국민참여</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10201010000">
+                        국민소통
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10201010000">
+                                정책제안
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10201020000">
+                                설문참여
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10201030000">
+                                공모참여
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10201040000">
+                                국민심사
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10201060000">
+                                프로그램운영제안
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10202010000">
+                        고객광장
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10202010000">
+                                고객서비스헌장
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10202020000">
+                                전자민원
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10202030000">
+                                고객의 소리
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10202040000">
+                                고객 모니터링단
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10204000000">
+                        E-클린센터
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10204010000">
+                                온라인 상담센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ncp.clean.go.kr/cmn/secCtfcKMC.do?menuCode=acs&amp;mapAcs=Y&amp;insttCd=B552024" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                                체육산업 청렴마당
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10204030000">
+                                부조리 신고센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.clean.go.kr/menu.es?mid=a10207000000" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                                국민권익위 청렴포털
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10204050000">
+                                클린신고
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10301000000">
+            <span>알림·홍보</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">알림·홍보</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10301000000">
+                        공지사항
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10302000000">
+                        보도자료
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10303000000">
+                        사진뉴스
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.alio.go.kr/item/itemOrganList.do?apbaId=C0280&amp;reportFormRootNo=B1030" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                        입찰공고
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10305000000">
+                        협력기관
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10306000000">
+                        역대수상 및 인증기록
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10307000000">
+                        홍보동영상
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10308020000">
+                        웹진
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10308020000">
+                                연차보고서
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10308010000">
+                                체육산업 TALK
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10309000000">
+                        자주묻는 질문
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10310000000">
+                        유실물센터
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10401010000">
+            <span>사업안내</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">사업안내</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10401010000">
+                        올림픽스포츠센터
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10401010000">
+                                올림픽수영장
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10401020000">
+                                올림픽공원스포츠센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10401030000">
+                                올림픽테니스장
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10401040000">
+                                올팍축구장
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10401050000">
+                                일산올림픽스포츠센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10401060000">
+                                분당올림픽스포츠센터
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ksponco.or.kr/spm" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                                온라인수강 및 예약
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10402000000">
+                        올림픽공원
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10403000000">
+                        미사경정공원
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10405010100">
+                        대관서비스
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10405010100">
+                                대관절차 안내
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405020000">
+                                대관운영 규정
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405030000">
+                                대관운영 시행세칙
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405040100">
+                                대관료 산정 기준
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405050100">
+                                대관&amp;시설자료
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405060100">
+                                올림픽공원대관시설
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ksponco.or.kr/culture/" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                                올림픽공원 대관예약
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10405080100">
+                                미사경정공원대관시설
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ksponco.or.kr/online/misari/index.do" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                                미사경정공원 대관예약
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10506000000">
+            <span>열린경영</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">열린경영</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10506000000">
+                        ESG경영
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10502010000">
+                        윤리경영
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10502010100">
+                                추진방향
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10502020100">
+                                윤리규범
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10502050000">
+                                윤리경영활동
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10502060000">
+                                감사결과 공개
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10503010000">
+                        인권경영
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10503010000">
+                                인권경영 선언문
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10503020000">
+                                인권경영 운영지침
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10503030000">
+                                인권경영 소식
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10503040000">
+                                인권침해신고센터
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10504000000">
+                        일자리창출
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10505000000">
+                        사회공헌
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10601010000">
+            <span>기관소개</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">기관소개</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10601010000">
+                        한국체육산업개발
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10601010000">
+                                기관개요
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10601020100">
+                                경영전략
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10601030000">
+                                연혁
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10601040000">
+                                홍보 웹툰
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10602010000">
+                        인사말
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10602010000">
+                                대표이사 인사말
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10602020000">
+                                대표이사 프로필
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10603000000">
+                        조직도
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10604010000">
+                        CI소개
+                    </a>
+                    <ul class="depth3">
+                        <li>
+                            <a href="/menu.es?mid=a10604010000">
+                                심볼마크, 시그니처
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/menu.es?mid=a10604020000">
+                                색상규정
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10605000000">
+                        오시는 길
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="depth1">
+        <a href="/menu.es?mid=a10701000000">
+            <span>기타</span>
+        </a>
+        <div class="submenu">
+            <div class="title_area">
+                <h3 class="title">기타</h3>
+            </div>
+            <ul class="depth2">
+                <li>
+                    <a href="/menu.es?mid=a10701000000">
+                        개인정보처리방침
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10702000000">
+                        영상정보처리기기 운영·관리방침
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10703000000">
+                        이용약관
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10704000000">
+                        이메일무단수집거부
+                    </a>
+                </li>
+                <li>
+                    <a href="/menu.es?mid=a10705000000">
+                        홈페이지 이용안내
+                    </a>
+                </li>
+                <li>
+                    <a href="http://help.ksponco.or.kr" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+                        원격접속
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
+<!-- eCMS v3.0 Generator End. -->
+
+                        <button type="button" class="pop_close"><i class="xi-close"></i><span class="sr-only">전체메뉴 레이어 닫기</span></button>
+                    </nav>
+                </div>
+                <div class="btn_wrap">
+                    <button class="btn_sch_open">
+                        <i class="xi-search"></i><span>통합검색</span><!-- 모바일 검색버튼-->
+                    </button>
+                    <div class="sch_layer">
+                        <form class="sch_form" name="sch_form" id="schForm">
+					        <div class="sch_form_inner">
+					            <label for="query" class="sch_label">검색어를 입력해주세요</label>
+					
+					            <div class="sch_input_wrap">
+					                <input type="text" name="query" id="query" autocomplete="off">
+					
+					                <button type="button" class="btn_sch_reset" aria-label="검색어 삭제">
+					                    <i class="xi-close-thin" aria-hidden="true"></i>
+					                </button>
+					
+					                <button type="submit" id="btnSch" class="btn_sch">
+					                    <i class="xi-search" aria-hidden="true"></i>
+					                    <span class="sr-only">검색 버튼</span>
+					                </button>
+					            </div>
+					        </div>
+					    </form>
+                        <button type="button" class="btn_sch_close">
+                            <i class="xi-close-thin"></i><span class="sr-only">검색 닫기</span>
+                        </button>
+                    </div><!-- //sch_layer -->
+                    <button type="button" class="btn_allmenu"><span class="sr-only">전체메뉴보기</span><i class="icon" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <!-- //container -->
+        </div>
+        <!-- //gnb_area -->
+    </header>
+    <main id="main" class="main">
+        
+    <div class="bluedot_wrap" id="quick">
+        <button type="button" class="bluedot"><span class="sr-only">LINK SERVICE 퀵메뉴 열기</span></button>
+        <div class="layer_bluedot" id="rotateArea">
+            <div class="bluedot_center">
+                <strong>주요서비스</strong>
+                <em lang="en">Link Service</em>
+            </div>
+            <ul class="bluedot_menu">
+                <li class="service1">
+    <a href="/olympicpark/map?mid=a20102000000"
+       target="_blank"
+       title="새창"
+       rel="noopener"
+    >
+        <i class="icon1" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628170605710.png)"></i><span>공원지도</span>
+    </a>
+</li><li class="service2">
+    <a href="/vr/olympicpark/tour_01/tour.html"
+       target="_blank"
+       title="새창"
+       rel="noopener"
+    >
+        <i class="icon2" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628170229560.png)"></i><span>사이버투어</span>
+    </a>
+</li><li class="service3">
+    <a href="/menu.es?mid=a10405010100"
+       target="_self"
+    >
+        <i class="icon3" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628170833960.png)"></i><span>대관안내</span>
+    </a>
+</li><li class="service4">
+    <a href="/menu.es?mid=a10201010000"
+       target="_self"
+    >
+        <i class="icon4" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628170844629.png)"></i><span>고객제안</span>
+    </a>
+</li><li class="service5">
+    <a href="/menu.es?mid=a10204000000"
+       target="_self"
+    >
+        <i class="icon5" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628170955328.png)"></i><span>E-클린센터</span>
+    </a>
+</li><li class="service6">
+    <a href="/board.es?mid=a10309000000&amp;bid=0067"
+       target="_self"
+    >
+        <i class="icon6" aria-hidden="true" style="background-image:url(/upload/quick/a1/20220628171026537.png)"></i><span>자주묻는<br/>질문</span>
+    </a>
+</li>
+
+            </ul>
+            <button type="button" class="btn_close"><span class="sr-only">LINK SERVICE 퀵메뉴 닫기</span><i class="xi-close"></i></button>
+        </div>
+    </div>
+<!--    <div id="quick">-->
+<!--        <a href="" class="control open">QUICK MENU</a>-->
+
+<!--        <article class="group">-->
+<!--            <h2 class="title">-->
+<!--                <strong>QUICK MENU</strong>-->
+<!--                <span>원하시는 서비스를 클릭하세요!</span>-->
+<!--            </h2>-->
+
+<!--            <th:block th:text="${#servletContext.getRequestDispatcher('/quickMain.es?sid=' + siteDetail.sid + '&file_nm=quick_list').include(#request,#response)}"/>-->
+<!--        </article>-->
+<!--    </div>-->
+
+<!--    <div class="footbanner">-->
+<!--        <th:block th:text="${#servletContext.getRequestDispatcher('/bannerMain.es?sid=' + siteDetail.sid + '&file_nm=banner_list').include(#request,#response)}"/>-->
+<!--    </div>-->
+
+        <!-- //quick -->
+        <div class="acctoggle">
+            <button type="button" class="acctoggle_fontsize" title="확대하기">
+                <i class="icon_fontsize" aria-hidden="true"></i>
+                <span>글자크기</span>
+            </button>
+        </div>
+        <!-- //acctoggle -->
+        
+            <div class="sub_visual sub1"><h2 class="title">유실물센터</h2></div>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+<!--        <div th:class="${'sub_visual sub'+#strings.substring(mid,3,4)}">-->
+<!--            <h2 class="title" th:text="${menu_nm}"></h2>-->
+<!--        </div>-->
+        <!-- //sub_visual-->
+<!--            <th:block th:insert="~{__${site_url}__/visual_area::body(mid=param.mid)}"/>-->
+        <div class="snb_content_wrap container">
+            <section id="snb"  class="snb_section">
+                <div class="snb">
+                    <h2 class="title">알림·홍보</h2>
+                    <nav class="nav">
+                        
+                            
+<!-- eCMS v3.0 Generator Start. -->
+<ul id="left_menu_top" class="depth2">
+    <li id="li0301000000">
+        <a href="/menu.es?mid=a10301000000">
+            공지사항
+        </a>
+    </li>
+    <li id="li0302000000">
+        <a href="/menu.es?mid=a10302000000">
+            보도자료
+        </a>
+    </li>
+    <li id="li0303000000">
+        <a href="/menu.es?mid=a10303000000">
+            사진뉴스
+        </a>
+    </li>
+    <li id="li0304000000">
+        <a href="https://www.alio.go.kr/item/itemOrganList.do?apbaId=C0280&amp;reportFormRootNo=B1030" target="_blank" rel="noopener noreferrer" title="새창으로 이동" class="linkWindow">
+            입찰공고
+        </a>
+    </li>
+    <li id="li0305000000">
+        <a href="/menu.es?mid=a10305000000">
+            협력기관
+        </a>
+    </li>
+    <li id="li0306000000">
+        <a href="/menu.es?mid=a10306000000">
+            역대수상 및 인증기록
+        </a>
+    </li>
+    <li id="li0307000000">
+        <a href="/menu.es?mid=a10307000000">
+            홍보동영상
+        </a>
+    </li>
+    <li id="li0308000000">
+        <a href="/menu.es?mid=a10308020000">
+            웹진
+        </a>
+        <ul class="depth3">
+            <li id="li0308020000">
+                <a href="/menu.es?mid=a10308020000">
+                    연차보고서
+                </a>
+            </li>
+            <li id="li0308010000">
+                <a href="/menu.es?mid=a10308010000">
+                    체육산업 TALK
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li id="li0309000000">
+        <a href="/menu.es?mid=a10309000000">
+            자주묻는 질문
+        </a>
+    </li>
+    <li id="li0310000000">
+        <a href="/menu.es?mid=a10310000000">
+            유실물센터
+        </a>
+    </li>
+</ul>
+<!-- eCMS v3.0 Generator End. -->
+
+                        
+                    </nav>
+                </div>
+            </section>
+            <!-- //snb -->
+            <div id="content" class="content_section">
+                <div class="breadcrumbs_bar">
+                    <nav class="breadcrumbs">
+                        <ul class="path">
+                            <li><a href="/index.es?sid=a1" ><i class="xi-home-o"></i><span class="sr-only">Home</span></a></li>
+                            <li>
+                                <span>알림·홍보</span>
+                                
+                            </li>
+                            <li>
+                                
+                                <strong>유실물센터</strong>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="util">
+                        <div class="sns">
+                            <form id="snsForm" name="snsForm" action="https://www.ksponco.or.kr/apis/sns.es" method="post">
+                                <input type="hidden" name="title" value="목록 | 유실물센터 | 알림·홍보" />
+                                <input type="hidden" name="mid" value="a10310000000" />
+                                <input type="hidden" name="url" value="" />
+                                <input type="submit" value="전송" style="display:none;height:0;width:0;" />
+                            </form>
+                            <button class="sns_btn"><span class="sr-only">SNS공유</span><i class="xi-share-alt-o" aria-hidden="true"></i></button>
+                            <div class="sns_list">
+                                <ul id="share">
+                                    <li class="sns_icon01"><a href="#share" onclick="snsApi('facebook'); return false;" title="페이스북 공유(새창)"><span class="sr-only">페이스북</span><i class="xi-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="sns_icon02"><a href="#share" onclick="snsApi('twitter'); return false;" title="트위터 공유(새창)"><span class="sr-only">트위터</span><i class="xi-twitter" aria-hidden="true"></i></a></li>
+                                    <!-- <li class="sns_icon03"><a href="#share" onclick="snsApi('blog'); return false;" title="블로그 공유 (새창)"><span class="sr-only">블로그</span><i class="xi-naver"></i></a></li>
+                                    <li class="sns_icon04"><a href="#share" onclick="snsApi('kakao'); return false;" title="카카오톡 공유(새창)"><span class="sr-only">카카오톡</span><i class="xi-kakaotalk" aria-hidden="true"></i></a></li> -->
+                                    <li class="sns_icon05"><a href="#" onclick="urlToClip();"><span class="sr-only">URL공유</span><i class="xi-link" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//sns-->
+                        <a href="javascript:window.print();" class="print_btn"><span class="sr-only">프린트하기</span><i class="icon_print" aria-hidden="true"></i></a>
+                    </div>
+                    <!-- //util -->
+                </div>
+                <!-- //breadcrumbs_bar -->
+                
+<!--                <nav class="depth4">-->
+<!--                    <ul class="list">-->
+<!--                        <li title="비활성 탭메뉴" class="">-->
+<!--                            <a href="">올림픽공원 대관시설</a>-->
+<!--                        </li>-->
+<!--                        <li class="active" title="선택된 탭메뉴">-->
+<!--                            <a href="">미사경정공원 대관시설</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
+                <h3 class="hidden_h1 sr-only">유실물센터</h3>
+                
+    
+    <form name="vewForm"
+      method="post"
+      action="/board.es"
+>
+    <input type="hidden" name="mid" value="a10310000000"/>
+    <input type="hidden" name="bid" value="0094"/>
+    <input type="hidden" name="list_no" value="85831"/>
+    <input type="hidden" name="ref_no" value="0"/>
+    <input type="hidden" name="gubunInsUpt" value=""/>
+    <input type="hidden" name="filename" value=""/>
+    <input type="hidden" name="nPage" value="1"/>
+    <input type="hidden" name="keyField" value=""/>
+    <input type="hidden" name="keyWord" value=""/>
+    <input type="hidden" name="dept_cd" value=""/>
+    <input type="hidden" name="cg_cd" value=""/>
+    <input type="hidden" name="act" value=""/>
+    <input type="hidden" name="listNo" value=""/>
+    <input type="hidden" name="tag" value=""/>
+    <input type="hidden" name="tagArr" value=""/>
+
+</form>
+    <div class="board">
+        <div class="board_view">
+            <div class="title">올림픽수영장 11월 3주차 유실물 습득공고</div>
+            <ul class="head">
+                <!-- <li class="writer"><strong>작성자</strong><span>관리자</span></li>-->
+                <li class="writer"><strong>작성자</strong><span>관**</span></li>
+                <li class="date"><strong>Date</strong><span>2026-11-16 09:54</span></li>
+                <li class="hit_cnt"><strong>Hit</strong><span>155</span></li>
+            </ul>
+
+            <div class="view_cont">
+                
+                    <iframe src="/documents/skin/doc.html?fn=20261116095435515.hwp&amp;rs=/attachFiles/board/0094/synap" title="파일미리보기" style="width: 100%; height: 800px; border: 0;"></iframe>
+                
+                <!-- <iframe src="https://www.moef.go.kr/com/synap/synapViewDetail.do?atchFileId=ATCH_000000000019009&amp;fileSn=1" id="mergerFrame" name="mergerFrame" style="width: 100%; height: 1200px; border: 0px;" title="파일미리보기">
+              </iframe> -->
+<!--                <iframe-->
+<!--                        src="https://www.moef.go.kr/synapView/doc.html?fn=20211111154231_E507828E-C03E-4C4A-B823-448B9BDE2693.hwp&amp;rs=/upload/synap"-->
+<!--                        style="height:auto; min-height:1200px; width:100%; border:none; padding:0px; margin:0px;"-->
+<!--                        title="보존문서 내용">-->
+<!--                </iframe>-->
+                
+                    <div><p><br /></p></div>
+                
+                
+            </div>
+            <div class="add_file_list">
+                <strong class="title">File</strong>
+                <ul class="add_file">
+                    <li>
+                        <!-- <img th:src="${imgSrc}" th:attr="onerror=|this.onerror=null; this.src='/upload/skin/board/__${b_skin_nm}__/file.png'|" th:alt="|${T(egovframework.easeWeb.ease.util.StringUtils).fileExpansionStatic(rs.file_nm_org)} 첨부파일|"/> -->
+                        <a href="/boardDownload.es?bid=0094&amp;list_no=85831&amp;seq=1" class="file_down">
+                            <span class="text">양식_유실물관리대장_홈페이지용.hwp</span>
+                            <span class="file_size">(80KB)</span>
+                            <span class="down_num"><strong>다운로드수</strong> <span>55</span></span>
+                        </a>
+                        <span class="link">
+							<a class="btn_file btn_down" href="/boardDownload.es?bid=0094&amp;list_no=85831&amp;seq=1">다운로드<i aria-hidden="true"></i></a>
+							<a class="btn_file synap_view" href="/documents/skin/doc.html?fn=20261116095435515.hwp&amp;rs=/attachFiles/board/0094/synap" target="_blank">자료열기<i aria-hidden="true"></i></a>
+						</span>
+                    </li>
+                    <li>
+                        <a href="#" onclick="downloadAllByBidAndListNo([&quot;0094&quot;], [&quot;85831&quot;]); return false;" class="all_file_down">
+                            전체 다운로드<i aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn_area">
+<!--            <th:block th:include="/ease_src/board/btn/board_btn_modify"/>-->
+<!--            <th:block th:include="/ease_src/board/btn/board_btn_delete"/>-->
+            
+
+
+    
+
+
+            <button type="button" class="btn type1" onclick="goList(); return false;">List</button>
+        </div>
+        <!--<div class="relate_list card_list col3" th:replace="~{/ease_src/board/board_pagingForm::bod}"></div>-->
+    </div>
+
+                
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- //snb_content_wrap -->
+        <button type="button" class="go_top"><i class="xi-arrow-up" aria-hidden="true"></i><span>TOP</span></button>
+    </main>
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer_wrap">
+                
+    	<!-- 상단 영역 -->
+        <div class="footer_top">
+
+            <!-- 주요서비스 -->
+            <nav class="footer_service" aria-label="주요서비스">
+                <strong class="footer_heading">주요서비스</strong>
+
+                <div class="service_links">
+                    <a href="/menu.es?mid=a10605000000">오시는길</a>
+                    <a href="/menu.es?mid=a10603000000">직원검색</a>
+                    <a href="/olympicpark/menu.es?mid=a20905000000" target="_blank" title="새창으로 열림">올림픽공원 APP소개</a>
+                </div>
+            </nav>
+        
+            <div class="relate_site">
+                <a href="#" class="title" title="관련사이트 열기">관련사이트<i class="xi-caret-up-min"></i></a>
+                <ul id="relatedSiteList" class="list">
+	<li><a href="https://www.mcst.go.kr/kor/main.jsp" target="_blank" title="새창">문화체육관광부</a></li>
+	<li><a href="http://www.kspo.or.kr/" target="_blank" title="새창">국민체육진흥공단</a></li>
+	<li><a href="https://sportsmuseum.kspo.or.kr" target="_blank" title="새창">국립스포츠박물관</a></li>
+	<li><a href="http://www.kcycle.or.kr/" target="_blank" title="새창">KCYCLE 경륜</a></li>
+	<li><a href="http://www.kboat.or.kr/" target="_blank" title="새창">KBOAT 경정</a></li>
+	<li><a href="https://www.parktel.co.kr/" target="_blank" title="새창">서울올림픽파크텔</a></li>
+	<li><a href="https://www.sports.re.kr/" target="_blank" title="새창">한국스포츠과학원</a></li>
+	<li><a href="https://soma.kspo.or.kr/" target="_blank" title="새창">소마미술관</a></li>
+	<li><a href="https://www.ksponco.or.kr/olympicpark" target="_blank" title="새창">올림픽공원</a></li>
+	<li><a href="https://nfa.kspo.or.kr/main.kspo" target="_blank" title="새창">국민체력100</a></li>
+	<li><a href="https://www.spoinfo.or.kr/" target="_blank" title="새창">체육시설 알리미</a></li>
+	<li><a href="https://sqms.kspo.or.kr/" target="_blank" title="새창">체육지도자</a></li>
+	<li><a href="https://blog.naver.com/kspo2011" target="_blank" title="새창">KSPO블로그</a></li>
+	<li><a href="https://www.songpa.go.kr/www/index.do" target="_blank" title="새창">송파구청</a></li>
+	<li><a href="https://www.acrc.go.kr/" target="_blank" title="새창">국민권익위원회</a></li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</ul>
+            </div>
+            <!-- //relate_site -->
+        </div>
+        <!-- //footer_nav -->
+
+        <!-- 하단 영역 -->
+        <div class="footer_bottom">
+
+            <!-- 왼쪽 기관정보 -->
+            <div class="footer_info">
+
+                <!-- 서비스 로고 -->
+                <div class="footer_logo">
+                    <a href="/" class="link">
+                        <span class="sr-only">KSPO&amp;CO 한국체육산업개발 홈페이지</span>
+                    </a>
+                </div>
+
+                <!-- 주소 및 연락처 -->
+                <div class="address_group">
+                    <address>
+                        <span class="address">(05540) 서울특별시 송파구 올림픽로 424(방이동) 우리금융아트홀 내</span>
+
+                        <span class="tel">고객안내전화
+                            <a href="tel:02-2180-3564">02-2180-3564~5</a>(평화의 광장)
+                            <i aria-hidden="true">|</i>
+                            <a href="tel:02-2180-3566">02-2180-3566</a>(만남의 광장)
+                        </span>
+                    </address>
+                </div>
+
+                <!-- 정책 링크 -->
+                <nav class="footer_policy" aria-label="푸터 정책 메뉴">
+                    <a href="/menu.es?mid=a10701000000" class="important">개인정보처리방침</a>
+                    <a href="/menu.es?mid=a10702000000" class="important">영상정보처리기기 운영·관리방침</a>
+                    <a href="/menu.es?mid=a10704000000">이메일무단수집거부</a>
+                    <a href="/menu.es?mid=a10703000000">이용약관</a>
+                    <a href="/menu.es?mid=a10745000000">저작권정책</a>
+                </nav>
+
+                <!-- 저작권 -->
+                <p class="copyright">Copyright ⓒ KSPO&amp;CO All rights reserved.</p>
+            </div>
+
+            <!-- 오른쪽 부가정보 -->
+            <div class="footer_extra">
+
+                <!-- SNS -->
+                <nav class="sns_list" aria-label="공식 SNS">
+                    <a href="https://www.facebook.com/KSPONCO" target="_blank" title="페이스북 새창으로 열림">
+                        <i class="xi-facebook" aria-hidden="true"></i>
+                        <span class="sr-only">페이스북</span>
+                    </a>
+
+                    <a href="https://www.youtube.com/user/enjoyolpark" target="_blank" title="유튜브 새창으로 열림">
+                        <i class="xi-youtube-play" aria-hidden="true"></i>
+                        <span class="sr-only">유튜브</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/ksponco" target="_blank" title="인스타그램 새창으로 열림">
+                        <i class="xi-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">인스타그램</span>
+                    </a>
+                </nav>
+
+                <!-- 인증마크 -->
+                <div class="cert">
+                    <a href="http://www.webwatch.or.kr" target="_blank" title="새창으로 열림">
+                        <img src="/img/common/footer_cert_wa.png" alt="과학기술정보통신부 웹 접근성 품질인증 마크">
+                    </a>
+
+                    <a href="https://www.eprivacy.or.kr/front/content/contentViewer.do?contentId=CONTENT_0000021" target="_blank" title="새창으로 열림">
+                        <img src="/img/common/footer_cert_privacy.png" alt="개인정보보호 우수사이트 인증">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 웹로그 -->
+        <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+        <script src="//wcs.naver.net/wcslog.js"></script>
+        <script type="text/javascript">
+            if(!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "1fd6b1129419310";
+            if(window.wcs) {
+                wcs_do();
+            }
+        </script>
+   
+    
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- <script>
+    //<![CDATA[
+    Kakao.init('aa79ee14eccf059d93605a593ffcd81b');
+
+    Kakao.Link.createDefaultButton({
+        container : '.sns_icon04',
+        objectType : 'feed',
+        content:{
+            title : $('meta[property="og:title"]').attr('content'),
+            description : $('meta[property="og:description"]').attr('content'),
+            imageUrl : $('meta[property="og:url"]').attr('content') + $('meta[property="og:image"]').attr('content'),
+            link:{
+                mobileWebUrl : window.location.href,
+                webUrl : window.location.href
+            }
+        },
+        social : {
+            likeCount: 286,
+            commentCount: 45,
+            sharedCount: 845
+        },
+        buttons: [
+            {
+                title: '웹으로 보기',
+                link:{
+                    webUrl : window.location.href
+                }
+            }
+        ]
+    });
+    //]]>
+</script> -->
+<script type="text/javascript">
+    !!document.getElementById("head_menu") && initNavigation("03");// 메인메뉴 활성화
+    !!document.getElementById("left_menu_top") && initLeftMenuLI("0310", "031000");// 서브메뉴 활성화
+    !!document.getElementById("depth3_menu_div") && init3DepthMenu("031000");
+    !!document.getElementById("depth4_menu_ul") && init4DepthMenu("03100000");
+    !!document.getElementById("depth5_menu_div") && init5DepthMenu("0310000000");
+    !!document.getElementById("head_menu_depth1") && init1DepthComboMenu("03");
+    !!document.getElementById("head_menu_depth2") && init2DepthComboMenu("0310");
+    !!document.getElementById("head_menu_depth3") && init3DepthComboMenu("031000");
+    !!document.getElementById("head_menu_depth4") && init4DepthComboMenu("03100000");
+    !!document.getElementById("head_menu_depth5") && init5DepthComboMenu("0310000000");
+</script>
+</body>
+</html>
