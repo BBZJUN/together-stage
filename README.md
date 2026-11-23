@@ -33,6 +33,7 @@
 - 올림픽공원 차량입출차·공연·날씨 연계 데이터 API (2025년, 7,803건)
 - 올림픽공원 입출차정보(전체구역) API (2025년, 약 240만 건, 입·출구 게이트 포함)
 - 올림픽공원 공연정보 API
+- 올림픽공원 공식 일정안내(홈페이지) — 실제 공연 일정, 매일 수집 · Open-Meteo 날씨 예보
 
 **민간·타기관**
 - OpenStreetMap 올림픽공원 보행 네트워크 (보행로·계단·바닥재·지하철 출구·화장실) — © OpenStreetMap contributors, ODbL
@@ -46,6 +47,8 @@ pipeline/                    데이터 처리 (Python)
   build_forecast.py          공연일 혼잡 예측 → src/data/shows.json
   build_graph.py             OSM → 길찾기 그래프 src/data/walk.json
   fetch_api.py               공공데이터 API 수집 (GitHub Actions)
+  fetch_events.py            올림픽공원 공식 일정 수집 → src/data/events.json
+  showtime.py                "토 오후 6시 / 일 오후 5시" 같은 공연 시간 → 회차별 날짜·시각
 src/lib/
   route.ts                   다익스트라 길찾기 (도움 유형·날씨별 비용)
   venue.ts                   실측 높이지도 기반 좌석 생성·시야 레이마칭
