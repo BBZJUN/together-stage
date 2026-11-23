@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install pandas lightgbm scikit-learn pyhwp
+      - run: pip install pandas lightgbm scikit-learn pyhwp six
       - name: 일정 수집
         run: python3 pipeline/fetch_events.py
       - name: 유실물 습득 공고 수집

@@ -57,8 +57,17 @@ def hwp_lines(no):
     import subprocess, tempfile
     url = f"{BASE}/boardDownload.es?bid=0094&list_no={no}&seq=1"
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
-            data = r.read()
+        with urllib.request.urlopen(urllib.request.Request(url, headers={**UA, "Referer": VIEW.format(no)}), timeout=60) as r:
+            want = int(r.headers.get("Content-Length") or 0)
+            chunks = []
+            while True:
+                c = r.read(1 << 16)
+                if not c:
+                    break
+                chunks.append(c)
+            data = b"".join(chunks)
+            if want and len(data) < want:
+                print("short read", len(data), want, file=sys.stderr)
     except Exception as e:  # noqa
         print("download fail", no, e, file=sys.stderr)
         return []
