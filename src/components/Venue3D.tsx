@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Suspense, useEffect, useRef } from "react";
+import { OrbitControls, PerformanceMonitor, useGLTF } from "@react-three/drei";
+import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { FLOOR_R, stageFrontX, type Seat, type StageConfig } from "@/lib/venue";
 import { ConcertPost, ConcertStage, Crowd } from "./ConcertScene";
@@ -199,10 +199,16 @@ function CameraRig({ mode, selected, stage, platform = 0 }: Pick<Props, "mode" |
 export default function Venue3D(props: Props) {
   const { mode, selected, stage, standing, platform = 0 } = props;
   const night = mode === "seat" && !!selected;
+  // 저사양 기기: 처음부터 가볍게 시작하고, 실제로 프레임이 떨어지면 빛 번짐을 끄고 해상도를 낮춤
+  const [low, setLow] = useState(() => {
+    if (typeof navigator === "undefined") return false;
+    const mem = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+    return (navigator.hardwareConcurrency ?? 8) <= 4 || (mem !== undefined && mem <= 3);
+  });
   return (
     <Canvas
       shadows={false}
-      dpr={night ? [1, 1.5] : [1, 2]}
+      dpr={night ? (low ? 1 : [1, 1.5]) : [1, 2]}
       camera={{ position: [70, 62, 48], fov: 45, near: 0.1, far: 600 }}
       style={{ touchAction: "none" }}
       gl={{ preserveDrawingBuffer: true }}
@@ -217,7 +223,8 @@ export default function Venue3D(props: Props) {
       {night ? <ConcertStage stage={stage} /> : <StageMeshes stage={stage} />}
       <Seats seats={props.seats} colors={props.colors} onSelect={props.onSelect} selected={selected} hidden={night} />
       {night && selected && <Crowd seats={props.seats} selected={selected} standing={standing} />}
-      {night && <ConcertPost />}
+      {night && <PerformanceMonitor onDecline={() => setLow(true)} flipflops={2} onFallback={() => setLow(true)} />}
+      {night && !low && <ConcertPost />}
       <CameraRig mode={mode} selected={selected} stage={stage} platform={platform} />
       {mode === "overview" && <OrbitControls target={[0, 2, 0]} maxPolarAngle={Math.PI / 2.15} minDistance={15} maxDistance={170} />}
     </Canvas>
