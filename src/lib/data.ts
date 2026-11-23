@@ -62,3 +62,14 @@ export function timeKo(t: string) {
   const hh = h % 12 === 0 ? 12 : h % 12;
   return m ? `${ap} ${hh}:${String(m).padStart(2, "0")}` : `${ap} ${hh}시`;
 }
+
+/** 공연 전 4시간 안에서 사람이 몰리기 시작하는 시각과, 그보다 30분 이른 도착 권장 시각 */
+export function arrivalAdvice(show: Show) {
+  const startH = parseInt(show.start.slice(0, 2), 10);
+  const win = show.forecast.hours.filter((p) => p.h >= startH - 4 && p.h <= startH);
+  const top = win.reduce((a, b) => (b.cars > a.cars ? b : a), win[0] ?? show.forecast.hours[0]);
+  const rise = win.find((p) => p.cars >= top.cars * 0.85 && p.cars > (win[0]?.cars ?? 0) * 1.05);
+  const busyHour = rise && rise.h < startH ? rise.h : undefined;
+  const arrive = busyHour !== undefined ? shiftTime(`${String(busyHour).padStart(2, "0")}:00`, -30) : shiftTime(show.start, -90);
+  return { busyHour, arrive };
+}

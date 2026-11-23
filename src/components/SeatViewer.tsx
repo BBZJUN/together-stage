@@ -15,6 +15,8 @@ import {
   type Visibility,
 } from "@/lib/venue";
 import type { ViewMode } from "./Venue3D";
+import { Accessibility } from "lucide-react";
+import { IconTile } from "./ui";
 
 const Venue3D = dynamic(() => import("./Venue3D"), {
   ssr: false,
@@ -196,9 +198,7 @@ export default function SeatViewer({ stage = DEFAULT_STAGE, venueName = "KSPO DO
                   }}
                   className="press flex w-full items-center gap-3 py-2.5 text-left"
                 >
-                  <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-grey-100 text-lg">
-                    ♿
-                  </span>
+                  <IconTile icon={Accessibility} tone="blue" />
                   <span className="flex-1">
                     <span className="block text-[0.9375rem] font-semibold">
                       {s.tier} {s.section} {s.row}열 {s.num}번

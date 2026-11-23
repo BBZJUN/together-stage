@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { endTime, fmtDate, peakOf, shiftTime, timeKo } from "@/lib/data";
+import { arrivalAdvice, endTime, fmtDate, peakOf, timeKo } from "@/lib/data";
 import { useNeeds } from "@/lib/mode";
 import { bestExit, profileFrom, venues } from "@/lib/route";
 import type { Show } from "@/lib/types";
 import { ForecastChart } from "./ForecastChart";
-import { Chevron, IconCircle, LevelPill } from "./ui";
+import { Chevron, IconTile, LevelPill } from "./ui";
+import { Armchair, BatteryCharging, CreditCard, Hand, Pill, Ticket, Umbrella, type LucideIcon } from "lucide-react";
 
 const VENUE_ID: Record<string, string> = {
   "KSPO DOME": "kspo",
@@ -19,12 +20,12 @@ const VENUE_ID: Record<string, string> = {
 
 function prepList(show: Show, wheel: boolean, big: boolean) {
   const w = show.weather;
-  const items: { icon: string; text: string }[] = [];
-  if (w.temp <= 2) items.push({ icon: "🧤", text: wheel ? "무릎 담요와 장갑 (휠체어에선 손이 빨리 차가워요)" : "핫팩과 목도리" });
-  if (w.precip) items.push(wheel ? { icon: "🌂", text: "휠체어용 우비나 판초" } : { icon: "☂️", text: "우산 (바닥이 미끄러워요)" });
-  items.push({ icon: "🪪", text: "복지카드 (할인 확인용)" });
-  if (wheel) items.push({ icon: "🔋", text: "전동휠체어 배터리 충전 확인" });
-  if (big) items.push({ icon: "🎫", text: "종이로 뽑은 티켓" }, { icon: "💊", text: "평소 드시는 약" });
+  const items: { icon: LucideIcon; text: string }[] = [];
+  if (w.temp <= 2) items.push({ icon: Hand, text: wheel ? "무릎 담요와 장갑 (휠체어에선 손이 빨리 차가워요)" : "핫팩과 목도리" });
+  if (w.precip) items.push({ icon: Umbrella, text: wheel ? "휠체어용 우비나 판초" : "우산 (바닥이 미끄러워요)" });
+  items.push({ icon: CreditCard, text: "복지카드 (할인 확인용)" });
+  if (wheel) items.push({ icon: BatteryCharging, text: "전동휠체어 배터리 충전 확인" });
+  if (big) items.push({ icon: Ticket, text: "종이로 뽑은 티켓" }, { icon: Pill, text: "평소 드시는 약" });
   return items;
 }
 
@@ -37,10 +38,8 @@ export default function ShowDetail({ show }: { show: Show }) {
   const peak = peakOf(show);
   const end = endTime(show);
   const fullHour = show.forecast.hours.find((p) => p.occ >= 95);
-  // 그날 최고치의 80%를 처음 넘는 시각 = 사람이 몰리기 시작하는 때
-  const busyHour = peak.occ >= 30 ? show.forecast.hours.find((p) => p.cars >= peak.cars * 0.8) : undefined;
-  // 붐비기 30분 전 도착 권장 (없으면 공연 1시간 30분 전)
-  const arrive = busyHour ? shiftTime(`${String(busyHour.h).padStart(2, "0")}:00`, -30) : shiftTime(show.start, -90);
+  const { busyHour: bh, arrive } = arrivalAdvice(show);
+  const busyHour = bh !== undefined ? { h: bh } : undefined;
   const best = r.exits.find((e) => e.waitMin <= 10) ?? r.exits[r.exits.length - 1];
   const venue = venues.find((v) => v.id === VENUE_ID[show.venue]);
 
@@ -119,7 +118,7 @@ export default function ShowDetail({ show }: { show: Show }) {
       {show.venue === "KSPO DOME" && (
         <section className="band px-5 py-6">
           <Link href="/seats" className="press flex items-center gap-3">
-            <IconCircle tone="blue">🎭</IconCircle>
+            <IconTile icon={Armchair} tone="purple" />
             <span className="flex-1">
               <span className="block text-[1.0625rem] font-semibold">휠체어석에서 무대가 보일까요?</span>
               <span className="block text-[0.875rem] text-ink-3">앞사람이 일어섰을 때 시야까지 3D로 확인</span>
@@ -170,7 +169,7 @@ export default function ShowDetail({ show }: { show: Show }) {
         <ul className="mt-3">
           {prepList(show, wheel, bigText).map((it) => (
             <li key={it.text} className="flex items-center gap-3 py-2.5">
-              <IconCircle>{it.icon}</IconCircle>
+              <IconTile icon={it.icon} tone="grey" />
               <span className="text-[0.9375rem]">{it.text}</span>
             </li>
           ))}

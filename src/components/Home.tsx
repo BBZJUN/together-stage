@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
-import { peakOf, timeKo } from "@/lib/data";
+import { Suspense, useMemo, useState } from "react";
+import { Armchair, ChartLine, Clock3, MessageCircle, Navigation, Route } from "lucide-react";
+import { arrivalAdvice, peakOf, timeKo } from "@/lib/data";
+import { bestExit, profileFrom, venues } from "@/lib/route";
 import { NEED_META, useNeeds, type Need } from "@/lib/mode";
 import type { Show } from "@/lib/types";
-import { Chevron, IconCircle, LevelPill, SampleNotice } from "./ui";
+import { Chevron, IconTile, LevelPill, SampleNotice, type Tone } from "./ui";
 
 const DOW = ["일", "월", "화", "수", "목", "금", "토"];
 const dayOf = (iso: string) => new Date(iso + "T00:00:00+09:00");
@@ -33,9 +35,7 @@ function NeedPicker({ initial, onDone }: { initial: Need[]; onDone: (n: Need[]) 
               onClick={() => toggle(n)}
               className={`press flex items-center gap-4 rounded-2xl p-4 text-left ${on ? "bg-blue-soft" : "bg-bg"}`}
             >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-grey-100 text-2xl" aria-hidden>
-                {NEED_META[n].emoji}
-              </span>
+              <IconTile icon={NEED_META[n].icon} tone={NEED_META[n].tone} size="lg" />
               <span className="flex-1">
                 <span className="block text-[1.0625rem] font-semibold">{NEED_META[n].label}</span>
                 <span className="mt-0.5 block text-[0.875rem] text-ink-3">{NEED_META[n].desc}</span>
@@ -83,16 +83,63 @@ function ShowRow({ show }: { show: Show }) {
   );
 }
 
-const QUICK = [
-  { href: "/route", icon: "🧭", title: "계단 없는 길 찾기", desc: "역·주차장에서 공연장 입구까지" },
-  { href: "/seats", icon: "🎭", title: "내 자리 시야 미리보기", desc: "휠체어석에서 무대가 보일까?" },
-  { href: "/chat", icon: "💬", title: "말로 물어보기", desc: "“올림픽공원역에서 KSPO DOME 어떻게 가요?”" },
+const QUICK: { href: string; icon: typeof Route; tone: Tone; title: string; desc: string }[] = [
+  { href: "/route", icon: Navigation, tone: "blue", title: "계단 없는 길", desc: "역·주차장 → 입구" },
+  { href: "/seats", icon: Armchair, tone: "purple", title: "좌석 시야", desc: "휠체어석 3D" },
+  { href: "/chat", icon: MessageCircle, tone: "green", title: "말로 물어보기", desc: "음성으로 질문" },
+  { href: "/data", icon: ChartLine, tone: "orange", title: "붐비는 시간", desc: "예측 방법" },
 ];
+
+const VENUE_ID: Record<string, string> = { "KSPO DOME": "kspo", "티켓링크 라이브 아레나": "handball", 올림픽홀: "olympichall", 우리금융아트홀: "artHall" };
+
+function NextShowCard({ show }: { show: Show }) {
+  const { needs, has } = useNeeds();
+  const d = dayOf(show.date);
+  const venue = venues.find((v) => v.id === VENUE_ID[show.venue]);
+  const route = useMemo(() => (venue ? bestExit("올림픽공원역 (5·9호선)", venue, profileFrom(needs, show.weather.precip)) : null), [venue, needs, show.weather.precip]);
+  const peak = peakOf(show);
+  const { arrive } = arrivalAdvice(show);
+  const rows = [
+    route && {
+      icon: Navigation,
+      text: `${route.exit.name.replace(" (5·9호선)", "")}에서 ${route.route.stepsCount ? `계단 ${route.route.stepsCount}곳, ` : has("wheelchair") ? "계단 없이 " : ""}${route.route.minutes}분`,
+    },
+    { icon: Clock3, text: `${timeKo(arrive)} 전에 도착하면 덜 붐벼요` },
+    show.venue === "KSPO DOME" && { icon: Armchair, text: "휠체어석 시야를 3D로 미리 볼 수 있어요" },
+  ].filter(Boolean) as { icon: typeof Route; text: string }[];
+  return (
+    <Link href={`/shows/${show.id}`} className="press mt-5 block rounded-3xl bg-grey-100 p-5">
+      <div className="flex items-center justify-between">
+        <span className="rounded-lg bg-bg px-2 py-1 text-[0.8125rem] font-semibold text-blue">
+          {d.getMonth() + 1}월 {d.getDate()}일 {DOW[d.getDay()]}요일 {timeKo(show.start)}
+        </span>
+        <LevelPill level={peak.level} />
+      </div>
+      <p className="mt-3 text-[1.1875rem] font-bold leading-snug tracking-tight">{show.title.replace("[샘플] ", "")}</p>
+      <p className="mt-0.5 text-[0.875rem] text-ink-3">{show.venue}</p>
+      <ul className="mt-4 flex flex-col gap-2.5 border-t border-grey-200 pt-4">
+        {rows.map((r) => {
+          const I = r.icon;
+          return (
+            <li key={r.text} className="flex items-center gap-2.5 text-[0.9375rem] text-ink-2">
+              <I size={18} className="shrink-0 text-blue" aria-hidden />
+              {r.text}
+            </li>
+          );
+        })}
+      </ul>
+      <span className="mt-4 flex items-center justify-end gap-0.5 text-[0.875rem] font-semibold text-ink-2">
+        자세히 보기 <Chevron />
+      </span>
+    </Link>
+  );
+}
 
 function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
   const { needs, setNeeds } = useNeeds();
   const params = useSearchParams();
   const router = useRouter();
+  const [all, setAll] = useState(false);
 
   if (needs === null || params.get("pick")) {
     return (
@@ -106,24 +153,25 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
     );
   }
 
+  const shown = all ? shows : shows.slice(0, 5);
   return (
     <div className="pb-24">
-      <section className="band px-5 pb-5 pt-4">
+      <section className="band px-5 pb-6 pt-3">
         <h1 className="rise text-[1.5rem] font-bold leading-[1.4] tracking-tight">
-          올림픽공원 공연,
+          도착부터 내 자리까지
           <br />
-          도착부터 내 자리까지 함께 갈게요
+          함께 갈게요
         </h1>
-        <ul className="mt-5 flex flex-col gap-1">
+        <NextShowCard show={shows[0]} />
+        <ul className="mt-3 grid grid-cols-2 gap-2">
           {QUICK.map((q) => (
             <li key={q.href}>
-              <Link href={q.href} className="press flex items-center gap-3 rounded-2xl px-1 py-2.5">
-                <IconCircle tone="blue">{q.icon}</IconCircle>
-                <span className="flex-1">
-                  <span className="block text-[1rem] font-semibold">{q.title}</span>
+              <Link href={q.href} className="press flex h-full flex-col gap-3 rounded-2xl bg-grey-50 p-4">
+                <IconTile icon={q.icon} tone={q.tone} size="sm" />
+                <span>
+                  <span className="block text-[0.9375rem] font-bold">{q.title}</span>
                   <span className="block text-[0.8125rem] text-ink-3">{q.desc}</span>
                 </span>
-                <Chevron />
               </Link>
             </li>
           ))}
@@ -131,13 +179,22 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
       </section>
 
       <section className="band py-5">
-        <h2 className="px-5 pb-2 text-[1.125rem] font-bold">다가오는 공연</h2>
+        <div className="flex items-baseline justify-between px-5 pb-2">
+          <h2 className="text-[1.125rem] font-bold">다가오는 공연</h2>
+          <span className="text-[0.8125rem] text-ink-3">혼잡도는 가장 붐빌 때 기준</span>
+        </div>
         <ul>
-          {shows.map((s) => (
+          {shown.map((s) => (
             <ShowRow key={s.id} show={s} />
           ))}
         </ul>
-        <p className="px-5 pt-3 text-[0.8125rem] text-ink-3">표시는 그날 공원이 가장 붐빌 때 기준이에요. 붐비는 날은 일찍 도착하면 편해요.</p>
+        {!all && shows.length > 5 && (
+          <div className="px-5 pt-2">
+            <button onClick={() => setAll(true)} className="press h-12 w-full rounded-xl bg-grey-100 text-[0.9375rem] font-semibold text-ink-2">
+              공연 {shows.length - 5}개 더 보기
+            </button>
+          </div>
+        )}
       </section>
 
       {source === "sample" && (

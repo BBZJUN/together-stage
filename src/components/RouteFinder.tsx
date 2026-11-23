@@ -5,6 +5,10 @@ import { useMemo, useState } from "react";
 import { useNeeds } from "@/lib/mode";
 import { bestExit, findRoute, parkings, profileFrom, stations, toilets, venues, type Place, type RouteResult } from "@/lib/route";
 import { ParkMap } from "./ParkMap";
+import { Accessibility, ArrowUp, Car, CloudRain, CornerUpLeft, CornerUpRight, Footprints, MapPin, Sun, Toilet, TrainFront, TriangleAlert } from "lucide-react";
+import { Segmented } from "./ui";
+
+const STEP_ICON: Record<string, typeof ArrowUp> = { "⚠️": TriangleAlert, "🪨": TriangleAlert, "🚗": Car, "↱": CornerUpRight, "↰": CornerUpLeft, "⬆️": ArrowUp, "📍": MapPin };
 
 type From = "subway" | "car";
 
@@ -20,7 +24,7 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
   );
 }
 
-function Toggle({ on, onClick, label, sub }: { on: boolean; onClick: () => void; label: string; sub: string }) {
+function Toggle({ on, onClick, label, sub }: { on: boolean; onClick: () => void; label: React.ReactNode; sub: string }) {
   return (
     <button
       onClick={onClick}
@@ -28,7 +32,7 @@ function Toggle({ on, onClick, label, sub }: { on: boolean; onClick: () => void;
       className={`press flex-1 rounded-2xl px-4 py-3 text-left ${on ? "bg-blue-soft" : "bg-grey-100"}`}
     >
       <span className="block text-[0.8125rem] text-ink-3">{sub}</span>
-      <span className={`block text-[1rem] font-bold ${on ? "text-blue" : "text-ink"}`}>{label}</span>
+      <span className={`flex items-center gap-1.5 text-[1rem] font-bold ${on ? "text-blue" : "text-ink"}`}>{label}</span>
     </button>
   );
 }
@@ -90,13 +94,16 @@ export default function RouteFinder() {
         </div>
 
         <p className="mt-4 text-[0.8125rem] font-semibold text-ink-3">어떻게 오세요?</p>
-        <div className="mt-2 flex gap-2">
-          <Chip on={from === "subway"} onClick={() => setFrom("subway")}>
-            🚇 지하철
-          </Chip>
-          <Chip on={from === "car"} onClick={() => setFrom("car")}>
-            🚗 자가용·택시
-          </Chip>
+        <div className="mt-2">
+          <Segmented
+            label="오는 방법"
+            value={from}
+            onChange={setFrom}
+            options={[
+              { value: "subway", label: <span className="flex items-center justify-center gap-1.5"><TrainFront size={16} />지하철</span> },
+              { value: "car", label: <span className="flex items-center justify-center gap-1.5"><Car size={16} />자가용·택시</span> },
+            ]}
+          />
         </div>
         <div className="-mx-5 mt-2 flex gap-2 overflow-x-auto px-5 pb-1">
           {from === "subway"
@@ -113,8 +120,8 @@ export default function RouteFinder() {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <Toggle on={wheelchair} onClick={() => setWheel(!wheelchair)} sub="이동 방법" label={wheelchair ? "♿ 휠체어" : "걸어서"} />
-          <Toggle on={rain} onClick={() => setRain(!rain)} sub="날씨" label={rain ? "☔ 비 오는 날" : "☀️ 맑은 날"} />
+          <Toggle on={wheelchair} onClick={() => setWheel(!wheelchair)} sub="이동 방법" label={wheelchair ? <><Accessibility size={17} /> 휠체어</> : <><Footprints size={17} /> 걸어서</>} />
+          <Toggle on={rain} onClick={() => setRain(!rain)} sub="날씨" label={rain ? <><CloudRain size={17} /> 비 오는 날</> : <><Sun size={17} /> 맑은 날</>} />
         </div>
       </section>
 
@@ -132,7 +139,7 @@ export default function RouteFinder() {
           <span className="flex items-center gap-1">
             <span className="inline-block h-1 w-5 rounded border-t-2 border-dashed border-[#e8a10c]" /> 고르지 않은 바닥
           </span>
-          <span>♿ 장애인 화장실</span>
+          <span>♿ 장애인 화장실 위치</span>
         </div>
 
         {result && r ? (
@@ -173,23 +180,31 @@ export default function RouteFinder() {
             )}
 
             <h2 className="mt-6 text-[1.125rem] font-bold">가는 길</h2>
-            <ol className="mt-2">
-              {r.steps.map((s, i) => (
-                <li key={i} className="flex items-start gap-3 py-2.5">
-                  <span
-                    aria-hidden
-                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-[1rem] ${s.warn ? "bg-[#fff1e6]" : "bg-grey-100"}`}
-                  >
-                    {s.icon}
-                  </span>
-                  <span className={`pt-1.5 text-[0.9375rem] leading-relaxed ${s.warn ? "font-semibold text-[#c05a12]" : "text-ink"}`}>{s.text}</span>
-                </li>
-              ))}
+            <ol className="relative mt-3">
+              <span aria-hidden className="absolute bottom-5 left-[17px] top-5 w-0.5 rounded bg-grey-200" />
+              {r.steps.map((s, i) => {
+                const I = STEP_ICON[s.icon] ?? ArrowUp;
+                const last = i === r.steps.length - 1;
+                return (
+                  <li key={i} className="relative flex items-start gap-3 py-2">
+                    <span
+                      aria-hidden
+                      className={`relative z-[1] grid h-9 w-9 shrink-0 place-items-center rounded-full ring-4 ring-bg ${
+                        last ? "bg-blue text-white" : s.warn ? "bg-[#fff1e6] text-[#c4500c]" : "bg-grey-100 text-ink-2"
+                      }`}
+                    >
+                      <I size={17} strokeWidth={2.4} />
+                    </span>
+                    <span className={`pt-1.5 text-[0.9375rem] leading-relaxed ${s.warn ? "font-semibold text-[#c4500c]" : last ? "font-bold" : "text-ink"}`}>{s.text}</span>
+                  </li>
+                );
+              })}
             </ol>
 
             {wc && (
-              <p className="mt-4 rounded-2xl bg-grey-50 p-3.5 text-[0.875rem] text-ink-2">
-                {wheelchair ? "♿ 장애인 화장실" : "🚻 화장실"}이 {dest.name}에서 약 {wc.d}m 떨어져 있어요.
+              <p className="mt-4 flex items-center gap-2.5 rounded-2xl bg-grey-50 p-3.5 text-[0.875rem] text-ink-2">
+                <Toilet size={18} className="shrink-0 text-ink-3" aria-hidden />
+                {wheelchair ? "장애인 화장실" : "화장실"}이 {dest.name}에서 약 {wc.d}m 떨어져 있어요.
               </p>
             )}
           </div>

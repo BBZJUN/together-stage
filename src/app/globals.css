@@ -9,15 +9,15 @@
   --grey-300: #d1d6db;
   --ink: #191f28;
   --ink-2: #4e5968;
-  --ink-3: #8b95a1;
+  --ink-3: #6b7684; /* 흰 바탕 대비 4.6:1 (WCAG AA) */
   --blue: #3182f6;
   --blue-dark: #1b64da;
   --blue-soft: #e8f3ff;
   /* 혼잡 단계 — 항상 아이콘·텍스트와 함께 */
-  --lv-ok: #0fa968;
-  --lv-mid: #e8a10c;
-  --lv-busy: #f47524;
-  --lv-full: #f04452;
+  --lv-ok: #0a8550;
+  --lv-mid: #9a6700;
+  --lv-busy: #c4500c;
+  --lv-full: #d42c3c;
   /* 점유율 막대 순차 램프 (블루 단일 색상) */
   --seq-1: #c9e2ff;
   --seq-2: #90c2ff;
