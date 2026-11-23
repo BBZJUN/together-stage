@@ -21,7 +21,9 @@ export interface StageConfig {
 
 export interface Seat {
   id: string;
-  tier: string; // "플로어" | "1층" | "2층"
+  tier: string; // 공식 표기: "플로어"(1층) | "2층"(하단 스탠드) | "3층"(상단 스탠드)
+  /** 공식 블록: 2층 B(1~4)·C(5~11, 무대 정면)·D(12~15)·A(16~22) */
+  block?: string;
   section: string;
   row: number;
   num: number;
@@ -90,10 +92,27 @@ export const DEFAULT_STAGE: StageConfig = {
 const STAGE_FRONT_X = -13; // 메인 무대 앞선 (플로어 서쪽 끝 무대)
 export const stageFrontX = () => STAGE_FRONT_X;
 
+/**
+ * 공식 구역 번호: 2층 1~22구역(무대 정면 C블록 5~11, 가운데 8구역), 3층은 같은 방향으로 23구역부터.
+ * 출처: 올림픽공원 공식 좌석배치도(블록 구분). 구역 경계 각도는 22등분 추정.
+ */
+const SECTION_DEG = 360 / 22;
+export function sectionNo(tier: string, angle: number) {
+  const deg = (angle * 180) / Math.PI;
+  const k = ((((Math.round(deg / SECTION_DEG) + 7) % 22) + 22) % 22) + 1;
+  return tier === "2층" ? k : k + 22;
+}
+export function blockOf(no: number) {
+  const k = no > 22 ? no - 22 : no;
+  return k <= 4 ? "B" : k <= 11 ? "C" : k <= 15 ? "D" : "A";
+}
 function sectionLabel(tier: string, angle: number) {
-  const deg = ((angle * 180) / Math.PI + 360) % 360;
-  const idx = Math.floor(deg / 15) + 1; // 15°마다 한 구역
-  return tier === "1층" ? `${idx}구역` : `${idx + 24}구역`;
+  return `${sectionNo(tier, angle)}구역`;
+}
+/** 구역 번호 → 그 구역 가운데 각도(라디안) */
+export function sectionAngle(no: number) {
+  const k = no > 22 ? no - 22 : no;
+  return ((k - 8) * SECTION_DEG * Math.PI) / 180;
 }
 
 /**
@@ -113,12 +132,12 @@ export function generateSeats(stage: StageConfig = DEFAULT_STAGE): Seat[] {
   let lowerRows = 0;
   let row = 0;
   for (let rn = STAND_R0; rn <= STAND_R1; rn += ROW_DEPTH) {
-    const tier = rn < UPPER_START ? "1층" : "2층";
-    if (tier === "1층") lowerRows++;
-    row = tier === "1층" ? lowerRows : Math.round((rn - UPPER_START) / ROW_DEPTH) + 1;
+    const tier = rn < UPPER_START ? "2층" : "3층";
+    if (tier === "2층") lowerRows++;
+    row = tier === "2층" ? lowerRows : Math.round((rn - UPPER_START) / ROW_DEPTH) + 1;
     const n = Math.floor((2 * Math.PI * rn) / 0.55);
     const counter: Record<string, number> = {};
-    const lastLower = rn + ROW_DEPTH >= UPPER_START && tier === "1층";
+    const lastLower = rn + ROW_DEPTH >= UPPER_START && tier === "2층";
     for (let i = 0; i < n; i++) {
       const a = (i / n) * Math.PI * 2;
       if (behindStage(a)) continue;
@@ -137,6 +156,7 @@ export function generateSeats(stage: StageConfig = DEFAULT_STAGE): Seat[] {
       seats.push({
         id: `${tier}-${section}-${row}-${num}`,
         tier,
+        block: blockOf(parseInt(section)),
         section,
         row,
         num,
@@ -213,8 +233,9 @@ function hash(ix: number, iz: number, salt: number) {
   const h = Math.sin(ix * 127.1 + iz * 311.7 + salt * 74.7) * 43758.5453;
   return h - Math.floor(h);
 }
-const headAt = (x: number, z: number) => hash(Math.floor(x / 0.5), Math.floor(z / 0.5), 0) < 0.6;
-const headVar = (x: number, z: number) => hash(Math.floor(x / 0.5), Math.floor(z / 0.5), 1) * 0.25 - 0.15;
+/** 시야 계산과 1인칭 화면이 같은 관객 배치를 쓰도록 공개 */
+export const headAt = (x: number, z: number) => hash(Math.floor(x / 0.5), Math.floor(z / 0.5), 0) < 0.6;
+export const headVar = (x: number, z: number) => hash(Math.floor(x / 0.5), Math.floor(z / 0.5), 1) * 0.25 - 0.15;
 
 type BlockKind = "관객" | "구조물";
 

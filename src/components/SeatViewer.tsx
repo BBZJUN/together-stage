@@ -2,7 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Accessibility, Building2, Eye, Maximize2 } from "lucide-react";
+import { Accessibility, Building2, ExternalLink, Eye, Hand, Maximize2, Search, X } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import {
   distanceToStage,
   generateSeats,
@@ -43,7 +44,79 @@ function wheelStats(seats: Seat[], stageKey: StageKey, standing: boolean, platfo
   return { avg: Math.round((vs.reduce((a, b) => a + b, 0) / Math.max(1, vs.length)) * 100), poor: vs.filter((v) => v < 0.6).length, n: vs.length };
 }
 
+/** 예매한 자리(층·구역·열·번호)와 가장 가까운 좌석 */
+function findSeat(seats: Seat[], tier: string, section: string, row: number, num: number) {
+  const pool = seats.filter((s) => s.tier === tier && s.section === section);
+  if (!pool.length) return null;
+  const rows = [...new Set(pool.map((s) => s.row))];
+  const r = rows.reduce((a, b) => (Math.abs(b - row) < Math.abs(a - row) ? b : a), rows[0]);
+  const inRow = pool.filter((s) => s.row === r);
+  return inRow.reduce((a, b) => (Math.abs(b.num - num) < Math.abs(a.num - num) ? b : a), inRow[0]);
+}
+
+function SeatFinder({ seats, onFind }: { seats: Seat[]; onFind: (s: Seat, exact: boolean) => void }) {
+  const [tier, setTier] = useState("2층");
+  const sections = useMemo(() => {
+    const set = [...new Set(seats.filter((s) => s.tier === tier).map((s) => s.section))];
+    return set.sort((a, b) => a.localeCompare(b, "ko", { numeric: true }));
+  }, [seats, tier]);
+  const [section, setSection] = useState("8구역");
+  const [row, setRow] = useState("10");
+  const [num, setNum] = useState("5");
+  const sec = sections.includes(section) ? section : sections[0];
+  const field = "h-12 w-full rounded-xl bg-grey-50 px-3 text-[1rem] font-semibold outline-none focus:ring-2 focus:ring-blue";
+  return (
+    <form
+      className="rounded-3xl border border-grey-200 p-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const s = findSeat(seats, tier, sec, Number(row) || 1, Number(num) || 1);
+        if (s) onFind(s, s.row === Number(row) && s.num === Number(num));
+      }}
+    >
+      <h2 className="text-[1.0625rem] font-bold">예매한 자리 찾기</h2>
+      <p className="mt-0.5 text-[0.8125rem] text-ink-3">티켓에 적힌 층·구역·열·번호를 넣으면 그 자리 눈높이로 보여드려요.</p>
+      <div className="mt-3">
+        <Segmented
+          label="층"
+          value={tier}
+          onChange={(v) => setTier(v)}
+          options={[
+            { value: "플로어", label: "플로어" },
+            { value: "2층", label: "2층" },
+            { value: "3층", label: "3층" },
+          ]}
+        />
+      </div>
+      <div className="mt-2 grid grid-cols-3 gap-2">
+        <label className="text-[0.75rem] font-semibold text-ink-3">
+          구역
+          <select className={`${field} mt-1`} value={sec} onChange={(e) => setSection(e.target.value)}>
+            {sections.map((x) => (
+              <option key={x} value={x}>
+                {x.replace("플로어 ", "")}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="text-[0.75rem] font-semibold text-ink-3">
+          열
+          <input className={`${field} mt-1`} inputMode="numeric" value={row} onChange={(e) => setRow(e.target.value.replace(/\D/g, ""))} />
+        </label>
+        <label className="text-[0.75rem] font-semibold text-ink-3">
+          번호
+          <input className={`${field} mt-1`} inputMode="numeric" value={num} onChange={(e) => setNum(e.target.value.replace(/\D/g, ""))} />
+        </label>
+      </div>
+      <button className="press mt-3 flex h-13 w-full items-center justify-center gap-2 rounded-2xl bg-blue py-3.5 text-[1rem] font-bold text-white">
+        <Search size={18} aria-hidden /> 이 자리에서 무대 보기
+      </button>
+    </form>
+  );
+}
+
 export default function SeatViewer() {
+  const params = useSearchParams();
   const [stageKey, setStageKey] = useState<StageKey>("end");
   const stage = STAGE_PRESETS[stageKey].stage;
   const seats = useMemo(() => generateSeats(stage), [stage]);
@@ -51,10 +124,11 @@ export default function SeatViewer() {
   const [platform, setPlatform] = useState(0);
   const [onlyWheel, setOnlyWheel] = useState(false);
   const [vis, setVis] = useState<(Visibility | null)[]>([]);
-  const [selId, setSelId] = useState<string | null>(null);
+  const [selId, setSelId] = useState<string | null>(() => params.get("seat"));
+  const [approx, setApprox] = useState(false);
   // 무대 배치가 바뀌어도 같은 좌석 id로 다시 찾음
   const selected = useMemo(() => (selId ? seats.find((s) => s.id === selId) ?? null : null), [selId, seats]);
-  const [mode, setMode] = useState<ViewMode>("overview");
+  const [mode, setMode] = useState<ViewMode>(() => (params.get("seat") ? "seat" : "overview"));
   const [snap, setSnap] = useState(0);
   const [boxH, setBoxH] = useState(640);
   const box = useRef<HTMLDivElement>(null);
@@ -124,6 +198,7 @@ export default function SeatViewer() {
 
   const pick = useCallback((s: Seat) => {
     setSelId(s.id);
+    setApprox(false);
     setSnap((i) => Math.max(i, 1));
   }, []);
 
@@ -159,10 +234,61 @@ export default function SeatViewer() {
   return (
     <div ref={box} className="relative h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden bg-grey-100">
       <div className="absolute inset-x-0 top-0" style={{ bottom: snaps[0] - 28 }}>
-        <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} onSelect={pick} />
+        <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} platform={platform} onSelect={pick} />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-4 top-3 z-10 flex items-start justify-between gap-2">
+      {mode === "seat" && selected && (
+        <div className="absolute inset-x-3 top-3 z-20 flex flex-col gap-2">
+          <div className="flex items-start justify-between gap-2">
+            <div className="rounded-2xl bg-black/55 px-3.5 py-2.5 text-white backdrop-blur-md">
+              <p className="text-[0.8125rem] opacity-80">
+                {selected.tier} {selected.section}
+                {selected.block ? ` (${selected.block}블록)` : ""} {selected.row}열 {selected.num}번{selected.wheelchair ? " · 휠체어석" : ""}
+              </p>
+              {sv && (
+                <p className="text-[1.0625rem] font-bold">
+                  무대 {Math.round(sv.ratio * 100)}% 보임 · {distanceToStage(selected)}m
+                </p>
+              )}
+            </div>
+            <button
+              onClick={() => setMode("overview")}
+              aria-label="1인칭 시점 닫기"
+              className="press grid h-11 w-11 shrink-0 place-items-center rounded-full bg-black/55 text-white backdrop-blur-md"
+            >
+              <X size={20} />
+            </button>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setStanding(!standing)}
+              aria-pressed={standing}
+              className="press h-10 rounded-full bg-black/55 px-3.5 text-[0.8125rem] font-semibold text-white backdrop-blur-md"
+            >
+              앞사람 {standing ? "일어섬" : "앉음"} ↔
+            </button>
+            {selected.wheelchair && (
+              <button
+                onClick={() => setPlatform(platform ? 0 : 0.6)}
+                aria-pressed={!!platform}
+                className={`press h-10 rounded-full px-3.5 text-[0.8125rem] font-semibold backdrop-blur-md ${platform ? "bg-[#0a8550] text-white" : "bg-black/55 text-white"}`}
+              >
+                단상 60cm {platform ? "켬" : "끔"}
+              </button>
+            )}
+          </div>
+          <p className="flex items-center gap-1.5 self-start rounded-full bg-black/40 px-3 py-1 text-[0.75rem] text-white/85">
+            <Hand size={13} aria-hidden /> 화면을 끌어서 둘러보세요
+          </p>
+          {approx && (
+            <p className="self-start rounded-xl bg-[#fff4e5] px-3 py-1.5 text-[0.75rem] font-semibold text-[#8a4b00]">
+              입력한 열·번호와 가장 가까운 자리를 보여드려요
+            </p>
+          )}
+        </div>
+      )}
+
+      <div className={`pointer-events-none absolute inset-x-4 top-3 z-10 flex items-start justify-between gap-2 ${mode === "seat" && selected ? "hidden" : ""}`}>
         <span className="rounded-xl bg-bg/90 px-3 py-1.5 text-[0.8125rem] font-semibold text-ink-2 shadow-sm">
           {done < seats.length ? `시야 계산 중 ${Math.round((done / Math.max(1, seats.length)) * 100)}%` : "좌석을 눌러보세요"}
         </span>
@@ -178,6 +304,17 @@ export default function SeatViewer() {
       </div>
 
       <BottomSheet snaps={snaps} index={snap} onIndexChange={setSnap} header={header} label="시야 정보">
+        <div className="pb-5">
+          <SeatFinder
+            seats={seats}
+            onFind={(s, exact) => {
+              setSelId(s.id);
+              setApprox(!exact);
+              setMode("seat");
+              setSnap(0);
+            }}
+          />
+        </div>
         <div className="flex flex-wrap gap-1.5 pb-4">
           {(["good", "mid", "bad", "worst"] as const).map((t) => (
             <span key={t} className="flex items-center gap-1 rounded-lg bg-grey-50 px-2 py-1 text-[0.75rem] font-semibold text-ink-2">
@@ -187,6 +324,17 @@ export default function SeatViewer() {
           ))}
         </div>
 
+        {selected && (
+          <a
+            href="https://aviewfrommyseat.com/venue/KSPO+DOME/sections/"
+            target="_blank"
+            rel="noreferrer"
+            className="press mb-3 flex items-center justify-between rounded-2xl border border-grey-200 px-4 py-3 text-[0.9375rem] font-semibold"
+          >
+            관람객이 직접 찍은 구역별 사진 보기
+            <ExternalLink size={16} className="text-ink-3" aria-hidden />
+          </a>
+        )}
         {selected && sv && (
           <p className="mb-4 rounded-2xl bg-grey-50 px-4 py-3 text-[0.9375rem] leading-relaxed text-ink-2">
             무대의 <b className="text-ink">{Math.round(sv.ratio * 100)}%</b>가 보여요. 무대까지 약 {distanceToStage(selected)}m
@@ -292,7 +440,7 @@ export default function SeatViewer() {
           })}
         </ul>
         <p className="mt-4 text-[0.75rem] leading-relaxed text-ink-3">
-          공연장 형상은 한국체육산업개발이 공개한 KSPO DOME 실감형 콘텐츠(3D)에서 가져왔어요. 휠체어석은 올림픽공원 공식 좌석배치도의 ‘C블록 뒤편 장애인석’ 위치를 따랐어요(세부 좌석 번호는 추정). 무대 배치는 공연마다 달라요.
+          공연장 형상은 한국체육산업개발이 공개한 KSPO DOME 실감형 콘텐츠(3D)에서 가져왔어요. 구역 번호는 공식 배치도의 블록 구분(2층 B 1~4·C 5~11·D 12~15·A 16~22, 3층 23~)을 따랐고 열·번호 위치는 추정이라 예매처 배치도와 다를 수 있어요. 1인칭 화면의 관객·조명·전광판은 공연 당일을 재현한 연출이에요. 휠체어석은 올림픽공원 공식 좌석배치도의 ‘C블록 뒤편 장애인석’ 위치를 따랐어요(세부 좌석 번호는 추정). 무대 배치는 공연마다 달라요.
         </p>
       </BottomSheet>
     </div>
