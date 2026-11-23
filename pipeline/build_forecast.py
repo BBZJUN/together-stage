@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import re
 import math
 import random
 from datetime import date, datetime, timedelta
@@ -23,7 +24,74 @@ VENUES = {
     "티켓링크 라이브 아레나": {"capacity": 6000, "gate": "남2문"},
     "올림픽홀": {"capacity": 3000, "gate": "동2문"},
     "우리금융아트홀": {"capacity": 1200, "gate": "북2문"},
+    "뮤즈라이브": {"capacity": 2000, "gate": "동2문"},
+    "K-아트홀": {"capacity": 1200, "gate": "남2문"},
 }
+EVENTS = ROOT / "src" / "data" / "events.json"
+LAT, LON = 37.5207, 127.1215  # 올림픽공원
+
+SENIOR_KW = ["트로트", "조용필", "나훈아", "임영웅", "7080", "송가인", "영탁", "이찬원", "장윤정", "남진", "심수봉", "패티김", "포크", "가요무대", "진성", "주현미", "인순이", "최백호", "이문세", "양희은", "미스터트롯", "미스트롯", "현역가왕", "불타는 트롯"]
+FAMILY_KW = ["뮤지컬", "발레", "호두까기", "어린이", "가족", "키즈", "마술", "매직", "인형", "동화", "핑크퐁", "뽀로로", "오케스트라", "합창", "아이스"]
+
+
+def audience_of(title: str, age: str) -> str:
+    t = title or ""
+    if any(k in t for k in SENIOR_KW):
+        return "senior"
+    if any(k in t for k in FAMILY_KW) or re.search(r"(\d+)\s*개월", age or ""):
+        return "family"
+    return "mz"
+
+
+def genre_of(title: str) -> str:
+    t = title or ""
+    if "뮤지컬" in t:
+        return "뮤지컬"
+    if any(k in t for k in ["발레", "호두까기"]):
+        return "무용"
+    if any(k in t for k in ["마술", "매직"]) or "최현우" in t:
+        return "마술"
+    if any(k in t for k in ["오케스트라", "교향", "필하모닉", "클래식"]):
+        return "클래식"
+    return "대중음악"
+
+
+def norm_venue(v: str) -> str | None:
+    for k in VENUES:
+        if k in (v or ""):
+            return k
+    if "핸드볼" in (v or ""):
+        return "티켓링크 라이브 아레나"
+    return None
+
+
+def fetch_weather() -> dict:
+    """Open-Meteo(무료·키 불필요) 16일 예보. 실패하면 빈 dict."""
+    import urllib.request
+    url = (f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}"
+           "&daily=temperature_2m_mean,precipitation_sum,precipitation_probability_max,weather_code&timezone=Asia%2FSeoul&forecast_days=16")
+    try:
+        with urllib.request.urlopen(url, timeout=20) as r:
+            d = json.loads(r.read())["daily"]
+    except Exception as e:  # noqa
+        print("weather fail", e)
+        return {}
+    out = {}
+    for i, day in enumerate(d["time"]):
+        code = d["weather_code"][i]
+        rain = (d["precipitation_sum"][i] or 0) >= 1.0 or (d["precipitation_probability_max"][i] or 0) >= 60
+        sky = "눈" if code in (71, 73, 75, 77, 85, 86) else "비" if rain or code >= 51 else "맑음" if code <= 1 else "구름많음" if code == 2 else "흐림"
+        out[day] = {"temp": round(d["temperature_2m_mean"][i], 1), "sky": sky, "precip": bool(rain or sky in ("비", "눈")), "source": "Open-Meteo 예보"}
+    return out
+
+
+# 예보 범위 밖 날짜: 서울 월평균 기온(평년값), 강수 없음 가정
+NORMAL_TEMP = {1: -1.9, 2: 0.7, 3: 6.1, 4: 12.6, 5: 18.2, 6: 22.4, 7: 25.3, 8: 26.1, 9: 21.6, 10: 15.0, 11: 7.5, 12: 0.2}
+
+
+def runtime_of(s: str) -> int:
+    m = re.search(r"(\d{2,3})\s*분", s or "")
+    return int(m.group(1)) if m else 150
 
 CAL = json.loads((ROOT / "pipeline" / "calibration.json").read_text())
 
@@ -203,15 +271,56 @@ def build_sample() -> list[dict]:
     return shows
 
 
+def build_real(today: date, days: int = 45) -> list[dict]:
+    """올림픽공원 공식 일정안내(events.json)의 실제 공연 → 회차별 예측."""
+    if not EVENTS.exists():
+        return []
+    evs = json.loads(EVENTS.read_text()).get("events", [])
+    weather = fetch_weather()
+    shows = []
+    for e in evs:
+        venue = norm_venue(e.get("venue", ""))
+        if not venue:
+            continue
+        for d_iso, start in sorted((e.get("schedule") or {}).items()):
+            d = date.fromisoformat(d_iso)
+            if not (today <= d <= today + timedelta(days=days)):
+                continue
+            w = weather.get(d_iso) or {"temp": NORMAL_TEMP[d.month], "sky": None, "precip": False, "source": "평년값"}
+            shows.append({
+                "id": f"e{e['seq']}-{d.strftime('%m%d')}",
+                "title": e["title"],
+                "venue": venue,
+                "date": d_iso,
+                "start": start,
+                "runtime": runtime_of(e.get("runtime", "")),
+                "genre": genre_of(e["title"]),
+                "audience": audience_of(e["title"], e.get("age", "")),
+                "capacity": VENUES[venue]["capacity"],
+                "weather": w,
+                "official": {k: e.get(k, "") for k in ("url", "poster", "age", "price", "host", "contact", "time_text")},
+            })
+    for s in shows:
+        same_day = [x for x in shows if x["date"] == s["date"]]
+        fc = model_forecast(s, same_day) if MODEL_PATH.exists() else heuristic_forecast(s, same_day)
+        for p in fc["hours"]:
+            p["level"] = level(p["occ"])
+        s["reco"] = recommendations(s, fc["hours"])
+        for p in fc["hours"]:
+            p.pop("cars_raw", None)
+        s["forecast"] = fc
+    return shows
+
+
 def main() -> None:
-    has_raw = any(RAW.glob("*.csv"))
-    if has_raw:
-        # 실데이터 학습 경로는 train_model.py 에서 처리 (데이터 수령 후 구현)
-        print("raw CSV 감지 — train_model.py 를 실행하세요. 지금은 샘플로 생성합니다.")
-    shows = build_sample()
+    today = datetime.now(tz=__import__("zoneinfo").ZoneInfo("Asia/Seoul")).date()
+    shows = build_real(today)
+    source = "official"
+    if not shows:
+        shows, source = build_sample(), "sample"
     payload = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
-        "source": "sample",  # 공연 목록은 샘플, 예측은 2025 연계 데이터 학습 모델
+        "source": source,  # official = 올림픽공원 공식 일정안내, sample = 예시 공연
         "model": json.loads((ROOT / "pipeline" / "model_report.json").read_text()) if MODEL_PATH.exists() else None,
         "calibration": {k: CAL[k] for k in ("source", "records", "maxConcurrent", "exitThroughputPerHour", "normalDailyPeakMedian")},
         "gates": GATES,

@@ -3,18 +3,19 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { arrivalAdvice, endTime, fmtDate, peakOf, timeKo } from "@/lib/data";
+import { arrivalAdvice, endTime, fmtDate, peakOf, timeKo, weatherText } from "@/lib/data";
 import { useNeeds } from "@/lib/mode";
 import { bestExit, profileFrom, venues } from "@/lib/route";
 import type { Show } from "@/lib/types";
 import { ForecastChart } from "./ForecastChart";
 import { Chevron, IconTile, LevelPill } from "./ui";
-import { Armchair, BatteryCharging, CreditCard, Hand, Pill, Ticket, Umbrella, type LucideIcon } from "lucide-react";
+import { Armchair, BatteryCharging, ExternalLink, CreditCard, Hand, Pill, Ticket, Umbrella, type LucideIcon } from "lucide-react";
 
 const VENUE_ID: Record<string, string> = {
   "KSPO DOME": "kspo",
   "티켓링크 라이브 아레나": "handball",
   올림픽홀: "olympichall",
+  뮤즈라이브: "olympichall",
   우리금융아트홀: "artHall",
 };
 
@@ -89,7 +90,7 @@ export default function ShowDetail({ show }: { show: Show }) {
           {show.title.replace("[샘플] ", "")}
         </h1>
         <p className="mt-1 text-[0.9375rem] text-ink-3">
-          {show.venue}, {show.weather.sky} {show.weather.temp}°C
+          {show.venue}, {weatherText(show.weather)}
         </p>
         <div className="rise mt-7">
           <p className="text-[1rem] font-semibold text-ink-2">붐비기 전에 도착하려면</p>
@@ -117,6 +118,38 @@ export default function ShowDetail({ show }: { show: Show }) {
               {show.weather.precip ? "비 예보가 있어서 미끄러운 길은 피했어요. " : ""}다른 역·주차장에서 오시면 눌러서 바꿔보세요.
             </p>
           </Link>
+        </section>
+      )}
+
+      {show.official && (
+        <section className="band px-5 py-6">
+          <h2 className="text-[1.0625rem] font-bold">공연 정보</h2>
+          <dl className="mt-3 grid grid-cols-[5.5rem_1fr] gap-y-2 text-[0.9375rem]">
+            {[
+              ["공연 시간", show.official.time_text],
+              ["관람 연령", show.official.age],
+              ["소요 시간", `${show.runtime}분`],
+              ["주최", show.official.host],
+              ["문의", show.official.contact],
+            ]
+              .filter(([, v]) => v)
+              .map(([k, v]) => (
+                <div key={k} className="contents">
+                  <dt className="text-ink-3">{k}</dt>
+                  <dd className="leading-relaxed text-ink-2">{v}</dd>
+                </div>
+              ))}
+          </dl>
+          <a
+            href={show.official.url}
+            target="_blank"
+            rel="noreferrer"
+            className="press mt-4 flex items-center justify-between rounded-2xl bg-grey-50 px-4 py-3.5 text-[0.9375rem] font-semibold"
+          >
+            올림픽공원 공식 일정안내에서 보기
+            <ExternalLink size={16} className="text-ink-3" aria-hidden />
+          </a>
+          <p className="mt-2 text-[0.75rem] text-ink-3">휠체어석 예매·동반인 할인은 예매처와 주최사 안내를 꼭 확인해 주세요.</p>
         </section>
       )}
 

@@ -1,4 +1,4 @@
-import { LEVEL_STYLE } from "@/lib/data";
+import { isOfficial, LEVEL_STYLE } from "@/lib/data";
 import type { Level } from "@/lib/types";
 import type { LucideIcon } from "lucide-react";
 import { ChevronRight, Info } from "lucide-react";
@@ -53,7 +53,7 @@ export function SampleNotice() {
     <div className="flex items-start gap-2.5 rounded-2xl bg-grey-50 p-4 text-[0.8125rem] leading-relaxed text-ink-2">
       <Info size={16} className="mt-0.5 shrink-0 text-ink-3" aria-hidden />
       <p>
-        공연 목록은 예시예요. 붐비는 시간은 2025년 실제 공연·날씨·주차 기록으로 학습한 모델이 계산해요.{" "}
+        {isOfficial ? "공연 일정은 올림픽공원 공식 일정안내에서 매일 가져와요." : "공연 목록은 예시예요."} 붐비는 시간은 2025년 실제 공연·날씨·주차 기록으로 학습한 모델이 계산해요.{" "}
         <a href="/data" className="font-semibold text-blue underline underline-offset-2">
           예측 방법 보기
         </a>

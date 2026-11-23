@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "41 20 * * *" # 매일 05:41 KST
   push:
-    paths: ["pipeline/fetch_events.py", ".github/workflows/events.yml"]
+    paths: ["pipeline/fetch_events.py", "pipeline/showtime.py", "pipeline/build_forecast.py", ".github/workflows/events.yml"]
   workflow_dispatch:
 
 permissions:
@@ -21,13 +21,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
+      - run: pip install pandas lightgbm scikit-learn
       - name: 일정 수집
         run: python3 pipeline/fetch_events.py
+      - name: 회차별 혼잡 예측 (실제 공연 + Open-Meteo 날씨)
+        run: python3 pipeline/build_forecast.py
       - name: 커밋
         run: |
           git config user.name "olpark-bot"
           git config user.email "olpark-bot@users.noreply.github.com"
-          git add src/data/events.json pipeline/raw_events
+          git add src/data/events.json src/data/shows.json pipeline/raw_events
           git diff --cached --quiet && exit 0
           git commit -m "data: 올림픽공원 공연 일정 갱신"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done

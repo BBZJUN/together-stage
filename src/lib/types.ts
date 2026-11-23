@@ -18,7 +18,9 @@ export interface Show {
   genre: string;
   audience: Audience;
   capacity: number;
-  weather: { temp: number; sky: string; precip: boolean };
+  weather: { temp: number; sky: string | null; precip: boolean; source?: string };
+  /** 올림픽공원 공식 일정안내 원문 정보 (실제 공연일 때만) */
+  official?: { url: string; poster: string; age: string; price: string; host: string; contact: string; time_text: string };
   forecast: { hours: HourPoint[] };
   reco: {
     carArrive: string | null;

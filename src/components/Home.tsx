@@ -90,7 +90,7 @@ const QUICK: { href: string; icon: typeof Route; tone: Tone; title: string; desc
   { href: "/insight", icon: Building2, tone: "orange", title: "기관 리포트", desc: "데이터로 찾은 개선점" },
 ];
 
-const VENUE_ID: Record<string, string> = { "KSPO DOME": "kspo", "티켓링크 라이브 아레나": "handball", 올림픽홀: "olympichall", 우리금융아트홀: "artHall" };
+const VENUE_ID: Record<string, string> = { "KSPO DOME": "kspo", "티켓링크 라이브 아레나": "handball", 올림픽홀: "olympichall", 뮤즈라이브: "olympichall", 우리금융아트홀: "artHall" };
 
 function NextShowCard({ show }: { show: Show }) {
   const { needs, has } = useNeeds();

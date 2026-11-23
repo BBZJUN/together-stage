@@ -3,10 +3,23 @@ import type { Level, Show, ShowData } from "./types";
 
 export const data = raw as ShowData;
 
+export const isOfficial = data.source === "official";
+
+/** 한국 시간 기준 오늘(YYYY-MM-DD) */
+export function todayKST() {
+  return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+}
+
+/** 다가오는 공연 (지난 회차 제외). 남은 게 없으면 전체를 보여줌 */
 export function getShows(): Show[] {
-  return [...data.shows].sort((a, b) =>
-    (a.date + a.start).localeCompare(b.date + b.start),
-  );
+  const all = [...data.shows].sort((a, b) => (a.date + a.start).localeCompare(b.date + b.start));
+  const today = todayKST();
+  const upcoming = all.filter((s) => s.date >= today);
+  return upcoming.length ? upcoming : all;
+}
+
+export function weatherText(w: Show["weather"]) {
+  return w.sky ? `${w.sky} ${w.temp}°C` : `평년 기온 ${w.temp}°C`;
 }
 
 export function getShow(id: string): Show | undefined {
