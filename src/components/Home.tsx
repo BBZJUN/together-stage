@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import LiveParking from "./LiveParking";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
 import { Armchair, Building2, Clock3, MessageCircle, Navigation, Route } from "lucide-react";
@@ -163,6 +164,7 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
           함께 갈게요
         </h1>
         <NextShowCard show={shows[0]} />
+        <LiveParking />
         <ul className="mt-3 grid grid-cols-2 gap-2">
           {QUICK.map((q) => (
             <li key={q.href}>

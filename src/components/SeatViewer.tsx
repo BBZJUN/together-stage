@@ -232,7 +232,7 @@ export default function SeatViewer() {
     );
 
   return (
-    <div ref={box} className="relative h-[calc(100dvh-7rem-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden bg-grey-100">
+    <div ref={box} className="relative h-[calc(100dvh-7rem-var(--tabs,0px)-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden bg-grey-100">
       <div className="absolute inset-x-0 top-0" style={{ bottom: snaps[0] - 28 }}>
         <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} platform={platform} onSelect={pick} />
       </div>

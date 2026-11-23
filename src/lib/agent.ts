@@ -55,7 +55,7 @@ export const TOOLS = [
   },
   {
     name: "get_parking_now",
-    description: "올림픽공원 주차구역(동2문/남2문/북2문)별 지금 주차 현황을 가져온다.",
+    description: "올림픽공원 동2·남2·북2 주차장 전체의 지금 주차대수(한국체육산업개발 실시간 API)를 가져온다. 주차장별 숫자는 없다.",
     input_schema: { type: "object" as const, properties: {} },
   },
   {
