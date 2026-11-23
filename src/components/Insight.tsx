@@ -66,6 +66,13 @@ export default function Insight() {
           </span>
           <span aria-hidden className="text-[1.25rem]">›</span>
         </Link>
+        <Link href="/open-data" className="press mt-2 flex items-center justify-between rounded-2xl bg-grey-100 px-4 py-4">
+          <span>
+            <span className="block text-[1rem] font-bold">가공 데이터 공개</span>
+            <span className="block text-[0.8125rem] text-ink-3">좌석별 시야·무장애 보행망·회차별 혼잡 예측 내려받기</span>
+          </span>
+          <span aria-hidden className="text-[1.25rem] text-ink-3">›</span>
+        </Link>
       </section>
 
       <section className="band px-5 py-6" aria-labelledby="voices">
