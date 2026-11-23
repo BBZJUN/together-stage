@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
-import { Armchair, ChartLine, Clock3, MessageCircle, Navigation, Route } from "lucide-react";
+import { Armchair, Building2, Clock3, MessageCircle, Navigation, Route } from "lucide-react";
 import { arrivalAdvice, peakOf, timeKo } from "@/lib/data";
 import { bestExit, profileFrom, venues } from "@/lib/route";
 import { NEED_META, useNeeds, type Need } from "@/lib/mode";
@@ -87,7 +87,7 @@ const QUICK: { href: string; icon: typeof Route; tone: Tone; title: string; desc
   { href: "/route", icon: Navigation, tone: "blue", title: "계단 없는 길", desc: "역·주차장 → 입구" },
   { href: "/seats", icon: Armchair, tone: "purple", title: "좌석 시야", desc: "휠체어석 3D" },
   { href: "/chat", icon: MessageCircle, tone: "green", title: "말로 물어보기", desc: "음성으로 질문" },
-  { href: "/data", icon: ChartLine, tone: "orange", title: "붐비는 시간", desc: "예측 방법" },
+  { href: "/insight", icon: Building2, tone: "orange", title: "기관 리포트", desc: "데이터로 찾은 개선점" },
 ];
 
 const VENUE_ID: Record<string, string> = { "KSPO DOME": "kspo", "티켓링크 라이브 아레나": "handball", 올림픽홀: "olympichall", 우리금융아트홀: "artHall" };

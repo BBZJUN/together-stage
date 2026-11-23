@@ -40,14 +40,16 @@ jobs:
           sleep 10
           python pipeline/fetch_api.py INOUT
       - name: 예측 생성
-        run: python pipeline/build_forecast.py
+        run: |
+          python pipeline/build_forecast.py
+          python pipeline/insights.py > /dev/null
       - name: 결과 커밋 (원본 대용량 제외, 샘플·예측만)
         run: |
           git config user.name "olpark-bot"
           git config user.email "olpark-bot@users.noreply.github.com"
           mkdir -p pipeline/samples
           cp pipeline/raw/api_*_sample.json pipeline/raw/api_*_first_page.txt pipeline/samples/ 2>/dev/null || true
-          git add src/data/shows.json pipeline/samples
+          git add src/data/shows.json src/data/insight.json pipeline/samples
           [ -f pipeline/raw/api_inout.json ] && cp pipeline/raw/api_inout.json pipeline/samples/inout_sample.json && git add pipeline/samples/inout_sample.json
           [ -f pipeline/raw/api_linked.json ] && cp pipeline/raw/api_linked.json pipeline/samples/linked_2025.json && git add pipeline/samples/linked_2025.json
           [ -f pipeline/raw/api_perf.json ] && cp pipeline/raw/api_perf.json pipeline/samples/perf_all.json && git add pipeline/samples/perf_all.json
