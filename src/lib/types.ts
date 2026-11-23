@@ -20,7 +20,7 @@ export interface Show {
   capacity: number;
   weather: { temp: number; sky: string | null; precip: boolean; source?: string };
   /** 올림픽공원 공식 일정안내 원문 정보 (실제 공연일 때만) */
-  official?: { url: string; poster: string; age: string; price: string; host: string; contact: string; time_text: string };
+  official?: { url: string; poster: string; age: string; price: string; host: string; contact: string; time_text: string; runDates?: (string | null)[]; moreCount?: number };
   forecast: { hours: HourPoint[] };
   reco: {
     carArrive: string | null;
@@ -35,7 +35,7 @@ export interface Show {
 
 export interface ShowData {
   generatedAt: string;
-  source: "sample" | "model";
+  source: "sample" | "model" | "official";
   calibration?: {
     source: string;
     records: number;

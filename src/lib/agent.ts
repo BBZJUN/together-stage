@@ -1,5 +1,5 @@
 import lost from "@/data/lost.json";
-import { endTime, fmtDate, getShow, getShows, occAtStart, peakOf } from "./data";
+import { endTime, fmtDate, getShow, getShows, isOfficial, occAtStart, peakOf } from "./data";
 import { getParking } from "./parking";
 import type { Show } from "./types";
 import type { Need } from "./mode";
@@ -194,7 +194,7 @@ export function systemPrompt(needs: Need[], showId?: string) {
 - 공연을 특정할 수 없으면 search_shows로 찾고, 여러 개면 짧게 되묻는다.
 - 주차장이 넘칠 것으로 예측되면(overflowCars>0) 대중교통(5·9호선 올림픽공원역, 8호선 몽촌토성역)을 권한다.
 - 막차·대중교통 정확한 시각은 데이터가 없으니 '따로 확인하세요'라고 안내한다.
-- 데이터가 샘플(source: sample)이면 마지막에 '(현재 샘플 데이터 기준)'을 붙인다.
+- 공연 일정은 올림픽공원 공식 일정안내에서 가져온 실제 일정이고, 붐비는 정도·도착 시각은 모델 예측이라고 구분해 말한다. 분실물 데이터만 샘플이다.
 ${focus ? `사용자는 지금 '${focus.title}'(id: ${focus.id}, ${focus.date} ${focus.start}) 화면에서 질문하고 있다.` : ""}`;
 }
 
@@ -263,7 +263,7 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
   if (show || /공연|붐|혼잡|언제|몇 시/.test(text)) {
     const s = show ?? getShows()[0];
     const r = s.reco;
-    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${r.fullAt ? `${r.fullAt}쯤 공원이 가장 붐벼요. 그 전에 도착하면 엘리베이터와 길이 한산해요.` : "크게 붐비지 않을 것 같아요."} 공연이 끝나면 인파가 빠지는 데 30분 정도 걸리니, 조금 기다렸다 나오시면 편해요.${sample}`;
+    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${r.fullAt ? `${r.fullAt}쯤 공원이 가장 붐벼요. 그 전에 도착하면 엘리베이터와 길이 한산해요.` : "크게 붐비지 않을 것 같아요."} 공연이 끝나면 인파가 빠지는 데 30분 정도 걸리니, 조금 기다렸다 나오시면 편해요.${isOfficial ? " (공연 일정은 올림픽공원 공식 일정안내 기준, 붐비는 정도는 예측)" : sample}`;
   }
 
   return `어디서 출발해서 어느 공연장에 가시는지 말씀해 주세요. 예: "올림픽공원역에서 KSPO DOME 가는 길", "휠체어석 시야 어때요?", "장애인 화장실 어디예요?"`;

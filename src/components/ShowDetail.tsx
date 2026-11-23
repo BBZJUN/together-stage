@@ -126,7 +126,7 @@ export default function ShowDetail({ show }: { show: Show }) {
           <h2 className="text-[1.0625rem] font-bold">공연 정보</h2>
           <dl className="mt-3 grid grid-cols-[5.5rem_1fr] gap-y-2 text-[0.9375rem]">
             {[
-              ["공연 시간", show.official.time_text],
+              ["공연 기간", show.official.runDates?.[0] ? `${show.official.runDates[0].replaceAll("-", ".")} ~ ${show.official.runDates[1]?.replaceAll("-", ".")}${show.official.moreCount ? ` (이후 ${show.official.moreCount}회 더)` : ""}` : ""],
               ["관람 연령", show.official.age],
               ["소요 시간", `${show.runtime}분`],
               ["주최", show.official.host],

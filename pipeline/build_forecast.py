@@ -30,8 +30,8 @@ VENUES = {
 EVENTS = ROOT / "src" / "data" / "events.json"
 LAT, LON = 37.5207, 127.1215  # 올림픽공원
 
-SENIOR_KW = ["트로트", "조용필", "나훈아", "임영웅", "7080", "송가인", "영탁", "이찬원", "장윤정", "남진", "심수봉", "패티김", "포크", "가요무대", "진성", "주현미", "인순이", "최백호", "이문세", "양희은", "미스터트롯", "미스트롯", "현역가왕", "불타는 트롯"]
-FAMILY_KW = ["뮤지컬", "발레", "호두까기", "어린이", "가족", "키즈", "마술", "매직", "인형", "동화", "핑크퐁", "뽀로로", "오케스트라", "합창", "아이스"]
+SENIOR_KW = ["트로트", "조용필", "나훈아", "임영웅", "7080", "송가인", "영탁", "이찬원", "장윤정", "남진", "심수봉", "패티김", "포크", "가요무대", "진성", "주현미", "인순이", "최백호", "이문세", "양희은", "미스터트롯", "미스트롯", "현역가왕", "불타는 트롯", "손태진", "박지현", "이승철", "트롯"]
+FAMILY_KW = ["뮤지컬", "최현우", "발레", "호두까기", "어린이", "가족", "키즈", "마술", "매직", "인형", "동화", "핑크퐁", "뽀로로", "오케스트라", "합창", "아이스"]
 
 
 def audience_of(title: str, age: str) -> str:
@@ -282,10 +282,10 @@ def build_real(today: date, days: int = 45) -> list[dict]:
         venue = norm_venue(e.get("venue", ""))
         if not venue:
             continue
-        for d_iso, start in sorted((e.get("schedule") or {}).items()):
+        upcoming = [(k, v) for k, v in sorted((e.get("schedule") or {}).items()) if today <= date.fromisoformat(k) <= today + timedelta(days=days)]
+        # 장기 공연(뮤지컬 등)은 목록을 덮지 않도록 가까운 3회차만
+        for d_iso, start in upcoming[:3]:
             d = date.fromisoformat(d_iso)
-            if not (today <= d <= today + timedelta(days=days)):
-                continue
             w = weather.get(d_iso) or {"temp": NORMAL_TEMP[d.month], "sky": None, "precip": False, "source": "평년값"}
             shows.append({
                 "id": f"e{e['seq']}-{d.strftime('%m%d')}",
@@ -298,7 +298,7 @@ def build_real(today: date, days: int = 45) -> list[dict]:
                 "audience": audience_of(e["title"], e.get("age", "")),
                 "capacity": VENUES[venue]["capacity"],
                 "weather": w,
-                "official": {k: e.get(k, "") for k in ("url", "poster", "age", "price", "host", "contact", "time_text")},
+                "official": {**{k: e.get(k, "") for k in ("url", "poster", "age", "price", "host", "contact", "time_text")}, "runDates": [e.get("start_date"), e.get("end_date")], "moreCount": max(0, len(upcoming) - 3)},
             })
     for s in shows:
         same_day = [x for x in shows if x["date"] == s["date"]]
