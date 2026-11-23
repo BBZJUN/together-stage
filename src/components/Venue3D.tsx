@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { FLOOR_R, stageFrontX, type Seat, type StageConfig } from "@/lib/venue";
-import { ConcertStage, Crowd } from "./ConcertScene";
+import { ConcertPost, ConcertStage, Crowd } from "./ConcertScene";
 
 export type ViewMode = "overview" | "seat";
 
@@ -76,7 +76,7 @@ function KspoModel({ night }: { night: boolean }) {
       const mat = m.material as THREE.MeshStandardMaterial;
       if (!mat?.color) return;
       mat.userData.day ??= mat.color.clone();
-      mat.color.copy(mat.userData.day as THREE.Color).multiplyScalar(night ? 0.22 : 1);
+      mat.color.copy(mat.userData.day as THREE.Color).multiplyScalar(night ? 0.12 : 1);
     });
   }, [scene, night]);
   useEffect(() => {
@@ -202,14 +202,14 @@ export default function Venue3D(props: Props) {
   return (
     <Canvas
       shadows={false}
-      dpr={[1, 2]}
+      dpr={night ? [1, 1.5] : [1, 2]}
       camera={{ position: [70, 62, 48], fov: 45, near: 0.1, far: 600 }}
       style={{ touchAction: "none" }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <color attach="background" args={[night ? "#05070c" : "#f2f4f6"]} />
-      {night && <fog attach="fog" args={["#05070c", 60, 140]} />}
-      <hemisphereLight args={night ? ["#3a4a6a", "#05070c", 0.35] : ["#ffffff", "#b9c2cc", 1.1]} />
+      {night && <fog attach="fog" args={["#05070c", 70, 160]} />}
+      <hemisphereLight args={night ? ["#26314d", "#05070c", 0.25] : ["#ffffff", "#b9c2cc", 1.1]} />
       <directionalLight position={[30, 60, 20]} intensity={night ? 0.08 : 1.1} />
       <Suspense fallback={null}>
         <KspoModel night={night} />
@@ -217,6 +217,7 @@ export default function Venue3D(props: Props) {
       {night ? <ConcertStage stage={stage} /> : <StageMeshes stage={stage} />}
       <Seats seats={props.seats} colors={props.colors} onSelect={props.onSelect} selected={selected} hidden={night} />
       {night && selected && <Crowd seats={props.seats} selected={selected} standing={standing} />}
+      {night && <ConcertPost />}
       <CameraRig mode={mode} selected={selected} stage={stage} platform={platform} />
       {mode === "overview" && <OrbitControls target={[0, 2, 0]} maxPolarAngle={Math.PI / 2.15} minDistance={15} maxDistance={170} />}
     </Canvas>
