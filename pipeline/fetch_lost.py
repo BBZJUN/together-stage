@@ -130,9 +130,22 @@ def main():
             (RAW / "lost_view.html").write_text(vp[:300000])
         items, summary = parse_view(vp) if vp else ([], "")
         lines = hwp_lines(ps["no"]) if 'boardDownload.es' in (vp or "") else []
+        # 관리대장 표: '품명' 칸이 있는 행을 머리글로 삼아 물품 단위로 구조화
+        head = None
+        for ln in lines:
+            cells = [c.strip() for c in ln.split(" | ")]
+            keys = [c.replace(" ", "") for c in cells]
+            if any(k in ("품명", "물품명", "습득물") for k in keys):
+                head = keys
+                continue
+            if head and len(cells) == len(head) and any(cells[1:]):
+                row = {k: v for k, v in zip(head, cells) if k and v}
+                name = row.get("품명") or row.get("물품명") or row.get("습득물")
+                if name:
+                    items.append(row)
         if i == 0:
             (RAW / "lost_hwp_sample.txt").write_text("\n".join(lines[:200]))
-        out.append({**ps, "url": VIEW.format(ps["no"]), "items": items[:60], "lines": lines[:150], "summary": summary})
+        out.append({**ps, "url": VIEW.format(ps["no"]), "items": items[:80], "lines": [] if items else lines[:60], "summary": summary})
         time.sleep(1)
     if not out:
         print("수집 실패 — 기존 파일 유지")

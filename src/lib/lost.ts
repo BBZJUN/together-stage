@@ -50,9 +50,9 @@ export function lostItems(): LostItem[] {
     }
     for (const it of n.items) {
       out.push({
-        date: pick(it, ["습득일", "일자", "날짜"]) || (n.date ?? ""),
-        name: pick(it, ["물품", "품명", "습득물", "내용", "분류"]) || Object.values(it).join(" "),
-        place: pick(it, ["장소", "위치"]),
+        date: (pick(it, ["접수일", "습득일", "일자", "날짜"]) || (n.date ?? "")).replace(/\.\s*/g, "-").replace(/-$/, ""),
+        name: [pick(it, ["품명", "물품", "습득물", "내용", "분류"]), pick(it, ["형상", "특징"])].filter(Boolean).join(" · ") || Object.values(it).join(" "),
+        place: [n.title.replace(/\s*\d+월.*$/, ""), pick(it, ["장소", "위치"])].filter(Boolean).join(" "),
         storage: pick(it, ["보관"]) || lostCenter.name,
         url: n.url,
         notice: n.title,
