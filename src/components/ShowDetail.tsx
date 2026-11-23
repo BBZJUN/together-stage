@@ -82,7 +82,12 @@ export default function ShowDetail({ show }: { show: Show }) {
         <p className="text-[0.9375rem] font-medium text-ink-3">
           {fmtDate(show.date)} {show.start}~{end}
         </p>
-        <h1 className="mt-1 text-[1.375rem] font-bold leading-snug tracking-tight">{show.title}</h1>
+        <h1 className="mt-1 text-[1.375rem] font-bold leading-snug tracking-tight">
+          {show.title.startsWith("[샘플]") && (
+            <span className="mr-2 inline-block translate-y-[-3px] rounded-md bg-grey-100 px-1.5 py-0.5 align-middle text-[0.75rem] font-semibold text-ink-3">샘플</span>
+          )}
+          {show.title.replace("[샘플] ", "")}
+        </h1>
         <p className="mt-1 text-[0.9375rem] text-ink-3">
           {show.venue}, {show.weather.sky} {show.weather.temp}°C
         </p>

@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { Mic, Volume2, VolumeX } from "lucide-react";
 import { useNeeds } from "@/lib/mode";
 
 interface Msg {
@@ -87,17 +88,18 @@ export default function Chat() {
   return (
     <div className={`band flex flex-1 flex-col px-5 pt-2 ${senior ? "pb-64" : "pb-44"}`}>
       <div className="flex items-center justify-between">
-        <h1 className="text-[1.5rem] font-bold tracking-tight">AI 메이트</h1>
+        <h1 className="text-[1.5rem] font-bold tracking-tight">물어보기</h1>
         <button
           onClick={() => setSpeak(!speak)}
           aria-pressed={speak}
-          className={`press rounded-full px-3 py-1.5 text-[0.8125rem] font-semibold ${speak ? "bg-blue-soft text-blue" : "bg-grey-100 text-ink-3"}`}
+          className={`press flex min-h-9 items-center gap-1.5 rounded-full px-3.5 text-[0.8125rem] font-semibold ${speak ? "bg-blue-soft text-blue" : "bg-grey-100 text-ink-3"}`}
         >
-          {speak ? "🔊 소리로 듣는 중" : "🔈 소리로 듣기"}
+          {speak ? <Volume2 size={16} aria-hidden /> : <VolumeX size={16} aria-hidden />}
+          {speak ? "읽어주는 중" : "읽어주기"}
         </button>
       </div>
 
-      <div className="mt-5 flex flex-1 flex-col gap-2.5" aria-live="polite">
+      <div className={`mt-5 flex flex-col gap-2.5 ${msgs.length ? "flex-1" : ""}`} aria-live="polite">
         <div className={`max-w-[85%] rounded-[1.25rem] rounded-tl-md bg-grey-100 px-4 py-3 leading-relaxed ${bubble}`}>
           {senior
             ? "안녕하세요. 어디서 출발해서 어느 공연장에 가시는지 말씀해 주시면 편한 길을 알려드릴게요."
@@ -146,9 +148,10 @@ export default function Chat() {
         {senior && (
           <button
             onClick={listen}
-            className={`press mb-2 h-14 w-full rounded-2xl text-[1.0625rem] font-semibold text-white ${listening ? "bg-blue-dark" : "bg-blue"}`}
+            className={`press mb-2 flex h-14 w-full items-center justify-center gap-2 rounded-2xl text-[1.0625rem] font-semibold text-white ${listening ? "bg-blue-dark" : "bg-blue"}`}
           >
-            {listening ? "듣고 있어요, 말씀하세요" : "🎙️ 눌러서 말로 물어보기"}
+            <Mic size={22} aria-hidden className={listening ? "animate-pulse" : ""} />
+            {listening ? "듣고 있어요, 말씀하세요" : "눌러서 말로 물어보기"}
           </button>
         )}
         <form
@@ -166,8 +169,8 @@ export default function Chat() {
             className={`min-w-0 flex-1 bg-transparent outline-none placeholder:text-ink-3 ${bubble}`}
           />
           {!senior && (
-            <button type="button" onClick={listen} aria-label="음성으로 입력" className="press grid h-10 w-10 place-items-center rounded-xl text-lg">
-              🎙️
+            <button type="button" onClick={listen} aria-label="음성으로 입력" className={`press grid h-10 w-10 place-items-center rounded-xl ${listening ? "text-blue" : "text-ink-2"}`}>
+              <Mic size={20} aria-hidden className={listening ? "animate-pulse" : ""} />
             </button>
           )}
           <button

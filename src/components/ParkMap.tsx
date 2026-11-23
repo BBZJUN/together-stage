@@ -110,9 +110,9 @@ export function ParkMap({
       {showToilets &&
         toilets.map((t) => (
           <g key={t.id} transform={`translate(${t.x},${t.y})`}>
-            <circle r={7 * k} fill="#ffffff" stroke="#8b95a1" strokeWidth={1 * k} />
-            <text fontSize={8 * k} textAnchor="middle" dominantBaseline="central">
-              {t.wheelchair === "yes" ? "♿" : "🚻"}
+            <rect x={-8 * k} y={-6 * k} width={16 * k} height={12 * k} rx={3.5 * k} fill={t.wheelchair === "yes" ? "#0a8550" : "#6b7684"} stroke="#fff" strokeWidth={1.5 * k} />
+            <text fontSize={6.5 * k} fill="#fff" fontWeight={800} textAnchor="middle" dominantBaseline="central">
+              WC
             </text>
           </g>
         ))}
@@ -121,6 +121,8 @@ export function ParkMap({
         .map((b, i) => {
           const cx = b.p.reduce((s, q) => s + q[0], 0) / b.p.length;
           const cy = b.p.reduce((s, q) => s + q[1], 0) / b.p.length;
+          // 도착지 건물은 핀 위 말풍선이 이름을 대신 보여줌
+          if (dest && Math.hypot(dest.x - cx, dest.y - cy) < 60 * k) return null;
           return (
             <text key={i} x={cx} y={cy} fontSize={10 * k} fontWeight={700} textAnchor="middle" fill="#1b64da" stroke="#ffffff" strokeWidth={2.5 * k} paintOrder="stroke">
               {b.name === "올림픽체조경기장" ? "KSPO DOME" : b.name === "SK올림픽핸드볼경기장" ? "핸드볼경기장" : b.name}
@@ -145,10 +147,26 @@ export function ParkMap({
       )}
       {dest && (
         <g transform={`translate(${dest.x},${dest.y})`}>
-          <circle r={10 * k} fill="#3182f6" stroke="#fff" strokeWidth={2.5 * k} />
-          <text fontSize={10 * k} fill="#fff" textAnchor="middle" dominantBaseline="central">
-            ★
-          </text>
+          <ellipse cx={0} cy={0} rx={6 * k} ry={2.2 * k} fill="#191f28" opacity={0.18} />
+          <path
+            d={`M0 0 C ${-3 * k} ${-6 * k} ${-11 * k} ${-11 * k} ${-11 * k} ${-20 * k} A ${11 * k} ${11 * k} 0 1 1 ${11 * k} ${-20 * k} C ${11 * k} ${-11 * k} ${3 * k} ${-6 * k} 0 0 Z`}
+            fill="#3182f6"
+            stroke="#fff"
+            strokeWidth={2.5 * k}
+          />
+          <circle cy={-20 * k} r={4.2 * k} fill="#fff" />
+          {(() => {
+            const label = dest.name.replace("올림픽체조경기장", "KSPO DOME").replace("SK올림픽핸드볼경기장", "핸드볼경기장");
+            const w = (label.length * 7.6 + 18) * k;
+            return (
+              <g transform={`translate(0 ${-44 * k})`}>
+                <rect x={-w / 2} y={-10 * k} width={w} height={20 * k} rx={10 * k} fill="#191f28" />
+                <text fontSize={10.5 * k} fill="#fff" fontWeight={700} textAnchor="middle" dominantBaseline="central">
+                  {label}
+                </text>
+              </g>
+            );
+          })()}
         </g>
       )}
     </svg>
