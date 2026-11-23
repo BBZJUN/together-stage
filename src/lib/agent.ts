@@ -1,4 +1,4 @@
-import lost from "@/data/lost.json";
+import { lostCenter, lostItems, lostSource } from "./lost";
 import { endTime, fmtDate, getShow, getShows, isOfficial, occAtStart, peakOf } from "./data";
 import { getParking } from "./parking";
 import type { Show } from "./types";
@@ -156,8 +156,12 @@ export async function runTool(name: string, input: Record<string, string>) {
       return getParking();
     case "search_lost_items": {
       const k = input.keyword ?? "";
-      const hits = lost.items.filter((i) => i.name.includes(k) || i.place.includes(k));
-      return { source: lost.source, items: hits, contact: "올림픽공원 고객안내센터" };
+      const hits = lostItems().filter((i) => i.name.includes(k) || i.place.includes(k) || (i.notice ?? "").includes(k));
+      return {
+        source: lostSource === "official" ? "한국체육산업개발 유실물센터 습득 공고" : "sample",
+        items: hits.slice(0, 8),
+        contact: `${lostCenter.name} (${lostCenter.place}, ${lostCenter.phone.join(", ")})`,
+      };
     }
     default:
       return { error: "unknown tool" };
@@ -212,10 +216,12 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
 
   if (/잃어|분실|유실|두고|놓고/.test(text)) {
     const kw = ["응원봉", "지갑", "목도리", "안경", "장갑", "에어팟", "카드"].find((k) => text.includes(k)) ?? "";
-    const res = (await runTool("search_lost_items", { keyword: kw })) as { items: typeof lost.items };
-    if (res.items.length === 0) return `아직 비슷한 습득물이 등록되지 않았어요. 올림픽공원 고객안내센터에 분실 신고를 남겨 두세요.${sample}`;
+    const res = (await runTool("search_lost_items", { keyword: kw })) as { items: ReturnType<typeof lostItems> };
+    const tail = lostSource === "official" ? "" : sample;
+    if (res.items.length === 0)
+      return `공식 습득 공고에서 아직 비슷한 물건을 찾지 못했어요. ${lostCenter.name}(${lostCenter.place}, ${lostCenter.phone[0]})에 분실 신고를 남겨 두세요.${tail}`;
     const it = res.items[0];
-    return `${it.date}에 '${it.name}'이(가) ${it.place}에서 습득됐어요. ${it.storage}에서 보관 중이에요.${sample}`;
+    return `${it.date ? `${it.date} ` : ""}공고에 '${it.name}'${it.place ? `(${it.place})` : ""}이(가) 올라와 있어요. ${it.storage}에 문의해 보세요.${tail}`;
   }
 
   if (/화장실/.test(text)) {
