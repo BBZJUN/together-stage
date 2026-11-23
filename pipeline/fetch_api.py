@@ -13,6 +13,7 @@ import os
 import sys
 import time
 import urllib.parse
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -51,8 +52,21 @@ def fetch(name: str) -> None:
     while page <= limit:
         q = urllib.parse.urlencode({"serviceKey": key, "pageNo": page, "numOfRows": per})
         sep = "&" if "?" in url else "?"
-        with urllib.request.urlopen(f"{url}{sep}{q}", timeout=60) as r:
-            body = r.read()
+        body = None
+        for attempt in range(6):  # 429(요청 과다)·일시 오류는 기다렸다 재시도
+            try:
+                with urllib.request.urlopen(f"{url}{sep}{q}", timeout=90) as r:
+                    body = r.read()
+                break
+            except urllib.error.HTTPError as e:
+                if e.code not in (429, 500, 502, 503, 504):
+                    raise
+                wait = 5 * 2**attempt
+                print(f"[{name}] page {page}: HTTP {e.code}, {wait}s 대기")
+                time.sleep(wait)
+        if body is None:
+            print(f"[{name}] page {page}: 재시도 실패 — 여기까지 저장")
+            break
         if page == 1:
             (RAW / f"api_{name.lower()}_first_page.txt").write_bytes(body[:20000])
         items, total = parse(body)
@@ -61,7 +75,7 @@ def fetch(name: str) -> None:
         if not items or (total and len(rows) >= total):
             break
         page += 1
-        time.sleep(0.2)
+        time.sleep(2.0)
     (RAW / f"api_{name.lower()}.json").write_text(json.dumps(rows, ensure_ascii=False))
     (RAW / f"api_{name.lower()}_sample.json").write_text(json.dumps(rows[:20], ensure_ascii=False, indent=1))
 
