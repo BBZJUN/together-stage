@@ -155,7 +155,7 @@ export default function Insight() {
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (펜스·표지판은 미반영)</p>
+        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (앞 난간 1.0m 반영, 1.2m 펜스면 평균 23%까지 떨어짐)</p>
         <Proposal>
           <b>제안</b> 콘서트처럼 관객이 일어서는 공연은 휠체어석 구역에 이동식 단상을 두고, 무대 배치 단계에서 휠체어석 시야를 미리 점검해 주세요.{" "}
           <Link href="/seats" className="font-semibold text-blue underline underline-offset-2">

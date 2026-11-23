@@ -119,7 +119,10 @@ export function sectionAngle(no: number) {
  * 휠체어석: 올림픽공원 공식 좌석배치도 기준 "C블록(무대 정면, 5~11구역) 뒤편 장애인석"
  * (ksponco.or.kr 일정안내 좌석배치도). 정면 스탠드 하단 구역 끝줄에 배치. 세부 좌석 번호는 추정.
  */
-const WHEEL_ANGLES = [-36, -24, -12, 0, 12, 24, 36].map((d) => (d * Math.PI) / 180);
+// 국내 기준: 관람석 1% 이상, 2천 석 이상이면 20석 이상 (공연장안전지원센터 「객석 설계 안전 가이드」 재인용) → 20석 내외로 배치
+const WHEEL_ANGLES = [-36, -27, -18, -9, 0, 9, 18, 27, 36].map((d) => (d * Math.PI) / 180);
+/** 휠체어석 앞 난간(펜스) 기본 높이: 객석통로 난간 기준 900~1,000mm의 상단 (실측값 아님) */
+export const DEFAULT_FENCE = 1.0;
 
 /** 무대 뒤로 시야가 막히는 각도(무대 뒤편 스탠드)는 좌석 판매 안 함 */
 function behindStage(a: number) {
@@ -258,7 +261,7 @@ function blockAt(x: number, z: number, standing: boolean, stage: StageConfig): {
   return { h: g, kind: "구조물" };
 }
 
-export type BlockCause = "앞사람" | "구조물" | "스피커";
+export type BlockCause = "앞사람" | "구조물" | "스피커" | "펜스";
 
 export interface Visibility {
   ratio: number;
@@ -268,7 +271,7 @@ export interface Visibility {
 export function seatVisibility(
   seat: Seat,
   stage: StageConfig,
-  opts: { standing: boolean; seated?: boolean; platform?: number },
+  opts: { standing: boolean; seated?: boolean; platform?: number; fence?: number },
   targets = stageTargets(stage),
   obstacles = stageObstacles(stage),
 ): Visibility {
@@ -276,13 +279,18 @@ export function seatVisibility(
   const eyeH = seat.wheelchair ? 1.2 + (opts.platform ?? 0) : sitting ? 1.15 : 1.6;
   const eye: Vec3 = [seat.pos[0], seat.pos[1] + eyeH, seat.pos[2]];
   let ok = 0;
-  const cause: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0 };
+  const cause: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0, 펜스: 0 };
+  // 휠체어석 앞 0.4~0.7m 난간: 원래 바닥 기준 높이 (단상을 올리면 눈높이만 올라감)
+  const fenceTop = seat.wheelchair ? seat.pos[1] + (opts.fence ?? DEFAULT_FENCE) : -Infinity;
   for (const t of targets) {
     const d: Vec3 = [t[0] - eye[0], t[1] - eye[1], t[2] - eye[2]];
     const len = Math.hypot(d[0], d[1], d[2]);
     const steps = Math.ceil(len / 0.4);
     let blocked: BlockCause | null = null;
-    for (let i = 1; i < steps - 1; i++) {
+    // 눈앞 0.55m 난간 윗선보다 시선이 낮으면 펜스에 가림
+    const hl = Math.hypot(d[0], d[2]);
+    if (hl > 0 && eye[1] + d[1] * (0.55 / hl) < fenceTop) blocked = "펜스";
+    for (let i = 1; i < steps - 1 && !blocked; i++) {
       const k = i / steps;
       const p: Vec3 = [eye[0] + d[0] * k, eye[1] + d[1] * k, eye[2] + d[2] * k];
       if (Math.hypot(p[0] - eye[0], p[2] - eye[2]) < 0.7) continue;

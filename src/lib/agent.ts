@@ -122,7 +122,7 @@ export async function runTool(name: string, input: Record<string, string>) {
         const vs = seats.map((x) => seatVisibility(x, DEFAULT_STAGE, { standing }, T, O).ratio);
         return { avgVisible: Math.round((vs.reduce((a, b) => a + b, 0) / vs.length) * 100), poorSeats: vs.filter((x) => x < 0.6).length };
       };
-      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 공식 좌석배치도의 C블록(무대 정면) 뒤편 장애인석 기준, 세부 좌석은 추정. 휠체어석 앞 펜스·표지판은 계산에 미포함" };
+      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 공식 좌석배치도의 C블록(무대 정면) 뒤편 장애인석 기준, 세부 좌석은 추정. 휠체어석 앞 난간 1.0m(설계 기준) 반영. 펜스·표지판이 1.2m(앉은 눈높이)면 평균 23%로 떨어지고 단상 60cm로 회복" };
     }
     case "find_toilets": {
       const v = venueOf(input.venue) ?? venues[0];

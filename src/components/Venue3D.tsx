@@ -18,6 +18,8 @@ interface Props {
   standing: boolean;
   /** 휠체어석 단상 높이(m) */
   platform?: number;
+  /** 휠체어석 앞 펜스 높이(m) */
+  fence?: number;
   onSelect: (s: Seat) => void;
 }
 
@@ -196,8 +198,34 @@ function CameraRig({ mode, selected, stage, platform = 0 }: Pick<Props, "mode" |
   return null;
 }
 
+/** 휠체어석 앞 0.55m 난간 (원래 바닥 기준 높이) */
+function WheelFence({ seat, fence }: { seat: Seat; fence: number }) {
+  const dir = new THREE.Vector2(SX - 2 - seat.pos[0], -seat.pos[2]).normalize();
+  const x = seat.pos[0] + dir.x * 0.55;
+  const z = seat.pos[2] + dir.y * 0.55;
+  const yaw = Math.atan2(dir.x, dir.y);
+  return (
+    <group position={[x, seat.pos[1], z]} rotation-y={yaw}>
+      <mesh position={[0, fence, 0]}>
+        <boxGeometry args={[2.4, 0.06, 0.06]} />
+        <meshStandardMaterial color="#9aa3b2" metalness={0.7} roughness={0.3} />
+      </mesh>
+      <mesh position={[0, fence / 2, 0]}>
+        <boxGeometry args={[2.4, fence, 0.02]} />
+        <meshStandardMaterial color="#1b2130" transparent opacity={0.55} />
+      </mesh>
+      {fence > 1.1 && (
+        <mesh position={[0.5, fence - 0.25, -0.02]}>
+          <boxGeometry args={[0.9, 0.4, 0.02]} />
+          <meshStandardMaterial color="#e9ecef" emissive="#ffffff" emissiveIntensity={0.15} />
+        </mesh>
+      )}
+    </group>
+  );
+}
+
 export default function Venue3D(props: Props) {
-  const { mode, selected, stage, standing, platform = 0 } = props;
+  const { mode, selected, stage, standing, platform = 0, fence = 1 } = props;
   const night = mode === "seat" && !!selected;
   // 저사양 기기: 처음부터 가볍게 시작하고, 실제로 프레임이 떨어지면 빛 번짐을 끄고 해상도를 낮춤
   const [low, setLow] = useState(() => {
@@ -222,6 +250,7 @@ export default function Venue3D(props: Props) {
       </Suspense>
       {night ? <ConcertStage stage={stage} /> : <StageMeshes stage={stage} />}
       <Seats seats={props.seats} colors={props.colors} onSelect={props.onSelect} selected={selected} hidden={night} />
+      {night && selected?.wheelchair && fence > 0 && <WheelFence seat={selected} fence={fence} />}
       {night && selected && <Crowd seats={props.seats} selected={selected} standing={standing} />}
       {night && <PerformanceMonitor onDecline={() => setLow(true)} flipflops={2} onFallback={() => setLow(true)} />}
       {night && !low && <ConcertPost />}

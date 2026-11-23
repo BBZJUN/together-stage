@@ -19,6 +19,8 @@ export interface AssessOptions {
   standing: boolean;
   /** 휠체어석 단상 높이(m) */
   platform: number;
+  /** 휠체어석 앞 난간·펜스 높이(m, 원래 바닥 기준) */
+  fence: number;
 }
 
 export interface SeatResult {
@@ -67,14 +69,14 @@ export async function assess(stage: StageConfig, opts: AssessOptions, onProgress
   const CHUNK = 900;
   for (let i = 0; i < seats.length; i += CHUNK) {
     for (let k = i; k < Math.min(seats.length, i + CHUNK); k++) {
-      const v = seatVisibility(seats[k], stage, { standing: opts.standing, platform: opts.platform }, T, O);
+      const v = seatVisibility(seats[k], stage, { standing: opts.standing, platform: opts.platform, fence: opts.fence }, T, O);
       results[k] = { seat: seats[k], ratio: v.ratio, cause: v.blockedBy };
     }
     onProgress?.(Math.min(1, (i + CHUNK) / seats.length));
     await new Promise((r) => setTimeout(r, 0));
   }
 
-  const causes: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0 };
+  const causes: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0, 펜스: 0 };
   const bySec = new Map<string, SeatResult[]>();
   for (const r of results) {
     const key = `${r.seat.tier}|${r.seat.section}`;
@@ -107,7 +109,7 @@ export async function assess(stage: StageConfig, opts: AssessOptions, onProgress
 
   const wheelRs = results.filter((r) => r.seat.wheelchair);
   // 단상을 올렸을 때도 같이 계산 (권고 근거)
-  const withPlat = wheelRs.map((r) => seatVisibility(r.seat, stage, { standing: opts.standing, platform: 0.6 }, T, O).ratio);
+  const withPlat = wheelRs.map((r) => seatVisibility(r.seat, stage, { standing: opts.standing, platform: 0.6, fence: opts.fence }, T, O).ratio);
   const avg = (xs: number[]) => Math.round((xs.reduce((a, b) => a + b, 0) / Math.max(1, xs.length)) * 100);
   return {
     stage,

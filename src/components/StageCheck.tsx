@@ -101,6 +101,7 @@ export default function StageCheck() {
   const [speakers, setSpeakers] = useState(true);
   const [standing, setStanding] = useState(true);
   const [platform, setPlatform] = useState(0);
+  const [fence, setFence] = useState(1.0);
   const [progress, setProgress] = useState<number | null>(null);
   const [res, setRes] = useState<Assessment | null>(null);
   const job = useRef(0);
@@ -113,7 +114,7 @@ export default function StageCheck() {
   const run = async () => {
     const id = ++job.current;
     setProgress(0);
-    const a = await assess(stage, { standing, platform }, (p) => id === job.current && setProgress(p));
+    const a = await assess(stage, { standing, platform, fence }, (p) => id === job.current && setProgress(p));
     if (id !== job.current) return;
     setRes(a);
     setProgress(null);
@@ -208,6 +209,23 @@ export default function StageCheck() {
             </div>
           </div>
         </div>
+        <div className="mt-3">
+          <p className="text-[0.8125rem] font-semibold text-ink-3">휠체어석 앞 펜스·난간 높이</p>
+          <div className="mt-1.5">
+            <Segmented
+              label="휠체어석 앞 펜스 높이"
+              value={String(fence)}
+              onChange={(v) => setFence(Number(v))}
+              options={[
+                { value: "0", label: "없음" },
+                { value: "1", label: "1.0m" },
+                { value: "1.2", label: "1.2m" },
+                { value: "1.5", label: "1.5m" },
+              ]}
+            />
+          </div>
+          <p className="mt-1.5 text-[0.75rem] leading-relaxed text-ink-3">객석통로 난간 설계 기준은 0.9~1.0m예요. 앉은 휠체어 이용자 눈높이(약 1.2m)를 넘는 펜스·표지판은 무대를 가려요.</p>
+        </div>
         <button
           onClick={run}
           disabled={progress !== null}
@@ -224,7 +242,7 @@ export default function StageCheck() {
             <p className="text-[0.8125rem] text-ink-3">
               {res.stage.type === "end" ? "끝무대" : `돌출무대 ${res.stage.thrustLength}m`} · 폭 {res.stage.width}m · 높이 {res.stage.height}m · 스피커 {res.stage.speakers ? "있음" : "없음"} ·{" "}
               {res.opts.standing ? "일어서서 관람" : "앉아서 관람"}
-              {res.opts.platform ? ` · 단상 ${Math.round(res.opts.platform * 100)}cm` : ""}
+              {res.opts.platform ? ` · 단상 ${Math.round(res.opts.platform * 100)}cm` : ""} · 휠체어석 앞 펜스 {res.opts.fence ? `${res.opts.fence}m` : "없음"}
             </p>
             <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {[
@@ -276,6 +294,11 @@ export default function StageCheck() {
                 <li className="rounded-2xl bg-grey-50 px-4 py-3">
                   <b className="text-ink">일어서는 공연:</b> 앞사람이 일어서면 {res.crowd.toLocaleString()}석(플로어 제외)에서 무대가 60% 미만으로 보여요
                   {crowdSections.length > 0 && ` (${crowdSections.map(secName).join(", ")} 순)`}.
+                </li>
+              )}
+              {res.causes.펜스 > 0 && (
+                <li className="rounded-2xl bg-[#fff4e5] px-4 py-3 text-[#8a4b00]">
+                  <b>휠체어석 앞 펜스:</b> {res.causes.펜스}석이 펜스 때문에 무대가 가려요. 펜스·구역 표지판을 앉은 눈높이(약 1.2m)보다 낮추거나 투명 소재로 바꾸고, 표지판은 휠체어석 시선 밖으로 옮기세요.
                 </li>
               )}
               {res.causes.스피커 > 0 && (

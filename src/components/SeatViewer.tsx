@@ -36,11 +36,11 @@ const TONE_LABEL = { good: "잘 보임", mid: "조금 가림", bad: "많이 가�
 
 type StageKey = keyof typeof STAGE_PRESETS;
 
-function wheelStats(seats: Seat[], stageKey: StageKey, standing: boolean, platform: number) {
+function wheelStats(seats: Seat[], stageKey: StageKey, standing: boolean, platform: number, fence: number) {
   const st = STAGE_PRESETS[stageKey].stage;
   const T = stageTargets(st);
   const O = stageObstacles(st);
-  const vs = seats.filter((s) => s.wheelchair).map((s) => seatVisibility(s, st, { standing, platform }, T, O).ratio);
+  const vs = seats.filter((s) => s.wheelchair).map((s) => seatVisibility(s, st, { standing, platform, fence }, T, O).ratio);
   return { avg: Math.round((vs.reduce((a, b) => a + b, 0) / Math.max(1, vs.length)) * 100), poor: vs.filter((v) => v < 0.6).length, n: vs.length };
 }
 
@@ -122,6 +122,7 @@ export default function SeatViewer() {
   const seats = useMemo(() => generateSeats(stage), [stage]);
   const [standing, setStanding] = useState(true);
   const [platform, setPlatform] = useState(0);
+  const [fence, setFence] = useState(1.0);
   const [onlyWheel, setOnlyWheel] = useState(false);
   const [vis, setVis] = useState<(Visibility | null)[]>([]);
   const [selId, setSelId] = useState<string | null>(() => params.get("seat"));
@@ -160,13 +161,13 @@ export default function SeatViewer() {
           out[i] = out[i - (i % 3)];
           continue;
         }
-        out[i] = seatVisibility(seats[i], stage, { standing, platform }, T, O);
+        out[i] = seatVisibility(seats[i], stage, { standing, platform, fence }, T, O);
       }
       setVis([...out]);
       if (k < order.length) setTimeout(tick, 0);
     };
     tick();
-  }, [seats, stage, standing, platform]);
+  }, [seats, stage, standing, platform, fence]);
 
   const colors = useMemo(() => {
     const c = new Float32Array(seats.length * 3);
@@ -182,11 +183,11 @@ export default function SeatViewer() {
 
   const compare = useMemo(
     () => [
-      { label: "앞사람이 앉았을 때", ...wheelStats(seats, stageKey, false, 0) },
-      { label: "앞사람이 일어섰을 때", ...wheelStats(seats, stageKey, true, 0) },
-      { label: "일어섬 + 휠체어석 단상 60cm", ...wheelStats(seats, stageKey, true, 0.6) },
+      { label: "앞사람이 앉았을 때", ...wheelStats(seats, stageKey, false, 0, fence) },
+      { label: "앞사람이 일어섰을 때", ...wheelStats(seats, stageKey, true, 0, fence) },
+      { label: "일어섬 + 휠체어석 단상 60cm", ...wheelStats(seats, stageKey, true, 0.6, fence) },
     ],
-    [seats, stageKey],
+    [seats, stageKey, fence],
   );
   const cur = compare[platform ? 2 : standing ? 1 : 0];
 
@@ -234,7 +235,7 @@ export default function SeatViewer() {
   return (
     <div ref={box} className="relative h-[calc(100dvh-7rem-var(--tabs,0px)-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden bg-grey-100">
       <div className="absolute inset-x-0 top-0" style={{ bottom: snaps[0] - 28 }}>
-        <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} platform={platform} onSelect={pick} />
+        <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} platform={platform} fence={fence} onSelect={pick} />
       </div>
 
       {mode === "seat" && selected && (
@@ -384,6 +385,18 @@ export default function SeatViewer() {
               ]}
             />
           </div>
+          <p className="mt-3 text-[0.8125rem] font-semibold text-ink-3">휠체어석 앞 펜스·표지판 높이</p>
+          <div className="mt-1.5">
+            <Segmented
+              label="휠체어석 앞 펜스 높이"
+              value={String(fence)}
+              onChange={(v) => setFence(Number(v))}
+              options={[
+                { value: "1", label: "1.0m (난간 기준)" },
+                { value: "1.2", label: "1.2m" },
+              ]}
+            />
+          </div>
           <ul className="mt-4 flex flex-col gap-3">
             {compare.map((c, i) => {
               const on = c === cur;
@@ -407,7 +420,7 @@ export default function SeatViewer() {
             })}
           </ul>
           <p className="mt-4 rounded-2xl bg-[#e6f7ee] px-3.5 py-3 text-[0.875rem] leading-relaxed text-[#075c38]">
-            휠체어석 바닥을 60cm 높이면 앞사람이 일어서도 평균 시야가 {compare[1].avg}% → {compare[2].avg}%로 돌아와요.
+            휠체어석 바닥을 60cm 높이면 {fence > 1.1 ? "1.2m 펜스와 " : ""}앞사람이 일어서도 평균 시야가 {Math.min(compare[0].avg, compare[1].avg)}% → {compare[2].avg}%로 돌아와요.
           </p>
           <a href="/check" className="press mt-3 flex items-center justify-between rounded-2xl bg-ink px-4 py-3.5 text-[0.9375rem] font-semibold text-white">
             전체 좌석 점검 리포트 만들기
