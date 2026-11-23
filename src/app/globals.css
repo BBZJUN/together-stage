@@ -1,0 +1,106 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --grey-50: #f9fafb;
+  --grey-100: #f2f4f6;
+  --grey-200: #e5e8eb;
+  --grey-300: #d1d6db;
+  --ink: #191f28;
+  --ink-2: #4e5968;
+  --ink-3: #8b95a1;
+  --blue: #3182f6;
+  --blue-dark: #1b64da;
+  --blue-soft: #e8f3ff;
+  /* 혼잡 단계 — 항상 아이콘·텍스트와 함께 */
+  --lv-ok: #0fa968;
+  --lv-mid: #e8a10c;
+  --lv-busy: #f47524;
+  --lv-full: #f04452;
+  /* 점유율 막대 순차 램프 (블루 단일 색상) */
+  --seq-1: #c9e2ff;
+  --seq-2: #90c2ff;
+  --seq-3: #4593fc;
+  --seq-4: #1b64da;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-grey-50: var(--grey-50);
+  --color-grey-100: var(--grey-100);
+  --color-grey-200: var(--grey-200);
+  --color-grey-300: var(--grey-300);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-blue: var(--blue);
+  --color-blue-dark: var(--blue-dark);
+  --color-blue-soft: var(--blue-soft);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+/* 큰 글씨 모드: rem 기반이라 화면 전체가 함께 커짐 */
+html.senior {
+  font-size: 19px;
+}
+
+body {
+  background: var(--grey-100);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  letter-spacing: -0.01em;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* 누르는 피드백 — 토스식 살짝 눌림 */
+.press {
+  transition: transform 0.12s ease, background-color 0.12s ease;
+}
+.press:active {
+  transform: scale(0.98);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* 회색 띠로 구역 구분 */
+.band {
+  background: var(--bg);
+}
+.band + .band {
+  margin-top: 0.75rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .press {
+    animation: none;
+    transition: none;
+  }
+}

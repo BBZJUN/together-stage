@@ -1,0 +1,1668 @@
+{
+ "generatedAt": "2026-11-23T14:44:52",
+ "source": "sample",
+ "calibration": {
+  "source": "한국체육산업개발_올림픽공원 입출차 정보(2024-07, 215,528건)",
+  "records": 215528,
+  "maxConcurrent": 2202,
+  "exitThroughputPerHour": 1608,
+  "normalDailyPeakMedian": 966
+ },
+ "gates": {
+  "동2문": 700,
+  "남2문": 1000,
+  "북2문": 600
+ },
+ "shows": [
+  {
+   "id": "s01",
+   "title": "[샘플] K-POP 보이그룹 월드투어 서울",
+   "venue": "KSPO DOME",
+   "date": "2026-11-24",
+   "start": "19:00",
+   "runtime": 180,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 15000,
+   "weather": {
+    "temp": 3.8,
+    "sky": "흐림",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "18:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 16
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 12
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 9
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 7
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 3
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 1
+     }
+    ],
+    "expectedCars": 828,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "cars": 517,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 35,
+      "cars": 815,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 40,
+      "cars": 925,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 817,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "cars": 612,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 27,
+      "cars": 613,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 30,
+      "cars": 690,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 31,
+      "cars": 702,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 31,
+      "cars": 724,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "cars": 938,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 53,
+      "cars": 1224,
+      "level": "보통"
+     },
+     {
+      "h": 19,
+      "occ": 62,
+      "cars": 1416,
+      "level": "보통"
+     },
+     {
+      "h": 20,
+      "occ": 62,
+      "cars": 1421,
+      "level": "보통"
+     },
+     {
+      "h": 21,
+      "occ": 53,
+      "cars": 1221,
+      "level": "보통"
+     },
+     {
+      "h": 22,
+      "occ": 15,
+      "cars": 344,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 1,
+      "cars": 34,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s02",
+   "title": "[샘플] K-POP 보이그룹 월드투어 서울",
+   "venue": "KSPO DOME",
+   "date": "2026-11-25",
+   "start": "17:00",
+   "runtime": 180,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 15000,
+   "weather": {
+    "temp": 0.4,
+    "sky": "비",
+    "precip": true
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 21
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 16
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 12
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 9
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 1
+     }
+    ],
+    "expectedCars": 952,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "cars": 517,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 35,
+      "cars": 815,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 40,
+      "cars": 925,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 819,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "cars": 620,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 28,
+      "cars": 649,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 37,
+      "cars": 843,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 50,
+      "cars": 1146,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 60,
+      "cars": 1377,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 64,
+      "cars": 1476,
+      "level": "보통"
+     },
+     {
+      "h": 18,
+      "occ": 65,
+      "cars": 1487,
+      "level": "보통"
+     },
+     {
+      "h": 19,
+      "occ": 67,
+      "cars": 1540,
+      "level": "보통"
+     },
+     {
+      "h": 20,
+      "occ": 38,
+      "cars": 879,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 17,
+      "cars": 393,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 4,
+      "cars": 96,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 1,
+      "cars": 34,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s03",
+   "title": "[샘플] 인디밴드 연말 단독공연",
+   "venue": "올림픽홀",
+   "date": "2026-11-27",
+   "start": "19:30",
+   "runtime": 120,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 3000,
+   "weather": {
+    "temp": 1.3,
+    "sky": "구름많음",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "18:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "동2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 5
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 3
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 2
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 1
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 0
+     }
+    ],
+    "expectedCars": 166,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "cars": 517,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 35,
+      "cars": 815,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 40,
+      "cars": 925,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 817,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "cars": 612,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 27,
+      "cars": 612,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 30,
+      "cars": 684,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 29,
+      "cars": 673,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 26,
+      "cars": 599,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 25,
+      "cars": 575,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 28,
+      "cars": 649,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "cars": 754,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 33,
+      "cars": 759,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 24,
+      "cars": 559,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 4,
+      "cars": 96,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 1,
+      "cars": 34,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "title": "[샘플] 트로트 가수 전국투어 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-11-28",
+   "start": "18:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 15000,
+   "weather": {
+    "temp": -0.9,
+    "sky": "눈",
+    "precip": true
+   },
+   "reco": {
+    "carArrive": "15:00",
+    "fullAt": "16:00",
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 41
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 32
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 24
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 17
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 8
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 2
+     }
+    ],
+    "expectedCars": 2063,
+    "overflowCars": 417
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 12,
+      "cars": 279,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 24,
+      "cars": 553,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 33,
+      "cars": 748,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 35,
+      "cars": 802,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 32,
+      "cars": 735,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 33,
+      "cars": 751,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 45,
+      "cars": 1026,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 68,
+      "cars": 1564,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 17,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 18,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 19,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 20,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 21,
+      "occ": 8,
+      "cars": 183,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "title": "[샘플] 트로트 가수 전국투어 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-11-29",
+   "start": "14:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 15000,
+   "weather": {
+    "temp": 2.5,
+    "sky": "비",
+    "precip": true
+   },
+   "reco": {
+    "carArrive": "11:00",
+    "fullAt": "12:00",
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 43
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 34
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 25
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 18
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 8
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 2
+     }
+    ],
+    "expectedCars": 2063,
+    "overflowCars": 687
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 13,
+      "cars": 310,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 29,
+      "cars": 660,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 45,
+      "cars": 1036,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 69,
+      "cars": 1579,
+      "level": "보통"
+     },
+     {
+      "h": 12,
+      "occ": 100,
+      "cars": 2290,
+      "level": "만차"
+     },
+     {
+      "h": 13,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 14,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 15,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 16,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 17,
+      "occ": 35,
+      "cars": 808,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 28,
+      "cars": 654,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 24,
+      "cars": 556,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 18,
+      "cars": 418,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 8,
+      "cars": 183,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "title": "[샘플] 가족 뮤지컬 〈겨울 숲 친구들〉",
+   "venue": "우리금융아트홀",
+   "date": "2026-11-29",
+   "start": "11:00",
+   "runtime": 90,
+   "genre": "뮤지컬",
+   "audience": "family",
+   "capacity": 1200,
+   "weather": {
+    "temp": 2.5,
+    "sky": "비",
+    "precip": true
+   },
+   "reco": {
+    "carArrive": "10:00",
+    "fullAt": "12:00",
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "북2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 7
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 5
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 3
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 1
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 0
+     }
+    ],
+    "expectedCars": 140,
+    "overflowCars": 687
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 13,
+      "cars": 310,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 29,
+      "cars": 660,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 45,
+      "cars": 1036,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 69,
+      "cars": 1579,
+      "level": "보통"
+     },
+     {
+      "h": 12,
+      "occ": 100,
+      "cars": 2290,
+      "level": "만차"
+     },
+     {
+      "h": 13,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 14,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 15,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 16,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 17,
+      "occ": 35,
+      "cars": 808,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 28,
+      "cars": 654,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 24,
+      "cars": 556,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 18,
+      "cars": 418,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 8,
+      "cars": 183,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07",
+   "title": "[샘플] 걸그룹 팬미팅",
+   "venue": "티켓링크 라이브 아레나",
+   "date": "2026-12-01",
+   "start": "18:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 6000,
+   "weather": {
+    "temp": 2.8,
+    "sky": "비",
+    "precip": true
+   },
+   "reco": {
+    "carArrive": "17:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 10
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 8
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 6
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 2
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 0
+     }
+    ],
+    "expectedCars": 381,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "cars": 517,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 35,
+      "cars": 815,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 40,
+      "cars": 925,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 817,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "cars": 613,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 27,
+      "cars": 615,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 30,
+      "cars": 698,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 32,
+      "cars": 734,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 34,
+      "cars": 775,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 37,
+      "cars": 841,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 40,
+      "cars": 916,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 42,
+      "cars": 969,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 42,
+      "cars": 974,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 17,
+      "cars": 393,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 4,
+      "cars": 96,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 1,
+      "cars": 34,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s08",
+   "title": "[샘플] 7080 포크 가요 콘서트",
+   "venue": "올림픽홀",
+   "date": "2026-12-04",
+   "start": "15:00",
+   "runtime": 130,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 3000,
+   "weather": {
+    "temp": -1.6,
+    "sky": "맑음",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "14:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "동2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 10
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 8
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 6
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 2
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 0
+     }
+    ],
+    "expectedCars": 359,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "cars": 517,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 35,
+      "cars": 816,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 40,
+      "cars": 931,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 37,
+      "cars": 847,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 31,
+      "cars": 723,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 37,
+      "cars": 860,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 44,
+      "cars": 1012,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 45,
+      "cars": 1029,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 41,
+      "cars": 944,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 31,
+      "cars": 715,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 23,
+      "cars": 535,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 26,
+      "cars": 588,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 26,
+      "cars": 593,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 17,
+      "cars": 393,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 4,
+      "cars": 96,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 1,
+      "cars": 34,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s09",
+   "title": "[샘플] 발라드 가수 연말 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-12-05",
+   "start": "18:00",
+   "runtime": 170,
+   "genre": "대중음악",
+   "audience": "family",
+   "capacity": 15000,
+   "weather": {
+    "temp": 6.3,
+    "sky": "맑음",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 31
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 24
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 18
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 13
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 6
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 1
+     }
+    ],
+    "expectedCars": 1518,
+    "overflowCars": 0
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 12,
+      "cars": 279,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 24,
+      "cars": 553,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 33,
+      "cars": 748,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 35,
+      "cars": 801,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 32,
+      "cars": 730,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 32,
+      "cars": 726,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 40,
+      "cars": 913,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 51,
+      "cars": 1179,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 73,
+      "cars": 1679,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 90,
+      "cars": 2071,
+      "level": "혼잡"
+     },
+     {
+      "h": 18,
+      "occ": 94,
+      "cars": 2172,
+      "level": "혼잡"
+     },
+     {
+      "h": 19,
+      "occ": 90,
+      "cars": 2074,
+      "level": "혼잡"
+     },
+     {
+      "h": 20,
+      "occ": 84,
+      "cars": 1936,
+      "level": "혼잡"
+     },
+     {
+      "h": 21,
+      "occ": 12,
+      "cars": 284,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s10",
+   "title": "[샘플] 발라드 가수 연말 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-12-06",
+   "start": "17:00",
+   "runtime": 170,
+   "genre": "대중음악",
+   "audience": "family",
+   "capacity": 15000,
+   "weather": {
+    "temp": 0.1,
+    "sky": "흐림",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "15:00",
+    "fullAt": "16:00",
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "남2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 31
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 25
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 18
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 13
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 6
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 1
+     }
+    ],
+    "expectedCars": 1518,
+    "overflowCars": 26
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 12,
+      "cars": 279,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 24,
+      "cars": 554,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 33,
+      "cars": 753,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 823,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 35,
+      "cars": 800,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 38,
+      "cars": 874,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 53,
+      "cars": 1230,
+      "level": "보통"
+     },
+     {
+      "h": 15,
+      "occ": 78,
+      "cars": 1804,
+      "level": "혼잡"
+     },
+     {
+      "h": 16,
+      "occ": 95,
+      "cars": 2183,
+      "level": "만차"
+     },
+     {
+      "h": 17,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 18,
+      "occ": 94,
+      "cars": 2172,
+      "level": "혼잡"
+     },
+     {
+      "h": 19,
+      "occ": 90,
+      "cars": 2074,
+      "level": "혼잡"
+     },
+     {
+      "h": 20,
+      "occ": 23,
+      "cars": 519,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 8,
+      "cars": 183,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11",
+   "title": "[샘플] 가족 뮤지컬 〈겨울 숲 친구들〉",
+   "venue": "우리금융아트홀",
+   "date": "2026-12-06",
+   "start": "14:00",
+   "runtime": 90,
+   "genre": "뮤지컬",
+   "audience": "family",
+   "capacity": 1200,
+   "weather": {
+    "temp": 0.1,
+    "sky": "흐림",
+    "precip": false
+   },
+   "reco": {
+    "carArrive": "13:00",
+    "fullAt": "16:00",
+    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
+    "bestGate": "북2문",
+    "exits": [
+     {
+      "leaveMin": 0,
+      "waitMin": 7
+     },
+     {
+      "leaveMin": 10,
+      "waitMin": 6
+     },
+     {
+      "leaveMin": 20,
+      "waitMin": 4
+     },
+     {
+      "leaveMin": 30,
+      "waitMin": 3
+     },
+     {
+      "leaveMin": 45,
+      "waitMin": 1
+     },
+     {
+      "leaveMin": 60,
+      "waitMin": 0
+     }
+    ],
+    "expectedCars": 121,
+    "overflowCars": 26
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 12,
+      "cars": 279,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 24,
+      "cars": 554,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 33,
+      "cars": 753,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 36,
+      "cars": 823,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 35,
+      "cars": 800,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 38,
+      "cars": 874,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 53,
+      "cars": 1230,
+      "level": "보통"
+     },
+     {
+      "h": 15,
+      "occ": 78,
+      "cars": 1804,
+      "level": "혼잡"
+     },
+     {
+      "h": 16,
+      "occ": 95,
+      "cars": 2183,
+      "level": "만차"
+     },
+     {
+      "h": 17,
+      "occ": 100,
+      "cars": 2300,
+      "level": "만차"
+     },
+     {
+      "h": 18,
+      "occ": 94,
+      "cars": 2172,
+      "level": "혼잡"
+     },
+     {
+      "h": 19,
+      "occ": 90,
+      "cars": 2074,
+      "level": "혼잡"
+     },
+     {
+      "h": 20,
+      "occ": 23,
+      "cars": 519,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 8,
+      "cars": 183,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 3,
+      "cars": 61,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 2,
+      "cars": 36,
+      "level": "원활"
+     }
+    ]
+   }
+  }
+ ]
+}
