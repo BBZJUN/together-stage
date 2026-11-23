@@ -53,7 +53,8 @@ export function lostItems(): LostItem[] {
         date: (pick(it, ["접수일", "습득일", "일자", "날짜"]) || (n.date ?? "")).replace(/\.\s*/g, "-").replace(/-$/, ""),
         name: [pick(it, ["품명", "물품", "습득물", "내용", "분류"]), pick(it, ["형상", "특징"])].filter((x) => x && !/확인\s*가능/.test(x)).join(" · ") || Object.values(it).join(" "),
         place: [n.title.replace(/\s*\d+월.*$/, ""), pick(it, ["장소", "위치"])].filter(Boolean).join(" "),
-        storage: pick(it, ["보관"]) || lostCenter.name,
+        // 공고 머리말: "습득물을 보관하고 있으니 … 안내데스크에 문의" — 시설 안내데스크 보관
+        storage: pick(it, ["보관"]) || `${n.title.replace(/\s*(\d{4}년\s*)?\d+월.*$/, "")} 안내데스크`,
         url: n.url,
         notice: n.title,
       });
