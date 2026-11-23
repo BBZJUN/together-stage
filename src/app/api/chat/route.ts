@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { TOOLS, fallbackReply, runTool, systemPrompt } from "@/lib/agent";
+import { geminiReply } from "@/lib/gemini";
 import type { Need } from "@/lib/mode";
 
 interface Msg {
@@ -18,14 +19,26 @@ export async function POST(req: Request) {
   };
   const last = messages.at(-1)?.content ?? "";
 
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) {
-    return Response.json({ reply: await fallbackReply(last, needs, showId), engine: "rule" });
-  }
-
   const cacheKey = messages.length === 1 ? `${needs.join(",")}|${showId ?? ""}|${last}` : "";
   if (cacheKey && cache.has(cacheKey)) {
     return Response.json({ reply: cache.get(cacheKey), engine: "cache" });
+  }
+
+  // 1순위: Gemini (무료 등급) → 2순위: Anthropic → 키가 없거나 실패하면 규칙 기반
+  const gkey = process.env.GEMINI_API_KEY;
+  if (gkey) {
+    try {
+      const reply = await geminiReply(gkey, systemPrompt(needs, showId), messages);
+      if (cacheKey) cache.set(cacheKey, reply);
+      return Response.json({ reply, engine: "gemini" });
+    } catch {
+      /* 무료 한도 초과 등 → 아래로 */
+    }
+  }
+
+  const key = process.env.ANTHROPIC_API_KEY;
+  if (!key) {
+    return Response.json({ reply: await fallbackReply(last, needs, showId), engine: "rule" });
   }
 
   try {
