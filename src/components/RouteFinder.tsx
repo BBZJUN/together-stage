@@ -213,7 +213,7 @@ export default function RouteFinder() {
         </button>
       </div>
 
-      <BottomSheet snaps={snaps} index={snap} onIndexChange={setSnap} header={summary} onHeightChange={onSheetH}>
+      <BottomSheet snaps={snaps} index={snap} onIndexChange={setSnap} header={summary} onHeightChange={onSheetH} label="경로 안내">
         {result && r && (
           <>
             <div className="flex gap-2">

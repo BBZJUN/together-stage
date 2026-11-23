@@ -64,6 +64,19 @@ export const STAND_R1 = 57.0; // 마지막 줄
 export const ROW_DEPTH = 0.85;
 const UPPER_START = 40.5; // 이 반경부터 2층
 
+export const STAGE_PRESETS: Record<"end" | "thrust", { label: string; desc: string; stage: StageConfig }> = {
+  end: {
+    label: "끝무대",
+    desc: "플로어 한쪽 끝에 무대",
+    stage: { type: "end", width: 22, depth: 8, height: 1.8, thrustLength: 0, speakers: true, ledHeight: 9 },
+  },
+  thrust: {
+    label: "돌출무대",
+    desc: "무대가 객석 쪽으로 14m 뻗음",
+    stage: { type: "thrust", width: 22, depth: 8, height: 1.8, thrustLength: 14, speakers: true, ledHeight: 9 },
+  },
+};
+
 export const DEFAULT_STAGE: StageConfig = {
   type: "end",
   width: 22,
@@ -229,12 +242,12 @@ export interface Visibility {
 export function seatVisibility(
   seat: Seat,
   stage: StageConfig,
-  opts: { standing: boolean; seated?: boolean },
+  opts: { standing: boolean; seated?: boolean; platform?: number },
   targets = stageTargets(stage),
   obstacles = stageObstacles(stage),
 ): Visibility {
   const sitting = seat.wheelchair || opts.seated || !opts.standing;
-  const eyeH = seat.wheelchair ? 1.2 : sitting ? 1.15 : 1.6;
+  const eyeH = seat.wheelchair ? 1.2 + (opts.platform ?? 0) : sitting ? 1.15 : 1.6;
   const eye: Vec3 = [seat.pos[0], seat.pos[1] + eyeH, seat.pos[2]];
   let ok = 0;
   const cause: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0 };

@@ -15,6 +15,7 @@ export function BottomSheet({
   header,
   children,
   onHeightChange,
+  label = "자세히 보기",
 }: {
   snaps: number[];
   index: number;
@@ -22,6 +23,7 @@ export function BottomSheet({
   header: React.ReactNode;
   children: React.ReactNode;
   onHeightChange?: (h: number) => void;
+  label?: string;
 }) {
   const [drag, setDrag] = useState<number | null>(null); // 끄는 중인 높이
   const start = useRef<{ y: number; h: number; t: number; fromContent: boolean; onHandle?: boolean } | null>(null);
@@ -113,7 +115,8 @@ export function BottomSheet({
         <div
           role="button"
           tabIndex={0}
-          aria-label={`경로 안내 ${index === snaps.length - 1 ? "내리기" : "올리기"}`}
+          aria-label={`${label} ${index === snaps.length - 1 ? "내리기" : "올리기"}`}
+          data-sheet-handle
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
