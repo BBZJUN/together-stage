@@ -1,0 +1,20 @@
+bytes=65536 head=b'\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1' rc=1
+STDERR:
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/bin/hwp5txt", line 3, in <module>
+    from hwp5.hwp5txt import main
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/hwp5txt.py", line 30, in <module>
+    from .cli import init_logger
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/cli.py", line 30, in <module>
+    from .xmlmodel import Hwp5File
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/xmlmodel.py", line 30, in <module>
+    from . import binmodel
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/binmodel/__init__.py", line 28, in <module>
+    from .. import recordstream
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/recordstream.py", line 26, in <module>
+    from . import dataio
+  File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/site-packages/hwp5/dataio.py", line 30, in <module>
+    from six import with_metaclass
+ModuleNotFoundError: No module named 'six'
+
+STDOUT:

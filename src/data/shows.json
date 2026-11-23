@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-23T12:39:46",
+ "generatedAt": "2026-11-23T12:43:47",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -74,10 +74,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 9.9,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
+    "temp": 7.5,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
@@ -101,128 +101,128 @@
     "exits": [
      {
       "leaveMin": 0,
-      "waitMin": 41
+      "waitMin": 36
      },
      {
       "leaveMin": 10,
-      "waitMin": 32
+      "waitMin": 28
      },
      {
       "leaveMin": 20,
-      "waitMin": 24
+      "waitMin": 21
      },
      {
       "leaveMin": 30,
-      "waitMin": 17
+      "waitMin": 15
      },
      {
       "leaveMin": 45,
-      "waitMin": 8
+      "waitMin": 7
      },
      {
       "leaveMin": 60,
       "waitMin": 2
      }
     ],
-    "expectedCars": 2063,
+    "expectedCars": 1794,
     "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 24,
-      "cars": 1039,
+      "occ": 23,
+      "cars": 1006,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 29,
-      "cars": 1257,
+      "occ": 27,
+      "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
-      "cars": 1310,
+      "occ": 29,
+      "cars": 1270,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
-      "cars": 1231,
+      "cars": 1211,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 28,
-      "cars": 1234,
+      "occ": 27,
+      "cars": 1187,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 30,
-      "cars": 1304,
+      "occ": 28,
+      "cars": 1251,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 31,
-      "cars": 1373,
+      "occ": 30,
+      "cars": 1309,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 33,
-      "cars": 1446,
+      "occ": 31,
+      "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 33,
-      "cars": 1449,
+      "occ": 32,
+      "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
-      "cars": 1555,
+      "cars": 1546,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 32,
-      "cars": 1415,
+      "occ": 31,
+      "cars": 1365,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
-      "cars": 1377,
+      "occ": 30,
+      "cars": 1321,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 28,
-      "cars": 1239,
+      "occ": 27,
+      "cars": 1185,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 21,
-      "cars": 914,
+      "occ": 19,
+      "cars": 834,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 15,
-      "cars": 670,
+      "occ": 14,
+      "cars": 605,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 454,
+      "cars": 449,
       "level": "원활"
      }
     ]
@@ -239,10 +239,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 5.1,
-    "sky": "흐림",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
@@ -297,97 +297,97 @@
      {
       "h": 8,
       "occ": 22,
-      "cars": 975,
+      "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "cars": 1174,
+      "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
-      "cars": 1244,
+      "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
-      "cars": 1341,
+      "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
-      "cars": 1409,
+      "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
-      "cars": 1792,
+      "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
-      "cars": 1960,
+      "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
-      "cars": 1970,
+      "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "cars": 1830,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
-      "cars": 1477,
+      "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 29,
-      "cars": 1286,
+      "occ": 30,
+      "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
-      "cars": 1006,
+      "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
-      "cars": 661,
+      "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
-      "cars": 456,
+      "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 429,
+      "cars": 436,
       "level": "원활"
      }
     ]
@@ -404,10 +404,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 2.6,
-    "sky": "맑음",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
@@ -462,97 +462,97 @@
      {
       "h": 8,
       "occ": 21,
-      "cars": 909,
+      "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
-      "cars": 1023,
+      "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
-      "cars": 1212,
+      "occ": 27,
+      "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
-      "cars": 1410,
+      "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
-      "cars": 1732,
+      "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
-      "cars": 1914,
+      "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
-      "cars": 2112,
+      "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
-      "cars": 2255,
+      "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 54,
-      "cars": 2364,
+      "occ": 53,
+      "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
-      "cars": 2081,
+      "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
-      "cars": 1670,
+      "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "cars": 1374,
+      "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
-      "cars": 1148,
+      "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 18,
-      "cars": 774,
+      "occ": 17,
+      "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "cars": 511,
+      "occ": 11,
+      "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
-      "cars": 492,
+      "cars": 469,
       "level": "원활"
      }
     ]
@@ -569,10 +569,10 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 9.9,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
+    "temp": 7.5,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
@@ -608,7 +608,7 @@
      },
      {
       "leaveMin": 30,
-      "waitMin": 2
+      "waitMin": 1
      },
      {
       "leaveMin": 45,
@@ -619,105 +619,105 @@
       "waitMin": 0
      }
     ],
-    "expectedCars": 190,
+    "expectedCars": 166,
     "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 24,
-      "cars": 1039,
+      "occ": 23,
+      "cars": 1006,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 29,
-      "cars": 1257,
+      "occ": 27,
+      "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
-      "cars": 1310,
+      "occ": 29,
+      "cars": 1270,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
-      "cars": 1231,
+      "cars": 1211,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 28,
-      "cars": 1234,
+      "occ": 27,
+      "cars": 1187,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 30,
-      "cars": 1304,
+      "occ": 28,
+      "cars": 1251,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 31,
-      "cars": 1373,
+      "occ": 30,
+      "cars": 1309,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 33,
-      "cars": 1446,
+      "occ": 31,
+      "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 33,
-      "cars": 1449,
+      "occ": 32,
+      "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
-      "cars": 1555,
+      "cars": 1546,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 32,
-      "cars": 1415,
+      "occ": 31,
+      "cars": 1365,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
-      "cars": 1377,
+      "occ": 30,
+      "cars": 1321,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 28,
-      "cars": 1239,
+      "occ": 27,
+      "cars": 1185,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 21,
-      "cars": 914,
+      "occ": 19,
+      "cars": 834,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 15,
-      "cars": 670,
+      "occ": 14,
+      "cars": 605,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 454,
+      "cars": 449,
       "level": "원활"
      }
     ]
@@ -734,10 +734,10 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 5.1,
-    "sky": "흐림",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
@@ -792,97 +792,97 @@
      {
       "h": 8,
       "occ": 22,
-      "cars": 975,
+      "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "cars": 1174,
+      "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
-      "cars": 1244,
+      "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
-      "cars": 1341,
+      "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
-      "cars": 1409,
+      "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
-      "cars": 1792,
+      "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
-      "cars": 1960,
+      "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
-      "cars": 1970,
+      "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "cars": 1830,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
-      "cars": 1477,
+      "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 29,
-      "cars": 1286,
+      "occ": 30,
+      "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
-      "cars": 1006,
+      "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
-      "cars": 661,
+      "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
-      "cars": 456,
+      "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 429,
+      "cars": 436,
       "level": "원활"
      }
     ]
@@ -899,10 +899,10 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 2.6,
-    "sky": "맑음",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
@@ -957,97 +957,97 @@
      {
       "h": 8,
       "occ": 21,
-      "cars": 909,
+      "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
-      "cars": 1023,
+      "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
-      "cars": 1212,
+      "occ": 27,
+      "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
-      "cars": 1410,
+      "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
-      "cars": 1732,
+      "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
-      "cars": 1914,
+      "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
-      "cars": 2112,
+      "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
-      "cars": 2255,
+      "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 54,
-      "cars": 2364,
+      "occ": 53,
+      "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
-      "cars": 2081,
+      "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
-      "cars": 1670,
+      "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "cars": 1374,
+      "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
-      "cars": 1148,
+      "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 18,
-      "cars": 774,
+      "occ": 17,
+      "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "cars": 511,
+      "occ": 11,
+      "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
-      "cars": 492,
+      "cars": 469,
       "level": "원활"
      }
     ]
@@ -1064,10 +1064,10 @@
    "audience": "family",
    "capacity": 1200,
    "weather": {
-    "temp": 5.1,
-    "sky": "흐림",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
@@ -1122,97 +1122,97 @@
      {
       "h": 8,
       "occ": 22,
-      "cars": 975,
+      "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "cars": 1174,
+      "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
-      "cars": 1244,
+      "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
-      "cars": 1341,
+      "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
-      "cars": 1409,
+      "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
-      "cars": 1792,
+      "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
-      "cars": 1960,
+      "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
-      "cars": 1970,
+      "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "cars": 1830,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
-      "cars": 1477,
+      "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 29,
-      "cars": 1286,
+      "occ": 30,
+      "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
-      "cars": 1006,
+      "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
-      "cars": 661,
+      "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
-      "cars": 456,
+      "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 429,
+      "cars": 436,
       "level": "원활"
      }
     ]
@@ -1229,10 +1229,10 @@
    "audience": "family",
    "capacity": 1200,
    "weather": {
-    "temp": 2.6,
-    "sky": "맑음",
+    "temp": 7.5,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
@@ -1287,97 +1287,97 @@
      {
       "h": 8,
       "occ": 21,
-      "cars": 909,
+      "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
-      "cars": 1023,
+      "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
-      "cars": 1212,
+      "occ": 27,
+      "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
-      "cars": 1410,
+      "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
-      "cars": 1732,
+      "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
-      "cars": 1914,
+      "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
-      "cars": 2112,
+      "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
-      "cars": 2255,
+      "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 54,
-      "cars": 2364,
+      "occ": 53,
+      "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
-      "cars": 2081,
+      "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
-      "cars": 1670,
+      "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "cars": 1374,
+      "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
-      "cars": 1148,
+      "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 18,
-      "cars": 774,
+      "occ": 17,
+      "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "cars": 511,
+      "occ": 11,
+      "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
-      "cars": 492,
+      "cars": 469,
       "level": "원활"
      }
     ]
@@ -1394,10 +1394,10 @@
    "audience": "family",
    "capacity": 1200,
    "weather": {
-    "temp": 14.5,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
@@ -1421,11 +1421,11 @@
     "exits": [
      {
       "leaveMin": 0,
-      "waitMin": 5
+      "waitMin": 4
      },
      {
       "leaveMin": 10,
-      "waitMin": 4
+      "waitMin": 3
      },
      {
       "leaveMin": 20,
@@ -1444,15 +1444,15 @@
       "waitMin": 0
      }
     ],
-    "expectedCars": 140,
+    "expectedCars": 121,
     "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 44,
-      "cars": 1928,
+      "occ": 43,
+      "cars": 1893,
       "level": "원활"
      },
      {
@@ -1463,86 +1463,86 @@
      },
      {
       "h": 10,
-      "occ": 52,
-      "cars": 2269,
+      "occ": 53,
+      "cars": 2316,
       "level": "보통"
      },
      {
       "h": 11,
-      "occ": 49,
-      "cars": 2174,
-      "level": "원활"
+      "occ": 50,
+      "cars": 2186,
+      "level": "보통"
      },
      {
       "h": 12,
       "occ": 49,
-      "cars": 2164,
+      "cars": 2159,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 51,
-      "cars": 2231,
+      "cars": 2261,
       "level": "보통"
      },
      {
       "h": 14,
-      "occ": 51,
-      "cars": 2247,
+      "occ": 52,
+      "cars": 2283,
       "level": "보통"
      },
      {
       "h": 15,
-      "occ": 51,
-      "cars": 2263,
+      "occ": 52,
+      "cars": 2271,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 50,
-      "cars": 2178,
-      "level": "보통"
+      "occ": 49,
+      "cars": 2154,
+      "level": "원활"
      },
      {
       "h": 17,
-      "occ": 42,
-      "cars": 1869,
+      "occ": 41,
+      "cars": 1825,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
-      "cars": 1459,
+      "cars": 1430,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 29,
-      "cars": 1293,
+      "cars": 1267,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 25,
-      "cars": 1091,
+      "occ": 24,
+      "cars": 1077,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 18,
-      "cars": 806,
+      "occ": 17,
+      "cars": 763,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "cars": 510,
+      "occ": 13,
+      "cars": 552,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
-      "cars": 455,
+      "occ": 11,
+      "cars": 482,
       "level": "원활"
      }
     ]
@@ -1559,10 +1559,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 10.9,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5161",
@@ -1586,128 +1586,128 @@
     "exits": [
      {
       "leaveMin": 0,
-      "waitMin": 41
+      "waitMin": 36
      },
      {
       "leaveMin": 10,
-      "waitMin": 32
+      "waitMin": 28
      },
      {
       "leaveMin": 20,
-      "waitMin": 24
+      "waitMin": 21
      },
      {
       "leaveMin": 30,
-      "waitMin": 17
+      "waitMin": 15
      },
      {
       "leaveMin": 45,
-      "waitMin": 8
+      "waitMin": 7
      },
      {
       "leaveMin": 60,
       "waitMin": 2
      }
     ],
-    "expectedCars": 2063,
+    "expectedCars": 1794,
     "overflowCars": 0
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
-      "occ": 24,
-      "cars": 1038,
+      "occ": 23,
+      "cars": 1009,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
-      "cars": 1252,
+      "cars": 1212,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
-      "cars": 1310,
+      "occ": 29,
+      "cars": 1295,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
-      "cars": 1232,
+      "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 28,
-      "cars": 1233,
+      "occ": 27,
+      "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 30,
-      "cars": 1303,
+      "occ": 28,
+      "cars": 1248,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 31,
-      "cars": 1373,
+      "occ": 29,
+      "cars": 1297,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 33,
-      "cars": 1446,
+      "occ": 31,
+      "cars": 1359,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 33,
-      "cars": 1448,
+      "occ": 32,
+      "cars": 1393,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
-      "cars": 1554,
+      "cars": 1547,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 32,
-      "cars": 1415,
+      "occ": 31,
+      "cars": 1376,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "cars": 1373,
+      "cars": 1342,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 28,
-      "cars": 1235,
+      "occ": 27,
+      "cars": 1205,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 21,
-      "cars": 909,
+      "occ": 19,
+      "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
-      "cars": 624,
+      "cars": 617,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
-      "cars": 454,
+      "cars": 450,
       "level": "원활"
      }
     ]
@@ -1724,10 +1724,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 5.0,
-    "sky": "흐림",
+    "temp": 0.2,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5161",
@@ -1782,97 +1782,97 @@
      {
       "h": 8,
       "occ": 22,
-      "cars": 958,
+      "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
-      "cars": 1147,
+      "cars": 1161,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
-      "cars": 1261,
+      "cars": 1278,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
-      "cars": 1277,
+      "cars": 1281,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 30,
-      "cars": 1299,
+      "cars": 1300,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 33,
-      "cars": 1462,
+      "cars": 1465,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 44,
-      "cars": 1927,
+      "cars": 1929,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
-      "cars": 1967,
+      "cars": 1972,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 43,
-      "cars": 1902,
+      "occ": 44,
+      "cars": 1933,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 37,
-      "cars": 1634,
+      "occ": 39,
+      "cars": 1695,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 31,
-      "cars": 1378,
+      "occ": 33,
+      "cars": 1439,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 28,
-      "cars": 1250,
+      "occ": 30,
+      "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 22,
-      "cars": 986,
+      "occ": 23,
+      "cars": 1033,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
-      "cars": 611,
+      "cars": 633,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 10,
-      "cars": 439,
+      "occ": 11,
+      "cars": 464,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
-      "cars": 438,
+      "occ": 11,
+      "cars": 464,
       "level": "원활"
      }
     ]
@@ -1889,10 +1889,10 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 6.1,
-    "sky": "구름많음",
+    "temp": 0.2,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5161",
@@ -1947,19 +1947,19 @@
      {
       "h": 8,
       "occ": 20,
-      "cars": 862,
+      "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
-      "cars": 1000,
+      "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
-      "cars": 1144,
+      "cars": 1157,
       "level": "원활"
      },
      {
@@ -1983,61 +1983,61 @@
      {
       "h": 14,
       "occ": 46,
-      "cars": 2013,
+      "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
-      "cars": 2072,
+      "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
-      "cars": 2010,
+      "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 39,
-      "cars": 1729,
+      "occ": 41,
+      "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 33,
-      "cars": 1473,
+      "occ": 35,
+      "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 29,
-      "cars": 1283,
+      "occ": 31,
+      "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 23,
-      "cars": 1013,
+      "occ": 24,
+      "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 14,
-      "cars": 622,
+      "occ": 15,
+      "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
-      "cars": 479,
+      "occ": 12,
+      "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 11,
-      "cars": 480,
+      "occ": 12,
+      "cars": 509,
       "level": "원활"
      }
     ]
@@ -2054,10 +2054,10 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 5.0,
-    "sky": "흐림",
+    "temp": 0.2,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5171",
@@ -2112,97 +2112,97 @@
      {
       "h": 8,
       "occ": 22,
-      "cars": 958,
+      "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
-      "cars": 1147,
+      "cars": 1161,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
-      "cars": 1261,
+      "cars": 1278,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
-      "cars": 1277,
+      "cars": 1281,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 30,
-      "cars": 1299,
+      "cars": 1300,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 33,
-      "cars": 1462,
+      "cars": 1465,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 44,
-      "cars": 1927,
+      "cars": 1929,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
-      "cars": 1967,
+      "cars": 1972,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 43,
-      "cars": 1902,
+      "occ": 44,
+      "cars": 1933,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 37,
-      "cars": 1634,
+      "occ": 39,
+      "cars": 1695,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 31,
-      "cars": 1378,
+      "occ": 33,
+      "cars": 1439,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 28,
-      "cars": 1250,
+      "occ": 30,
+      "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 22,
-      "cars": 986,
+      "occ": 23,
+      "cars": 1033,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
-      "cars": 611,
+      "cars": 633,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 10,
-      "cars": 439,
+      "occ": 11,
+      "cars": 464,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
-      "cars": 438,
+      "occ": 11,
+      "cars": 464,
       "level": "원활"
      }
     ]
@@ -2219,10 +2219,10 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 6.1,
-    "sky": "구름많음",
+    "temp": 0.2,
+    "sky": null,
     "precip": false,
-    "source": "Open-Meteo 예보"
+    "source": "평년값"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5171",
@@ -2277,19 +2277,19 @@
      {
       "h": 8,
       "occ": 20,
-      "cars": 862,
+      "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
-      "cars": 1000,
+      "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
-      "cars": 1144,
+      "cars": 1157,
       "level": "원활"
      },
      {
@@ -2313,61 +2313,61 @@
      {
       "h": 14,
       "occ": 46,
-      "cars": 2013,
+      "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
-      "cars": 2072,
+      "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
-      "cars": 2010,
+      "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 39,
-      "cars": 1729,
+      "occ": 41,
+      "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 33,
-      "cars": 1473,
+      "occ": 35,
+      "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 29,
-      "cars": 1283,
+      "occ": 31,
+      "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 23,
-      "cars": 1013,
+      "occ": 24,
+      "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 14,
-      "cars": 622,
+      "occ": 15,
+      "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
-      "cars": 479,
+      "occ": 12,
+      "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 11,
-      "cars": 480,
+      "occ": 12,
+      "cars": 509,
       "level": "원활"
      }
     ]
