@@ -110,7 +110,7 @@ export function ParkMap({
       {showToilets &&
         toilets.map((t) => (
           <g key={t.id} transform={`translate(${t.x},${t.y})`}>
-            <rect x={-8 * k} y={-6 * k} width={16 * k} height={12 * k} rx={3.5 * k} fill={t.wheelchair === "yes" ? "#0a8550" : "#6b7684"} stroke="#fff" strokeWidth={1.5 * k} />
+            <rect x={-8 * k} y={-6 * k} width={16 * k} height={12 * k} rx={3.5 * k} fill={t.wheelchair === "yes" ? "#077a49" : "#6b7684"} stroke="#fff" strokeWidth={1.5 * k} />
             <text fontSize={6.5 * k} fill="#fff" fontWeight={800} textAnchor="middle" dominantBaseline="central">
               WC
             </text>

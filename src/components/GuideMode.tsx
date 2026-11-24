@@ -80,11 +80,11 @@ export function GuideMode({ route, origin, dest, onClose }: { route: RouteResult
         <div className="flex items-start gap-4" aria-live="assertive">
           <span
             aria-hidden
-            className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${last ? "bg-blue text-white" : s.warn ? "bg-[#fff1e6] text-[#c4500c]" : "bg-grey-100 text-ink"}`}
+            className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${last ? "bg-blue text-white" : s.warn ? "bg-[#fff1e6] text-[#ad4609]" : "bg-grey-100 text-ink"}`}
           >
             <I size={34} strokeWidth={2.4} />
           </span>
-          <p className={`text-[1.625rem] font-bold leading-snug tracking-tight ${s.warn ? "text-[#c4500c]" : ""}`}>{s.text}</p>
+          <p className={`text-[1.625rem] font-bold leading-snug tracking-tight ${s.warn ? "text-[#ad4609]" : ""}`}>{s.text}</p>
         </div>
         <p className="mt-3 text-[1rem] text-ink-3">
           {last ? "도착했어요. 입구에서 안내 직원에게 휠체어석 입장 위치를 물어보세요." : `도착까지 약 ${left.toLocaleString()}m 남았어요`}

@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import LiveParking from "./LiveParking";
+import QuickTour from "./QuickTour";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useMemo, useState } from "react";
-import { Armchair, Building2, Clock3, MessageCircle, Navigation, Route } from "lucide-react";
+import { Armchair, Building2, Clock3, MessageCircle, Navigation, Route, Hand } from "lucide-react";
 import { arrivalAdvice, peakOf, timeKo } from "@/lib/data";
 import { bestExit, profileFrom, venues } from "@/lib/route";
 import { NEED_META, useNeeds, type Need } from "@/lib/mode";
@@ -88,7 +89,8 @@ const QUICK: { href: string; icon: typeof Route; tone: Tone; title: string; desc
   { href: "/route", icon: Navigation, tone: "blue", title: "계단 없는 길", desc: "역·주차장 → 입구" },
   { href: "/seats", icon: Armchair, tone: "purple", title: "좌석 시야", desc: "휠체어석 3D" },
   { href: "/chat", icon: MessageCircle, tone: "green", title: "말로 물어보기", desc: "음성으로 질문" },
-  { href: "/insight", icon: Building2, tone: "orange", title: "기관 리포트", desc: "데이터로 찾은 개선점" },
+  { href: "/card", icon: Hand, tone: "red", title: "보여주기 카드", desc: "직원에게 큰 글씨로" },
+  { href: "/insight", icon: Building2, tone: "orange", title: "기관·공연장용", desc: "무대 점검·리포트·데이터" },
 ];
 
 const VENUE_ID: Record<string, string> = { "KSPO DOME": "kspo", "티켓링크 라이브 아레나": "handball", 올림픽홀: "olympichall", 뮤즈라이브: "olympichall", 우리금융아트홀: "artHall" };
@@ -141,14 +143,24 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
   const params = useSearchParams();
   const router = useRouter();
   const [all, setAll] = useState(false);
+  const [tour, setTour] = useState(false);
 
   if (needs === null || params.get("pick")) {
     return (
       <NeedPicker
         initial={needs ?? []}
         onDone={(n) => {
+          const first = needs === null;
           setNeeds(n);
           router.replace("/");
+          // 처음 설정을 마친 사람에게 한 번만 둘러보기
+          let seen = false;
+          try {
+            seen = localStorage.getItem("together-tour") === "done";
+          } catch {
+            /* 저장 불가 */
+          }
+          if (first && !seen) setTour(true);
         }}
       />
     );
@@ -163,11 +175,25 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
           <br />
           함께 갈게요
         </h1>
+        <button
+          onClick={() => setTour(true)}
+          className="press mt-4 flex w-full items-center gap-3 rounded-2xl bg-blue/10 px-4 py-3 text-left"
+        >
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blue text-[0.9375rem] font-bold text-white" aria-hidden>
+            1분
+          </span>
+          <span className="flex-1">
+            <span className="block text-[0.9375rem] font-bold text-ink">처음이세요? 1분 둘러보기</span>
+            <span className="block text-[0.8125rem] text-ink-2">길찾기부터 내 자리 시야까지 한눈에</span>
+          </span>
+          <Chevron />
+        </button>
+        {tour && <QuickTour onClose={() => setTour(false)} />}
         <NextShowCard show={shows[0]} />
         <LiveParking />
         <ul className="mt-3 grid grid-cols-2 gap-2">
-          {QUICK.map((q) => (
-            <li key={q.href}>
+          {QUICK.map((q, i) => (
+            <li key={q.href} className={i === QUICK.length - 1 && QUICK.length % 2 ? "col-span-2" : ""}>
               <Link href={q.href} className="press flex h-full flex-col gap-3 rounded-2xl bg-grey-50 p-4">
                 <IconTile icon={q.icon} tone={q.tone} size="sm" />
                 <span>

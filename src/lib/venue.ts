@@ -323,3 +323,30 @@ export function visibilityLabel(r: number) {
 export function distanceToStage(seat: Seat) {
   return Math.round(Math.hypot(seat.pos[0] - STAGE_FRONT_X, seat.pos[2]));
 }
+
+/**
+ * 시각장애 관객용 자리 설명 (화면을 말로)
+ * 방향은 무대를 바라보고 앉았을 때 기준, 통로는 같은 줄 끝(구역 경계)까지 좌석 수.
+ */
+export function describeSeat(seat: Seat, seats: Seat[], seated: number, standing: number, fence = DEFAULT_FENCE) {
+  const dx = seat.pos[0] - STAGE_FRONT_X;
+  const deg = Math.abs((Math.atan2(seat.pos[2], dx) * 180) / Math.PI);
+  const side = seat.pos[2] < -1 ? "오른쪽" : seat.pos[2] > 1 ? "왼쪽" : "";
+  const dir = deg < 25 ? "무대 정면" : deg < 70 ? `무대 ${side} 비스듬한 쪽` : `무대 ${side} 옆쪽`;
+  const where = seat.tier === "플로어" ? `플로어 ${seat.section.replace("플로어 ", "")}구역 ${seat.row}열 ${seat.num}번` : `${seat.tier} ${seat.section} ${seat.row}열 ${seat.num}번`;
+  const row = seats.filter((s) => s.tier === seat.tier && s.section === seat.section && s.row === seat.row);
+  const left = row.filter((s) => s.num < seat.num).length;
+  const right = row.filter((s) => s.num > seat.num).length;
+  const aisle = Math.min(left, right);
+  const parts = [
+    `${where}${seat.wheelchair ? ", 휠체어석" : ""}이에요.`,
+    `${dir}이고 무대까지 약 ${distanceToStage(seat)}미터예요.`,
+    seat.tier === "3층" ? "높은 곳에서 내려다보는 자리예요." : seat.tier === "플로어" ? "서서 보는 플로어 구역이에요." : "",
+    seat.tier === "플로어"
+      ? `앞사람 뒤에서 무대가 ${Math.round(standing * 100)}% 보여요.`
+      : `앞사람이 앉아 있으면 무대가 ${Math.round(seated * 100)}%, 일어서면 ${Math.round(standing * 100)}% 보여요.`,
+    seat.wheelchair ? `앞에 높이 ${fence}미터 난간이 있어요.` : "",
+    row.length > 1 ? (aisle === 0 ? "바로 옆이 통로예요." : `가까운 통로까지 ${aisle}석 지나가야 해요.`) : "",
+  ];
+  return parts.filter(Boolean).join(" ");
+}

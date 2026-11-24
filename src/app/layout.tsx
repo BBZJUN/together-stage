@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ModeProvider } from "@/lib/mode";
 import { Header, BottomNav } from "@/components/Chrome";
+import Offline from "@/components/Offline";
 
 export const metadata: Metadata = {
   title: "함께 보는 무대 — 올림픽공원 배리어프리 공연 관람 안내",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ModeProvider>
           <div className="mx-auto flex min-h-screen max-w-[480px] flex-col bg-grey-100">
             <Header />
+            <Offline />
             <main className="flex flex-1 flex-col">{children}</main>
             <BottomNav />
           </div>

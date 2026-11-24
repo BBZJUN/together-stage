@@ -29,7 +29,7 @@ export default function LiveParking() {
         지금 올림픽공원 주차 <b className="num">{d.total.toLocaleString()}대</b>
       </span>
       <span className="ml-auto flex items-center gap-1 text-[0.75rem] text-ink-3">
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#0a8550]" aria-hidden /> 실시간 {time}
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#077a49]" aria-hidden /> 실시간 {time}
       </span>
     </p>
   );

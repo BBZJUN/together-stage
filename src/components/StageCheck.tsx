@@ -7,7 +7,7 @@ import { FLOOR_R, STAND_R1, stageFrontX, type StageConfig } from "@/lib/venue";
 import { Segmented } from "./ui";
 
 const SX = stageFrontX();
-const TONE = (r: number) => (r >= 0.85 ? "#3182f6" : r >= LIMIT ? "#8fb8f8" : r >= 0.3 ? "#ff9f43" : "#d42c3c");
+const TONE = (r: number) => (r >= 0.85 ? "#3182f6" : r >= LIMIT ? "#8fb8f8" : r >= 0.3 ? "#ff9f43" : "#c0222f");
 
 function Slider({ label, value, min, max, step, unit, onChange }: { label: string; value: number; min: number; max: number; step: number; unit: string; onChange: (v: number) => void }) {
   return (
@@ -253,7 +253,7 @@ export default function StageCheck() {
               ].map((t) => (
                 <div key={t.k} className="rounded-2xl bg-grey-50 px-3.5 py-3">
                   <p className="text-[0.75rem] font-semibold text-ink-3">{t.k}</p>
-                  <p className={`num mt-0.5 text-[1.375rem] font-bold tracking-tight ${t.warn ? "text-[#d42c3c]" : t.good ? "text-[#0a8550]" : ""}`}>{t.v}</p>
+                  <p className={`num mt-0.5 text-[1.375rem] font-bold tracking-tight ${t.warn ? "text-[#c0222f]" : t.good ? "text-[#077a49]" : ""}`}>{t.v}</p>
                   <p className="text-[0.75rem] text-ink-3">{t.s}</p>
                 </div>
               ))}
@@ -270,7 +270,7 @@ export default function StageCheck() {
                 ["#3182f6", "잘 보임 85% 이상"],
                 ["#8fb8f8", "조금 가림 60~85%"],
                 ["#ff9f43", "많이 가림 30~60%"],
-                ["#d42c3c", "거의 안 보임 30% 미만"],
+                ["#c0222f", "거의 안 보임 30% 미만"],
               ].map(([c, t]) => (
                 <span key={t} className="flex items-center gap-1 rounded-lg bg-grey-50 px-2 py-1 text-[0.75rem] font-semibold text-ink-2">
                   <span className="h-2.5 w-2.5 rounded-sm" style={{ background: c }} />
@@ -345,8 +345,8 @@ export default function StageCheck() {
                       <td className="py-1.5 text-ink-3">{s.block}</td>
                       <td className="num py-1.5 text-right">{s.seats}</td>
                       <td className="num py-1.5 text-right">{s.avg}%</td>
-                      <td className={`num py-1.5 text-right font-semibold ${s.limited ? "text-[#d42c3c]" : "text-ink-3"}`}>{s.limited}</td>
-                      {res.opts.standing && <td className={`num py-1.5 text-right ${s.tier !== "플로어" && s.crowd ? "font-semibold text-[#c4500c]" : "text-ink-3"}`}>{s.tier === "플로어" ? "스탠딩" : s.crowd}</td>}
+                      <td className={`num py-1.5 text-right font-semibold ${s.limited ? "text-[#c0222f]" : "text-ink-3"}`}>{s.limited}</td>
+                      {res.opts.standing && <td className={`num py-1.5 text-right ${s.tier !== "플로어" && s.crowd ? "font-semibold text-[#ad4609]" : "text-ink-3"}`}>{s.tier === "플로어" ? "스탠딩" : s.crowd}</td>}
                       <td className="py-1.5 pl-3 text-ink-3">{s.cause ?? "—"}</td>
                     </tr>
                   ))}

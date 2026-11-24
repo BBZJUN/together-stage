@@ -20,11 +20,11 @@ export function LevelPill({ level, big = false }: { level: Level; big?: boolean 
 
 const TONES = {
   blue: "bg-[#e8f3ff] text-[#1b64da]",
-  green: "bg-[#e6f7ee] text-[#0a8550]",
-  orange: "bg-[#fff1e6] text-[#c4500c]",
+  green: "bg-[#e6f7ee] text-[#077a49]",
+  orange: "bg-[#fff1e6] text-[#ad4609]",
   purple: "bg-[#f1ecfd] text-[#6b3fd4]",
   grey: "bg-grey-100 text-ink-2",
-  red: "bg-[#ffebee] text-[#d42c3c]",
+  red: "bg-[#ffebee] text-[#c0222f]",
 } as const;
 export type Tone = keyof typeof TONES;
 

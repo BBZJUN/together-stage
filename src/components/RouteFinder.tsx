@@ -9,6 +9,7 @@ import {
   Car,
   Check,
   ChevronDown,
+  CloudDownload,
   CloudRain,
   Navigation2,
   CornerUpLeft,
@@ -26,6 +27,7 @@ import { ParkMap } from "./ParkMap";
 import { IconTile } from "./ui";
 import { BottomSheet } from "./BottomSheet";
 import { GuideMode } from "./GuideMode";
+import { cacheForOffline, loadRoute, saveRoute, useOnline, useSaved, type SavedRoute } from "@/lib/offline";
 
 const STEP_ICON: Record<string, typeof ArrowUp> = { "⚠️": TriangleAlert, "🪨": TriangleAlert, "🚗": Car, "↱": CornerUpRight, "↰": CornerUpLeft, "⬆️": ArrowUp, "📍": MapPin };
 
@@ -87,7 +89,7 @@ function Stat({ label, value, warn }: { label: string; value: string; warn?: boo
   return (
     <div className="flex-1 rounded-2xl bg-grey-50 px-3.5 py-3">
       <p className="text-[0.75rem] text-ink-3">{label}</p>
-      <p className={`mt-0.5 text-[1rem] font-bold ${warn ? "text-[#c4500c]" : "text-ink"}`}>{value}</p>
+      <p className={`mt-0.5 text-[1rem] font-bold ${warn ? "text-[#ad4609]" : "text-ink"}`}>{value}</p>
     </div>
   );
 }
@@ -95,10 +97,15 @@ function Stat({ label, value, warn }: { label: string; value: string; warn?: boo
 export default function RouteFinder() {
   const params = useSearchParams();
   const { needs, has } = useNeeds();
-  const [destId, setDestId] = useState(params.get("to") ?? "kspo");
-  const [origin, setOrigin] = useState<Origin>({ kind: "station", id: stations.find((s) => s.startsWith("올림픽공원")) ?? stations[0] });
-  const [rain, setRain] = useState(false);
-  const [wheel, setWheel] = useState<boolean | null>(null);
+  // 주소에 목적지가 없으면, 출발 전에 저장해 둔 길을 그대로 불러옴 (인터넷 없이도)
+  const [init] = useState(() => (params.get("to") || typeof window === "undefined" ? null : loadRoute()));
+  const [destId, setDestId] = useState(params.get("to") ?? init?.destId ?? "kspo");
+  const [origin, setOrigin] = useState<Origin>(init?.origin ?? { kind: "station", id: stations.find((s) => s.startsWith("올림픽공원")) ?? stations[0] });
+  const [rain, setRain] = useState(init?.rain ?? false);
+  const [wheel, setWheel] = useState<boolean | null>(init?.wheel ?? null);
+  const saved = useSaved<SavedRoute>("route");
+  const online = useOnline();
+  const [saving, setSaving] = useState(false);
   const [sheet, setSheet] = useState<null | "from" | "to">(null);
   const [allSteps, setAllSteps] = useState(false);
   const [snap, setSnap] = useState(0);
@@ -149,7 +156,7 @@ export default function RouteFinder() {
           </p>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-2">
-          <span className={`rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#c4500c]" : "bg-[#e6f7ee] text-[#0a8550]"}`}>
+          <span className={`rounded-lg px-2.5 py-1 text-[0.8125rem] font-bold ${r.stepsCount ? "bg-[#fff1e6] text-[#ad4609]" : "bg-[#e6f7ee] text-[#077a49]"}`}>
             {r.stepsCount ? `계단 ${r.stepsCount}곳` : "계단 없는 길"}
           </span>
         </div>
@@ -227,6 +234,27 @@ export default function RouteFinder() {
             >
               <Navigation2 size={20} fill="currentColor" /> 안내 시작
             </button>
+            {(() => {
+              const same = saved && saved.destId === destId && saved.origin.id === origin.id && saved.rain === rain && saved.wheel === wheel;
+              return same ? (
+                <p className="-mt-2 mb-4 flex items-center justify-center gap-1.5 text-[0.8125rem] font-semibold text-[#077a49]" role="status">
+                  <CloudDownload size={15} aria-hidden /> 저장됨 · 인터넷이 끊겨도 이 길로 안내할 수 있어요
+                </p>
+              ) : (
+                <button
+                  disabled={saving || !online}
+                  onClick={async () => {
+                    setSaving(true);
+                    saveRoute({ destId, origin, rain, wheel, label: `${originLabel} → ${dest.name}`, savedAt: new Date().toISOString() });
+                    await cacheForOffline(["/route", "/", "/card"]);
+                    setSaving(false);
+                  }}
+                  className="press -mt-2 mb-4 flex h-11 w-full items-center justify-center gap-1.5 rounded-2xl bg-grey-100 text-[0.9375rem] font-semibold text-ink-2 disabled:opacity-60"
+                >
+                  <CloudDownload size={17} aria-hidden /> {saving ? "저장하는 중…" : "인터넷 없이 쓰도록 이 길 저장"}
+                </button>
+              );
+            })()}
             <div className="flex gap-2">
               <Stat label="계단" value={r.stepsCount ? `${r.stepsCount}곳` : "없음"} warn={r.stepsCount > 0} />
               <Stat label="고르지 않은 바닥" value={r.roughMeters ? `${r.roughMeters}m` : "없음"} warn={r.roughMeters > 0} />
@@ -240,7 +268,7 @@ export default function RouteFinder() {
             )}
             {result.origin.kind === "exit" && result.origin.wheelchair !== "yes" && (
               <p className="mt-2 flex items-start gap-2 rounded-2xl bg-grey-50 px-4 py-3 text-[0.875rem] leading-relaxed text-ink-2">
-                <TriangleAlert size={16} className="mt-0.5 shrink-0 text-[#c4500c]" aria-hidden />
+                <TriangleAlert size={16} className="mt-0.5 shrink-0 text-[#ad4609]" aria-hidden />
                 {result.origin.ref}번 출구의 엘리베이터 여부는 아직 확인되지 않았어요. 역 안내도에서 엘리베이터 위치를 꼭 확인하세요.
               </p>
             )}
@@ -272,12 +300,12 @@ export default function RouteFinder() {
                       <span
                         aria-hidden
                         className={`relative z-[1] grid h-9 w-9 shrink-0 place-items-center rounded-full ring-4 ring-bg ${
-                          last ? "bg-blue text-white" : s.warn ? "bg-[#fff1e6] text-[#c4500c]" : "bg-grey-100 text-ink-2"
+                          last ? "bg-blue text-white" : s.warn ? "bg-[#fff1e6] text-[#ad4609]" : "bg-grey-100 text-ink-2"
                         }`}
                       >
                         <I size={17} strokeWidth={2.4} />
                       </span>
-                      <span className={`pt-1.5 text-[0.9375rem] leading-relaxed ${s.warn ? "font-semibold text-[#c4500c]" : last ? "font-bold" : "text-ink"}`}>{s.text}</span>
+                      <span className={`pt-1.5 text-[0.9375rem] leading-relaxed ${s.warn ? "font-semibold text-[#ad4609]" : last ? "font-bold" : "text-ink"}`}>{s.text}</span>
                     </div>
                   </li>
                 );

@@ -2,9 +2,11 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Accessibility, Building2, ExternalLink, Eye, Hand, Maximize2, Search, X } from "lucide-react";
+import { Accessibility, Bookmark, BookmarkCheck, Building2, ExternalLink, Eye, Hand, Maximize2, Search, Volume2, X } from "lucide-react";
+import { saveSeat, useSaved, type MySeat } from "@/lib/offline";
 import { useSearchParams } from "next/navigation";
 import {
+  describeSeat,
   distanceToStage,
   generateSeats,
   seatVisibility,
@@ -31,7 +33,7 @@ const TONE_RGB: Record<string, [number, number, number]> = {
   worst: [0.83, 0.17, 0.24],
   pending: [0.82, 0.84, 0.86],
 };
-const TONE_TEXT: Record<string, string> = { good: "text-blue", mid: "text-[#3b6fc4]", bad: "text-[#c4500c]", worst: "text-[#d42c3c]" };
+const TONE_TEXT: Record<string, string> = { good: "text-blue", mid: "text-[#3b6fc4]", bad: "text-[#ad4609]", worst: "text-[#c0222f]" };
 const TONE_LABEL = { good: "잘 보임", mid: "조금 가림", bad: "많이 가림", worst: "거의 안 보임" } as const;
 
 type StageKey = keyof typeof STAGE_PRESETS;
@@ -194,6 +196,29 @@ export default function SeatViewer() {
   const wheelSeats = seats.filter((s) => s.wheelchair);
   const selIdx = selected ? seats.findIndex((s) => s.id === selected.id) : -1;
   const sv = selIdx >= 0 ? vis[selIdx] : null;
+  const mySeat = useSaved<MySeat>("seat");
+  // 자리 설명: 앞사람이 앉았을 때·일어섰을 때 둘 다 계산해 말로 풀어줌
+  const desc = useMemo(() => {
+    if (!selected) return "";
+    const T = stageTargets(stage);
+    const O = stageObstacles(stage);
+    const a = seatVisibility(selected, stage, { standing: false, platform, fence }, T, O).ratio;
+    const b = seatVisibility(selected, stage, { standing: true, platform, fence }, T, O).ratio;
+    return describeSeat(selected, seats, a, b, fence);
+  }, [selected, stage, seats, platform, fence]);
+  const [said, setSaid] = useState("");
+  const speak = () => {
+    setSaid(desc);
+    try {
+      const u = new SpeechSynthesisUtterance(desc);
+      u.lang = "ko-KR";
+      u.rate = 0.95;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
+    } catch {
+      /* 음성 미지원 — 화면 글로만 */
+    }
+  };
   const label = sv ? visibilityLabel(sv.ratio) : null;
   const done = vis.filter(Boolean).length;
 
@@ -234,7 +259,7 @@ export default function SeatViewer() {
 
   return (
     <div ref={box} className="relative h-[calc(100dvh-7rem-var(--tabs,0px)-env(safe-area-inset-bottom))] min-h-[520px] overflow-hidden bg-grey-100">
-      <div className="absolute inset-x-0 top-0" style={{ bottom: snaps[0] - 28 }}>
+      <div className="absolute inset-x-0 top-0" style={{ bottom: snaps[0] - 28 }} role="img" aria-label="KSPO DOME 3D 좌석 화면. 화면을 보기 어렵다면 아래 시트의 '예매한 자리 찾기'와 자리 설명(글·소리)을 이용하세요.">
         <Venue3D seats={seats} colors={colors} stage={stage} selected={selected} mode={mode} standing={standing} platform={platform} fence={fence} onSelect={pick} />
       </div>
 
@@ -272,12 +297,47 @@ export default function SeatViewer() {
               <button
                 onClick={() => setPlatform(platform ? 0 : 0.6)}
                 aria-pressed={!!platform}
-                className={`press h-10 rounded-full px-3.5 text-[0.8125rem] font-semibold backdrop-blur-md ${platform ? "bg-[#0a8550] text-white" : "bg-black/55 text-white"}`}
+                className={`press h-10 rounded-full px-3.5 text-[0.8125rem] font-semibold backdrop-blur-md ${platform ? "bg-[#077a49] text-white" : "bg-black/55 text-white"}`}
               >
                 단상 60cm {platform ? "켬" : "끔"}
               </button>
             )}
           </div>
+          <div className="flex gap-2">
+            <button onClick={speak} className="press flex h-10 items-center gap-1.5 rounded-full bg-white px-3.5 text-[0.8125rem] font-bold text-ink">
+              <Volume2 size={16} aria-hidden /> 자리 설명 듣기
+            </button>
+            {(() => {
+              const saved = mySeat?.id === selected.id;
+              return (
+                <button
+                  onClick={() => {
+                    const T = stageTargets(stage);
+                    const O = stageObstacles(stage);
+                    saveSeat({
+                      id: selected.id,
+                      label: `${selected.tier === "플로어" ? selected.section : `${selected.tier} ${selected.section}`} ${selected.row}열 ${selected.num}번${selected.wheelchair ? "(휠체어석)" : ""}`,
+                      ratioSeated: seatVisibility(selected, stage, { standing: false, fence }, T, O).ratio,
+                      ratioStanding: seatVisibility(selected, stage, { standing: true, fence }, T, O).ratio,
+                      dist: distanceToStage(selected),
+                      wheelchair: selected.wheelchair,
+                      savedAt: new Date().toISOString(),
+                    });
+                  }}
+                  aria-pressed={saved}
+                  className={`press flex h-10 items-center gap-1.5 rounded-full px-3.5 text-[0.8125rem] font-semibold backdrop-blur-md ${saved ? "bg-[#077a49] text-white" : "bg-black/55 text-white"}`}
+                >
+                  {saved ? <BookmarkCheck size={16} aria-hidden /> : <Bookmark size={16} aria-hidden />} {saved ? "내 자리로 저장됨" : "내 자리로 저장"}
+                </button>
+              );
+            })()}
+          </div>
+          <p className="sr-only" aria-live="polite">
+            {said}
+          </p>
+          {said && (
+            <p className="max-w-[340px] rounded-2xl bg-black/60 px-3.5 py-2.5 text-[0.875rem] leading-relaxed text-white backdrop-blur-md">{desc}</p>
+          )}
           <p className="flex items-center gap-1.5 self-start rounded-full bg-black/40 px-3 py-1 text-[0.75rem] text-white/85">
             <Hand size={13} aria-hidden /> 화면을 끌어서 둘러보세요
           </p>
@@ -325,6 +385,16 @@ export default function SeatViewer() {
           ))}
         </div>
 
+        {selected && (
+          <div className="mb-3 rounded-2xl bg-blue-soft px-4 py-3">
+            <p className="text-[0.9375rem] leading-relaxed text-ink" aria-live="polite">
+              {desc}
+            </p>
+            <button onClick={speak} className="press mt-2 flex h-10 items-center gap-1.5 rounded-full bg-bg px-3.5 text-[0.875rem] font-bold text-blue">
+              <Volume2 size={16} aria-hidden /> 소리로 듣기
+            </button>
+          </div>
+        )}
         {selected && (
           <a
             href="https://aviewfrommyseat.com/venue/KSPO+DOME/sections/"
@@ -405,14 +475,14 @@ export default function SeatViewer() {
                   <div className="flex items-baseline justify-between text-[0.875rem]">
                     <span className={on ? "font-bold text-ink" : "text-ink-2"}>{c.label}</span>
                     <span className="num">
-                      <b className={i === 1 ? "text-[#d42c3c]" : i === 2 ? "text-[#0a8550]" : "text-ink"}>{c.avg}%</b>
+                      <b className={i === 1 ? "text-[#c0222f]" : i === 2 ? "text-[#077a49]" : "text-ink"}>{c.avg}%</b>
                       <span className="ml-1.5 text-[0.75rem] text-ink-3">많이 가림 {c.poor}석</span>
                     </span>
                   </div>
                   <div className="mt-1.5 h-2.5 overflow-hidden rounded-full bg-grey-100">
                     <div
                       className="h-full rounded-full transition-[width] duration-500"
-                      style={{ width: `${c.avg}%`, background: i === 1 ? "#d42c3c" : i === 2 ? "#0a8550" : "#3182f6" }}
+                      style={{ width: `${c.avg}%`, background: i === 1 ? "#c0222f" : i === 2 ? "#077a49" : "#3182f6" }}
                     />
                   </div>
                 </li>

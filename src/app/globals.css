@@ -9,15 +9,15 @@
   --grey-300: #d1d6db;
   --ink: #191f28;
   --ink-2: #4e5968;
-  --ink-3: #6b7684; /* 흰 바탕 대비 4.6:1 (WCAG AA) */
-  --blue: #3182f6;
+  --ink-3: #5b6573; /* 회색 바탕(#f2f4f6)에서도 대비 5.3:1 (WCAG AA) */
+  --blue: #1d69e0; /* 흰 글씨 대비 5.1:1, 연한 파랑 바탕 위 글씨 4.5:1 (WCAG AA) */
   --blue-dark: #1b64da;
   --blue-soft: #e8f3ff;
   /* 혼잡 단계 — 항상 아이콘·텍스트와 함께 */
-  --lv-ok: #0a8550;
-  --lv-mid: #9a6700;
-  --lv-busy: #c4500c;
-  --lv-full: #d42c3c;
+  --lv-ok: #077a49;
+  --lv-mid: #8a5c00;
+  --lv-busy: #ad4609;
+  --lv-full: #c0222f;
   /* 점유율 막대 순차 램프 (블루 단일 색상) */
   --seq-1: #c9e2ff;
   --seq-2: #90c2ff;
@@ -116,5 +116,21 @@ body {
   }
   .band {
     break-inside: avoid;
+  }
+}
+
+/* 둘러보기 이미지 전환 */
+@keyframes tour-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+.tour-in {
+  animation: tour-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-in {
+    animation: none;
   }
 }

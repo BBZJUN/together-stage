@@ -141,8 +141,8 @@ export default function Insight() {
         <ul className="flex flex-col gap-3">
           {[
             { l: "앞사람이 앉았을 때", v: wheel.sit, c: "#3182f6" },
-            { l: "앞사람이 일어섰을 때", v: wheel.stand, c: "#d42c3c" },
-            { l: "일어섬 + 단상 60cm", v: wheel.raised, c: "#0a8550" },
+            { l: "앞사람이 일어섰을 때", v: wheel.stand, c: "#c0222f" },
+            { l: "일어섬 + 단상 60cm", v: wheel.raised, c: "#077a49" },
           ].map((x) => (
             <li key={x.l}>
               <div className="flex justify-between text-[0.875rem]">
@@ -184,7 +184,7 @@ export default function Insight() {
                 {short(x.show)}
               </span>
               <span className="h-3 flex-1 overflow-hidden rounded-full bg-grey-100">
-                <span className="block h-full rounded-full" style={{ width: `${Math.max(2, (x.per1k / max) * 100)}%`, background: i < c.top.length ? "#c4500c" : "#90c2ff" }} />
+                <span className="block h-full rounded-full" style={{ width: `${Math.max(2, (x.per1k / max) * 100)}%`, background: i < c.top.length ? "#ad4609" : "#90c2ff" }} />
               </span>
               <span className="num w-12 shrink-0 text-right text-[0.8125rem] font-bold">{Math.round(x.per1k)}대</span>
             </li>
@@ -210,8 +210,8 @@ export default function Insight() {
       >
         <div className="grid grid-cols-3 gap-2 text-center">
           {[
-            { l: "이용 가능", v: m.exits_wheel_yes, c: "text-[#0a8550]" },
-            { l: "이용 불가", v: m.exits_wheel_no, c: "text-[#d42c3c]" },
+            { l: "이용 가능", v: m.exits_wheel_yes, c: "text-[#077a49]" },
+            { l: "이용 불가", v: m.exits_wheel_no, c: "text-[#c0222f]" },
             { l: "확인 안 됨", v: m.exits_unknown, c: "text-ink-2" },
           ].map((x) => (
             <div key={x.l} className="rounded-2xl bg-grey-50 py-3">
@@ -245,7 +245,7 @@ export default function Insight() {
             <li key={q.issue} className="rounded-2xl bg-grey-50 px-4 py-3">
               <p className="text-[0.75rem] font-semibold text-ink-3">{q.dataset}</p>
               <p className="mt-1 text-[0.9375rem] leading-relaxed">{q.issue}</p>
-              <p className="mt-1 text-[0.8125rem] text-[#c4500c]">→ {q.impact}</p>
+              <p className="mt-1 text-[0.8125rem] text-[#ad4609]">→ {q.impact}</p>
             </li>
           ))}
         </ul>
