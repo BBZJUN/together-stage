@@ -6,7 +6,8 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const AXE = readFileSync(require.resolve("axe-core/axe.min.js"), "utf8");
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
-const PAGES = ["/", "/route", "/seats", "/card", "/check", "/open-data", "/insight", "/chat", "/data"];
+const firstShow = JSON.parse(readFileSync(new URL("../src/data/shows.json", import.meta.url), "utf8")).shows[0]?.id;
+const PAGES = ["/", "/route", "/seats", "/card", "/check", "/open-data", "/insight", "/chat", "/data", ...(firstShow ? [`/shows/${firstShow}`] : [])];
 
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
