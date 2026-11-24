@@ -187,11 +187,18 @@ def model_forecast(show: dict, all_shows_that_day: list[dict]):
         rows.append([h, d.weekday(), int(d.weekday() >= 5), d.month, 0, w["temp"], 3.0 if w["precip"] else 0.0, 75 if w["precip"] else 50,
                      day_aud, max(-12, min(12, first_start - h)), int(in_show)])
     pred = booster.predict(rows)
+    # 위쪽 범위(90% 분위수) — 하루 피크가 BUSY_DAY 이상이면 '붐빌 수 있는 날' (train_model.py 교차검증: 실제 혼잡일 11일 중 8일 사전 탐지)
+    qpath = MODEL_PATH.with_name("model_q90.txt")
+    upper = lgb.Booster(model_file=str(qpath)).predict(rows) if qpath.exists() else pred
     series = []
-    for h, c in zip(hours, pred):
+    for h, c, u in zip(hours, pred, upper):
         c = max(0.0, float(c))
-        series.append({"h": h, "occ": min(100, round(c / FULL_CARS * 100)), "cars": round(c), "cars_raw": round(c)})
+        u = max(c, float(u))
+        series.append({"h": h, "occ": min(100, round(c / FULL_CARS * 100)), "hi": min(100, round(u / FULL_CARS * 100)), "cars": round(c), "cars_raw": round(c), "hi_raw": u})
     return {"hours": series}
+
+
+BUSY_DAY = 2800
 
 
 def level(occ: int) -> str:
@@ -234,6 +241,7 @@ def recommendations(show: dict, hours: list[dict]) -> dict:
         "exits": exits,
         "expectedCars": round(cars),
         "overflowCars": max(0, round(max(p["cars_raw"] for p in hours) - (FULL_CARS if MODEL_PATH.exists() else TOTAL_SPACES))),
+        "busyDay": max(p.get("hi_raw", p["cars_raw"]) for p in hours) >= BUSY_DAY,
     }
 
 
@@ -267,6 +275,7 @@ def build_sample() -> list[dict]:
         s["reco"] = recommendations(s, fc["hours"])
         for p in fc["hours"]:
             p.pop("cars_raw", None)
+            p.pop("hi_raw", None)
         s["forecast"] = fc
     return shows
 
@@ -308,6 +317,7 @@ def build_real(today: date, days: int = 45) -> list[dict]:
         s["reco"] = recommendations(s, fc["hours"])
         for p in fc["hours"]:
             p.pop("cars_raw", None)
+            p.pop("hi_raw", None)
         s["forecast"] = fc
     return shows
 

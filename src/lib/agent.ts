@@ -1,5 +1,5 @@
 import { lostCenter, lostItems, lostSource } from "./lost";
-import { endTime, fmtDate, getShow, getShows, isOfficial, occAtStart, peakOf } from "./data";
+import { arrivalAdvice, endTime, fmtDate, getShow, getShows, isOfficial, occAtStart, peakOf, timeKo } from "./data";
 import { getParking } from "./parking";
 import type { Show } from "./types";
 import type { Need } from "./mode";
@@ -224,8 +224,31 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
     return `${it.date ? `${it.date} ` : ""}공고에 '${it.name}'${it.place ? `(${it.place})` : ""}이(가) 올라와 있어요. ${it.storage}에 문의해 보세요.${tail}`;
   }
 
+  // 데이터에 없는 시설 정보는 지어내지 않는다 (잘못된 안내는 이동약자에게 실제 위험)
+  if (/엘리베이터|승강기|경사로|리프트|셔틀|휠체어 ?대여|장애인 ?주차|수어|자막|보청|점자/.test(text) && !stationOf(text)) {
+    const what = text.match(/엘리베이터|승강기|경사로|리프트|셔틀|휠체어 ?대여|장애인 ?주차|수어|자막|보청|점자/)![0];
+    return `${venue ? `${venue.name} ` : ""}${what} 정보는 아직 공개 데이터로 확인되지 않았어요. 잘못 안내하면 위험할 수 있어서 짐작해서 말씀드리지 않을게요. 방문 전 올림픽공원(02-410-1114)이나 예매처에 꼭 문의해 주세요. 계단 없는 길과 휠체어석 시야는 앱에서 바로 확인할 수 있어요.`;
+  }
+
+  if (/주차/.test(text) && !(venue && /가는|가요|길|어떻게|가려면/.test(text))) {
+    const pk = (await runTool("get_parking_now", {})) as { source: string; total: number | null };
+    return pk.source === "live" && pk.total !== null
+      ? `지금 올림픽공원 주차장에 약 ${pk.total.toLocaleString()}대가 주차돼 있어요(실시간). 공연이 있는 날은 시작 1~2시간 전에 빠르게 차니, 공연 상세의 '붐비기 전에 도착하려면' 시각을 참고해 주세요.`
+      : `실시간 주차 현황을 지금 불러오지 못했어요. 공연 상세 화면의 시간대별 혼잡 예측을 참고해 주세요.`;
+  }
+
+  if (/화장실/.test(text) && !venue) {
+    const parts: string[] = [];
+    for (const v of venues) {
+      const list = (await runTool("find_toilets", { venue: v.name })) as { wheelchair: boolean; meters: number }[];
+      const w = list.find((x) => x.wheelchair);
+      parts.push(`${v.name} ${w ? `약 ${w.meters}m` : "가까운 곳 확인 안 됨"}`);
+    }
+    return `공연장별로 가장 가까운 장애인 화장실까지 거리예요: ${parts.join(", ")}. 길찾기 지도에서 ♿ 표시를 확인하세요.`;
+  }
+
   if (/화장실/.test(text)) {
-    const v = venue ?? venues[0];
+    const v = venue!;
     const list = (await runTool("find_toilets", { venue: v.name })) as { wheelchair: boolean; meters: number }[];
     const w = list.find((x) => x.wheelchair);
     return w
@@ -268,8 +291,8 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
 
   if (show || /공연|붐|혼잡|언제|몇 시/.test(text)) {
     const s = show ?? getShows()[0];
-    const r = s.reco;
-    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${r.fullAt ? `${r.fullAt}쯤 공원이 가장 붐벼요. 그 전에 도착하면 엘리베이터와 길이 한산해요.` : "크게 붐비지 않을 것 같아요."} 공연이 끝나면 인파가 빠지는 데 30분 정도 걸리니, 조금 기다렸다 나오시면 편해요.${isOfficial ? " (공연 일정은 올림픽공원 공식 일정안내 기준, 붐비는 정도는 예측)" : sample}`;
+    const a = arrivalAdvice(s);
+    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${timeKo(a.arrive)}까지 도착하시면 편해요. ${a.busyHour !== undefined ? `${a.busyHour}시부터 사람이 몰려요.` : a.busyDay ? "크게 붐빌 수도 있는 날이에요." : "크게 붐비지 않을 것 같아요."} 공연이 끝나면 인파가 빠지는 데 30분 정도 걸리니, 조금 기다렸다 나오시면 편해요.${isOfficial ? " (공연 일정은 올림픽공원 공식 일정안내 기준, 붐비는 정도는 예측)" : sample}`;
   }
 
   return `어디서 출발해서 어느 공연장에 가시는지 말씀해 주세요. 예: "올림픽공원역에서 KSPO DOME 가는 길", "휠체어석 시야 어때요?", "장애인 화장실 어디예요?"`;

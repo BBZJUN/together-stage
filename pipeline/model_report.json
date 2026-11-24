@@ -33,6 +33,31 @@
   "r2_model": 0.734,
   "r2_baseline": 0.502
  },
+ "checks": {
+  "level_match_all": 0.916,
+  "level_match_show_days": 0.901,
+  "level_within1_show_days": 0.997,
+  "peak_hour_within_1h": 0.733,
+  "upper_coverage": 0.797,
+  "congested_hours": 34,
+  "congested_recall_mean": 0.088,
+  "congested_recall_upper": 0.265,
+  "upper_false_alarm_rate": 0.001,
+  "busy_day_upper": {
+   "threshold": 2800,
+   "busy_days": 11,
+   "caught": 8,
+   "warned_days": 26,
+   "days": 304
+  },
+  "busy_day_mean": {
+   "threshold": 2800,
+   "busy_days": 11,
+   "caught": 5,
+   "warned_days": 11,
+   "days": 304
+  }
+ },
  "importance": {
   "temp": 3384,
   "hour": 2419,

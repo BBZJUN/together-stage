@@ -65,7 +65,7 @@ export default function Page() {
       </ul>
       <p className="mt-4 px-5 text-[0.75rem] leading-relaxed text-ink-3">
         이용허락: 원천 데이터의 이용 조건을 따라요(공공데이터 이용허락범위 제한 없음, OpenStreetMap은 ODbL로 출처 표기). 좌석 위치·구역 경계·휠체어석 세부 위치는 공식 좌석배치도를 바탕으로 한 추정이에요.{" "}
-        <Link href="/check" className="underline underline-offset-2">
+        <Link href="/check" prefetch={false} className="underline underline-offset-2">
           다른 무대 배치로 계산하기
         </Link>
       </p>

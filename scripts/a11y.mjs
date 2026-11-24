@@ -21,7 +21,7 @@ for (const p of PAGES) {
   await page.waitForTimeout(1500);
   await page.addScriptTag({ content: AXE });
   const v = await page.evaluate(() =>
-    // eslint-disable-next-line no-undef
+     
     axe.run(document, { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] } }).then((r) => r.violations.map((x) => ({ id: x.id, impact: x.impact, n: x.nodes.length }))),
   );
   total += v.length;

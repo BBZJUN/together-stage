@@ -39,7 +39,7 @@ export default function ShowDetail({ show }: { show: Show }) {
   const peak = peakOf(show);
   const end = endTime(show);
   const fullHour = show.forecast.hours.find((p) => p.occ >= 95);
-  const { busyHour: bh, arrive } = arrivalAdvice(show);
+  const { busyHour: bh, arrive, busyDay } = arrivalAdvice(show);
   const busyHour = bh !== undefined ? { h: bh } : undefined;
   const best = r.exits.find((e) => e.waitMin <= 10) ?? r.exits[r.exits.length - 1];
   const venue = venues.find((v) => v.id === VENUE_ID[show.venue]);
@@ -97,8 +97,13 @@ export default function ShowDetail({ show }: { show: Show }) {
           <p className={`num mt-1 font-bold leading-none tracking-tight text-blue ${bigText ? "text-[2.75rem]" : "text-[2.5rem]"}`}>{timeKo(arrive)}</p>
           <p className="mt-1.5 text-[1.375rem] font-bold tracking-tight">까지 오시면 편해요</p>
           <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">
-            {busyHour ? `${busyHour.h}시부터 사람이 몰려서 엘리베이터와 입구 줄이 길어져요.` : "이날은 크게 붐비지 않을 것 같아요."}
+            {busyHour ? `${busyHour.h}시부터 사람이 몰려서 엘리베이터와 입구 줄이 길어져요.` : busyDay ? "평소보다는 괜찮지만 크게 붐빌 수도 있는 날이에요." : "이날은 크게 붐비지 않을 것 같아요."}
           </p>
+          {busyDay && (
+            <p className="mt-3 rounded-xl bg-[#fff4e5] px-3.5 py-2.5 text-[0.875rem] leading-relaxed text-[#8a5c00]">
+              <b>붐빌 수 있는 날이에요.</b> 지난해 비슷한 조건의 공연일 중 주차장이 거의 찬 날이 있어서 30분 더 일찍 잡았어요.
+            </p>
+          )}
         </div>
       </section>
 
@@ -155,7 +160,7 @@ export default function ShowDetail({ show }: { show: Show }) {
 
       {show.venue === "KSPO DOME" && (
         <section className="band px-5 py-6">
-          <Link href="/seats" className="press flex items-center gap-3">
+          <Link href="/seats" prefetch={false} className="press flex items-center gap-3">
             <IconTile icon={Armchair} tone="purple" />
             <span className="flex-1">
               <span className="block text-[1.0625rem] font-semibold">휠체어석에서 무대가 보일까요?</span>

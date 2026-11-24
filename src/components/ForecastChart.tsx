@@ -27,7 +27,7 @@ export function ForecastChart({ hours, start, end }: { hours: HourPoint[]; start
       <div className="mb-3 flex items-baseline gap-2">
         <span className="num text-[1.75rem] font-bold leading-none">{p.occ}%</span>
         <span className="text-[0.875rem] text-ink-3">
-          {p.h}시, 약 {p.cars.toLocaleString()}대
+          {p.h}시, 약 {p.cars.toLocaleString()}대{p.hi !== undefined && p.hi > p.occ + 3 ? ` (많으면 ${p.hi}%)` : ""}
         </span>
         <span className="ml-auto text-[0.8125rem] font-semibold" style={{ color: LEVEL_STYLE[p.level].color }}>
           {LEVEL_STYLE[p.level].icon} {p.level}
@@ -52,6 +52,9 @@ export function ForecastChart({ hours, start, end }: { hours: HourPoint[]; start
                 fill={fill(pt.occ)}
                 opacity={sel === i ? 1 : 0.55}
               />
+              {pt.hi !== undefined && pt.hi > pt.occ + 3 && (
+                <line x1={x + 2} x2={x + w - 2} y1={y(pt.hi)} y2={y(pt.hi)} stroke="var(--ink-3)" strokeWidth={1.5} strokeDasharray="2 2" opacity={sel === i ? 1 : 0.6} />
+              )}
               {inShow && <rect x={x} y={H - padB + 3} width={w} height={2} rx={1} fill="var(--ink-2)" />}
               <rect
                 x={i * bw}
@@ -79,7 +82,7 @@ export function ForecastChart({ hours, start, end }: { hours: HourPoint[]; start
           );
         })}
       </svg>
-      <p className="mt-2 text-[0.75rem] text-ink-3">아래 진한 선이 공연 시간이에요. 막대를 누르면 그 시간 값을 볼 수 있어요.</p>
+      <p className="mt-2 text-[0.75rem] text-ink-3">아래 진한 선이 공연 시간, 점선은 붐빌 때의 예상치(지난해 검증에서 10번 중 8번은 이보다 덜 붐볐어요)예요. 막대를 누르면 그 시간 값을 볼 수 있어요.</p>
     </div>
   );
 }

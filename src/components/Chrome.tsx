@@ -62,6 +62,8 @@ export function BottomNav() {
             <li key={t.href}>
               <Link
                 href={t.href}
+                // 3D 화면(약 260KB)은 누를 때만 받는다 — 데이터 요금 부담 줄이기
+                prefetch={t.href === "/seats" ? false : undefined}
                 aria-current={active ? "page" : undefined}
                 className={`flex min-h-[56px] flex-col items-center justify-center gap-1 text-[0.75rem] font-semibold ${active ? "text-ink" : "text-ink-3"}`}
               >

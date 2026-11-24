@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-23T12:54:54",
+ "generatedAt": "2026-11-24T09:46:10",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -35,6 +35,31 @@
    "mae_baseline": 405.3,
    "r2_model": 0.734,
    "r2_baseline": 0.502
+  },
+  "checks": {
+   "level_match_all": 0.916,
+   "level_match_show_days": 0.901,
+   "level_within1_show_days": 0.997,
+   "peak_hour_within_1h": 0.733,
+   "upper_coverage": 0.797,
+   "congested_hours": 34,
+   "congested_recall_mean": 0.088,
+   "congested_recall_upper": 0.265,
+   "upper_false_alarm_rate": 0.001,
+   "busy_day_upper": {
+    "threshold": 2800,
+    "busy_days": 11,
+    "caught": 8,
+    "warned_days": 26,
+    "days": 304
+   },
+   "busy_day_mean": {
+    "threshold": 2800,
+    "busy_days": 11,
+    "caught": 5,
+    "warned_days": 11,
+    "days": 304
+   }
   },
   "importance": {
    "temp": 3384,
@@ -125,103 +150,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1006,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 53,
       "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 54,
       "cars": 1270,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1211,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1187,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 53,
       "cars": 1251,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 30,
+      "hi": 54,
       "cars": 1309,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 54,
       "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 54,
       "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 50,
       "cars": 1546,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 47,
       "cars": 1365,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 45,
       "cars": 1321,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 41,
       "cars": 1185,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 34,
       "cars": 834,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 26,
       "cars": 605,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 15,
       "cars": 449,
       "level": "원활"
      }
@@ -290,103 +332,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 47,
       "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
+      "hi": 51,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
+      "hi": 51,
       "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
+      "hi": 54,
       "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
+      "hi": 57,
       "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
+      "hi": 58,
       "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
+      "hi": 51,
       "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
+      "hi": 45,
       "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 39,
       "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
+      "hi": 34,
       "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 20,
       "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      }
@@ -455,103 +514,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 21,
+      "hi": 39,
       "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 45,
       "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 27,
+      "hi": 46,
       "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
+      "hi": 49,
       "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
+      "hi": 52,
       "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
+      "hi": 54,
       "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
+      "hi": 57,
       "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
+      "hi": 58,
       "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 53,
+      "hi": 60,
       "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
+      "hi": 54,
       "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
+      "hi": 43,
       "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 41,
       "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
+      "hi": 33,
       "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
+      "hi": 20,
       "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 469,
       "level": "원활"
      }
@@ -620,103 +696,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1006,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 53,
       "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 54,
       "cars": 1270,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1211,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1187,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 53,
       "cars": 1251,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 30,
+      "hi": 54,
       "cars": 1309,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 54,
       "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 54,
       "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 50,
       "cars": 1546,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 47,
       "cars": 1365,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 45,
       "cars": 1321,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 41,
       "cars": 1185,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 34,
       "cars": 834,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 26,
       "cars": 605,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 15,
       "cars": 449,
       "level": "원활"
      }
@@ -785,103 +878,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 47,
       "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
+      "hi": 51,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
+      "hi": 51,
       "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
+      "hi": 54,
       "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
+      "hi": 57,
       "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
+      "hi": 58,
       "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
+      "hi": 51,
       "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
+      "hi": 45,
       "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 39,
       "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
+      "hi": 34,
       "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 20,
       "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      }
@@ -950,103 +1060,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 21,
+      "hi": 39,
       "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 45,
       "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 27,
+      "hi": 46,
       "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
+      "hi": 49,
       "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
+      "hi": 52,
       "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
+      "hi": 54,
       "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
+      "hi": 57,
       "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
+      "hi": 58,
       "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 53,
+      "hi": 60,
       "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
+      "hi": 54,
       "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
+      "hi": 43,
       "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 41,
       "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
+      "hi": 33,
       "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
+      "hi": 20,
       "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 469,
       "level": "원활"
      }
@@ -1115,103 +1242,120 @@
      }
     ],
     "expectedCars": 121,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 981,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 47,
       "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
+      "hi": 51,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
+      "hi": 51,
       "cars": 1412,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
+      "hi": 54,
       "cars": 1795,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
+      "hi": 57,
       "cars": 1961,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
+      "hi": 58,
       "cars": 1976,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
+      "hi": 51,
       "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
+      "hi": 45,
       "cars": 1484,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 39,
       "cars": 1300,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
+      "hi": 34,
       "cars": 1017,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 20,
       "cars": 671,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 460,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      }
@@ -1280,103 +1424,120 @@
      }
     ],
     "expectedCars": 121,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 21,
+      "hi": 39,
       "cars": 903,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 45,
       "cars": 1019,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 27,
+      "hi": 46,
       "cars": 1206,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
+      "hi": 49,
       "cars": 1414,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 39,
+      "hi": 52,
       "cars": 1737,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 44,
+      "hi": 54,
       "cars": 1916,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 48,
+      "hi": 57,
       "cars": 2117,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
+      "hi": 58,
       "cars": 2260,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 53,
+      "hi": 60,
       "cars": 2340,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 47,
+      "hi": 54,
       "cars": 2059,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 38,
+      "hi": 43,
       "cars": 1654,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 41,
       "cars": 1353,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
+      "hi": 33,
       "cars": 1122,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
+      "hi": 20,
       "cars": 749,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 485,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 469,
       "level": "원활"
      }
@@ -1445,103 +1606,120 @@
      }
     ],
     "expectedCars": 121,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 43,
+      "hi": 48,
       "cars": 1893,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 51,
+      "hi": 57,
       "cars": 2226,
       "level": "보통"
      },
      {
       "h": 10,
       "occ": 53,
+      "hi": 58,
       "cars": 2316,
       "level": "보통"
      },
      {
       "h": 11,
       "occ": 50,
+      "hi": 56,
       "cars": 2186,
       "level": "보통"
      },
      {
       "h": 12,
       "occ": 49,
+      "hi": 55,
       "cars": 2159,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 51,
+      "hi": 55,
       "cars": 2261,
       "level": "보통"
      },
      {
       "h": 14,
       "occ": 52,
+      "hi": 55,
       "cars": 2283,
       "level": "보통"
      },
      {
       "h": 15,
       "occ": 52,
+      "hi": 55,
       "cars": 2271,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 49,
+      "hi": 53,
       "cars": 2154,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 43,
       "cars": 1825,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
+      "hi": 35,
       "cars": 1430,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 29,
+      "hi": 33,
       "cars": 1267,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
+      "hi": 32,
       "cars": 1077,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
+      "hi": 25,
       "cars": 763,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 13,
+      "hi": 17,
       "cars": 552,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 12,
       "cars": 482,
       "level": "원활"
      }
@@ -1610,103 +1788,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1009,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
+      "hi": 52,
       "cars": 1212,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1295,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 53,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 29,
+      "hi": 54,
       "cars": 1297,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 54,
       "cars": 1359,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 53,
       "cars": 1393,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 50,
       "cars": 1547,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 47,
       "cars": 1376,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 45,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 41,
       "cars": 1205,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 34,
       "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 22,
       "cars": 617,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 15,
       "cars": 450,
       "level": "원활"
      }
@@ -1775,103 +1970,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1161,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 48,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1281,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 30,
+      "hi": 51,
       "cars": 1300,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 33,
+      "hi": 52,
       "cars": 1465,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
+      "hi": 57,
       "cars": 1972,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 44,
+      "hi": 57,
       "cars": 1933,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1695,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
+      "hi": 46,
       "cars": 1439,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 42,
       "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
+      "hi": 32,
       "cars": 1033,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 20,
       "cars": 633,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 464,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 464,
       "level": "원활"
      }
@@ -1940,103 +2152,120 @@
      }
     ],
     "expectedCars": 1794,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 20,
+      "hi": 38,
       "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 44,
       "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
+      "hi": 46,
       "cars": 1157,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 49,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 29,
+      "hi": 49,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 35,
+      "hi": 50,
       "cars": 1552,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 46,
+      "hi": 55,
       "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
+      "hi": 56,
       "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 50,
       "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 35,
+      "hi": 45,
       "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 42,
       "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
+      "hi": 31,
       "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 19,
       "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 13,
       "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 13,
       "cars": 509,
       "level": "원활"
      }
@@ -2105,103 +2334,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1161,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 48,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1281,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 30,
+      "hi": 51,
       "cars": 1300,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 33,
+      "hi": 52,
       "cars": 1465,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
+      "hi": 57,
       "cars": 1972,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 44,
+      "hi": 57,
       "cars": 1933,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1695,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
+      "hi": 46,
       "cars": 1439,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 42,
       "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
+      "hi": 32,
       "cars": 1033,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 20,
       "cars": 633,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 464,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 464,
       "level": "원활"
      }
@@ -2270,103 +2516,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 20,
+      "hi": 38,
       "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 44,
       "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
+      "hi": 46,
       "cars": 1157,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 49,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 29,
+      "hi": 49,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 35,
+      "hi": 50,
       "cars": 1552,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 46,
+      "hi": 55,
       "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
+      "hi": 56,
       "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 50,
       "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 35,
+      "hi": 45,
       "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 42,
       "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
+      "hi": 31,
       "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 19,
       "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 13,
       "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 13,
       "cars": 509,
       "level": "원활"
      }
@@ -2435,103 +2698,120 @@
      }
     ],
     "expectedCars": 359,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 44,
+      "hi": 49,
       "cars": 1917,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 51,
+      "hi": 58,
       "cars": 2244,
       "level": "보통"
      },
      {
       "h": 10,
       "occ": 53,
+      "hi": 60,
       "cars": 2323,
       "level": "보통"
      },
      {
       "h": 11,
       "occ": 50,
+      "hi": 58,
       "cars": 2187,
       "level": "보통"
      },
      {
       "h": 12,
       "occ": 49,
+      "hi": 59,
       "cars": 2163,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 51,
+      "hi": 59,
       "cars": 2259,
       "level": "보통"
      },
      {
       "h": 14,
       "occ": 52,
+      "hi": 60,
       "cars": 2276,
       "level": "보통"
      },
      {
       "h": 15,
       "occ": 52,
+      "hi": 59,
       "cars": 2276,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 49,
+      "hi": 58,
       "cars": 2161,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
+      "hi": 48,
       "cars": 1854,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
+      "hi": 39,
       "cars": 1488,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 37,
       "cars": 1351,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
+      "hi": 35,
       "cars": 1144,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 18,
+      "hi": 26,
       "cars": 803,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 17,
       "cars": 550,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 12,
       "cars": 482,
       "level": "원활"
      }
@@ -2600,103 +2880,120 @@
      }
     ],
     "expectedCars": 359,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 973,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1140,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1252,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1286,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1232,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 31,
+      "hi": 52,
       "cars": 1355,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 43,
+      "hi": 56,
       "cars": 1878,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1699,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1337,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 37,
       "cars": 1092,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 21,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 456,
       "level": "원활"
      }
@@ -2765,103 +3062,120 @@
      }
     ],
     "expectedCars": 359,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 20,
+      "hi": 38,
       "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 44,
       "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
+      "hi": 46,
       "cars": 1157,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 49,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 29,
+      "hi": 49,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 35,
+      "hi": 50,
       "cars": 1552,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 46,
+      "hi": 55,
       "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
+      "hi": 56,
       "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 50,
       "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 35,
+      "hi": 45,
       "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 42,
       "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
+      "hi": 31,
       "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 19,
       "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 13,
       "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 13,
       "cars": 509,
       "level": "원활"
      }
@@ -2930,103 +3244,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 973,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1140,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1252,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1286,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1232,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 31,
+      "hi": 52,
       "cars": 1355,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 43,
+      "hi": 56,
       "cars": 1878,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1699,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1337,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 37,
       "cars": 1092,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 21,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 456,
       "level": "원활"
      }
@@ -3095,103 +3426,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 20,
+      "hi": 38,
       "cars": 872,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 44,
       "cars": 1013,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
+      "hi": 46,
       "cars": 1157,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 49,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 29,
+      "hi": 49,
       "cars": 1278,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 35,
+      "hi": 50,
       "cars": 1552,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 46,
+      "hi": 55,
       "cars": 2012,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 47,
+      "hi": 56,
       "cars": 2075,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
+      "hi": 57,
       "cars": 2035,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 50,
       "cars": 1792,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 35,
+      "hi": 45,
       "cars": 1537,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 42,
       "cars": 1360,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
+      "hi": 31,
       "cars": 1053,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 19,
       "cars": 650,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 13,
       "cars": 511,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 13,
       "cars": 509,
       "level": "원활"
      }
@@ -3260,103 +3608,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1009,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
+      "hi": 52,
       "cars": 1212,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1295,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 53,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 29,
+      "hi": 54,
       "cars": 1297,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 54,
       "cars": 1359,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 53,
       "cars": 1393,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 50,
       "cars": 1547,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 47,
       "cars": 1376,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 45,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 41,
       "cars": 1205,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 34,
       "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 26,
       "cars": 627,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 15,
       "cars": 450,
       "level": "원활"
      }
@@ -3425,103 +3790,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1158,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1233,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1259,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1237,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 29,
+      "hi": 52,
       "cars": 1291,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 33,
+      "hi": 54,
       "cars": 1440,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
+      "hi": 55,
       "cars": 1823,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
+      "hi": 50,
       "cars": 1646,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1420,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1330,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 38,
       "cars": 1112,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 16,
+      "hi": 27,
       "cars": 725,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 14,
       "cars": 443,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 428,
       "level": "원활"
      }
@@ -3590,103 +3972,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1009,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
+      "hi": 52,
       "cars": 1212,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1295,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1216,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 53,
       "cars": 1248,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 29,
+      "hi": 54,
       "cars": 1297,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 54,
       "cars": 1359,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 53,
       "cars": 1393,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 50,
       "cars": 1547,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 47,
       "cars": 1376,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 45,
       "cars": 1342,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 41,
       "cars": 1205,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 34,
       "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 26,
       "cars": 627,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 15,
       "cars": 450,
       "level": "원활"
      }
@@ -3755,103 +4154,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 969,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1158,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1233,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1259,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1237,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 29,
+      "hi": 52,
       "cars": 1291,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 33,
+      "hi": 54,
       "cars": 1440,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
+      "hi": 55,
       "cars": 1823,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
+      "hi": 50,
       "cars": 1646,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1420,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1330,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 38,
       "cars": 1112,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 16,
+      "hi": 27,
       "cars": 725,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 14,
       "cars": 443,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 428,
       "level": "원활"
      }
@@ -3920,103 +4336,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 20,
+      "hi": 38,
       "cars": 888,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 23,
+      "hi": 44,
       "cars": 992,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 26,
+      "hi": 46,
       "cars": 1130,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 49,
       "cars": 1221,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 49,
       "cars": 1210,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 32,
+      "hi": 50,
       "cars": 1421,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 38,
+      "hi": 53,
       "cars": 1666,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 46,
+      "hi": 55,
       "cars": 2021,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 44,
+      "hi": 55,
       "cars": 1948,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
+      "hi": 50,
       "cars": 1793,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
+      "hi": 45,
       "cars": 1513,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
+      "hi": 42,
       "cars": 1378,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 36,
       "cars": 1117,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 20,
       "cars": 645,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 459,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 13,
       "cars": 502,
       "level": "원활"
      }
@@ -4085,103 +4518,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1010,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
+      "hi": 52,
       "cars": 1213,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1289,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 51,
       "cars": 1215,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 51,
       "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 51,
       "cars": 1247,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 30,
+      "hi": 52,
       "cars": 1302,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 52,
       "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 51,
       "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 48,
       "cars": 1548,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 46,
       "cars": 1374,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 44,
       "cars": 1340,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 40,
       "cars": 1206,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 33,
       "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 27,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 16,
       "cars": 445,
       "level": "원활"
      }
@@ -4250,103 +4700,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1018,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 52,
       "cars": 1198,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
+      "hi": 53,
       "cars": 1310,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1236,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1183,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 30,
+      "hi": 53,
       "cars": 1318,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 34,
+      "hi": 54,
       "cars": 1499,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 42,
+      "hi": 55,
       "cars": 1854,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
+      "hi": 55,
       "cars": 1781,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
+      "hi": 51,
       "cars": 1641,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 47,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 32,
+      "hi": 45,
       "cars": 1406,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 29,
+      "hi": 39,
       "cars": 1294,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 18,
+      "hi": 22,
       "cars": 806,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 15,
       "cars": 527,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 14,
       "cars": 477,
       "level": "원활"
      }
@@ -4415,103 +4882,120 @@
      }
     ],
     "expectedCars": 166,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 973,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1140,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1252,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1286,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1232,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 31,
+      "hi": 52,
       "cars": 1355,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 43,
+      "hi": 56,
       "cars": 1878,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1699,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1337,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 37,
       "cars": 1092,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 21,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 456,
       "level": "원활"
      }
@@ -4580,103 +5064,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1010,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
+      "hi": 52,
       "cars": 1213,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1289,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 51,
       "cars": 1215,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 51,
       "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 51,
       "cars": 1247,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 30,
+      "hi": 52,
       "cars": 1302,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 31,
+      "hi": 52,
       "cars": 1364,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 32,
+      "hi": 51,
       "cars": 1392,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 35,
+      "hi": 48,
       "cars": 1548,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 31,
+      "hi": 46,
       "cars": 1374,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 44,
       "cars": 1340,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 40,
       "cars": 1206,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
+      "hi": 33,
       "cars": 850,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 14,
+      "hi": 27,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 16,
       "cars": 445,
       "level": "원활"
      }
@@ -4745,103 +5246,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1018,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 52,
       "cars": 1198,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
+      "hi": 53,
       "cars": 1310,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1236,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1183,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 30,
+      "hi": 53,
       "cars": 1318,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 34,
+      "hi": 54,
       "cars": 1499,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 42,
+      "hi": 55,
       "cars": 1854,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
+      "hi": 55,
       "cars": 1781,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
+      "hi": 51,
       "cars": 1641,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 47,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 32,
+      "hi": 45,
       "cars": 1406,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 29,
+      "hi": 39,
       "cars": 1294,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 18,
+      "hi": 22,
       "cars": 806,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 15,
       "cars": 527,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 14,
       "cars": 477,
       "level": "원활"
      }
@@ -4910,103 +5428,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 973,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1140,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1252,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1286,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1232,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 31,
+      "hi": 52,
       "cars": 1355,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 43,
+      "hi": 56,
       "cars": 1878,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1699,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1337,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 37,
       "cars": 1092,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 21,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 456,
       "level": "원활"
      }
@@ -5075,103 +5610,120 @@
      }
     ],
     "expectedCars": 331,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1018,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 52,
       "cars": 1198,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
+      "hi": 53,
       "cars": 1310,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 52,
       "cars": 1236,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 52,
       "cars": 1183,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 30,
+      "hi": 53,
       "cars": 1318,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 34,
+      "hi": 54,
       "cars": 1499,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 42,
+      "hi": 55,
       "cars": 1854,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
+      "hi": 55,
       "cars": 1781,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
+      "hi": 51,
       "cars": 1641,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 47,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 32,
+      "hi": 45,
       "cars": 1406,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 29,
+      "hi": 39,
       "cars": 1294,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 18,
+      "hi": 22,
       "cars": 806,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
+      "hi": 15,
       "cars": 527,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
+      "hi": 14,
       "cars": 477,
       "level": "원활"
      }
@@ -5240,103 +5792,120 @@
      }
     ],
     "expectedCars": 331,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 22,
+      "hi": 40,
       "cars": 973,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 26,
+      "hi": 46,
       "cars": 1140,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 28,
+      "hi": 48,
       "cars": 1252,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 29,
+      "hi": 51,
       "cars": 1286,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 51,
       "cars": 1232,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 31,
+      "hi": 52,
       "cars": 1355,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 36,
+      "hi": 54,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 44,
+      "hi": 56,
       "cars": 1929,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 43,
+      "hi": 56,
       "cars": 1878,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 39,
+      "hi": 50,
       "cars": 1699,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
+      "hi": 46,
       "cars": 1416,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1337,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
+      "hi": 37,
       "cars": 1092,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
+      "hi": 21,
       "cars": 628,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
+      "hi": 13,
       "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 13,
       "cars": 456,
       "level": "원활"
      }
@@ -5405,103 +5974,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 44,
       "cars": 1010,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 52,
       "cars": 1208,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 29,
+      "hi": 53,
       "cars": 1280,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
+      "hi": 51,
       "cars": 1210,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
+      "hi": 51,
       "cars": 1173,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 28,
+      "hi": 51,
       "cars": 1227,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 29,
+      "hi": 52,
       "cars": 1296,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 29,
+      "hi": 52,
       "cars": 1291,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 28,
+      "hi": 51,
       "cars": 1211,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 29,
+      "hi": 47,
       "cars": 1298,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 30,
+      "hi": 45,
       "cars": 1324,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
+      "hi": 43,
       "cars": 1302,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
+      "hi": 39,
       "cars": 1186,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 18,
+      "hi": 34,
       "cars": 805,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 13,
+      "hi": 28,
       "cars": 576,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 28,
       "cars": 532,
       "level": "원활"
      }
@@ -5570,103 +6156,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 28,
+      "hi": 38,
       "cars": 1228,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 33,
+      "hi": 44,
       "cars": 1470,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 36,
+      "hi": 46,
       "cars": 1581,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 33,
+      "hi": 46,
       "cars": 1449,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
+      "hi": 46,
       "cars": 1399,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 36,
+      "hi": 47,
       "cars": 1574,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 37,
+      "hi": 47,
       "cars": 1623,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 37,
+      "hi": 47,
       "cars": 1646,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
+      "hi": 48,
       "cars": 1746,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 47,
+      "hi": 53,
       "cars": 2083,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 47,
+      "hi": 51,
       "cars": 2068,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 51,
+      "hi": 52,
       "cars": 2247,
       "level": "보통"
      },
      {
       "h": 20,
       "occ": 45,
+      "hi": 47,
       "cars": 1970,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 33,
+      "hi": 43,
       "cars": 1470,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 20,
+      "hi": 24,
       "cars": 892,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
+      "hi": 16,
       "cars": 526,
       "level": "원활"
      }
@@ -5735,103 +6338,120 @@
      }
     ],
     "expectedCars": 828,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 29,
       "cars": 1020,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 36,
       "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 31,
+      "hi": 38,
       "cars": 1367,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
+      "hi": 40,
       "cars": 1420,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 35,
+      "hi": 43,
       "cars": 1560,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 43,
+      "hi": 48,
       "cars": 1905,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 52,
+      "hi": 56,
       "cars": 2291,
       "level": "보통"
      },
      {
       "h": 15,
       "occ": 53,
+      "hi": 57,
       "cars": 2341,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 49,
+      "hi": 53,
       "cars": 2160,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 48,
+      "hi": 54,
       "cars": 2122,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 44,
+      "hi": 49,
       "cars": 1942,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 40,
+      "hi": 46,
       "cars": 1778,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 32,
+      "hi": 38,
       "cars": 1390,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 22,
       "cars": 665,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 470,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 12,
       "cars": 442,
       "level": "원활"
      }
@@ -5866,7 +6486,7 @@
      "2027-01-02",
      "2027-07-03"
     ],
-    "moreCount": 3
+    "moreCount": 0
    },
    "reco": {
     "carArrive": "13:00",
@@ -5900,103 +6520,120 @@
      }
     ],
     "expectedCars": 202,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 23,
+      "hi": 29,
       "cars": 1020,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
+      "hi": 36,
       "cars": 1201,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 31,
+      "hi": 38,
       "cars": 1367,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 32,
+      "hi": 40,
       "cars": 1420,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 35,
+      "hi": 43,
       "cars": 1560,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 43,
+      "hi": 48,
       "cars": 1905,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 52,
+      "hi": 56,
       "cars": 2291,
       "level": "보통"
      },
      {
       "h": 15,
       "occ": 53,
+      "hi": 57,
       "cars": 2341,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 49,
+      "hi": 53,
       "cars": 2160,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 48,
+      "hi": 54,
       "cars": 2122,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 44,
+      "hi": 49,
       "cars": 1942,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 40,
+      "hi": 46,
       "cars": 1778,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 32,
+      "hi": 38,
       "cars": 1390,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
+      "hi": 22,
       "cars": 665,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 11,
+      "hi": 13,
       "cars": 470,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
+      "hi": 12,
       "cars": 442,
       "level": "원활"
      }
@@ -6031,7 +6668,7 @@
      "2027-01-02",
      "2027-07-03"
     ],
-    "moreCount": 3
+    "moreCount": 0
    },
    "reco": {
     "carArrive": "13:00",
@@ -6065,269 +6702,121 @@
      }
     ],
     "expectedCars": 202,
-    "overflowCars": 0
+    "overflowCars": 0,
+    "busyDay": false
    },
    "forecast": {
     "hours": [
      {
       "h": 8,
       "occ": 17,
+      "hi": 28,
       "cars": 733,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 20,
+      "hi": 34,
       "cars": 867,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 23,
+      "hi": 36,
       "cars": 1020,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 24,
+      "hi": 39,
       "cars": 1060,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
+      "hi": 41,
       "cars": 1221,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 33,
+      "hi": 43,
       "cars": 1436,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 34,
+      "hi": 48,
       "cars": 1499,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 34,
+      "hi": 47,
       "cars": 1491,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 30,
+      "hi": 43,
       "cars": 1323,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 25,
+      "hi": 38,
       "cars": 1105,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 16,
+      "hi": 30,
       "cars": 697,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 12,
+      "hi": 28,
       "cars": 522,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 12,
+      "hi": 25,
       "cars": 516,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 9,
+      "hi": 16,
       "cars": 400,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 5,
+      "hi": 9,
       "cars": 225,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 5,
+      "hi": 9,
       "cars": 220,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5185-0104",
-   "title": "뮤지컬 〈폭풍우 치는 밤에〉",
-   "venue": "뮤즈라이브",
-   "date": "2027-01-04",
-   "start": "14:00",
-   "runtime": 70,
-   "genre": "뮤지컬",
-   "audience": "family",
-   "capacity": 2000,
-   "weather": {
-    "temp": -1.9,
-    "sky": null,
-    "precip": false,
-    "source": "평년값"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5185",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611191728361151.gif",
-    "age": "24개월이상 관람가능",
-    "price": "전석 50,000원",
-    "host": "주식회사 마이무대",
-    "contact": "02-558-5738",
-    "time_text": "주말 및 공휴일 14시",
-    "runDates": [
-     "2027-01-02",
-     "2027-07-03"
-    ],
-    "moreCount": 3
-   },
-   "reco": {
-    "carArrive": "13:00",
-    "fullAt": null,
-    "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
-    "bestGate": "동2문",
-    "exits": [
-     {
-      "leaveMin": 0,
-      "waitMin": 8
-     },
-     {
-      "leaveMin": 10,
-      "waitMin": 6
-     },
-     {
-      "leaveMin": 20,
-      "waitMin": 4
-     },
-     {
-      "leaveMin": 30,
-      "waitMin": 3
-     },
-     {
-      "leaveMin": 45,
-      "waitMin": 1
-     },
-     {
-      "leaveMin": 60,
-      "waitMin": 0
-     }
-    ],
-    "expectedCars": 202,
-    "overflowCars": 0
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 32,
-      "cars": 1392,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 39,
-      "cars": 1713,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 41,
-      "cars": 1813,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 39,
-      "cars": 1705,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 39,
-      "cars": 1708,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 42,
-      "cars": 1832,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 42,
-      "cars": 1855,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 42,
-      "cars": 1827,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 37,
-      "cars": 1620,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 31,
-      "cars": 1379,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 22,
-      "cars": 947,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 18,
-      "cars": 786,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 17,
-      "cars": 731,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 13,
-      "cars": 569,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 9,
-      "cars": 382,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 8,
-      "cars": 368,
       "level": "원활"
      }
     ]

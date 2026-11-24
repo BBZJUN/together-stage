@@ -59,7 +59,7 @@ export default function Insight() {
         <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">
           한국체육산업개발이 공개한 실감형 콘텐츠·연계 데이터·공연정보와 OpenStreetMap을 분석했어요. 공연장 운영과 데이터 개방에 바로 쓸 수 있는 내용만 모았어요.
         </p>
-        <Link href="/check" className="press mt-4 flex items-center justify-between rounded-2xl bg-ink px-4 py-4 text-white">
+        <Link href="/check" prefetch={false} className="press mt-4 flex items-center justify-between rounded-2xl bg-ink px-4 py-4 text-white">
           <span>
             <span className="block text-[1rem] font-bold">무대 접근성 사전 점검</span>
             <span className="block text-[0.8125rem] opacity-75">대관 무대 배치 → 시야제한석·휠체어석·단상 권고 리포트</span>
@@ -158,7 +158,7 @@ export default function Insight() {
         <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (앞 난간 1.0m 반영, 1.2m 펜스면 평균 23%까지 떨어짐)</p>
         <Proposal>
           <b>제안</b> 콘서트처럼 관객이 일어서는 공연은 휠체어석 구역에 이동식 단상을 두고, 무대 배치 단계에서 휠체어석 시야를 미리 점검해 주세요.{" "}
-          <Link href="/seats" className="font-semibold text-blue underline underline-offset-2">
+          <Link href="/seats" prefetch={false} className="font-semibold text-blue underline underline-offset-2">
             무대 배치 점검 해보기
           </Link>
         </Proposal>

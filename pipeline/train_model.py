@@ -58,6 +58,17 @@ def load() -> pd.DataFrame:
     return df
 
 
+QPARAMS = dict(n_estimators=400, learning_rate=0.04, num_leaves=31, min_child_samples=20, subsample=0.9, subsample_freq=1, colsample_bytree=0.9, verbose=-1)
+QA = float(__import__("os").environ.get("QA", "0.9"))
+FULL = 4400
+BUSY_DAY = 2800  # 위쪽 범위 피크가 이 이상이면 '붐빌 수 있는 날' (2025 교차검증으로 정함)  # '가득 참' 기준 (2025년 시간대별 최대 4,359대 부근)
+
+
+def levels(v):
+    """원활 0 / 보통 1 / 혼잡 2 / 만차 3 — 앱과 같은 기준"""
+    return np.select([v >= 0.95 * FULL, v >= 0.75 * FULL, v >= 0.5 * FULL], [3, 2, 1], 0)
+
+
 def main():
     df = load()
     print(len(df), "rows", df.time.min(), "~", df.time.max())
@@ -82,12 +93,17 @@ def main():
 
     folds = GroupKFold(n_splits=5)
     pred = np.zeros(len(y))
+    upper = np.zeros(len(y))
     basepred = np.zeros(len(y))
     weeks = clean.time.dt.isocalendar().week.astype(int).values
     for tr, te in folds.split(X, y, groups=weeks):
         m = lgb.LGBMRegressor(n_estimators=500, learning_rate=0.04, num_leaves=31, min_child_samples=15, subsample=0.9, subsample_freq=1, colsample_bytree=0.9, verbose=-1)
         m.fit(X.iloc[tr], y[tr])
         pred[te] = m.predict(X.iloc[te])
+        # 위쪽 범위(90% 분위수): 이동약자에게는 혼잡을 놓치는 쪽이 더 위험해 '붐빌 수도 있음'을 함께 안내
+        q = lgb.LGBMRegressor(objective="quantile", alpha=QA, **QPARAMS)
+        q.fit(X.iloc[tr], y[tr])
+        upper[te] = q.predict(X.iloc[te])
         b = clean.iloc[tr].groupby(["weekend", "hour"]).cars.mean()
         basepred[te] = [b.get((w, h), y[tr].mean()) for w, h in zip(clean.iloc[te].weekend, clean.iloc[te].hour)]
 
@@ -107,11 +123,43 @@ def main():
             "show_days": {"mae_model": mae(pred, showday), "mae_baseline": mae(basepred, showday), "r2_model": r2(pred, showday), "r2_baseline": r2(basepred, showday)},
         }
     )
+    # 앱에서 쓰는 방식 그대로 검증: 혼잡 단계 일치, 피크 시각, 위쪽 범위의 포함률·혼잡 탐지
+    la, lp, lu = levels(y), levels(pred), levels(upper)
+    sd = clean.assign(pred=pred, upper=upper)[showday]
+    by = sd.groupby("date")
+    pk_err = (by.apply(lambda g: abs(int(g.loc[g.cars.idxmax(), "hour"]) - int(g.loc[g.pred.idxmax(), "hour"])))).values
+    cong = la >= 2
+    report["checks"] = {
+        "level_match_all": round(float(np.mean(la == lp)), 3),
+        "level_match_show_days": round(float(np.mean(la[showday] == lp[showday])), 3),
+        "level_within1_show_days": round(float(np.mean(np.abs(la[showday] - lp[showday]) <= 1)), 3),
+        "peak_hour_within_1h": round(float(np.mean(pk_err <= 1)), 3),
+        "upper_coverage": round(float(np.mean(y <= upper)), 3),
+        "congested_hours": int(cong.sum()),
+        "congested_recall_mean": round(float((cong & (lp >= 2)).sum() / max(1, cong.sum())), 3),
+        "congested_recall_upper": round(float((cong & (lu >= 2)).sum() / max(1, cong.sum())), 3),
+        "upper_false_alarm_rate": round(float(((lu >= 2) & ~cong).sum() / max(1, (~cong).sum())), 3),
+    }
+    # 하루 단위 경고: 실제 혼잡(3,300대 이상)이 있었던 날을 '붐빌 수 있는 날'로 미리 잡는지
+    day = clean.assign(pred=pred, upper=upper).groupby("date").agg(mx=("cars", "max"), up=("upper", "max"), pr=("pred", "max"))
+    busy = day.mx >= 0.75 * FULL
+    for name, col in (("upper", "up"), ("mean", "pr")):
+        warn = day[col] >= BUSY_DAY
+        report["checks"][f"busy_day_{name}"] = {
+            "threshold": BUSY_DAY,
+            "busy_days": int(busy.sum()),
+            "caught": int((busy & warn).sum()),
+            "warned_days": int(warn.sum()),
+            "days": int(len(day)),
+        }
     m = lgb.LGBMRegressor(n_estimators=500, learning_rate=0.04, num_leaves=31, min_child_samples=15, subsample=0.9, subsample_freq=1, colsample_bytree=0.9, verbose=-1)
     m.fit(X, y)
+    q = lgb.LGBMRegressor(objective="quantile", alpha=QA, **QPARAMS)
+    q.fit(X, y)
+    q.booster_.save_model(str(ROOT / "model_q90.txt"))
     report["importance"] = dict(sorted(zip(feats, map(int, m.feature_importances_)), key=lambda x: -x[1]))
     m.booster_.save_model(str(ROOT / "model.txt"))
-    clean.assign(pred=pred, base=basepred).to_csv(ROOT / "cv_predictions.csv", index=False)
+    clean.assign(pred=pred, upper=upper, base=basepred).to_csv(ROOT / "cv_predictions.csv", index=False)
     (ROOT / "model_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1))
     print(json.dumps(report, ensure_ascii=False, indent=1))
 

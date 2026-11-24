@@ -75,6 +75,8 @@ export function arrivalAdvice(show: Show) {
   const top = win.reduce((a, b) => (b.cars > a.cars ? b : a), win[0] ?? show.forecast.hours[0]);
   const rise = win.find((p) => p.cars >= top.cars * 0.85 && p.cars > (win[0]?.cars ?? 0) * 1.05);
   const busyHour = rise && rise.h < startH ? rise.h : undefined;
-  const arrive = busyHour !== undefined ? shiftTime(`${String(busyHour).padStart(2, "0")}:00`, -30) : shiftTime(show.start, -90);
-  return { busyHour, arrive };
+  let arrive = busyHour !== undefined ? shiftTime(`${String(busyHour).padStart(2, "0")}:00`, -30) : shiftTime(show.start, -90);
+  // 붐빌 수 있는 날은 30분 더 여유 있게 (놓치는 쪽이 이동약자에게 더 위험)
+  if (show.reco.busyDay) arrive = shiftTime(arrive, -30);
+  return { busyHour, arrive, busyDay: !!show.reco.busyDay };
 }

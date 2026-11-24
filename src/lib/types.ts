@@ -4,6 +4,8 @@ export type Level = "원활" | "보통" | "혼잡" | "만차";
 export interface HourPoint {
   h: number;
   occ: number;
+  /** 위쪽 범위(90% 분위수 모델) 점유율 — 붐빌 수 있는 최대치 */
+  hi?: number;
   cars: number;
   level: Level;
 }
@@ -30,6 +32,8 @@ export interface Show {
     exits: { leaveMin: number; waitMin: number }[];
     expectedCars: number;
     overflowCars: number;
+    /** 위쪽 범위 피크가 2,800대 이상 → '붐빌 수 있는 날' */
+    busyDay?: boolean;
   };
 }
 

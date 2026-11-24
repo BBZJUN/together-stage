@@ -1,0 +1,25 @@
+name: 검증 (테스트·타입·린트)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: npm ci
+      - name: 타입 검사
+        run: npm run typecheck
+      - name: 린트
+        run: npm run lint
+      - name: 테스트 — 길찾기·좌석 시야·데이터·AI 안내 (기획서 수치 재현 포함)
+        run: npm test
+      - name: 테스트 — 공연 시간 파서 (공식 일정 실제 문장)
+        run: npm run test:py

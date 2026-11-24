@@ -194,7 +194,7 @@ function HomeInner({ shows, source }: { shows: Show[]; source: string }) {
         <ul className="mt-3 grid grid-cols-2 gap-2">
           {QUICK.map((q, i) => (
             <li key={q.href} className={i === QUICK.length - 1 && QUICK.length % 2 ? "col-span-2" : ""}>
-              <Link href={q.href} className="press flex h-full flex-col gap-3 rounded-2xl bg-grey-50 p-4">
+              <Link href={q.href} prefetch={q.href === "/seats" ? false : undefined} className="press flex h-full flex-col gap-3 rounded-2xl bg-grey-50 p-4">
                 <IconTile icon={q.icon} tone={q.tone} size="sm" />
                 <span>
                   <span className="block text-[0.9375rem] font-bold">{q.title}</span>

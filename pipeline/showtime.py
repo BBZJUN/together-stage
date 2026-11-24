@@ -32,6 +32,8 @@ def schedule(text: str, start: date, end: date) -> dict[str, str]:
     """{YYYY-MM-DD: 'HH:MM'} — 시간을 확정할 수 없는 날은 빠진다."""
     text = (text or "").replace("（", "(").replace("）", ")")
     text = re.sub(r"\(KST\)", "", text)
+    # "주말 및 공휴일 14시" → 토·일, "평일 19시" → 월~금 (요일로 바꿔 둬야 매일 공연으로 잘못 읽지 않음)
+    text = text.replace("주말", " 토일 ").replace("평일", " 월화수목금 ")
     by_date: dict[date, str] = {}
     by_wd: dict[int, str] = {}
     loose: list[str] = []
