@@ -6,7 +6,7 @@
 
 **휠체어 이용자 · 계단이 힘든 사람 · 저시력 · 청각장애 · 고령 관객이<br/>올림픽공원 공연을 도착부터 내 자리까지 걱정 없이 보도록 돕는 모바일 웹 서비스**
 
-[서비스 바로 쓰기](https://together-stage.vercel.app) · [예측은 이렇게 검증했어요](https://together-stage.vercel.app/data) · [가공 데이터 내려받기](https://together-stage.vercel.app/open-data)
+[서비스 바로 쓰기](https://together-stage.vercel.app) · [60초 시연 영상](docs/demo.mp4) · [예측은 이렇게 검증했어요](https://together-stage.vercel.app/data) · [가공 데이터 내려받기](https://together-stage.vercel.app/open-data)
 
 [![검증](https://github.com/BBZJUN/together-stage/actions/workflows/verify.yml/badge.svg)](https://github.com/BBZJUN/together-stage/actions/workflows/verify.yml)
 [![접근성](https://github.com/BBZJUN/together-stage/actions/workflows/a11y.yml/badge.svg)](https://github.com/BBZJUN/together-stage/actions/workflows/a11y.yml)
