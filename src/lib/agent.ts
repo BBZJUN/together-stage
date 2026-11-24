@@ -78,7 +78,6 @@ function brief(s: Show) {
     dateLabel: fmtDate(s.date),
     start: s.start,
     end: endTime(s),
-    audience: s.audience,
   };
 }
 
@@ -122,7 +121,7 @@ export async function runTool(name: string, input: Record<string, string>) {
         const vs = seats.map((x) => seatVisibility(x, DEFAULT_STAGE, { standing }, T, O).ratio);
         return { avgVisible: Math.round((vs.reduce((a, b) => a + b, 0) / vs.length) * 100), poorSeats: vs.filter((x) => x < 0.6).length };
       };
-      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 공식 좌석배치도의 C블록(무대 정면) 뒤편 장애인석 기준, 세부 좌석은 추정. 휠체어석 앞 난간 1.0m(설계 기준) 반영. 펜스·표지판이 1.2m(앉은 눈높이)면 평균 23%로 떨어지고 단상 60cm로 회복" };
+      return { venue: "KSPO DOME (실감형 콘텐츠 3D 형상 기반)", wheelchairSeats: seats.length, seated: calc(false), standing: calc(true), note: "휠체어석 위치는 공식 좌석배치도의 C블록(무대 정면) 뒤편 장애인석 기준, 세부 좌석은 추정. 휠체어석 앞 난간 1.0m(설계 기준) 반영. 펜스·표지판이 1.2m(앉은 눈높이)면 앞사람이 앉아 있어도 평균 23%로 떨어지고, 단상 30cm로 회복" };
     }
     case "find_toilets": {
       const v = venueOf(input.venue) ?? venues[0];
@@ -158,7 +157,7 @@ export async function runTool(name: string, input: Record<string, string>) {
       const k = input.keyword ?? "";
       const hits = lostItems().filter((i) => i.name.includes(k) || i.place.includes(k) || (i.notice ?? "").includes(k));
       return {
-        source: lostSource === "official" ? "한국체육산업개발 유실물센터 습득 공고" : "sample",
+        source: lostSource === "official" ? "올림픽공원 유실물 습득 공고 (한국체육산업개발 홈페이지)" : "sample",
         items: hits.slice(0, 8),
         contact: `${lostCenter.name} (${lostCenter.place}, ${lostCenter.phone.join(", ")})`,
       };
@@ -196,7 +195,7 @@ export function systemPrompt(needs: Need[], showId?: string) {
 - 공연장·역 이름은 바꾸지 않고 그대로 쓴다 (예: KSPO DOME).
 - 공연 일정·혼잡·주차·유실물은 반드시 툴로 조회한 값만 말한다. 추측한 숫자를 만들지 않는다.
 - 공연을 특정할 수 없으면 search_shows로 찾고, 여러 개면 짧게 되묻는다.
-- 주차장이 넘칠 것으로 예측되면(overflowCars>0) 대중교통(5·9호선 올림픽공원역, 8호선 몽촌토성역)을 권한다.
+- 붐빌 수 있는 날(busyDay=true)이면 도착을 더 일찍 하도록 권한다.
 - 막차·대중교통 정확한 시각은 데이터가 없으니 '따로 확인하세요'라고 안내한다.
 - 공연 일정은 올림픽공원 공식 일정안내에서 가져온 실제 일정이고, 붐비는 정도·도착 시각은 모델 예측이라고 구분해 말한다. 분실물 데이터만 샘플이다.
 ${focus ? `사용자는 지금 '${focus.title}'(id: ${focus.id}, ${focus.date} ${focus.start}) 화면에서 질문하고 있다.` : ""}`;
@@ -219,7 +218,7 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
     const res = (await runTool("search_lost_items", { keyword: kw })) as { items: ReturnType<typeof lostItems> };
     const tail = lostSource === "official" ? "" : sample;
     if (res.items.length === 0)
-      return `공식 습득 공고에서 아직 비슷한 물건을 찾지 못했어요. ${lostCenter.name}(${lostCenter.place}, ${lostCenter.phone[0]})에 분실 신고를 남겨 두세요.${tail}`;
+      return `공식 습득 공고에서 아직 비슷한 물건을 찾지 못했어요. 잃어버린 시설의 안내데스크나 ${lostCenter.name}(${lostCenter.phone[0]})에 문의해 주세요.${tail}`;
     const it = res.items[0];
     return `${it.date ? `${it.date} ` : ""}공고에 '${it.name}'${it.place ? `(${it.place})` : ""}이(가) 올라와 있어요. ${it.storage}에 문의해 보세요.${tail}`;
   }
@@ -292,7 +291,7 @@ export async function fallbackReply(text: string, needs: Need[], showId?: string
   if (show || /공연|붐|혼잡|언제|몇 시/.test(text)) {
     const s = show ?? getShows()[0];
     const a = arrivalAdvice(s);
-    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${timeKo(a.arrive)}까지 도착하시면 편해요. ${a.busyHour !== undefined ? `${a.busyHour}시부터 사람이 몰려요.` : a.busyDay ? "크게 붐빌 수도 있는 날이에요." : "크게 붐비지 않을 것 같아요."} 공연이 끝나면 인파가 빠지는 데 30분 정도 걸리니, 조금 기다렸다 나오시면 편해요.${isOfficial ? " (공연 일정은 올림픽공원 공식 일정안내 기준, 붐비는 정도는 예측)" : sample}`;
+    return `${fmtDate(s.date)} ${s.start} ${s.title.replace("[샘플] ", "")} 공연은 ${timeKo(a.arrive)}까지 도착하시면 편해요. ${a.busyHour !== undefined ? `${a.busyHour}시부터 사람이 몰려요.` : a.busyDay ? "크게 붐빌 수도 있는 날이에요." : "크게 붐비지 않을 것 같아요."} 끝나자마자 나가면 출구와 엘리베이터가 가장 붐비니, 서두를 일이 없다면 조금 기다렸다 나오세요.${isOfficial ? " (공연 일정은 올림픽공원 공식 일정안내 기준, 붐비는 정도는 예측)" : sample}`;
   }
 
   return `어디서 출발해서 어느 공연장에 가시는지 말씀해 주세요. 예: "올림픽공원역에서 KSPO DOME 가는 길", "휠체어석 시야 어때요?", "장애인 화장실 어디예요?"`;

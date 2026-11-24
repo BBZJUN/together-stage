@@ -140,6 +140,20 @@ def main():
         "congested_recall_upper": round(float((cong & (lu >= 2)).sum() / max(1, cong.sum())), 3),
         "upper_false_alarm_rate": round(float(((lu >= 2) & ~cong).sum() / max(1, (~cong).sum())), 3),
     }
+    # 공연이 끝난 뒤 실제로 차가 얼마나 빠지는지 (관람객 8천 명 이상 공연일, 실측값)
+    drops = []
+    for _, g in clean[clean.day_audience >= 8000].groupby("date"):
+        s = g[g.has_show == 1]
+        if s.empty:
+            continue
+        end = int(s.hour.max())
+        by = g.set_index("hour").cars
+        if end in by and end + 1 in by and end + 2 in by and by[end] > 0:
+            drops.append((1 - by[end + 1] / by[end], 1 - by[end + 2] / by[end]))
+    if drops:
+        d1, d2 = np.array(drops).T
+        report["after_show"] = {"days": len(drops), "drop_1h_median": round(float(np.median(d1)), 2), "drop_2h_median": round(float(np.median(d2)), 2)}
+
     # 하루 단위 경고: 실제 혼잡(3,300대 이상)이 있었던 날을 '붐빌 수 있는 날'로 미리 잡는지
     day = clean.assign(pred=pred, upper=upper).groupby("date").agg(mx=("cars", "max"), up=("upper", "max"), pr=("pred", "max"))
     busy = day.mx >= 0.75 * FULL

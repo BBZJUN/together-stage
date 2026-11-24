@@ -77,7 +77,9 @@ kspo_names = {
     for r in perf
     if re.search(r"체조|KSPO|kspo|Kspo", r.get("spatial") or "") and not re.search(r"[,/·]|핸드볼|잔디|홀", r.get("spatial") or "")
 }
-no_date = sum(1 for r in perf if not re.search(r"20\d\d[.\-/]\s?\d", (r.get("temporalCoverage") or "") + (r.get("title") or "")))
+# 날짜 전용 필드가 없다. 시간 필드(temporalCoverage)에 날짜가 섞여 적힌 경우("2015년 6월 27일 19시", "9.7(토) 18:00")만 날짜를 알 수 있다
+DATE_IN_TIME = r"(20\d\d\s*[년.\-/]|\d{1,2}\s*월\s*\d{1,2}\s*일|\d{1,2}[./]\d{1,2})"
+no_date = sum(1 for r in perf if not re.search(DATE_IN_TIME, r.get("temporalCoverage") or ""))
 dec = df[df.month >= 11]
 out["quality"] = [
     {
@@ -87,7 +89,7 @@ out["quality"] = [
     },
     {
         "dataset": "올림픽공원 공연정보",
-        "issue": f"전체 {len(perf):,}건 중 {no_date:,}건에 공연 날짜가 없음(시간만 있거나 자유 서식)",
+        "issue": f"공연 날짜 필드가 없어, 시간 칸에 날짜를 함께 적은 {len(perf) - no_date:,}건 외 {no_date:,}건({no_date / len(perf):.0%})은 공연일을 알 수 없음",
         "impact": "다가오는 공연 일정 자동 연동 불가",
     },
     {

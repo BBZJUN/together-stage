@@ -18,14 +18,15 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "pipeline" / "raw"
 OUT = ROOT / "src" / "data" / "shows.json"
 
-# 올림픽공원 주요 공연장 (좌석 규모는 대략치)
+# 올림픽공원 공연장 공식 수용 인원 (올림픽공원 공연장 비교 안내 · 한국관광공사 시설 정보)
+# 공연 규모가 따로 공개되지 않으므로 '매진(수용 인원만큼 관람)'으로 가정해 예측 입력에 쓴다.
 VENUES = {
-    "KSPO DOME": {"capacity": 15000, "gate": "남2문"},
-    "티켓링크 라이브 아레나": {"capacity": 6000, "gate": "남2문"},
-    "올림픽홀": {"capacity": 3000, "gate": "동2문"},
-    "우리금융아트홀": {"capacity": 1200, "gate": "북2문"},
-    "뮤즈라이브": {"capacity": 2000, "gate": "동2문"},
-    "K-아트홀": {"capacity": 1200, "gate": "남2문"},
+    "KSPO DOME": {"capacity": 15000},
+    "티켓링크 라이브 아레나": {"capacity": 5000},  # SK핸드볼경기장
+    "올림픽홀": {"capacity": 3000},
+    "우리금융아트홀": {"capacity": 1184},
+    "뮤즈라이브": {"capacity": 237},
+    "K-아트홀": {"capacity": 493},
 }
 EVENTS = ROOT / "src" / "data" / "events.json"
 LAT, LON = 37.5207, 127.1215  # 올림픽공원
@@ -95,6 +96,8 @@ def runtime_of(s: str) -> int:
 
 CAL = json.loads((ROOT / "pipeline" / "calibration.json").read_text())
 
+# ── 아래 값들은 학습 모델 파일(model.txt)이 없을 때 쓰는 예시용 대체 계산에만 쓴다.
+#    실제 서비스(공식 일정 + 학습 모델)는 쓰지 않으며 화면에도 나오지 않는다.
 # 주차구역별 수용 대수 — 2024-07 관측 최대 동시주차 2,202대를 바탕으로 한 추정치
 # (구역별 실제 비중은 입출차정보(전체구역) API의 주차구역 필드로 교체 예정)
 GATES = {"동2문": 700, "남2문": 1000, "북2문": 600}
@@ -179,7 +182,7 @@ def model_forecast(show: dict, all_shows_that_day: list[dict]):
     booster = lgb.Booster(model_file=str(MODEL_PATH))
     d = date.fromisoformat(show["date"])
     first_start = min(int(s["start"][:2]) for s in all_shows_that_day)
-    day_aud = max(s["capacity"] * 0.92 for s in all_shows_that_day)
+    day_aud = max(s["capacity"] for s in all_shows_that_day)  # 매진 가정
     w = show["weather"]
     rows, hours = [], list(range(8, 24))
     for h in hours:
@@ -212,35 +215,16 @@ def level(occ: int) -> str:
 
 
 def recommendations(show: dict, hours: list[dict]) -> dict:
+    """화면에 쓰는 값만: 혼잡 예측에서 바로 나오는 것 (가정이 필요한 출차 대기·게이트 추천은 넣지 않음)"""
     start_h = int(show["start"][:2]) + int(show["start"][3:]) / 60
-    # 자차: 점유율 85% 넘기 전 시간대 중 공연 시작에 가장 가까운 시각
     car_arrive = None
     for p in hours:
         if p["h"] + 1 <= start_h and p["occ"] < 85:
             car_arrive = p["h"]
     full_at = next((p["h"] for p in hours if p["occ"] >= 95), None)
-
-    cars = event_cars(show)
-    # 공연 종료 직후 한꺼번에 나가려는 차량 = 이 공연 차량(수용량 상한) + 같은 시간대 일반 방문 차량의 일부
-    end_h = min(23, int(start_h + show["runtime"] / 60))
-    weekend = date.fromisoformat(show["date"]).weekday() >= 5
-    parked = min(TOTAL_SPACES, cars + 0.3 * base_park_load(end_h, weekend))
-    exits = []
-    for leave in (0, 10, 20, 30, 45, 60):
-        # 공연 종료 직후 출차 수요가 몰림: 남은 대기열 / 처리량 (대기열 중간 위치 기준 평균)
-        queue = parked * max(0.0, 1 - leave / 70) ** 1.6
-        wait = round(queue / EXIT_THROUGHPUT * 60 / 2)
-        exits.append({"leaveMin": leave, "waitMin": wait})
-
-    gate = VENUES[show["venue"]]["gate"]
     return {
         "carArrive": f"{car_arrive:02d}:00" if car_arrive is not None else None,
         "fullAt": f"{full_at:02d}:00" if full_at is not None else None,
-        "transitTip": "공연 시작 1시간 전 올림픽공원역(5호선)·몽촌토성역(8호선) 승차 인원이 몰려요",
-        "bestGate": gate,
-        "exits": exits,
-        "expectedCars": round(cars),
-        "overflowCars": max(0, round(max(p["cars_raw"] for p in hours) - (FULL_CARS if MODEL_PATH.exists() else TOTAL_SPACES))),
         "busyDay": max(p.get("hi_raw", p["cars_raw"]) for p in hours) >= BUSY_DAY,
     }
 
@@ -286,6 +270,11 @@ def build_real(today: date, days: int = 45) -> list[dict]:
         return []
     evs = json.loads(EVENTS.read_text()).get("events", [])
     weather = fetch_weather()
+    if not weather and OUT.exists():
+        # 예보를 못 받으면 직전에 받아 둔 예보를 그대로 쓴다 (평년값으로 덮어쓰지 않음)
+        for old in json.loads(OUT.read_text()).get("shows", []):
+            if old.get("weather", {}).get("source") == "Open-Meteo 예보":
+                weather.setdefault(old["date"], old["weather"])
     shows = []
     for e in evs:
         venue = norm_venue(e.get("venue", ""))
@@ -333,7 +322,6 @@ def main() -> None:
         "source": source,  # official = 올림픽공원 공식 일정안내, sample = 예시 공연
         "model": json.loads((ROOT / "pipeline" / "model_report.json").read_text()) if MODEL_PATH.exists() else None,
         "calibration": {k: CAL[k] for k in ("source", "records", "maxConcurrent", "exitThroughputPerHour", "normalDailyPeakMedian")},
-        "gates": GATES,
         "shows": shows,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -341,7 +329,7 @@ def main() -> None:
     print(f"wrote {OUT} ({len(shows)} shows)")
     for s in shows:
         peak = max(s["forecast"]["hours"], key=lambda p: p["occ"])
-        print(s["date"], s["start"], s["audience"], s["venue"], "peak", peak["h"], peak["occ"], s["reco"]["carArrive"], s["reco"]["exits"][0])
+        print(s["date"], s["start"], s["audience"], s["venue"], "peak", peak["h"], peak["occ"], s["reco"]["carArrive"], "busy" if s["reco"]["busyDay"] else "")
 
 
 if __name__ == "__main__":

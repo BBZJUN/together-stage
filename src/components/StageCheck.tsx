@@ -249,7 +249,7 @@ export default function StageCheck() {
                 { k: "점검한 좌석", v: res.total.toLocaleString(), s: res.opts.standing ? `일어서면 가림 ${res.crowd.toLocaleString()}석` : "플로어·2층·3층" },
                 { k: "시야제한석(구조물)", v: res.limited.toLocaleString(), s: `전체의 ${pct(res.limited, res.total)}%`, warn: true },
                 { k: "휠체어석 평균 시야", v: `${res.wheel.avg}%`, s: `${res.wheel.n}석 중 ${res.wheel.poor}석 제한` },
-                { k: "단상 60cm 적용 시", v: `${res.wheel.avgWithPlatform}%`, s: `제한 ${res.wheel.poorWithPlatform}석`, good: true },
+                { k: "단상 30cm 적용 시", v: `${res.wheel.avgWithPlatform}%`, s: `제한 ${res.wheel.poorWithPlatform}석`, good: true },
               ].map((t) => (
                 <div key={t.k} className="rounded-2xl bg-grey-50 px-3.5 py-3">
                   <p className="text-[0.75rem] font-semibold text-ink-3">{t.k}</p>
@@ -308,7 +308,7 @@ export default function StageCheck() {
               )}
               {res.wheel.poor > 0 ? (
                 <li className="rounded-2xl bg-[#e6f7ee] px-4 py-3 text-[#075c38]">
-                  <b>휠체어석 단상:</b> 휠체어석 {res.wheel.n}석 중 {res.wheel.poor}석은 무대가 60% 미만으로 보여요. 단상 60cm를 두면 평균 {res.wheel.avg}% → {res.wheel.avgWithPlatform}%로 올라가요.
+                  <b>휠체어석 단상:</b> 휠체어석 {res.wheel.n}석 중 {res.wheel.poor}석은 무대가 60% 미만으로 보여요. 단상 30cm를 두면 평균 {res.wheel.avg}% → {res.wheel.avgWithPlatform}%로 올라가요.
                 </li>
               ) : (
                 <li className="rounded-2xl bg-[#e6f7ee] px-4 py-3 text-[#075c38]">

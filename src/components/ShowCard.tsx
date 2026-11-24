@@ -25,7 +25,7 @@ export default function ShowCard({ nextShow }: { nextShow: Next }) {
     `동반인과 함께 앉을 수 있나요?`,
     `공연이 끝나고 사람이 빠진 뒤에 나가고 싶어요.\n기다릴 곳이 있나요?`,
     ...(has("hearing") ? [] : [`저는 소리가 잘 안 들려요.\n글로 써서 알려주세요.`]),
-    `물건을 잃어버렸어요.\n유실물센터가 어디인가요?`,
+    `물건을 잃어버렸어요.\n어디에 문의하면 되나요?`,
   ];
   const [sel, setSel] = useState<string | null>(null);
   const [mine, setMine] = useState("");

@@ -25,11 +25,11 @@ describe("데이터로 답할 수 있는 질문", () => {
     expect(a).toContain("계단 없는 길");
     expect(a).not.toMatch(/계단이 \d+곳/);
   });
-  test("휠체어석 시야: 엔진 계산값 그대로 (100% / 72%, 22석 중 8석)", async () => {
+  test("휠체어석 시야: 엔진 계산값 그대로 (100% / 85%, 22석 중 4석)", async () => {
     const a = await ask("휠체어석에서 무대 잘 보여요?");
     expect(a).toContain("100%");
-    expect(a).toContain("72%");
-    expect(a).toContain("22석 중 8석");
+    expect(a).toContain("85%");
+    expect(a).toContain("22석 중 4석");
   });
   test("공연 혼잡: 앱 화면과 같은 도착 권장 시각", async () => {
     expect(await ask("이번 주 공연 뭐 있어요?")).toMatch(/까지 도착하시면 편해요/);

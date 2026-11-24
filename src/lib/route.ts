@@ -258,7 +258,12 @@ function directions(path: number[], edges: number[], dest: string): Step[] {
   }
 }
 
-const SPEED = (p: Profile) => (p.wheelchair ? 0.9 : p.mobility || p.companion ? 0.75 : 1.15); // m/s
+/**
+ * 걷는 속도(m/s) — 경찰청 「교통신호기 설치·운영·관리 업무편람」(2022)의 보행신호 기준:
+ * 일반 1.0m/s, 교통약자(노인·어린이 보호구역) 0.7m/s.
+ * (지팡이·휠체어를 쓰는 고령자 하위 15% 속도 0.73m/s — 한국ITS학회논문지 2020 연구와도 맞음)
+ */
+export const SPEED = (p: Profile) => (p.wheelchair || p.mobility || p.companion || p.lowvision ? 0.7 : 1.0);
 
 export function findRoute(origin: Place, dest: Place, p: Profile): RouteResult | null {
   const to = new Set(dest.nodes);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { arrivalAdvice, endTime, fmtDate, peakOf, timeKo, weatherText } from "@/lib/data";
+import { arrivalAdvice, data, endTime, fmtDate, peakOf, timeKo, weatherText } from "@/lib/data";
 import { useNeeds } from "@/lib/mode";
 import { bestExit, profileFrom, venues } from "@/lib/route";
 import type { Show } from "@/lib/types";
@@ -35,13 +35,12 @@ export default function ShowDetail({ show }: { show: Show }) {
   const wheel = has("wheelchair");
   const router = useRouter();
   const [copied, setCopied] = useState(false);
-  const r = show.reco;
   const peak = peakOf(show);
   const end = endTime(show);
   const fullHour = show.forecast.hours.find((p) => p.occ >= 95);
   const { busyHour: bh, arrive, busyDay } = arrivalAdvice(show);
   const busyHour = bh !== undefined ? { h: bh } : undefined;
-  const best = r.exits.find((e) => e.waitMin <= 10) ?? r.exits[r.exits.length - 1];
+  const after = data.model?.after_show;
   const venue = venues.find((v) => v.id === VENUE_ID[show.venue]);
 
   const route = useMemo(() => {
@@ -101,7 +100,7 @@ export default function ShowDetail({ show }: { show: Show }) {
           </p>
           {busyDay && (
             <p className="mt-3 rounded-xl bg-[#fff4e5] px-3.5 py-2.5 text-[0.875rem] leading-relaxed text-[#8a5c00]">
-              <b>붐빌 수 있는 날이에요.</b> 지난해 비슷한 조건의 공연일 중 주차장이 거의 찬 날이 있어서 30분 더 일찍 잡았어요.
+              <b>붐빌 수 있는 날이에요.</b> 붐빌 때 예상치가 높아서(2025년 실제로 크게 붐빈 날 11일 중 8일을 미리 잡아낸 기준) 30분 더 일찍 잡았어요.
             </p>
           )}
         </div>
@@ -198,12 +197,15 @@ export default function ShowDetail({ show }: { show: Show }) {
 
       <section className="band px-5 py-6">
         <h2 className="text-[1.25rem] font-bold leading-snug tracking-tight">
-          끝나고 {best.leaveMin ? `${best.leaveMin}분쯤` : "조금"} 기다렸다 나오면
+          끝나자마자 나가면
           <br />
-          인파가 빠져서 편해요
+          가장 붐벼요
         </h2>
         <p className="mt-1.5 text-[0.875rem] leading-relaxed text-ink-3">
-          {end}에 공연이 끝나면 엘리베이터와 출구에 사람이 한꺼번에 몰려요. 실제 입출차 기록을 보면 큰 공연 뒤 1시간 안에 대부분 빠져나가요.
+          {end}에 공연이 끝나면 엘리베이터와 출구에 사람이 한꺼번에 몰려요. 서두를 일이 없다면 조금 기다렸다 나오세요.
+          {after
+            ? ` 차로 오셨다면 출차에도 시간이 걸려요. 2025년 큰 공연 ${after.days}회 기록을 보면 공연이 끝나고 1시간 동안 공원 주차 차량이 ${Math.round(after.drop_1h_median * 100)}%만 줄었어요.`
+            : ""}
         </p>
       </section>
 

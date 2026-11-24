@@ -4,6 +4,7 @@
  * 시야제한석·휠체어석 시야·단상 권고를 만든다.
  */
 import {
+  PLATFORM,
   blockOf,
   generateSeats,
   seatVisibility,
@@ -109,7 +110,7 @@ export async function assess(stage: StageConfig, opts: AssessOptions, onProgress
 
   const wheelRs = results.filter((r) => r.seat.wheelchair);
   // 단상을 올렸을 때도 같이 계산 (권고 근거)
-  const withPlat = wheelRs.map((r) => seatVisibility(r.seat, stage, { standing: opts.standing, platform: 0.6, fence: opts.fence }, T, O).ratio);
+  const withPlat = wheelRs.map((r) => seatVisibility(r.seat, stage, { standing: opts.standing, platform: PLATFORM, fence: opts.fence }, T, O).ratio);
   const avg = (xs: number[]) => Math.round((xs.reduce((a, b) => a + b, 0) / Math.max(1, xs.length)) * 100);
   return {
     stage,

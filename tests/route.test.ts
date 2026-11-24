@@ -71,3 +71,11 @@ describe("기획서 예시 재현", () => {
     expect(b.extraMeters).toBe(105);
   });
 });
+
+describe("걷는 속도는 경찰청 보행신호 기준", () => {
+  test("일반 1.0m/s, 휠체어·계단이 힘듦·저시력·어르신 동반 0.7m/s", async () => {
+    const { SPEED } = await import("@/lib/route");
+    expect(SPEED(anyone)).toBe(1.0);
+    for (const n of ["wheelchair", "mobility", "lowvision", "companion"] as const) expect(SPEED(profileFrom([n], false))).toBe(0.7);
+  });
+});

@@ -6,7 +6,7 @@ import { Accessibility, CarFront, ChartLine, Database, MapPinned, MessageSquareQ
 import ev from "@/data/evidence.json";
 import ins from "@/data/insight.json";
 import val from "@/data/validation.json";
-import { generateSeats, seatVisibility, STAGE_PRESETS, stageObstacles, stageTargets } from "@/lib/venue";
+import { PLATFORM, generateSeats, seatVisibility, STAGE_PRESETS, stageObstacles, stageTargets } from "@/lib/venue";
 import { Chevron, IconTile, type Tone } from "./ui";
 
 function Card({ n, icon, tone, title, children }: { n: number; icon: typeof Database; tone: Tone; title: React.ReactNode; children: React.ReactNode }) {
@@ -38,7 +38,7 @@ export default function Insight() {
     const seats = generateSeats(st).filter((s) => s.wheelchair);
     const avg = (o: { standing: boolean; platform?: number }) =>
       Math.round((seats.map((s) => seatVisibility(s, st, o, T, O).ratio).reduce((a, b) => a + b, 0) / seats.length) * 100);
-    return { n: seats.length, sit: avg({ standing: false }), stand: avg({ standing: true }), raised: avg({ standing: true, platform: 0.6 }) };
+    return { n: seats.length, sit: avg({ standing: false }), stand: avg({ standing: true }), raised: avg({ standing: true, platform: PLATFORM }) };
   }, []);
 
   const c = ins.cars_per_1k;
@@ -132,7 +132,7 @@ export default function Insight() {
         tone="blue"
         title={
           <>
-            휠체어석 바닥을 60cm 높이면
+            휠체어석 바닥을 30cm 높이면
             <br />
             시야가 {wheel.stand}% → {wheel.raised}%로 돌아와요
           </>
@@ -142,7 +142,7 @@ export default function Insight() {
           {[
             { l: "앞사람이 앉았을 때", v: wheel.sit, c: "#3182f6" },
             { l: "앞사람이 일어섰을 때", v: wheel.stand, c: "#c0222f" },
-            { l: "일어섬 + 단상 60cm", v: wheel.raised, c: "#077a49" },
+            { l: "일어섬 + 단상 30cm", v: wheel.raised, c: "#077a49" },
           ].map((x) => (
             <li key={x.l}>
               <div className="flex justify-between text-[0.875rem]">
@@ -155,7 +155,7 @@ export default function Insight() {
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (앞 난간 1.0m 반영, 1.2m 펜스면 평균 23%까지 떨어짐)</p>
+        <p className="mt-3 text-[0.75rem] text-ink-3">KSPO DOME 실감형 콘텐츠 기반 시뮬레이션, 끝무대 기준, 공식 배치도의 C블록 뒤편 휠체어석 {wheel.n}석 평균 (앞 난간 1.0m 반영, 펜스가 1.2m면 앞사람이 앉아 있어도 평균 23%까지 떨어짐)</p>
         <Proposal>
           <b>제안</b> 콘서트처럼 관객이 일어서는 공연은 휠체어석 구역에 이동식 단상을 두고, 무대 배치 단계에서 휠체어석 시야를 미리 점검해 주세요.{" "}
           <Link href="/seats" prefetch={false} className="font-semibold text-blue underline underline-offset-2">
@@ -172,7 +172,7 @@ export default function Insight() {
           <>
             같은 규모 공연이라도
             <br />
-            차로 오는 관객은 수십 배 차이 나요
+            차로 오는 관객은 크게 달라요
           </>
         }
       >
@@ -192,7 +192,7 @@ export default function Insight() {
         </ul>
         <p className="mt-3 text-[0.75rem] text-ink-3">같은 월·요일유형·시간대의 공연 없는 날 중앙값과 비교. 공연일 수가 적어 경향으로만 해석하세요.</p>
         <Proposal>
-          <b>제안</b> 중장년 관객이 많은 공연 날은 장애인 주차구역이 일찍 찰 수 있어요. 공연 규모·관객층별 예측으로 장애인 주차구역 사전 안내와 임시 하차 구역 운영을 검토해 주세요.
+          <b>제안</b> 같은 규모라도 공연에 따라 차로 오는 관객이 크게 달라, 차가 많이 몰리는 날은 장애인 주차구역이 일찍 찰 수 있어요. 공연별 혼잡 예측으로 장애인 주차구역 사전 안내와 임시 하차 구역 운영을 검토해 주세요.
         </Proposal>
       </Card>
 

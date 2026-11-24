@@ -1,7 +1,7 @@
 /** KSPO DOME 좌석·시야 엔진 검증 — 실감형 콘텐츠(삼각형 263만 개) → 0.5m 높이지도 */
 import { describe, expect, test } from "vitest";
 import {
-  DEFAULT_STAGE, STAGE_PRESETS, blockOf, describeSeat, generateSeats, seatVisibility, sectionAngle, sectionNo, stageObstacles, stageTargets,
+  BODY, DEFAULT_STAGE, PLATFORM, STAGE_PRESETS, blockOf, describeSeat, generateSeats, seatVisibility, sectionAngle, sectionNo, stageObstacles, stageTargets,
   type StageConfig,
 } from "@/lib/venue";
 
@@ -58,20 +58,34 @@ describe("시야 계산의 성질 (모든 좌석)", () => {
 });
 
 describe("기획서 수치 재현 — 휠체어석 22석 평균 시야", () => {
-  test("끝무대: 앉음 100% / 일어섬 72%(8석 많이 가림) / 단상 60cm 100%", () => {
+  test("끝무대: 앉음 100% / 일어섬 85%(4석 많이 가림) / 단상 30cm 100%", () => {
     expect(wheel(DEFAULT_STAGE, { standing: false })).toMatchObject({ avg: 100, n: 22 });
-    expect(wheel(DEFAULT_STAGE, { standing: true })).toMatchObject({ avg: 72, poor: 8 });
-    expect(wheel(DEFAULT_STAGE, { standing: true, platform: 0.6 }).avg).toBe(100);
+    expect(wheel(DEFAULT_STAGE, { standing: true })).toMatchObject({ avg: 85, poor: 4 });
+    expect(wheel(DEFAULT_STAGE, { standing: true, platform: PLATFORM }).avg).toBe(100);
   });
-  test("펜스·표지판 1.2m: 앞사람이 앉아도 23%, 일어서면 20%, 단상 60cm면 100%", () => {
+  test("권고 단상 30cm는 22석 모두 100%가 되는 가장 낮은 높이 (10cm 94%, 20cm 98%)", () => {
+    expect(PLATFORM).toBe(0.3);
+    expect(wheel(DEFAULT_STAGE, { standing: true, platform: 0.1 }).avg).toBe(94);
+    expect(wheel(DEFAULT_STAGE, { standing: true, platform: 0.2 }).avg).toBe(98);
+  });
+  test("펜스·표지판 1.2m: 앞사람이 앉아도 23%, 일어서면 22%, 단상 30cm면 100%", () => {
     expect(wheel(DEFAULT_STAGE, { standing: false, fence: 1.2 }).avg).toBe(23);
-    expect(wheel(DEFAULT_STAGE, { standing: true, fence: 1.2 }).avg).toBe(20);
-    expect(wheel(DEFAULT_STAGE, { standing: true, fence: 1.2, platform: 0.6 }).avg).toBe(100);
+    expect(wheel(DEFAULT_STAGE, { standing: true, fence: 1.2 }).avg).toBe(22);
+    expect(wheel(DEFAULT_STAGE, { standing: true, fence: 1.2, platform: PLATFORM }).avg).toBe(100);
   });
-  test("돌출무대: 일어섬 72% → 단상 100%", () => {
+  test("돌출무대: 일어섬 85% → 단상 30cm 100%", () => {
     const th = STAGE_PRESETS.thrust.stage;
-    expect(wheel(th, { standing: true }).avg).toBe(72);
-    expect(wheel(th, { standing: true, platform: 0.6 }).avg).toBe(100);
+    expect(wheel(th, { standing: true }).avg).toBe(85);
+    expect(wheel(th, { standing: true, platform: PLATFORM }).avg).toBe(100);
+  });
+});
+
+describe("사람 치수는 국가 인체치수조사 값", () => {
+  test("선 관객 머리 평균 1.66m(키 남 172.5·여 159.6cm 평균), 앉은 머리 1.29m, 휠체어 눈높이 1.2m", () => {
+    expect(BODY.headStand - 0.025).toBeCloseTo((1.725 + 1.596) / 2, 2);
+    expect(BODY.headSit - 0.025).toBeCloseTo(0.4 + (0.92 + 0.859) / 2, 2);
+    expect(BODY.eyeWheel).toBeGreaterThanOrEqual(1.09);
+    expect(BODY.eyeWheel).toBeLessThanOrEqual(1.295);
   });
 });
 
@@ -79,7 +93,7 @@ describe("자리 음성 설명", () => {
   test("휠체어석 설명에 위치·방향·거리·보임·난간·통로가 모두 들어간다", () => {
     const seats = generateSeats(DEFAULT_STAGE);
     const s = seats.find((x) => x.wheelchair)!;
-    const text = describeSeat(s, seats, 1, 0.72, 1.0);
+    const text = describeSeat(s, seats, 1, 0.85, 1.0);
     for (const k of ["휠체어석", "무대", "미터", "%", "난간", "통로"]) expect(text).toContain(k);
   });
 });

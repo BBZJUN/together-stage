@@ -16,6 +16,7 @@ import {
   visibilityLabel,
   type Seat,
   type Visibility,
+  PLATFORM,
 } from "@/lib/venue";
 import type { ViewMode } from "./Venue3D";
 import { BottomSheet } from "./BottomSheet";
@@ -187,7 +188,7 @@ export default function SeatViewer() {
     () => [
       { label: "앞사람이 앉았을 때", ...wheelStats(seats, stageKey, false, 0, fence) },
       { label: "앞사람이 일어섰을 때", ...wheelStats(seats, stageKey, true, 0, fence) },
-      { label: "일어섬 + 휠체어석 단상 60cm", ...wheelStats(seats, stageKey, true, 0.6, fence) },
+      { label: "일어섬 + 휠체어석 단상 30cm", ...wheelStats(seats, stageKey, true, PLATFORM, fence) },
     ],
     [seats, stageKey, fence],
   );
@@ -249,7 +250,7 @@ export default function SeatViewer() {
       <div className="pb-4">
         <p className="text-[0.875rem] text-ink-3">
           KSPO DOME · {STAGE_PRESETS[stageKey].label} · 앞사람이 {standing ? "일어섰을 때" : "앉았을 때"}
-          {platform ? " · 단상 60cm" : ""}
+          {platform ? " · 단상 30cm" : ""}
         </p>
         <p className="mt-1 text-[1.25rem] font-bold leading-snug tracking-tight">
           휠체어석 {cur.n}석 평균 <span className="text-blue">{cur.avg}%</span> 보여요
@@ -295,11 +296,11 @@ export default function SeatViewer() {
             </button>
             {selected.wheelchair && (
               <button
-                onClick={() => setPlatform(platform ? 0 : 0.6)}
+                onClick={() => setPlatform(platform ? 0 : PLATFORM)}
                 aria-pressed={!!platform}
                 className={`press h-10 rounded-full px-3.5 text-[0.8125rem] font-semibold backdrop-blur-md ${platform ? "bg-[#077a49] text-white" : "bg-black/55 text-white"}`}
               >
-                단상 60cm {platform ? "켬" : "끔"}
+                단상 30cm {platform ? "켬" : "끔"}
               </button>
             )}
           </div>
@@ -447,11 +448,11 @@ export default function SeatViewer() {
           <div className="mt-1.5">
             <Segmented
               label="휠체어석 단상 높이"
-              value={platform ? "60" : "0"}
-              onChange={(v) => setPlatform(v === "60" ? 0.6 : 0)}
+              value={platform ? "30" : "0"}
+              onChange={(v) => setPlatform(v === "30" ? PLATFORM : 0)}
               options={[
                 { value: "0", label: "없음" },
-                { value: "60", label: "60cm 높이기" },
+                { value: "30", label: "30cm 높이기" },
               ]}
             />
           </div>
@@ -490,7 +491,7 @@ export default function SeatViewer() {
             })}
           </ul>
           <p className="mt-4 rounded-2xl bg-[#e6f7ee] px-3.5 py-3 text-[0.875rem] leading-relaxed text-[#075c38]">
-            휠체어석 바닥을 60cm 높이면 {fence > 1.1 ? "1.2m 펜스와 " : ""}앞사람이 일어서도 평균 시야가 {Math.min(compare[0].avg, compare[1].avg)}% → {compare[2].avg}%로 돌아와요.
+            휠체어석 바닥을 30cm 높이면 {fence > 1.1 ? "1.2m 펜스와 " : ""}앞사람이 일어서도 평균 시야가 {Math.min(compare[0].avg, compare[1].avg)}% → {compare[2].avg}%로 돌아와요.
           </p>
           <a href="/check" className="press mt-3 flex items-center justify-between rounded-2xl bg-ink px-4 py-3.5 text-[0.9375rem] font-semibold text-white">
             전체 좌석 점검 리포트 만들기

@@ -58,6 +58,11 @@
    "days": 304
   }
  },
+ "after_show": {
+  "days": 60,
+  "drop_1h_median": 0.27,
+  "drop_2h_median": 0.34
+ },
  "importance": {
   "temp": 3384,
   "hour": 2419,

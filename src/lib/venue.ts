@@ -244,8 +244,22 @@ export const headVar = (x: number, z: number) => hash(Math.floor(x / 0.5), Math.
 
 type BlockKind = "관객" | "구조물";
 
+/**
+ * 사람 치수 — 국가기술표준원 제8차 한국인 인체치수조사(사이즈코리아, 20~69세)
+ *  키 평균 남 172.5·여 159.6cm → 선 관객 머리 꼭대기 평균 1.66m
+ *  앉은키 평균 남 92.0·여 85.9cm + 좌석 높이 0.40m(가정) → 앉은 관객 머리 1.29m
+ *  앉은눈높이 평균 남 79.7·여 74.7cm + 0.40m → 앉은 눈높이 1.17m, 선 눈높이 = 키 − 0.11m ≈ 1.55m
+ *  휠체어 사용자: 앉은눈높이 남 72.3·여 65.5cm(사이즈코리아 2025, 척수손상 휠체어 사용자)
+ *               + 휠체어 좌석 0.485m(ADA 기준 그림) ≈ 1.2m (ADA 제시 범위 1.09~1.30m 안)
+ * headVar(−0.15~+0.10, 평균 −0.025)를 더해 평균이 위 값이 되도록 기준값을 0.025 올려 둠
+ */
+/** 권고 단상 높이: 22석 모두 일어선 관객 위로 보이는 가장 낮은 높이 (10cm 94%·20cm 98%·30cm 100%) */
+export const PLATFORM = 0.3;
+
+export const BODY = { headStand: 1.685, headSit: 1.315, eyeStand: 1.55, eyeSit: 1.17, eyeWheel: 1.2 };
+
 function blockAt(x: number, z: number, standing: boolean, stage: StageConfig): { h: number; kind: BlockKind } {
-  const head = standing ? 1.75 : 1.2;
+  const head = standing ? BODY.headStand : BODY.headSit;
   const thrustEnd = STAGE_FRONT_X + (stage.type === "thrust" ? stage.thrustLength : 0);
   if (x < STAGE_FRONT_X && x > STAGE_FRONT_X - stage.depth && Math.abs(z) < stage.width / 2) return { h: stage.height, kind: "구조물" };
   if (stage.type === "thrust" && x >= STAGE_FRONT_X && x < thrustEnd && Math.abs(z) < 2.5) return { h: stage.height, kind: "구조물" };
@@ -276,7 +290,7 @@ export function seatVisibility(
   obstacles = stageObstacles(stage),
 ): Visibility {
   const sitting = seat.wheelchair || opts.seated || !opts.standing;
-  const eyeH = seat.wheelchair ? 1.2 + (opts.platform ?? 0) : sitting ? 1.15 : 1.6;
+  const eyeH = seat.wheelchair ? BODY.eyeWheel + (opts.platform ?? 0) : sitting ? BODY.eyeSit : BODY.eyeStand;
   const eye: Vec3 = [seat.pos[0], seat.pos[1] + eyeH, seat.pos[2]];
   let ok = 0;
   const cause: Record<BlockCause, number> = { 앞사람: 0, 구조물: 0, 스피커: 0, 펜스: 0 };

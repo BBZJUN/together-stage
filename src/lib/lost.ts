@@ -26,9 +26,9 @@ const pick = (o: Record<string, string>, keys: string[]) => {
 
 export const lostSource = data.source;
 export const lostCenter = data.center ?? {
-  name: "올림픽공원 유실물센터",
-  place: "우리금융아트홀 내",
-  phone: ["02-2180-3564~5", "02-2180-3566"],
+  name: "올림픽공원 고객안내",
+  place: "물건을 주운 시설의 안내데스크에 보관",
+  phone: ["02-2180-3564~5 (고객안내전화)", "02-2180-3566 (고객안내전화)"],
   url: "https://www.ksponco.or.kr/menu.es?mid=a10310000000",
 };
 

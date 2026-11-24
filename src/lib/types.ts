@@ -27,11 +27,6 @@ export interface Show {
   reco: {
     carArrive: string | null;
     fullAt: string | null;
-    transitTip: string;
-    bestGate: string;
-    exits: { leaveMin: number; waitMin: number }[];
-    expectedCars: number;
-    overflowCars: number;
     /** 위쪽 범위 피크가 2,800대 이상 → '붐빌 수 있는 날' */
     busyDay?: boolean;
   };
@@ -47,7 +42,8 @@ export interface ShowData {
     exitThroughputPerHour: number;
     normalDailyPeakMedian: number;
   };
-  gates: Record<string, number>;
+  /** 2025 연계 데이터 학습·검증 결과 (pipeline/model_report.json) */
+  model?: { after_show?: { days: number; drop_1h_median: number; drop_2h_median: number } } & Record<string, unknown>;
   shows: Show[];
 }
 
