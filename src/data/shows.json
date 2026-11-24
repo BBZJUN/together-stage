@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-24T00:58:00",
+ "generatedAt": "2026-11-24T01:01:49",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -99,7 +99,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 10.3,
+    "temp": 10.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -164,23 +164,23 @@
      },
      {
       "h": 9,
-      "occ": 29,
+      "occ": 28,
       "hi": 49,
-      "cars": 1256,
+      "cars": 1252,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
-      "hi": 50,
-      "cars": 1309,
+      "hi": 51,
+      "cars": 1305,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
       "hi": 48,
-      "cars": 1231,
+      "cars": 1227,
       "level": "원활"
      },
      {
@@ -236,21 +236,21 @@
       "h": 19,
       "occ": 31,
       "hi": 45,
-      "cars": 1377,
+      "cars": 1373,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 28,
       "hi": 42,
-      "cars": 1239,
+      "cars": 1235,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 21,
       "hi": 36,
-      "cars": 913,
+      "cars": 909,
       "level": "원활"
      },
      {
@@ -281,7 +281,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 5.0,
+    "temp": 4.2,
     "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -341,91 +341,91 @@
       "h": 8,
       "occ": 22,
       "hi": 40,
-      "cars": 975,
+      "cars": 979,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "hi": 47,
-      "cars": 1174,
+      "hi": 46,
+      "cars": 1178,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
+      "occ": 29,
       "hi": 48,
-      "cars": 1244,
+      "cars": 1257,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
       "hi": 51,
-      "cars": 1341,
+      "cars": 1338,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
       "hi": 51,
-      "cars": 1409,
+      "cars": 1405,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
       "hi": 54,
-      "cars": 1792,
+      "cars": 1790,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
       "hi": 57,
-      "cars": 1960,
+      "cars": 1959,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
       "hi": 58,
-      "cars": 1970,
+      "cars": 1968,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
       "hi": 57,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "hi": 51,
-      "cars": 1830,
+      "hi": 52,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
       "hi": 45,
-      "cars": 1477,
+      "cars": 1482,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 29,
       "hi": 39,
-      "cars": 1286,
+      "cars": 1288,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 33,
-      "cars": 1006,
+      "cars": 1007,
       "level": "원활"
      },
      {
@@ -439,14 +439,14 @@
       "h": 22,
       "occ": 10,
       "hi": 13,
-      "cars": 456,
+      "cars": 459,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
       "hi": 13,
-      "cars": 429,
+      "cars": 432,
       "level": "원활"
      }
     ]
@@ -463,8 +463,8 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 2.5,
-    "sky": "흐림",
+    "temp": 2.3,
+    "sky": "맑음",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -530,7 +530,7 @@
       "h": 9,
       "occ": 23,
       "hi": 44,
-      "cars": 1023,
+      "cars": 1031,
       "level": "원활"
      },
      {
@@ -571,14 +571,14 @@
      {
       "h": 15,
       "occ": 51,
-      "hi": 58,
+      "hi": 59,
       "cars": 2255,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
-      "hi": 60,
+      "hi": 61,
       "cars": 2364,
       "level": "보통"
      },
@@ -645,7 +645,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 10.3,
+    "temp": 10.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -710,23 +710,23 @@
      },
      {
       "h": 9,
-      "occ": 29,
+      "occ": 28,
       "hi": 49,
-      "cars": 1256,
+      "cars": 1252,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
-      "hi": 50,
-      "cars": 1309,
+      "hi": 51,
+      "cars": 1305,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
       "hi": 48,
-      "cars": 1231,
+      "cars": 1227,
       "level": "원활"
      },
      {
@@ -782,21 +782,21 @@
       "h": 19,
       "occ": 31,
       "hi": 45,
-      "cars": 1377,
+      "cars": 1373,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 28,
       "hi": 42,
-      "cars": 1239,
+      "cars": 1235,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 21,
       "hi": 36,
-      "cars": 913,
+      "cars": 909,
       "level": "원활"
      },
      {
@@ -827,7 +827,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 5.0,
+    "temp": 4.2,
     "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -887,91 +887,91 @@
       "h": 8,
       "occ": 22,
       "hi": 40,
-      "cars": 975,
+      "cars": 979,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "hi": 47,
-      "cars": 1174,
+      "hi": 46,
+      "cars": 1178,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
+      "occ": 29,
       "hi": 48,
-      "cars": 1244,
+      "cars": 1257,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
       "hi": 51,
-      "cars": 1341,
+      "cars": 1338,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
       "hi": 51,
-      "cars": 1409,
+      "cars": 1405,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
       "hi": 54,
-      "cars": 1792,
+      "cars": 1790,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
       "hi": 57,
-      "cars": 1960,
+      "cars": 1959,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
       "hi": 58,
-      "cars": 1970,
+      "cars": 1968,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
       "hi": 57,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "hi": 51,
-      "cars": 1830,
+      "hi": 52,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
       "hi": 45,
-      "cars": 1477,
+      "cars": 1482,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 29,
       "hi": 39,
-      "cars": 1286,
+      "cars": 1288,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 33,
-      "cars": 1006,
+      "cars": 1007,
       "level": "원활"
      },
      {
@@ -985,14 +985,14 @@
       "h": 22,
       "occ": 10,
       "hi": 13,
-      "cars": 456,
+      "cars": 459,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
       "hi": 13,
-      "cars": 429,
+      "cars": 432,
       "level": "원활"
      }
     ]
@@ -1009,8 +1009,8 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 2.5,
-    "sky": "흐림",
+    "temp": 2.3,
+    "sky": "맑음",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -1076,7 +1076,7 @@
       "h": 9,
       "occ": 23,
       "hi": 44,
-      "cars": 1023,
+      "cars": 1031,
       "level": "원활"
      },
      {
@@ -1117,14 +1117,14 @@
      {
       "h": 15,
       "occ": 51,
-      "hi": 58,
+      "hi": 59,
       "cars": 2255,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
-      "hi": 60,
+      "hi": 61,
       "cars": 2364,
       "level": "보통"
      },
@@ -1191,7 +1191,7 @@
    "audience": "family",
    "capacity": 1200,
    "weather": {
-    "temp": 5.0,
+    "temp": 4.2,
     "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -1251,91 +1251,91 @@
       "h": 8,
       "occ": 22,
       "hi": 40,
-      "cars": 975,
+      "cars": 979,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
-      "hi": 47,
-      "cars": 1174,
+      "hi": 46,
+      "cars": 1178,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 28,
+      "occ": 29,
       "hi": 48,
-      "cars": 1244,
+      "cars": 1257,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
       "hi": 51,
-      "cars": 1341,
+      "cars": 1338,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 32,
       "hi": 51,
-      "cars": 1409,
+      "cars": 1405,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 41,
       "hi": 54,
-      "cars": 1792,
+      "cars": 1790,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 45,
       "hi": 57,
-      "cars": 1960,
+      "cars": 1959,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 45,
       "hi": 58,
-      "cars": 1970,
+      "cars": 1968,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 46,
       "hi": 57,
-      "cars": 2004,
+      "cars": 2008,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 42,
-      "hi": 51,
-      "cars": 1830,
+      "hi": 52,
+      "cars": 1834,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
       "hi": 45,
-      "cars": 1477,
+      "cars": 1482,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 29,
       "hi": 39,
-      "cars": 1286,
+      "cars": 1288,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 33,
-      "cars": 1006,
+      "cars": 1007,
       "level": "원활"
      },
      {
@@ -1349,14 +1349,14 @@
       "h": 22,
       "occ": 10,
       "hi": 13,
-      "cars": 456,
+      "cars": 459,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
       "hi": 13,
-      "cars": 429,
+      "cars": 432,
       "level": "원활"
      }
     ]
@@ -1373,8 +1373,8 @@
    "audience": "family",
    "capacity": 1200,
    "weather": {
-    "temp": 2.5,
-    "sky": "흐림",
+    "temp": 2.3,
+    "sky": "맑음",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -1440,7 +1440,7 @@
       "h": 9,
       "occ": 23,
       "hi": 44,
-      "cars": 1023,
+      "cars": 1031,
       "level": "원활"
      },
      {
@@ -1481,14 +1481,14 @@
      {
       "h": 15,
       "occ": 51,
-      "hi": 58,
+      "hi": 59,
       "cars": 2255,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
-      "hi": 60,
+      "hi": 61,
       "cars": 2364,
       "level": "보통"
      },
