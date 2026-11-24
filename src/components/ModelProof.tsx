@@ -160,6 +160,42 @@ export default function ModelProof() {
             })}
         </ul>
       </section>
+
+      <section className="band px-5 py-6">
+        <h2 className="text-[1.125rem] font-bold">앱이 쓰는 방식 그대로 다시 확인했어요</h2>
+        <p className="mt-1 text-[0.8125rem] leading-relaxed text-ink-3">그 주를 빼고 학습한 모델로 2025년 {r.show_day_count}개 공연일을 맞혀 본 결과예요.</p>
+        <dl className="mt-4 grid grid-cols-2 gap-2">
+          {[
+            { k: "공연일 혼잡 단계 일치", v: `${Math.round(r.checks.level_match_show_days * 100)}%`, s: "원활·보통·혼잡·만차" },
+            { k: "붐빌 수 있는 날 미리 경고", v: `${r.checks.busy_day_upper.caught} / ${r.checks.busy_day_upper.busy_days}일`, s: `평균 예측만 쓰면 ${r.checks.busy_day_mean.caught}일` },
+          ].map((x) => (
+            <div key={x.k} className="rounded-2xl bg-grey-100 p-4">
+              <dt className="text-[0.8125rem] text-ink-3">{x.k}</dt>
+              <dd className="num mt-1 text-[1.5rem] font-bold leading-none text-blue">{x.v}</dd>
+              <dd className="mt-1 text-[0.75rem] text-ink-3">{x.s}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-3 text-[0.8125rem] leading-relaxed text-ink-2">
+          <b>한계도 있어요.</b> 주차장이 75% 넘게 찬 시간은 1년에 {r.checks.congested_hours}시간뿐이라, 시간 단위로 정확히 맞히기는 어려워요. 그래서 붐빌 때 예상치(위쪽 범위)를 함께 계산해, 하루 중 한 번이라도
+          크게 붐빌 수 있는 날은 도착 시각을 30분 앞당겨 안내해요. 경고한 날은 {r.checks.busy_day_upper.days}일 중 {r.checks.busy_day_upper.warned_days}일이에요.
+        </p>
+      </section>
+
+      <section className="band px-5 py-6">
+        <h2 className="text-[1.125rem] font-bold">서비스 전체를 자동으로 검증해요</h2>
+        <p className="mt-1 text-[0.8125rem] leading-relaxed text-ink-3">코드나 데이터가 바뀔 때마다 GitHub Actions가 다시 확인해요.</p>
+        <ul className="mt-3 flex flex-col gap-2 text-[0.875rem] leading-relaxed text-ink-2">
+          <li>휠체어 경로: 역 출구·주차장 21곳 × 공연장 4곳, 84개 경로 모두 계단 0곳</li>
+          <li>좌석 시야: 16,127석 계산 규칙(앞사람이 서면 줄고, 단상을 올리면 늘고) 확인, 기획서 수치 재현</li>
+          <li>공연 시간: 공식 일정안내 실제 문장 14건을 사람이 읽은 값과 비교</li>
+          <li>AI 안내: 데이터에 없는 시설(엘리베이터·경사로 등)은 단정하지 않는지 확인</li>
+          <li>접근성: 주요 화면 WCAG 2.1 AA 자동 점검 위반 0건</li>
+        </ul>
+        <a href="https://github.com/BBZJUN/together-stage/actions" target="_blank" rel="noreferrer" className="press mt-4 inline-flex min-h-11 items-center rounded-xl bg-grey-100 px-4 text-[0.875rem] font-semibold">
+          검증 기록 보기 (GitHub)
+        </a>
+      </section>
     </div>
   );
 }
