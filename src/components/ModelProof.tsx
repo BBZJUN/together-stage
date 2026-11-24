@@ -191,9 +191,13 @@ export default function ModelProof() {
           <li>공연 시간: 공식 일정안내 실제 문장 13건을 사람이 읽은 값과 비교</li>
           <li>AI 안내: 데이터에 없는 시설(엘리베이터·경사로 등)은 단정하지 않는지 확인</li>
           <li>접근성: 주요 화면 WCAG 2.1 AA 자동 점검 위반 0건</li>
+          <li>근거: 화면·AI 답변에 나오는 사실·숫자·인용을 공식 자료와 원문 기사에 대조 (사람 치수는 국가 인체치수조사, 걷는 속도는 경찰청 보행 기준)</li>
         </ul>
         <a href="https://github.com/BBZJUN/together-stage/actions" target="_blank" rel="noreferrer" className="press mt-4 inline-flex min-h-11 items-center rounded-xl bg-grey-100 px-4 text-[0.875rem] font-semibold">
           검증 기록 보기 (GitHub)
+        </a>
+        <a href="https://github.com/BBZJUN/together-stage/blob/main/docs/VERIFICATION.md" target="_blank" rel="noreferrer" className="press ml-2 mt-4 inline-flex min-h-11 items-center rounded-xl bg-grey-100 px-4 text-[0.875rem] font-semibold">
+          근거 검증 보고서
         </a>
       </section>
     </div>
