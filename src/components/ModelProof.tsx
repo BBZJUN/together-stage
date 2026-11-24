@@ -188,7 +188,7 @@ export default function ModelProof() {
         <ul className="mt-3 flex flex-col gap-2 text-[0.875rem] leading-relaxed text-ink-2">
           <li>휠체어 경로: 역 출구·주차장 21곳 × 공연장 4곳, 84개 경로 모두 계단 0곳</li>
           <li>좌석 시야: 16,127석 계산 규칙(앞사람이 서면 줄고, 단상을 올리면 늘고) 확인, 기획서 수치 재현</li>
-          <li>공연 시간: 공식 일정안내 실제 문장 14건을 사람이 읽은 값과 비교</li>
+          <li>공연 시간: 공식 일정안내 실제 문장 13건을 사람이 읽은 값과 비교</li>
           <li>AI 안내: 데이터에 없는 시설(엘리베이터·경사로 등)은 단정하지 않는지 확인</li>
           <li>접근성: 주요 화면 WCAG 2.1 AA 자동 점검 위반 0건</li>
         </ul>
