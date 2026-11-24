@@ -35,4 +35,4 @@ jobs:
           git add src/data/events.json src/data/shows.json src/data/lost.json pipeline/raw_events
           git diff --cached --quiet && exit 0
           git commit -m "data: 올림픽공원 공연 일정 갱신"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

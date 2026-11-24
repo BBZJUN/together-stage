@@ -15,6 +15,11 @@ on:
 permissions:
   contents: write
 
+# 공연 일정 수집(events.yml)과 같은 파일(shows.json)을 쓰므로 동시에 돌지 않게
+concurrency:
+  group: data-commit
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -39,6 +44,13 @@ jobs:
           python pipeline/fetch_api.py PERF
           sleep 10
           python pipeline/fetch_api.py INOUT
+      - name: 모델 재학습·검증 (연계 데이터가 바뀐 날만)
+        run: |
+          if [ -f pipeline/raw/api_linked.json ] && ! cmp -s pipeline/raw/api_linked.json pipeline/samples/linked_2025.json; then
+            cp pipeline/raw/api_linked.json pipeline/samples/linked_2025.json
+            python pipeline/train_model.py > /dev/null
+            python pipeline/train_model.py --validation
+          fi
       - name: 예측 생성
         run: |
           python pipeline/build_forecast.py
@@ -49,10 +61,10 @@ jobs:
           git config user.email "olpark-bot@users.noreply.github.com"
           mkdir -p pipeline/samples
           cp pipeline/raw/api_*_sample.json pipeline/raw/api_*_first_page.txt pipeline/samples/ 2>/dev/null || true
-          git add src/data/shows.json src/data/insight.json pipeline/samples
+          git add src/data/shows.json src/data/insight.json src/data/validation.json pipeline/samples pipeline/model.txt pipeline/model_q90.txt pipeline/model_report.json pipeline/cv_predictions.csv
           [ -f pipeline/raw/api_inout.json ] && cp pipeline/raw/api_inout.json pipeline/samples/inout_sample.json && git add pipeline/samples/inout_sample.json
           [ -f pipeline/raw/api_linked.json ] && cp pipeline/raw/api_linked.json pipeline/samples/linked_2025.json && git add pipeline/samples/linked_2025.json
           [ -f pipeline/raw/api_perf.json ] && cp pipeline/raw/api_perf.json pipeline/samples/perf_all.json && git add pipeline/samples/perf_all.json
           git diff --cached --quiet || git commit -m "data: 공공데이터 자동 갱신"
-          git pull --rebase -q || true
-          git push
+          # 그사이 다른 작업이 커밋했으면, 방금 만든 결과를 우선해 다시 올림 (생성 파일이라 안전)
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; sleep 5; done
