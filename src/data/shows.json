@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T01:52:08",
+ "generatedAt": "2026-11-26T03:07:01",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -3608,6 +3608,462 @@
     "host": "(주)제이와이피엔터테인먼트",
     "contact": "1544-1555",
     "time_text": "2026.12.18. FRI 7PM / 12.19 SAT 6PM / 12.20 SUN 5PM(KST)",
+    "runDates": [
+     "2026-12-18",
+     "2026-12-20"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 20,
+      "hi": 39,
+      "cars": 876,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 22,
+      "hi": 45,
+      "cars": 971,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 26,
+      "hi": 46,
+      "cars": 1126,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 28,
+      "hi": 48,
+      "cars": 1213,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "hi": 49,
+      "cars": 1206,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 32,
+      "hi": 49,
+      "cars": 1407,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 38,
+      "hi": 52,
+      "cars": 1670,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 46,
+      "hi": 54,
+      "cars": 2030,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 44,
+      "hi": 54,
+      "cars": 1957,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "hi": 52,
+      "cars": 1804,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 35,
+      "hi": 49,
+      "cars": 1540,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "hi": 45,
+      "cars": 1452,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 27,
+      "hi": 38,
+      "cars": 1185,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 16,
+      "hi": 22,
+      "cars": 711,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 11,
+      "hi": 14,
+      "cars": 489,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 11,
+      "hi": 13,
+      "cars": 500,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5186-1218",
+   "title": "2026 XIA Musical Concert with Orchestra Vol.9",
+   "venue": "티켓링크 라이브 아레나",
+   "date": "2026-12-18",
+   "start": "19:30",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 5000,
+   "weather": {
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5186",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611251550319531.gif",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 165,000원 R석 154,000원",
+    "host": "주식회사 라우드펀투게더",
+    "contact": "1544-1555",
+    "time_text": "2026년 12월 18일(금) 7:30PM(KST) 2026년 12월 19일(토) 6PM(KST) 2026년 12월 20일(일) 5PM(KST)",
+    "runDates": [
+     "2026-12-18",
+     "2026-12-20"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "18:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 22,
+      "hi": 44,
+      "cars": 985,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 27,
+      "hi": 52,
+      "cars": 1173,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 29,
+      "hi": 54,
+      "cars": 1269,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 27,
+      "hi": 51,
+      "cars": 1195,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 26,
+      "hi": 51,
+      "cars": 1165,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 28,
+      "hi": 52,
+      "cars": 1222,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 29,
+      "hi": 53,
+      "cars": 1288,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 31,
+      "hi": 53,
+      "cars": 1353,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 33,
+      "hi": 53,
+      "cars": 1462,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 37,
+      "hi": 53,
+      "cars": 1612,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 52,
+      "cars": 1457,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "hi": 49,
+      "cars": 1442,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 30,
+      "hi": 45,
+      "cars": 1320,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 22,
+      "hi": 38,
+      "cars": 964,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 17,
+      "hi": 31,
+      "cars": 731,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 12,
+      "hi": 19,
+      "cars": 510,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5186-1219",
+   "title": "2026 XIA Musical Concert with Orchestra Vol.9",
+   "venue": "티켓링크 라이브 아레나",
+   "date": "2026-12-19",
+   "start": "18:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 5000,
+   "weather": {
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5186",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611251550319531.gif",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 165,000원 R석 154,000원",
+    "host": "주식회사 라우드펀투게더",
+    "contact": "1544-1555",
+    "time_text": "2026년 12월 18일(금) 7:30PM(KST) 2026년 12월 19일(토) 6PM(KST) 2026년 12월 20일(일) 5PM(KST)",
+    "runDates": [
+     "2026-12-18",
+     "2026-12-20"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "17:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 21,
+      "hi": 40,
+      "cars": 913,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 25,
+      "hi": 47,
+      "cars": 1088,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 27,
+      "hi": 48,
+      "cars": 1168,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 27,
+      "hi": 50,
+      "cars": 1197,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 27,
+      "hi": 50,
+      "cars": 1181,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 28,
+      "hi": 51,
+      "cars": 1226,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 32,
+      "hi": 53,
+      "cars": 1392,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 35,
+      "hi": 53,
+      "cars": 1520,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 40,
+      "hi": 54,
+      "cars": 1769,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 36,
+      "hi": 52,
+      "cars": 1591,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 32,
+      "hi": 49,
+      "cars": 1389,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 30,
+      "hi": 45,
+      "cars": 1324,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 25,
+      "hi": 41,
+      "cars": 1117,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 16,
+      "hi": 28,
+      "cars": 706,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 10,
+      "hi": 15,
+      "cars": 421,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 9,
+      "hi": 14,
+      "cars": 374,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5186-1220",
+   "title": "2026 XIA Musical Concert with Orchestra Vol.9",
+   "venue": "티켓링크 라이브 아레나",
+   "date": "2026-12-20",
+   "start": "17:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 5000,
+   "weather": {
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5186",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611251550319531.gif",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 165,000원 R석 154,000원",
+    "host": "주식회사 라우드펀투게더",
+    "contact": "1544-1555",
+    "time_text": "2026년 12월 18일(금) 7:30PM(KST) 2026년 12월 19일(토) 6PM(KST) 2026년 12월 20일(일) 5PM(KST)",
     "runDates": [
      "2026-12-18",
      "2026-12-20"

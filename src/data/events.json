@@ -1,6 +1,6 @@
 {
  "source": "올림픽공원 공식 일정안내 (ksponco.or.kr)",
- "fetched_at": "2026-11-25T03:45:48+0000",
+ "fetched_at": "2026-11-26T03:06:15+0000",
  "events": [
   {
    "seq": 5146,
@@ -547,6 +547,26 @@
    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5178"
   },
   {
+   "seq": 5186,
+   "title": "2026 XIA Musical Concert with Orchestra Vol.9",
+   "venue": "티켓링크 라이브 아레나",
+   "start_date": "2026-12-18",
+   "end_date": "2026-12-20",
+   "schedule": {
+    "2026-12-18": "19:30",
+    "2026-12-19": "18:00",
+    "2026-12-20": "17:00"
+   },
+   "time_text": "2026년 12월 18일(금) 7:30PM(KST) 2026년 12월 19일(토) 6PM(KST) 2026년 12월 20일(일) 5PM(KST)",
+   "age": "8세이상 관람가능",
+   "runtime": "",
+   "price": "VIP석 165,000원 R석 154,000원",
+   "host": "주식회사 라우드펀투게더",
+   "contact": "1544-1555",
+   "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611251550319531.gif",
+   "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5186"
+  },
+  {
    "seq": 5173,
    "title": "2026 박진영 콘서트 〈WET〉",
    "venue": "올림픽홀",
@@ -859,6 +879,25 @@
    "contact": "1544-1555",
    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301631253641.gif",
    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5175"
+  },
+  {
+   "seq": 5187,
+   "title": "2027 CNBLUE LIVE '에바뛰콘 - KEEP DREAMIN', KEEP RUNNIN''",
+   "venue": "KSPO DOME",
+   "start_date": "2027-02-20",
+   "end_date": "2027-02-21",
+   "schedule": {
+    "2027-02-20": "18:00",
+    "2027-02-21": "17:00"
+   },
+   "time_text": "2027년 02월 20일(토) ~ 2027년 02월 21일(일) 토 18시 / 일 17시",
+   "age": "8세 이상",
+   "runtime": "120분",
+   "price": "R석 165,000원 S석 143,000원 A석 121,000원",
+   "host": "FNC ENTERTAINMENT, 인엔터",
+   "contact": "1588-7890 / 1644-3850 (Only English)",
+   "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611251603382891.png",
+   "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5187"
   }
  ]
 }
