@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T03:07:01",
+ "generatedAt": "2026-11-27T01:51:46",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -99,159 +99,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 10.7,
-    "sky": "흐림",
-    "precip": false,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181647014471.jpg",
-    "age": "8세이상",
-    "price": "VIP석 176,000원 R석 165,000원 S석 143,000원 A석 110,000원",
-    "host": "주식회사 위즈덤엔터테인먼트, 주식회사 피앤비엔터테인먼트",
-    "contact": "1544-6399",
-    "time_text": "2026년 11월 27일(금) 오후 7시 2026년 11월 28일(토) 오후 6시 2026년 11월 29일(일) 오후 5시",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "18:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 22,
-      "hi": 44,
-      "cars": 971,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 27,
-      "hi": 53,
-      "cars": 1171,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 29,
-      "hi": 54,
-      "cars": 1254,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 27,
-      "hi": 52,
-      "cars": 1180,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 27,
-      "hi": 51,
-      "cars": 1170,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 28,
-      "hi": 52,
-      "cars": 1225,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 29,
-      "hi": 53,
-      "cars": 1296,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 31,
-      "hi": 53,
-      "cars": 1359,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 33,
-      "hi": 53,
-      "cars": 1470,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 37,
-      "hi": 53,
-      "cars": 1607,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 33,
-      "hi": 52,
-      "cars": 1437,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 32,
-      "hi": 49,
-      "cars": 1415,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 29,
-      "hi": 45,
-      "cars": 1297,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 21,
-      "hi": 38,
-      "cars": 938,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 16,
-      "hi": 30,
-      "cars": 711,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 12,
-      "hi": 19,
-      "cars": 508,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5159-1128",
-   "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
-   "venue": "KSPO DOME",
-   "date": "2026-11-28",
-   "start": "18:00",
-   "runtime": 130,
-   "genre": "대중음악",
-   "audience": "senior",
-   "capacity": 15000,
-   "weather": {
-    "temp": 5.2,
+    "temp": 10.2,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -267,1222 +115,6 @@
     "runDates": [
      "2026-11-27",
      "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "17:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 23,
-      "hi": 37,
-      "cars": 1025,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 28,
-      "hi": 43,
-      "cars": 1233,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 29,
-      "hi": 44,
-      "cars": 1288,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 31,
-      "hi": 46,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 33,
-      "hi": 46,
-      "cars": 1437,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 39,
-      "hi": 48,
-      "cars": 1711,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 41,
-      "hi": 50,
-      "cars": 1810,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 42,
-      "hi": 51,
-      "cars": 1850,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 44,
-      "hi": 54,
-      "cars": 1949,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 42,
-      "hi": 50,
-      "cars": 1841,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 35,
-      "hi": 46,
-      "cars": 1537,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 31,
-      "hi": 41,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 25,
-      "hi": 36,
-      "cars": 1097,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 16,
-      "hi": 23,
-      "cars": 700,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 11,
-      "hi": 15,
-      "cars": 466,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 10,
-      "hi": 15,
-      "cars": 424,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5159-1129",
-   "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
-   "venue": "KSPO DOME",
-   "date": "2026-11-29",
-   "start": "17:00",
-   "runtime": 130,
-   "genre": "대중음악",
-   "audience": "senior",
-   "capacity": 15000,
-   "weather": {
-    "temp": 1.7,
-    "sky": "흐림",
-    "precip": false,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181647014471.jpg",
-    "age": "8세이상",
-    "price": "VIP석 176,000원 R석 165,000원 S석 143,000원 A석 110,000원",
-    "host": "주식회사 위즈덤엔터테인먼트, 주식회사 피앤비엔터테인먼트",
-    "contact": "1544-6399",
-    "time_text": "2026년 11월 27일(금) 오후 7시 2026년 11월 28일(토) 오후 6시 2026년 11월 29일(일) 오후 5시",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "16:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 20,
-      "hi": 39,
-      "cars": 897,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 23,
-      "hi": 45,
-      "cars": 1011,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 27,
-      "hi": 46,
-      "cars": 1209,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 32,
-      "hi": 48,
-      "cars": 1400,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 39,
-      "hi": 51,
-      "cars": 1723,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 43,
-      "hi": 53,
-      "cars": 1895,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 48,
-      "hi": 56,
-      "cars": 2119,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 51,
-      "hi": 61,
-      "cars": 2262,
-      "level": "보통"
-     },
-     {
-      "h": 16,
-      "occ": 54,
-      "hi": 63,
-      "cars": 2391,
-      "level": "보통"
-     },
-     {
-      "h": 17,
-      "occ": 48,
-      "hi": 57,
-      "cars": 2110,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 39,
-      "hi": 46,
-      "cars": 1701,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 33,
-      "hi": 43,
-      "cars": 1443,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 27,
-      "hi": 35,
-      "cars": 1190,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 19,
-      "hi": 21,
-      "cars": 819,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 12,
-      "hi": 14,
-      "cars": 533,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 11,
-      "hi": 14,
-      "cars": 492,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5168-1127",
-   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
-   "venue": "올림픽홀",
-   "date": "2026-11-27",
-   "start": "20:00",
-   "runtime": 150,
-   "genre": "대중음악",
-   "audience": "mz",
-   "capacity": 3000,
-   "weather": {
-    "temp": 10.7,
-    "sky": "흐림",
-    "precip": false,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
-    "age": "만 7세이상",
-    "price": "지정석 143,000원",
-    "host": "(주) 씨제이이엔엠",
-    "contact": "1544-1555",
-    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "19:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 22,
-      "hi": 44,
-      "cars": 971,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 27,
-      "hi": 53,
-      "cars": 1171,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 29,
-      "hi": 54,
-      "cars": 1254,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 27,
-      "hi": 52,
-      "cars": 1180,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 27,
-      "hi": 51,
-      "cars": 1170,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 28,
-      "hi": 52,
-      "cars": 1225,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 29,
-      "hi": 53,
-      "cars": 1296,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 31,
-      "hi": 53,
-      "cars": 1359,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 33,
-      "hi": 53,
-      "cars": 1470,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 37,
-      "hi": 53,
-      "cars": 1607,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 33,
-      "hi": 52,
-      "cars": 1437,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 32,
-      "hi": 49,
-      "cars": 1415,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 29,
-      "hi": 45,
-      "cars": 1297,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 21,
-      "hi": 38,
-      "cars": 938,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 16,
-      "hi": 30,
-      "cars": 711,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 12,
-      "hi": 19,
-      "cars": 508,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5168-1128",
-   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
-   "venue": "올림픽홀",
-   "date": "2026-11-28",
-   "start": "18:00",
-   "runtime": 150,
-   "genre": "대중음악",
-   "audience": "mz",
-   "capacity": 3000,
-   "weather": {
-    "temp": 5.2,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
-    "age": "만 7세이상",
-    "price": "지정석 143,000원",
-    "host": "(주) 씨제이이엔엠",
-    "contact": "1544-1555",
-    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "17:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 23,
-      "hi": 37,
-      "cars": 1025,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 28,
-      "hi": 43,
-      "cars": 1233,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 29,
-      "hi": 44,
-      "cars": 1288,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 31,
-      "hi": 46,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 33,
-      "hi": 46,
-      "cars": 1437,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 39,
-      "hi": 48,
-      "cars": 1711,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 41,
-      "hi": 50,
-      "cars": 1810,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 42,
-      "hi": 51,
-      "cars": 1850,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 44,
-      "hi": 54,
-      "cars": 1949,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 42,
-      "hi": 50,
-      "cars": 1841,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 35,
-      "hi": 46,
-      "cars": 1537,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 31,
-      "hi": 41,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 25,
-      "hi": 36,
-      "cars": 1097,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 16,
-      "hi": 23,
-      "cars": 700,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 11,
-      "hi": 15,
-      "cars": 466,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 10,
-      "hi": 15,
-      "cars": 424,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5168-1129",
-   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
-   "venue": "올림픽홀",
-   "date": "2026-11-29",
-   "start": "17:00",
-   "runtime": 150,
-   "genre": "대중음악",
-   "audience": "mz",
-   "capacity": 3000,
-   "weather": {
-    "temp": 1.7,
-    "sky": "흐림",
-    "precip": false,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
-    "age": "만 7세이상",
-    "price": "지정석 143,000원",
-    "host": "(주) 씨제이이엔엠",
-    "contact": "1544-1555",
-    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "16:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 20,
-      "hi": 39,
-      "cars": 897,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 23,
-      "hi": 45,
-      "cars": 1011,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 27,
-      "hi": 46,
-      "cars": 1209,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 32,
-      "hi": 48,
-      "cars": 1400,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 39,
-      "hi": 51,
-      "cars": 1723,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 43,
-      "hi": 53,
-      "cars": 1895,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 48,
-      "hi": 56,
-      "cars": 2119,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 51,
-      "hi": 61,
-      "cars": 2262,
-      "level": "보통"
-     },
-     {
-      "h": 16,
-      "occ": 54,
-      "hi": 63,
-      "cars": 2391,
-      "level": "보통"
-     },
-     {
-      "h": 17,
-      "occ": 48,
-      "hi": 57,
-      "cars": 2110,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 39,
-      "hi": 46,
-      "cars": 1701,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 33,
-      "hi": 43,
-      "cars": 1443,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 27,
-      "hi": 35,
-      "cars": 1190,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 19,
-      "hi": 21,
-      "cars": 819,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 12,
-      "hi": 14,
-      "cars": 533,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 11,
-      "hi": 14,
-      "cars": 492,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5136-1128",
-   "title": "최현우 30주년 기념 공연 - LEGACY",
-   "venue": "우리금융아트홀",
-   "date": "2026-11-28",
-   "start": "15:00",
-   "runtime": 120,
-   "genre": "마술",
-   "audience": "family",
-   "capacity": 1184,
-   "weather": {
-    "temp": 5.2,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
-    "age": "8세이상 관람가능",
-    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
-    "host": "(주)하늘이엔티",
-    "contact": "1688-6675",
-    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
-    "runDates": [
-     "2026-11-28",
-     "2027-01-03"
-    ],
-    "moreCount": 24
-   },
-   "reco": {
-    "carArrive": "14:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 23,
-      "hi": 37,
-      "cars": 1025,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 28,
-      "hi": 43,
-      "cars": 1233,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 29,
-      "hi": 44,
-      "cars": 1288,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 31,
-      "hi": 46,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 33,
-      "hi": 46,
-      "cars": 1437,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 39,
-      "hi": 48,
-      "cars": 1711,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 41,
-      "hi": 50,
-      "cars": 1810,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 42,
-      "hi": 51,
-      "cars": 1850,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 44,
-      "hi": 54,
-      "cars": 1949,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 42,
-      "hi": 50,
-      "cars": 1841,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 35,
-      "hi": 46,
-      "cars": 1537,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 31,
-      "hi": 41,
-      "cars": 1368,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 25,
-      "hi": 36,
-      "cars": 1097,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 16,
-      "hi": 23,
-      "cars": 700,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 11,
-      "hi": 15,
-      "cars": 466,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 10,
-      "hi": 15,
-      "cars": 424,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5136-1129",
-   "title": "최현우 30주년 기념 공연 - LEGACY",
-   "venue": "우리금융아트홀",
-   "date": "2026-11-29",
-   "start": "14:00",
-   "runtime": 120,
-   "genre": "마술",
-   "audience": "family",
-   "capacity": 1184,
-   "weather": {
-    "temp": 1.7,
-    "sky": "흐림",
-    "precip": false,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
-    "age": "8세이상 관람가능",
-    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
-    "host": "(주)하늘이엔티",
-    "contact": "1688-6675",
-    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
-    "runDates": [
-     "2026-11-28",
-     "2027-01-03"
-    ],
-    "moreCount": 24
-   },
-   "reco": {
-    "carArrive": "13:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 20,
-      "hi": 39,
-      "cars": 897,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 23,
-      "hi": 45,
-      "cars": 1011,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 27,
-      "hi": 46,
-      "cars": 1209,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 32,
-      "hi": 48,
-      "cars": 1400,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 39,
-      "hi": 51,
-      "cars": 1723,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 43,
-      "hi": 53,
-      "cars": 1895,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 48,
-      "hi": 56,
-      "cars": 2119,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 51,
-      "hi": 61,
-      "cars": 2262,
-      "level": "보통"
-     },
-     {
-      "h": 16,
-      "occ": 54,
-      "hi": 63,
-      "cars": 2391,
-      "level": "보통"
-     },
-     {
-      "h": 17,
-      "occ": 48,
-      "hi": 57,
-      "cars": 2110,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 39,
-      "hi": 46,
-      "cars": 1701,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 33,
-      "hi": 43,
-      "cars": 1443,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 27,
-      "hi": 35,
-      "cars": 1190,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 19,
-      "hi": 21,
-      "cars": 819,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 12,
-      "hi": 14,
-      "cars": 533,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 11,
-      "hi": 14,
-      "cars": 492,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5136-1202",
-   "title": "최현우 30주년 기념 공연 - LEGACY",
-   "venue": "우리금융아트홀",
-   "date": "2026-12-02",
-   "start": "19:30",
-   "runtime": 120,
-   "genre": "마술",
-   "audience": "family",
-   "capacity": 1184,
-   "weather": {
-    "temp": 8.7,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
-    "age": "8세이상 관람가능",
-    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
-    "host": "(주)하늘이엔티",
-    "contact": "1688-6675",
-    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
-    "runDates": [
-     "2026-11-28",
-     "2027-01-03"
-    ],
-    "moreCount": 24
-   },
-   "reco": {
-    "carArrive": "18:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 41,
-      "hi": 46,
-      "cars": 1826,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 48,
-      "hi": 55,
-      "cars": 2125,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 49,
-      "hi": 56,
-      "cars": 2165,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 47,
-      "hi": 52,
-      "cars": 2058,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 47,
-      "hi": 50,
-      "cars": 2053,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 48,
-      "hi": 51,
-      "cars": 2120,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 49,
-      "hi": 51,
-      "cars": 2162,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 50,
-      "hi": 51,
-      "cars": 2181,
-      "level": "보통"
-     },
-     {
-      "h": 16,
-      "occ": 48,
-      "hi": 49,
-      "cars": 2097,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 41,
-      "hi": 41,
-      "cars": 1787,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 31,
-      "hi": 34,
-      "cars": 1373,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 27,
-      "hi": 34,
-      "cars": 1201,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 23,
-      "hi": 32,
-      "cars": 1000,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 17,
-      "hi": 25,
-      "cars": 737,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 11,
-      "hi": 17,
-      "cars": 485,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 10,
-      "hi": 12,
-      "cars": 430,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5161-1204",
-   "title": "[서울] 2026 이승철 40주년 콘서트 [THE VOICE: LEE SEUNG CHUL]",
-   "venue": "KSPO DOME",
-   "date": "2026-12-04",
-   "start": "19:00",
-   "runtime": 120,
-   "genre": "대중음악",
-   "audience": "senior",
-   "capacity": 15000,
-   "weather": {
-    "temp": 10.9,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5161",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181656386041.jpg",
-    "age": "8세 이상",
-    "price": "FS석 198,000원 VIP석 187,000원 R석 165,000원",
-    "host": "타입커뮤니케이션, 라이브네이션코리아, 엘에쓰씨",
-    "contact": "1544-6399 (예스24티켓)",
-    "time_text": "2026년 12월 4일(금) 오후 7시 2026년 12월 5일(토) 오후 4시 2026년 12월 6일(일) 오후 4시",
-    "runDates": [
-     "2026-12-04",
-     "2026-12-06"
     ],
     "moreCount": 0
    },
@@ -1497,21 +129,21 @@
       "h": 8,
       "occ": 24,
       "hi": 41,
-      "cars": 1038,
+      "cars": 1037,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 28,
       "hi": 49,
-      "cars": 1245,
+      "cars": 1249,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
       "hi": 50,
-      "cars": 1320,
+      "cars": 1319,
       "level": "원활"
      },
      {
@@ -1574,28 +206,28 @@
       "h": 19,
       "occ": 34,
       "hi": 48,
-      "cars": 1507,
+      "cars": 1508,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 31,
+      "occ": 32,
       "hi": 46,
-      "cars": 1386,
+      "cars": 1387,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 24,
       "hi": 40,
-      "cars": 1044,
+      "cars": 1045,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 17,
-      "hi": 27,
-      "cars": 742,
+      "occ": 18,
+      "hi": 32,
+      "cars": 797,
       "level": "원활"
      },
      {
@@ -1603,6 +235,1374 @@
       "occ": 12,
       "hi": 20,
       "cars": 546,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5159-1128",
+   "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-11-28",
+   "start": "18:00",
+   "runtime": 130,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 15000,
+   "weather": {
+    "temp": 5.1,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181647014471.jpg",
+    "age": "8세이상",
+    "price": "VIP석 176,000원 R석 165,000원 S석 143,000원 A석 110,000원",
+    "host": "주식회사 위즈덤엔터테인먼트, 주식회사 피앤비엔터테인먼트",
+    "contact": "1544-6399",
+    "time_text": "2026년 11월 27일(금) 오후 7시 2026년 11월 28일(토) 오후 6시 2026년 11월 29일(일) 오후 5시",
+    "runDates": [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "17:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 21,
+      "hi": 40,
+      "cars": 918,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 25,
+      "hi": 47,
+      "cars": 1105,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 27,
+      "hi": 48,
+      "cars": 1182,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 29,
+      "hi": 50,
+      "cars": 1282,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 31,
+      "hi": 50,
+      "cars": 1344,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 39,
+      "hi": 53,
+      "cars": 1715,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 43,
+      "hi": 56,
+      "cars": 1900,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 44,
+      "hi": 57,
+      "cars": 1917,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 45,
+      "hi": 60,
+      "cars": 1959,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "hi": 54,
+      "cars": 1788,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 49,
+      "cars": 1442,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 29,
+      "hi": 41,
+      "cars": 1278,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 22,
+      "hi": 36,
+      "cars": 987,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 14,
+      "hi": 22,
+      "cars": 626,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 10,
+      "hi": 14,
+      "cars": 420,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 8,
+      "hi": 14,
+      "cars": 371,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5159-1129",
+   "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
+   "venue": "KSPO DOME",
+   "date": "2026-11-29",
+   "start": "17:00",
+   "runtime": 130,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 15000,
+   "weather": {
+    "temp": 2.2,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181647014471.jpg",
+    "age": "8세이상",
+    "price": "VIP석 176,000원 R석 165,000원 S석 143,000원 A석 110,000원",
+    "host": "주식회사 위즈덤엔터테인먼트, 주식회사 피앤비엔터테인먼트",
+    "contact": "1544-6399",
+    "time_text": "2026년 11월 27일(금) 오후 7시 2026년 11월 28일(토) 오후 6시 2026년 11월 29일(일) 오후 5시",
+    "runDates": [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 20,
+      "hi": 39,
+      "cars": 899,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 23,
+      "hi": 45,
+      "cars": 1013,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 28,
+      "hi": 46,
+      "cars": 1211,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 32,
+      "hi": 48,
+      "cars": 1402,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 39,
+      "hi": 51,
+      "cars": 1725,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 43,
+      "hi": 53,
+      "cars": 1897,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 48,
+      "hi": 56,
+      "cars": 2115,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 51,
+      "hi": 61,
+      "cars": 2257,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 54,
+      "hi": 63,
+      "cars": 2387,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 48,
+      "hi": 57,
+      "cars": 2094,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 38,
+      "hi": 46,
+      "cars": 1691,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "hi": 43,
+      "cars": 1434,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 27,
+      "hi": 35,
+      "cars": 1191,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 19,
+      "hi": 21,
+      "cars": 816,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 12,
+      "hi": 14,
+      "cars": 530,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 11,
+      "hi": 14,
+      "cars": 489,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5168-1127",
+   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
+   "venue": "올림픽홀",
+   "date": "2026-11-27",
+   "start": "20:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 3000,
+   "weather": {
+    "temp": 10.2,
+    "sky": "비",
+    "precip": true,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
+    "age": "만 7세이상",
+    "price": "지정석 143,000원",
+    "host": "(주) 씨제이이엔엠",
+    "contact": "1544-1555",
+    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
+    "runDates": [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "19:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 24,
+      "hi": 41,
+      "cars": 1037,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 28,
+      "hi": 49,
+      "cars": 1249,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 30,
+      "hi": 50,
+      "cars": 1319,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 29,
+      "hi": 48,
+      "cars": 1256,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 29,
+      "hi": 48,
+      "cars": 1261,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 30,
+      "hi": 48,
+      "cars": 1327,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 32,
+      "hi": 49,
+      "cars": 1404,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 34,
+      "hi": 50,
+      "cars": 1477,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 35,
+      "hi": 49,
+      "cars": 1548,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 38,
+      "hi": 50,
+      "cars": 1654,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 35,
+      "hi": 50,
+      "cars": 1531,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 34,
+      "hi": 48,
+      "cars": 1508,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 32,
+      "hi": 46,
+      "cars": 1387,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 24,
+      "hi": 40,
+      "cars": 1045,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 18,
+      "hi": 32,
+      "cars": 797,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 12,
+      "hi": 20,
+      "cars": 546,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5168-1128",
+   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
+   "venue": "올림픽홀",
+   "date": "2026-11-28",
+   "start": "18:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 3000,
+   "weather": {
+    "temp": 5.1,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
+    "age": "만 7세이상",
+    "price": "지정석 143,000원",
+    "host": "(주) 씨제이이엔엠",
+    "contact": "1544-1555",
+    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
+    "runDates": [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "17:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 21,
+      "hi": 40,
+      "cars": 918,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 25,
+      "hi": 47,
+      "cars": 1105,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 27,
+      "hi": 48,
+      "cars": 1182,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 29,
+      "hi": 50,
+      "cars": 1282,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 31,
+      "hi": 50,
+      "cars": 1344,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 39,
+      "hi": 53,
+      "cars": 1715,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 43,
+      "hi": 56,
+      "cars": 1900,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 44,
+      "hi": 57,
+      "cars": 1917,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 45,
+      "hi": 60,
+      "cars": 1959,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "hi": 54,
+      "cars": 1788,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 49,
+      "cars": 1442,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 29,
+      "hi": 41,
+      "cars": 1278,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 22,
+      "hi": 36,
+      "cars": 987,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 14,
+      "hi": 22,
+      "cars": 626,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 10,
+      "hi": 14,
+      "cars": 420,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 8,
+      "hi": 14,
+      "cars": 371,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5168-1129",
+   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
+   "venue": "올림픽홀",
+   "date": "2026-11-29",
+   "start": "17:00",
+   "runtime": 150,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 3000,
+   "weather": {
+    "temp": 2.2,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
+    "age": "만 7세이상",
+    "price": "지정석 143,000원",
+    "host": "(주) 씨제이이엔엠",
+    "contact": "1544-1555",
+    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
+    "runDates": [
+     "2026-11-27",
+     "2026-11-29"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 20,
+      "hi": 39,
+      "cars": 899,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 23,
+      "hi": 45,
+      "cars": 1013,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 28,
+      "hi": 46,
+      "cars": 1211,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 32,
+      "hi": 48,
+      "cars": 1402,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 39,
+      "hi": 51,
+      "cars": 1725,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 43,
+      "hi": 53,
+      "cars": 1897,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 48,
+      "hi": 56,
+      "cars": 2115,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 51,
+      "hi": 61,
+      "cars": 2257,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 54,
+      "hi": 63,
+      "cars": 2387,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 48,
+      "hi": 57,
+      "cars": 2094,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 38,
+      "hi": 46,
+      "cars": 1691,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "hi": 43,
+      "cars": 1434,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 27,
+      "hi": 35,
+      "cars": 1191,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 19,
+      "hi": 21,
+      "cars": 816,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 12,
+      "hi": 14,
+      "cars": 530,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 11,
+      "hi": 14,
+      "cars": 489,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5136-1128",
+   "title": "최현우 30주년 기념 공연 - LEGACY",
+   "venue": "우리금융아트홀",
+   "date": "2026-11-28",
+   "start": "15:00",
+   "runtime": 120,
+   "genre": "마술",
+   "audience": "family",
+   "capacity": 1184,
+   "weather": {
+    "temp": 5.1,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
+    "host": "(주)하늘이엔티",
+    "contact": "1688-6675",
+    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
+    "runDates": [
+     "2026-11-28",
+     "2027-01-03"
+    ],
+    "moreCount": 24
+   },
+   "reco": {
+    "carArrive": "14:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 21,
+      "hi": 40,
+      "cars": 918,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 25,
+      "hi": 47,
+      "cars": 1105,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 27,
+      "hi": 48,
+      "cars": 1182,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 29,
+      "hi": 50,
+      "cars": 1282,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 31,
+      "hi": 50,
+      "cars": 1344,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 39,
+      "hi": 53,
+      "cars": 1715,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 43,
+      "hi": 56,
+      "cars": 1900,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 44,
+      "hi": 57,
+      "cars": 1917,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 45,
+      "hi": 60,
+      "cars": 1959,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "hi": 54,
+      "cars": 1788,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 49,
+      "cars": 1442,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 29,
+      "hi": 41,
+      "cars": 1278,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 22,
+      "hi": 36,
+      "cars": 987,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 14,
+      "hi": 22,
+      "cars": 626,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 10,
+      "hi": 14,
+      "cars": 420,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 8,
+      "hi": 14,
+      "cars": 371,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5136-1129",
+   "title": "최현우 30주년 기념 공연 - LEGACY",
+   "venue": "우리금융아트홀",
+   "date": "2026-11-29",
+   "start": "14:00",
+   "runtime": 120,
+   "genre": "마술",
+   "audience": "family",
+   "capacity": 1184,
+   "weather": {
+    "temp": 2.2,
+    "sky": "구름많음",
+    "precip": false,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
+    "host": "(주)하늘이엔티",
+    "contact": "1688-6675",
+    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
+    "runDates": [
+     "2026-11-28",
+     "2027-01-03"
+    ],
+    "moreCount": 24
+   },
+   "reco": {
+    "carArrive": "13:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 20,
+      "hi": 39,
+      "cars": 899,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 23,
+      "hi": 45,
+      "cars": 1013,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 28,
+      "hi": 46,
+      "cars": 1211,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 32,
+      "hi": 48,
+      "cars": 1402,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 39,
+      "hi": 51,
+      "cars": 1725,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 43,
+      "hi": 53,
+      "cars": 1897,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 48,
+      "hi": 56,
+      "cars": 2115,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 51,
+      "hi": 61,
+      "cars": 2257,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 54,
+      "hi": 63,
+      "cars": 2387,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 48,
+      "hi": 57,
+      "cars": 2094,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 38,
+      "hi": 46,
+      "cars": 1691,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 33,
+      "hi": 43,
+      "cars": 1434,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 27,
+      "hi": 35,
+      "cars": 1191,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 19,
+      "hi": 21,
+      "cars": 816,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 12,
+      "hi": 14,
+      "cars": 530,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 11,
+      "hi": 14,
+      "cars": 489,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5136-1202",
+   "title": "최현우 30주년 기념 공연 - LEGACY",
+   "venue": "우리금융아트홀",
+   "date": "2026-12-02",
+   "start": "19:30",
+   "runtime": 120,
+   "genre": "마술",
+   "audience": "family",
+   "capacity": 1184,
+   "weather": {
+    "temp": 7.3,
+    "sky": "비",
+    "precip": true,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5136",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610011607581611.jpg",
+    "age": "8세이상 관람가능",
+    "price": "VIP석 110,000원 R석 99,000원 S석 77,000원",
+    "host": "(주)하늘이엔티",
+    "contact": "1688-6675",
+    "time_text": "수목금 19시 30분 / 토 15시, 19시 / 일 14시 (일자별 공연 시간 변동 있으며, 상세페이지 참고 부탁드립니다. )",
+    "runDates": [
+     "2026-11-28",
+     "2027-01-03"
+    ],
+    "moreCount": 24
+   },
+   "reco": {
+    "carArrive": "18:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 42,
+      "hi": 46,
+      "cars": 1843,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 49,
+      "hi": 55,
+      "cars": 2153,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 50,
+      "hi": 56,
+      "cars": 2199,
+      "level": "보통"
+     },
+     {
+      "h": 11,
+      "occ": 48,
+      "hi": 52,
+      "cars": 2101,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 48,
+      "hi": 50,
+      "cars": 2092,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 49,
+      "hi": 51,
+      "cars": 2159,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 50,
+      "hi": 51,
+      "cars": 2194,
+      "level": "보통"
+     },
+     {
+      "h": 15,
+      "occ": 50,
+      "hi": 51,
+      "cars": 2213,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 48,
+      "hi": 49,
+      "cars": 2128,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 41,
+      "hi": 41,
+      "cars": 1808,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 32,
+      "hi": 34,
+      "cars": 1393,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 28,
+      "hi": 34,
+      "cars": 1222,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 23,
+      "hi": 32,
+      "cars": 1020,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 17,
+      "hi": 25,
+      "cars": 757,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 11,
+      "hi": 17,
+      "cars": 505,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 10,
+      "hi": 12,
+      "cars": 450,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5161-1204",
+   "title": "[서울] 2026 이승철 40주년 콘서트 [THE VOICE: LEE SEUNG CHUL]",
+   "venue": "KSPO DOME",
+   "date": "2026-12-04",
+   "start": "19:00",
+   "runtime": 120,
+   "genre": "대중음악",
+   "audience": "senior",
+   "capacity": 15000,
+   "weather": {
+    "temp": 11.6,
+    "sky": "비",
+    "precip": true,
+    "source": "Open-Meteo 예보"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5161",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181656386041.jpg",
+    "age": "8세 이상",
+    "price": "FS석 198,000원 VIP석 187,000원 R석 165,000원",
+    "host": "타입커뮤니케이션, 라이브네이션코리아, 엘에쓰씨",
+    "contact": "1544-6399 (예스24티켓)",
+    "time_text": "2026년 12월 4일(금) 오후 7시 2026년 12월 5일(토) 오후 4시 2026년 12월 6일(일) 오후 4시",
+    "runDates": [
+     "2026-12-04",
+     "2026-12-06"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "18:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 23,
+      "hi": 41,
+      "cars": 1017,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 28,
+      "hi": 49,
+      "cars": 1225,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 30,
+      "hi": 50,
+      "cars": 1299,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 28,
+      "hi": 48,
+      "cars": 1236,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 28,
+      "hi": 48,
+      "cars": 1231,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 29,
+      "hi": 48,
+      "cars": 1298,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 31,
+      "hi": 49,
+      "cars": 1374,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 33,
+      "hi": 50,
+      "cars": 1447,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 35,
+      "hi": 49,
+      "cars": 1518,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 37,
+      "hi": 50,
+      "cars": 1624,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 34,
+      "hi": 50,
+      "cars": 1510,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 34,
+      "hi": 48,
+      "cars": 1487,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 31,
+      "hi": 46,
+      "cars": 1365,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 23,
+      "hi": 40,
+      "cars": 1021,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 16,
+      "hi": 27,
+      "cars": 719,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 12,
+      "hi": 20,
+      "cars": 523,
       "level": "원활"
      }
     ]
@@ -1619,7 +1619,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 7.3,
+    "temp": 9.8,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1649,112 +1649,112 @@
       "h": 8,
       "occ": 23,
       "hi": 37,
-      "cars": 1011,
+      "cars": 993,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
       "hi": 43,
-      "cars": 1204,
+      "cars": 1199,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
       "hi": 44,
-      "cars": 1301,
+      "cars": 1313,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
       "hi": 46,
-      "cars": 1308,
+      "cars": 1312,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 31,
       "hi": 46,
-      "cars": 1356,
+      "cars": 1367,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 34,
       "hi": 47,
-      "cars": 1501,
+      "cars": 1512,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 41,
       "hi": 50,
-      "cars": 1812,
+      "cars": 1794,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 41,
       "hi": 50,
-      "cars": 1818,
+      "cars": 1800,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 42,
       "hi": 50,
-      "cars": 1853,
+      "cars": 1836,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 38,
+      "occ": 37,
       "hi": 48,
-      "cars": 1654,
+      "cars": 1636,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 34,
+      "occ": 33,
       "hi": 47,
-      "cars": 1477,
+      "cars": 1455,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
+      "occ": 30,
       "hi": 44,
-      "cars": 1350,
+      "cars": 1326,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 25,
+      "occ": 24,
       "hi": 35,
-      "cars": 1097,
+      "cars": 1073,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
       "hi": 23,
-      "cars": 679,
+      "cars": 657,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
+      "occ": 10,
       "hi": 15,
-      "cars": 470,
+      "cars": 451,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
+      "occ": 9,
       "hi": 15,
-      "cars": 431,
+      "cars": 411,
       "level": "원활"
      }
     ]
@@ -1771,7 +1771,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 1.8,
+    "temp": 8.7,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1801,112 +1801,112 @@
       "h": 8,
       "occ": 19,
       "hi": 35,
-      "cars": 837,
+      "cars": 817,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 22,
       "hi": 41,
-      "cars": 979,
+      "cars": 977,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 25,
       "hi": 42,
-      "cars": 1117,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 25,
-      "hi": 44,
       "cars": 1122,
       "level": "원활"
      },
      {
-      "h": 12,
-      "occ": 27,
+      "h": 11,
+      "occ": 26,
       "hi": 44,
-      "cars": 1189,
+      "cars": 1150,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 28,
+      "hi": 44,
+      "cars": 1221,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 31,
+      "occ": 32,
       "hi": 45,
-      "cars": 1357,
+      "cars": 1391,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 38,
-      "hi": 48,
-      "cars": 1678,
+      "hi": 49,
+      "cars": 1683,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 39,
-      "hi": 49,
-      "cars": 1712,
+      "hi": 50,
+      "cars": 1700,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
-      "hi": 48,
-      "cars": 1779,
+      "hi": 49,
+      "cars": 1773,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 36,
       "hi": 47,
-      "cars": 1592,
+      "cars": 1572,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 46,
-      "cars": 1471,
+      "cars": 1445,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
+      "occ": 30,
       "hi": 43,
-      "cars": 1363,
+      "cars": 1322,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 24,
+      "occ": 23,
       "hi": 33,
-      "cars": 1065,
+      "cars": 1012,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 15,
+      "occ": 14,
       "hi": 22,
-      "cars": 663,
+      "cars": 616,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
+      "occ": 10,
       "hi": 15,
-      "cars": 479,
+      "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
+      "occ": 9,
       "hi": 15,
-      "cars": 444,
+      "cars": 404,
       "level": "원활"
      }
     ]
@@ -1923,7 +1923,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 7.3,
+    "temp": 9.8,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1953,112 +1953,112 @@
       "h": 8,
       "occ": 23,
       "hi": 37,
-      "cars": 1011,
+      "cars": 993,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
       "hi": 43,
-      "cars": 1204,
+      "cars": 1199,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 30,
       "hi": 44,
-      "cars": 1301,
+      "cars": 1313,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 30,
       "hi": 46,
-      "cars": 1308,
+      "cars": 1312,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 31,
       "hi": 46,
-      "cars": 1356,
+      "cars": 1367,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 34,
       "hi": 47,
-      "cars": 1501,
+      "cars": 1512,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 41,
       "hi": 50,
-      "cars": 1812,
+      "cars": 1794,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 41,
       "hi": 50,
-      "cars": 1818,
+      "cars": 1800,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 42,
       "hi": 50,
-      "cars": 1853,
+      "cars": 1836,
       "level": "원활"
      },
      {
       "h": 17,
-      "occ": 38,
+      "occ": 37,
       "hi": 48,
-      "cars": 1654,
+      "cars": 1636,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 34,
+      "occ": 33,
       "hi": 47,
-      "cars": 1477,
+      "cars": 1455,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
+      "occ": 30,
       "hi": 44,
-      "cars": 1350,
+      "cars": 1326,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 25,
+      "occ": 24,
       "hi": 35,
-      "cars": 1097,
+      "cars": 1073,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 15,
       "hi": 23,
-      "cars": 679,
+      "cars": 657,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
+      "occ": 10,
       "hi": 15,
-      "cars": 470,
+      "cars": 451,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
+      "occ": 9,
       "hi": 15,
-      "cars": 431,
+      "cars": 411,
       "level": "원활"
      }
     ]
@@ -2075,7 +2075,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 1.8,
+    "temp": 8.7,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -2105,112 +2105,112 @@
       "h": 8,
       "occ": 19,
       "hi": 35,
-      "cars": 837,
+      "cars": 817,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 22,
       "hi": 41,
-      "cars": 979,
+      "cars": 977,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 25,
       "hi": 42,
-      "cars": 1117,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 25,
-      "hi": 44,
       "cars": 1122,
       "level": "원활"
      },
      {
-      "h": 12,
-      "occ": 27,
+      "h": 11,
+      "occ": 26,
       "hi": 44,
-      "cars": 1189,
+      "cars": 1150,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 28,
+      "hi": 44,
+      "cars": 1221,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 31,
+      "occ": 32,
       "hi": 45,
-      "cars": 1357,
+      "cars": 1391,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 38,
-      "hi": 48,
-      "cars": 1678,
+      "hi": 49,
+      "cars": 1683,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 39,
-      "hi": 49,
-      "cars": 1712,
+      "hi": 50,
+      "cars": 1700,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
-      "hi": 48,
-      "cars": 1779,
+      "hi": 49,
+      "cars": 1773,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 36,
       "hi": 47,
-      "cars": 1592,
+      "cars": 1572,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 46,
-      "cars": 1471,
+      "cars": 1445,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 31,
+      "occ": 30,
       "hi": 43,
-      "cars": 1363,
+      "cars": 1322,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 24,
+      "occ": 23,
       "hi": 33,
-      "cars": 1065,
+      "cars": 1012,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 15,
+      "occ": 14,
       "hi": 22,
-      "cars": 663,
+      "cars": 616,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
+      "occ": 10,
       "hi": 15,
-      "cars": 479,
+      "cars": 436,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
+      "occ": 9,
       "hi": 15,
-      "cars": 444,
+      "cars": 404,
       "level": "원활"
      }
     ]
@@ -2227,9 +2227,9 @@
    "audience": "senior",
    "capacity": 3000,
    "weather": {
-    "temp": 0.6,
-    "sky": "흐림",
-    "precip": false,
+    "temp": 4.6,
+    "sky": "비",
+    "precip": true,
     "source": "Open-Meteo 예보"
    },
    "official": {
@@ -2256,113 +2256,113 @@
      {
       "h": 8,
       "occ": 43,
-      "hi": 49,
-      "cars": 1907,
+      "hi": 46,
+      "cars": 1872,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 51,
-      "hi": 58,
-      "cars": 2228,
-      "level": "보통"
+      "occ": 49,
+      "hi": 55,
+      "cars": 2167,
+      "level": "원활"
      },
      {
       "h": 10,
-      "occ": 52,
-      "hi": 59,
-      "cars": 2307,
+      "occ": 51,
+      "hi": 56,
+      "cars": 2235,
       "level": "보통"
      },
      {
       "h": 11,
       "occ": 49,
-      "hi": 58,
-      "cars": 2171,
+      "hi": 54,
+      "cars": 2137,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 49,
-      "hi": 59,
-      "cars": 2147,
+      "hi": 54,
+      "cars": 2138,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 51,
-      "hi": 59,
-      "cars": 2243,
+      "occ": 50,
+      "hi": 55,
+      "cars": 2222,
       "level": "보통"
      },
      {
       "h": 14,
       "occ": 51,
-      "hi": 60,
-      "cars": 2260,
+      "hi": 55,
+      "cars": 2246,
       "level": "보통"
      },
      {
       "h": 15,
-      "occ": 51,
-      "hi": 59,
-      "cars": 2260,
+      "occ": 52,
+      "hi": 55,
+      "cars": 2267,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 49,
-      "hi": 58,
-      "cars": 2145,
-      "level": "원활"
+      "occ": 50,
+      "hi": 54,
+      "cars": 2198,
+      "level": "보통"
      },
      {
       "h": 17,
-      "occ": 42,
-      "hi": 48,
-      "cars": 1844,
+      "occ": 43,
+      "hi": 46,
+      "cars": 1898,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 34,
-      "hi": 39,
-      "cars": 1477,
+      "hi": 38,
+      "cars": 1492,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 37,
-      "cars": 1338,
+      "cars": 1341,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
       "hi": 35,
-      "cars": 1126,
+      "cars": 1127,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 18,
+      "occ": 19,
       "hi": 26,
-      "cars": 785,
+      "cars": 831,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
       "hi": 17,
-      "cars": 537,
+      "cars": 513,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 11,
+      "occ": 10,
       "hi": 12,
-      "cars": 469,
+      "cars": 448,
       "level": "원활"
      }
     ]
@@ -2379,10 +2379,10 @@
    "audience": "senior",
    "capacity": 3000,
    "weather": {
-    "temp": 0.2,
-    "sky": null,
+    "temp": -1.2,
+    "sky": "흐림",
     "precip": false,
-    "source": "평년값"
+    "source": "Open-Meteo 예보"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5172",
@@ -2409,112 +2409,112 @@
       "h": 8,
       "occ": 21,
       "hi": 40,
-      "cars": 917,
+      "cars": 919,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 24,
       "hi": 47,
-      "cars": 1069,
+      "cars": 1071,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 27,
       "hi": 48,
-      "cars": 1187,
+      "cars": 1192,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
       "hi": 50,
-      "cars": 1226,
+      "cars": 1228,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
       "hi": 50,
-      "cars": 1176,
+      "cars": 1178,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 29,
       "hi": 51,
-      "cars": 1290,
+      "cars": 1292,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 34,
+      "occ": 35,
       "hi": 53,
-      "cars": 1517,
+      "cars": 1519,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 43,
       "hi": 55,
-      "cars": 1872,
+      "cars": 1874,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
       "hi": 55,
-      "cars": 1822,
+      "cars": 1824,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 38,
       "hi": 52,
-      "cars": 1652,
+      "cars": 1669,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 31,
-      "hi": 49,
-      "cars": 1385,
+      "occ": 32,
+      "hi": 50,
+      "cars": 1402,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 30,
-      "hi": 45,
-      "cars": 1334,
+      "occ": 31,
+      "hi": 46,
+      "cars": 1352,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
-      "hi": 39,
-      "cars": 1086,
+      "hi": 40,
+      "cars": 1107,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
-      "hi": 22,
-      "cars": 611,
+      "hi": 23,
+      "cars": 616,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 9,
       "hi": 14,
-      "cars": 405,
+      "cars": 407,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 9,
       "hi": 14,
-      "cars": 402,
+      "cars": 404,
       "level": "원활"
      }
     ]
@@ -2683,10 +2683,10 @@
    "audience": "mz",
    "capacity": 15000,
    "weather": {
-    "temp": 0.2,
-    "sky": null,
+    "temp": -1.2,
+    "sky": "흐림",
     "precip": false,
-    "source": "평년값"
+    "source": "Open-Meteo 예보"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5170",
@@ -2713,112 +2713,112 @@
       "h": 8,
       "occ": 21,
       "hi": 40,
-      "cars": 917,
+      "cars": 919,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 24,
       "hi": 47,
-      "cars": 1069,
+      "cars": 1071,
       "level": "원활"
      },
      {
       "h": 10,
       "occ": 27,
       "hi": 48,
-      "cars": 1187,
+      "cars": 1192,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 28,
       "hi": 50,
-      "cars": 1226,
+      "cars": 1228,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 27,
       "hi": 50,
-      "cars": 1176,
+      "cars": 1178,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 29,
       "hi": 51,
-      "cars": 1290,
+      "cars": 1292,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 34,
+      "occ": 35,
       "hi": 53,
-      "cars": 1517,
+      "cars": 1519,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 43,
       "hi": 55,
-      "cars": 1872,
+      "cars": 1874,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
       "hi": 55,
-      "cars": 1822,
+      "cars": 1824,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 38,
       "hi": 52,
-      "cars": 1652,
+      "cars": 1669,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 31,
-      "hi": 49,
-      "cars": 1385,
+      "occ": 32,
+      "hi": 50,
+      "cars": 1402,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 30,
-      "hi": 45,
-      "cars": 1334,
+      "occ": 31,
+      "hi": 46,
+      "cars": 1352,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 25,
-      "hi": 39,
-      "cars": 1086,
+      "hi": 40,
+      "cars": 1107,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 14,
-      "hi": 22,
-      "cars": 611,
+      "hi": 23,
+      "cars": 616,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 9,
       "hi": 14,
-      "cars": 405,
+      "cars": 407,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 9,
       "hi": 14,
-      "cars": 402,
+      "cars": 404,
       "level": "원활"
      }
     ]
@@ -6923,6 +6923,158 @@
       "occ": 4,
       "hi": 9,
       "cars": 194,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5183-0111",
+   "title": "뮤지컬 〈사랑의 하츄핑: 고래보석의 전설〉",
+   "venue": "우리금융아트홀",
+   "date": "2027-01-11",
+   "start": "14:00",
+   "runtime": 70,
+   "genre": "뮤지컬",
+   "audience": "family",
+   "capacity": 1184,
+   "weather": {
+    "temp": -1.9,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5183",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611191721312261.gif",
+    "age": "24개월이상 관람가능",
+    "price": "VIP석 80,000원 R석 70,000원 S석 50,000원",
+    "host": "클립서비스 주식회사",
+    "contact": "1577-3363",
+    "time_text": "화, 수, 목, 금, 일 11시, 14시 / 토 11시, 14시, 16시30분(월 공연없음) / 1월 9일 14시, 16시 30분 / 1월 10일 11시, 14시, 16시 30분 / 2월 7일 14시, 16시30분 / 2월 8일 11시, 14시, 16시30분 / 2월 9일 11시, 14시",
+    "runDates": [
+     "2027-01-09",
+     "2027-03-01"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "13:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 32,
+      "hi": 38,
+      "cars": 1392,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 39,
+      "hi": 44,
+      "cars": 1713,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 41,
+      "hi": 45,
+      "cars": 1813,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 39,
+      "hi": 45,
+      "cars": 1705,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 39,
+      "hi": 45,
+      "cars": 1708,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 42,
+      "hi": 45,
+      "cars": 1832,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 42,
+      "hi": 47,
+      "cars": 1855,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 42,
+      "hi": 46,
+      "cars": 1827,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 37,
+      "hi": 42,
+      "cars": 1620,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 31,
+      "hi": 36,
+      "cars": 1379,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 22,
+      "hi": 28,
+      "cars": 947,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 18,
+      "hi": 26,
+      "cars": 786,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 17,
+      "hi": 23,
+      "cars": 731,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 13,
+      "hi": 16,
+      "cars": 569,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 9,
+      "hi": 10,
+      "cars": 382,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 8,
+      "hi": 10,
+      "cars": 368,
       "level": "원활"
      }
     ]
