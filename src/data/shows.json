@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T01:51:46",
+ "generatedAt": "2026-11-27T03:19:22",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -5127,10 +5127,10 @@
     "price": "VIP석 165,000원 R석 154,000원",
     "host": "피네이션 주식회사",
     "contact": "1588-7890 (티켓링크) | 1644-3850 (only English)",
-    "time_text": "금 18시 30분 / 토 18시",
+    "time_text": "금 18시 30분 / 토 18시 / 일 17시",
     "runDates": [
      "2026-12-25",
-     "2026-12-26"
+     "2026-12-27"
     ],
     "moreCount": 0
    },
@@ -5279,10 +5279,10 @@
     "price": "VIP석 165,000원 R석 154,000원",
     "host": "피네이션 주식회사",
     "contact": "1588-7890 (티켓링크) | 1644-3850 (only English)",
-    "time_text": "금 18시 30분 / 토 18시",
+    "time_text": "금 18시 30분 / 토 18시 / 일 17시",
     "runDates": [
      "2026-12-25",
-     "2026-12-26"
+     "2026-12-27"
     ],
     "moreCount": 0
    },
@@ -5403,6 +5403,158 @@
       "occ": 9,
       "hi": 14,
       "cars": 402,
+      "level": "원활"
+     }
+    ]
+   }
+  },
+  {
+   "id": "e5182-1227",
+   "title": "2026 CRUSH CONCERT [CRUSH H♥UR]",
+   "venue": "티켓링크 라이브 아레나",
+   "date": "2026-12-27",
+   "start": "17:00",
+   "runtime": 120,
+   "genre": "대중음악",
+   "audience": "mz",
+   "capacity": 5000,
+   "weather": {
+    "temp": 0.2,
+    "sky": null,
+    "precip": false,
+    "source": "평년값"
+   },
+   "official": {
+    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5182",
+    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202611191715280741.jpg",
+    "age": "만7세 이상",
+    "price": "VIP석 165,000원 R석 154,000원",
+    "host": "피네이션 주식회사",
+    "contact": "1588-7890 (티켓링크) | 1644-3850 (only English)",
+    "time_text": "금 18시 30분 / 토 18시 / 일 17시",
+    "runDates": [
+     "2026-12-25",
+     "2026-12-27"
+    ],
+    "moreCount": 0
+   },
+   "reco": {
+    "carArrive": "16:00",
+    "fullAt": null,
+    "busyDay": false
+   },
+   "forecast": {
+    "hours": [
+     {
+      "h": 8,
+      "occ": 38,
+      "hi": 43,
+      "cars": 1678,
+      "level": "원활"
+     },
+     {
+      "h": 9,
+      "occ": 42,
+      "hi": 50,
+      "cars": 1842,
+      "level": "원활"
+     },
+     {
+      "h": 10,
+      "occ": 45,
+      "hi": 51,
+      "cars": 1971,
+      "level": "원활"
+     },
+     {
+      "h": 11,
+      "occ": 46,
+      "hi": 56,
+      "cars": 2043,
+      "level": "원활"
+     },
+     {
+      "h": 12,
+      "occ": 46,
+      "hi": 56,
+      "cars": 2037,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 50,
+      "hi": 57,
+      "cars": 2200,
+      "level": "보통"
+     },
+     {
+      "h": 14,
+      "occ": 52,
+      "hi": 58,
+      "cars": 2302,
+      "level": "보통"
+     },
+     {
+      "h": 15,
+      "occ": 56,
+      "hi": 60,
+      "cars": 2454,
+      "level": "보통"
+     },
+     {
+      "h": 16,
+      "occ": 52,
+      "hi": 58,
+      "cars": 2272,
+      "level": "보통"
+     },
+     {
+      "h": 17,
+      "occ": 43,
+      "hi": 46,
+      "cars": 1881,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 34,
+      "hi": 35,
+      "cars": 1477,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 29,
+      "hi": 34,
+      "cars": 1268,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 23,
+      "hi": 31,
+      "cars": 1006,
+      "level": "원활"
+     },
+     {
+      "h": 21,
+      "occ": 14,
+      "hi": 18,
+      "cars": 620,
+      "level": "원활"
+     },
+     {
+      "h": 22,
+      "occ": 11,
+      "hi": 11,
+      "cars": 467,
+      "level": "원활"
+     },
+     {
+      "h": 23,
+      "occ": 12,
+      "hi": 12,
+      "cars": 509,
       "level": "원활"
      }
     ]
