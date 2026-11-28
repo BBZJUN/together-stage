@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T03:19:22",
+ "generatedAt": "2026-11-28T01:33:33",
  "source": "official",
  "model": {
   "rows_total": 7803,
@@ -89,158 +89,6 @@
  },
  "shows": [
   {
-   "id": "e5159-1127",
-   "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
-   "venue": "KSPO DOME",
-   "date": "2026-11-27",
-   "start": "19:00",
-   "runtime": 130,
-   "genre": "대중음악",
-   "audience": "senior",
-   "capacity": 15000,
-   "weather": {
-    "temp": 10.2,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5159",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202609181647014471.jpg",
-    "age": "8세이상",
-    "price": "VIP석 176,000원 R석 165,000원 S석 143,000원 A석 110,000원",
-    "host": "주식회사 위즈덤엔터테인먼트, 주식회사 피앤비엔터테인먼트",
-    "contact": "1544-6399",
-    "time_text": "2026년 11월 27일(금) 오후 7시 2026년 11월 28일(토) 오후 6시 2026년 11월 29일(일) 오후 5시",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "18:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 24,
-      "hi": 41,
-      "cars": 1037,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 28,
-      "hi": 49,
-      "cars": 1249,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 30,
-      "hi": 50,
-      "cars": 1319,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 29,
-      "hi": 48,
-      "cars": 1256,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 29,
-      "hi": 48,
-      "cars": 1261,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 30,
-      "hi": 48,
-      "cars": 1327,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 32,
-      "hi": 49,
-      "cars": 1404,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 34,
-      "hi": 50,
-      "cars": 1477,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 35,
-      "hi": 49,
-      "cars": 1548,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 38,
-      "hi": 50,
-      "cars": 1654,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 35,
-      "hi": 50,
-      "cars": 1531,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 34,
-      "hi": 48,
-      "cars": 1508,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 32,
-      "hi": 46,
-      "cars": 1387,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 24,
-      "hi": 40,
-      "cars": 1045,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 18,
-      "hi": 32,
-      "cars": 797,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 12,
-      "hi": 20,
-      "cars": 546,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
    "id": "e5159-1128",
    "title": "[서울] 2026 조용필 ＆ 위대한탄생 콘서트",
    "venue": "KSPO DOME",
@@ -251,8 +99,8 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 5.1,
-    "sky": "구름많음",
+    "temp": 4.9,
+    "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -403,7 +251,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 2.2,
+    "temp": 1.4,
     "sky": "구름많음",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -433,7 +281,7 @@
       "h": 8,
       "occ": 20,
       "hi": 39,
-      "cars": 899,
+      "cars": 897,
       "level": "원활"
      },
      {
@@ -475,222 +323,70 @@
       "h": 14,
       "occ": 48,
       "hi": 56,
-      "cars": 2115,
+      "cars": 2121,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
       "hi": 61,
-      "cars": 2257,
+      "cars": 2263,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
       "hi": 63,
-      "cars": 2387,
+      "cars": 2391,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 48,
       "hi": 57,
-      "cars": 2094,
+      "cars": 2109,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 38,
+      "occ": 39,
       "hi": 46,
-      "cars": 1691,
+      "cars": 1700,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 33,
       "hi": 43,
-      "cars": 1434,
+      "cars": 1443,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
       "hi": 35,
-      "cars": 1191,
+      "cars": 1189,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
       "hi": 21,
-      "cars": 816,
+      "cars": 818,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
       "hi": 14,
-      "cars": 530,
+      "cars": 532,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
       "hi": 14,
-      "cars": 489,
-      "level": "원활"
-     }
-    ]
-   }
-  },
-  {
-   "id": "e5168-1127",
-   "title": "2026 다이나믹 듀오 단독 콘서트 ＂가끔씩 오래 보자＂ - 서울",
-   "venue": "올림픽홀",
-   "date": "2026-11-27",
-   "start": "20:00",
-   "runtime": 150,
-   "genre": "대중음악",
-   "audience": "mz",
-   "capacity": 3000,
-   "weather": {
-    "temp": 10.2,
-    "sky": "비",
-    "precip": true,
-    "source": "Open-Meteo 예보"
-   },
-   "official": {
-    "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5168",
-    "poster": "https://www.ksponco.or.kr/olympicpark/attachFiles/eventInfo/202610301649241591.gif",
-    "age": "만 7세이상",
-    "price": "지정석 143,000원",
-    "host": "(주) 씨제이이엔엠",
-    "contact": "1544-1555",
-    "time_text": "2026년 11월 27일(금) 8PM / 2026년 11월 28일(토) 6PM / 2026년 11월 29일(일) 5PM",
-    "runDates": [
-     "2026-11-27",
-     "2026-11-29"
-    ],
-    "moreCount": 0
-   },
-   "reco": {
-    "carArrive": "19:00",
-    "fullAt": null,
-    "busyDay": false
-   },
-   "forecast": {
-    "hours": [
-     {
-      "h": 8,
-      "occ": 24,
-      "hi": 41,
-      "cars": 1037,
-      "level": "원활"
-     },
-     {
-      "h": 9,
-      "occ": 28,
-      "hi": 49,
-      "cars": 1249,
-      "level": "원활"
-     },
-     {
-      "h": 10,
-      "occ": 30,
-      "hi": 50,
-      "cars": 1319,
-      "level": "원활"
-     },
-     {
-      "h": 11,
-      "occ": 29,
-      "hi": 48,
-      "cars": 1256,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 29,
-      "hi": 48,
-      "cars": 1261,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 30,
-      "hi": 48,
-      "cars": 1327,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 32,
-      "hi": 49,
-      "cars": 1404,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 34,
-      "hi": 50,
-      "cars": 1477,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 35,
-      "hi": 49,
-      "cars": 1548,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 38,
-      "hi": 50,
-      "cars": 1654,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 35,
-      "hi": 50,
-      "cars": 1531,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 34,
-      "hi": 48,
-      "cars": 1508,
-      "level": "원활"
-     },
-     {
-      "h": 20,
-      "occ": 32,
-      "hi": 46,
-      "cars": 1387,
-      "level": "원활"
-     },
-     {
-      "h": 21,
-      "occ": 24,
-      "hi": 40,
-      "cars": 1045,
-      "level": "원활"
-     },
-     {
-      "h": 22,
-      "occ": 18,
-      "hi": 32,
-      "cars": 797,
-      "level": "원활"
-     },
-     {
-      "h": 23,
-      "occ": 12,
-      "hi": 20,
-      "cars": 546,
+      "cars": 491,
       "level": "원활"
      }
     ]
@@ -707,8 +403,8 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 5.1,
-    "sky": "구름많음",
+    "temp": 4.9,
+    "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -859,7 +555,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 2.2,
+    "temp": 1.4,
     "sky": "구름많음",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -889,7 +585,7 @@
       "h": 8,
       "occ": 20,
       "hi": 39,
-      "cars": 899,
+      "cars": 897,
       "level": "원활"
      },
      {
@@ -931,70 +627,70 @@
       "h": 14,
       "occ": 48,
       "hi": 56,
-      "cars": 2115,
+      "cars": 2121,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
       "hi": 61,
-      "cars": 2257,
+      "cars": 2263,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
       "hi": 63,
-      "cars": 2387,
+      "cars": 2391,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 48,
       "hi": 57,
-      "cars": 2094,
+      "cars": 2109,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 38,
+      "occ": 39,
       "hi": 46,
-      "cars": 1691,
+      "cars": 1700,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 33,
       "hi": 43,
-      "cars": 1434,
+      "cars": 1443,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
       "hi": 35,
-      "cars": 1191,
+      "cars": 1189,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
       "hi": 21,
-      "cars": 816,
+      "cars": 818,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
       "hi": 14,
-      "cars": 530,
+      "cars": 532,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
       "hi": 14,
-      "cars": 489,
+      "cars": 491,
       "level": "원활"
      }
     ]
@@ -1011,8 +707,8 @@
    "audience": "family",
    "capacity": 1184,
    "weather": {
-    "temp": 5.1,
-    "sky": "구름많음",
+    "temp": 4.9,
+    "sky": "흐림",
     "precip": false,
     "source": "Open-Meteo 예보"
    },
@@ -1163,7 +859,7 @@
    "audience": "family",
    "capacity": 1184,
    "weather": {
-    "temp": 2.2,
+    "temp": 1.4,
     "sky": "구름많음",
     "precip": false,
     "source": "Open-Meteo 예보"
@@ -1193,7 +889,7 @@
       "h": 8,
       "occ": 20,
       "hi": 39,
-      "cars": 899,
+      "cars": 897,
       "level": "원활"
      },
      {
@@ -1235,70 +931,70 @@
       "h": 14,
       "occ": 48,
       "hi": 56,
-      "cars": 2115,
+      "cars": 2121,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 51,
       "hi": 61,
-      "cars": 2257,
+      "cars": 2263,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 54,
       "hi": 63,
-      "cars": 2387,
+      "cars": 2391,
       "level": "보통"
      },
      {
       "h": 17,
       "occ": 48,
       "hi": 57,
-      "cars": 2094,
+      "cars": 2109,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 38,
+      "occ": 39,
       "hi": 46,
-      "cars": 1691,
+      "cars": 1700,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 33,
       "hi": 43,
-      "cars": 1434,
+      "cars": 1443,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 27,
       "hi": 35,
-      "cars": 1191,
+      "cars": 1189,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 19,
       "hi": 21,
-      "cars": 816,
+      "cars": 818,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
       "hi": 14,
-      "cars": 530,
+      "cars": 532,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 11,
       "hi": 14,
-      "cars": 489,
+      "cars": 491,
       "level": "원활"
      }
     ]
@@ -1315,7 +1011,7 @@
    "audience": "family",
    "capacity": 1184,
    "weather": {
-    "temp": 7.3,
+    "temp": 5.9,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1366,14 +1062,14 @@
       "h": 11,
       "occ": 48,
       "hi": 52,
-      "cars": 2101,
+      "cars": 2102,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 48,
       "hi": 50,
-      "cars": 2092,
+      "cars": 2093,
       "level": "원활"
      },
      {
@@ -1394,63 +1090,63 @@
       "h": 15,
       "occ": 50,
       "hi": 51,
-      "cars": 2213,
+      "cars": 2214,
       "level": "보통"
      },
      {
       "h": 16,
       "occ": 48,
       "hi": 49,
-      "cars": 2128,
+      "cars": 2129,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 41,
       "hi": 41,
-      "cars": 1808,
+      "cars": 1809,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 32,
       "hi": 34,
-      "cars": 1393,
+      "cars": 1397,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 28,
       "hi": 34,
-      "cars": 1222,
+      "cars": 1225,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 32,
-      "cars": 1020,
+      "cars": 1024,
       "level": "원활"
      },
      {
       "h": 21,
       "occ": 17,
       "hi": 25,
-      "cars": 757,
+      "cars": 761,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 11,
+      "occ": 12,
       "hi": 17,
-      "cars": 505,
+      "cars": 509,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 10,
       "hi": 12,
-      "cars": 450,
+      "cars": 453,
       "level": "원활"
      }
     ]
@@ -1467,9 +1163,9 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 11.6,
-    "sky": "비",
-    "precip": true,
+    "temp": 9.8,
+    "sky": "흐림",
+    "precip": false,
     "source": "Open-Meteo 예보"
    },
    "official": {
@@ -1495,114 +1191,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 23,
-      "hi": 41,
-      "cars": 1017,
+      "occ": 22,
+      "hi": 44,
+      "cars": 982,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 28,
-      "hi": 49,
-      "cars": 1225,
+      "occ": 27,
+      "hi": 53,
+      "cars": 1182,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
-      "hi": 50,
-      "cars": 1299,
+      "occ": 29,
+      "hi": 54,
+      "cars": 1265,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 28,
-      "hi": 48,
-      "cars": 1236,
+      "occ": 27,
+      "hi": 52,
+      "cars": 1192,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 28,
-      "hi": 48,
-      "cars": 1231,
+      "occ": 27,
+      "hi": 51,
+      "cars": 1182,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 29,
-      "hi": 48,
-      "cars": 1298,
+      "occ": 28,
+      "hi": 52,
+      "cars": 1237,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 31,
-      "hi": 49,
-      "cars": 1374,
+      "occ": 30,
+      "hi": 53,
+      "cars": 1320,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 33,
-      "hi": 50,
-      "cars": 1447,
+      "occ": 31,
+      "hi": 53,
+      "cars": 1378,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 35,
-      "hi": 49,
-      "cars": 1518,
+      "occ": 34,
+      "hi": 53,
+      "cars": 1481,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
-      "hi": 50,
-      "cars": 1624,
+      "hi": 53,
+      "cars": 1618,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 34,
-      "hi": 50,
-      "cars": 1510,
+      "occ": 33,
+      "hi": 52,
+      "cars": 1448,
       "level": "원활"
      },
      {
       "h": 19,
-      "occ": 34,
-      "hi": 48,
-      "cars": 1487,
+      "occ": 32,
+      "hi": 49,
+      "cars": 1428,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 31,
-      "hi": 46,
-      "cars": 1365,
+      "occ": 30,
+      "hi": 45,
+      "cars": 1311,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 23,
-      "hi": 40,
-      "cars": 1021,
+      "occ": 22,
+      "hi": 38,
+      "cars": 952,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 16,
-      "hi": 27,
-      "cars": 719,
+      "hi": 26,
+      "cars": 691,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 12,
-      "hi": 20,
-      "cars": 523,
+      "hi": 19,
+      "cars": 506,
       "level": "원활"
      }
     ]
@@ -1619,7 +1315,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 9.8,
+    "temp": 11.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1647,114 +1343,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 23,
+      "occ": 22,
       "hi": 37,
-      "cars": 993,
+      "cars": 975,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
       "hi": 43,
-      "cars": 1199,
+      "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
+      "occ": 29,
       "hi": 44,
-      "cars": 1313,
+      "cars": 1297,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 30,
+      "occ": 29,
       "hi": 46,
-      "cars": 1312,
+      "cars": 1285,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 31,
+      "occ": 30,
       "hi": 46,
-      "cars": 1367,
+      "cars": 1340,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 34,
       "hi": 47,
-      "cars": 1512,
+      "cars": 1485,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 41,
+      "occ": 40,
       "hi": 50,
-      "cars": 1794,
+      "cars": 1767,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 41,
+      "occ": 40,
       "hi": 50,
-      "cars": 1800,
+      "cars": 1773,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 42,
+      "occ": 41,
       "hi": 50,
-      "cars": 1836,
+      "cars": 1816,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
       "hi": 48,
-      "cars": 1636,
+      "cars": 1617,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 47,
-      "cars": 1455,
+      "cars": 1433,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 44,
-      "cars": 1326,
+      "cars": 1303,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
       "hi": 35,
-      "cars": 1073,
+      "cars": 1050,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 15,
+      "occ": 14,
       "hi": 23,
-      "cars": 657,
+      "cars": 636,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
       "hi": 15,
-      "cars": 451,
+      "cars": 431,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 9,
       "hi": 15,
-      "cars": 411,
+      "cars": 391,
       "level": "원활"
      }
     ]
@@ -1771,7 +1467,7 @@
    "audience": "senior",
    "capacity": 15000,
    "weather": {
-    "temp": 8.7,
+    "temp": 9.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1813,79 +1509,79 @@
      },
      {
       "h": 10,
-      "occ": 25,
+      "occ": 26,
       "hi": 42,
-      "cars": 1122,
+      "cars": 1126,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 26,
       "hi": 44,
-      "cars": 1150,
+      "cars": 1147,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
       "hi": 44,
-      "cars": 1221,
+      "cars": 1218,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 32,
       "hi": 45,
-      "cars": 1391,
+      "cars": 1388,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 38,
       "hi": 49,
-      "cars": 1683,
+      "cars": 1680,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 39,
       "hi": 50,
-      "cars": 1700,
+      "cars": 1697,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
       "hi": 49,
-      "cars": 1773,
+      "cars": 1770,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 36,
       "hi": 47,
-      "cars": 1572,
+      "cars": 1569,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 46,
-      "cars": 1445,
+      "cars": 1442,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 43,
-      "cars": 1322,
+      "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 33,
-      "cars": 1012,
+      "cars": 1009,
       "level": "원활"
      },
      {
@@ -1923,7 +1619,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 9.8,
+    "temp": 11.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -1951,114 +1647,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 23,
+      "occ": 22,
       "hi": 37,
-      "cars": 993,
+      "cars": 975,
       "level": "원활"
      },
      {
       "h": 9,
       "occ": 27,
       "hi": 43,
-      "cars": 1199,
+      "cars": 1177,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 30,
+      "occ": 29,
       "hi": 44,
-      "cars": 1313,
+      "cars": 1297,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 30,
+      "occ": 29,
       "hi": 46,
-      "cars": 1312,
+      "cars": 1285,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 31,
+      "occ": 30,
       "hi": 46,
-      "cars": 1367,
+      "cars": 1340,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 34,
       "hi": 47,
-      "cars": 1512,
+      "cars": 1485,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 41,
+      "occ": 40,
       "hi": 50,
-      "cars": 1794,
+      "cars": 1767,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 41,
+      "occ": 40,
       "hi": 50,
-      "cars": 1800,
+      "cars": 1773,
       "level": "원활"
      },
      {
       "h": 16,
-      "occ": 42,
+      "occ": 41,
       "hi": 50,
-      "cars": 1836,
+      "cars": 1816,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 37,
       "hi": 48,
-      "cars": 1636,
+      "cars": 1617,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 47,
-      "cars": 1455,
+      "cars": 1433,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 44,
-      "cars": 1326,
+      "cars": 1303,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 24,
       "hi": 35,
-      "cars": 1073,
+      "cars": 1050,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 15,
+      "occ": 14,
       "hi": 23,
-      "cars": 657,
+      "cars": 636,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 10,
       "hi": 15,
-      "cars": 451,
+      "cars": 431,
       "level": "원활"
      },
      {
       "h": 23,
       "occ": 9,
       "hi": 15,
-      "cars": 411,
+      "cars": 391,
       "level": "원활"
      }
     ]
@@ -2075,7 +1771,7 @@
    "audience": "mz",
    "capacity": 3000,
    "weather": {
-    "temp": 8.7,
+    "temp": 9.6,
     "sky": "비",
     "precip": true,
     "source": "Open-Meteo 예보"
@@ -2117,79 +1813,79 @@
      },
      {
       "h": 10,
-      "occ": 25,
+      "occ": 26,
       "hi": 42,
-      "cars": 1122,
+      "cars": 1126,
       "level": "원활"
      },
      {
       "h": 11,
       "occ": 26,
       "hi": 44,
-      "cars": 1150,
+      "cars": 1147,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 28,
       "hi": 44,
-      "cars": 1221,
+      "cars": 1218,
       "level": "원활"
      },
      {
       "h": 13,
       "occ": 32,
       "hi": 45,
-      "cars": 1391,
+      "cars": 1388,
       "level": "원활"
      },
      {
       "h": 14,
       "occ": 38,
       "hi": 49,
-      "cars": 1683,
+      "cars": 1680,
       "level": "원활"
      },
      {
       "h": 15,
       "occ": 39,
       "hi": 50,
-      "cars": 1700,
+      "cars": 1697,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 40,
       "hi": 49,
-      "cars": 1773,
+      "cars": 1770,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 36,
       "hi": 47,
-      "cars": 1572,
+      "cars": 1569,
       "level": "원활"
      },
      {
       "h": 18,
       "occ": 33,
       "hi": 46,
-      "cars": 1445,
+      "cars": 1442,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 43,
-      "cars": 1322,
+      "cars": 1319,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 23,
       "hi": 33,
-      "cars": 1012,
+      "cars": 1009,
       "level": "원활"
      },
      {
@@ -2227,9 +1923,9 @@
    "audience": "senior",
    "capacity": 3000,
    "weather": {
-    "temp": 4.6,
-    "sky": "비",
-    "precip": true,
+    "temp": 1.7,
+    "sky": "흐림",
+    "precip": false,
     "source": "Open-Meteo 예보"
    },
    "official": {
@@ -2256,113 +1952,113 @@
      {
       "h": 8,
       "occ": 43,
-      "hi": 46,
-      "cars": 1872,
+      "hi": 49,
+      "cars": 1906,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 49,
-      "hi": 55,
-      "cars": 2167,
-      "level": "원활"
+      "occ": 51,
+      "hi": 58,
+      "cars": 2227,
+      "level": "보통"
      },
      {
       "h": 10,
-      "occ": 51,
-      "hi": 56,
-      "cars": 2235,
+      "occ": 52,
+      "hi": 59,
+      "cars": 2303,
       "level": "보통"
      },
      {
       "h": 11,
       "occ": 49,
-      "hi": 54,
-      "cars": 2137,
+      "hi": 58,
+      "cars": 2172,
       "level": "원활"
      },
      {
       "h": 12,
       "occ": 49,
-      "hi": 54,
-      "cars": 2138,
+      "hi": 59,
+      "cars": 2147,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 50,
-      "hi": 55,
-      "cars": 2222,
+      "occ": 51,
+      "hi": 59,
+      "cars": 2248,
       "level": "보통"
      },
      {
       "h": 14,
       "occ": 51,
-      "hi": 55,
-      "cars": 2246,
+      "hi": 60,
+      "cars": 2265,
       "level": "보통"
      },
      {
       "h": 15,
-      "occ": 52,
-      "hi": 55,
-      "cars": 2267,
+      "occ": 51,
+      "hi": 59,
+      "cars": 2261,
       "level": "보통"
      },
      {
       "h": 16,
-      "occ": 50,
-      "hi": 54,
-      "cars": 2198,
-      "level": "보통"
+      "occ": 49,
+      "hi": 58,
+      "cars": 2142,
+      "level": "원활"
      },
      {
       "h": 17,
-      "occ": 43,
-      "hi": 46,
-      "cars": 1898,
+      "occ": 42,
+      "hi": 48,
+      "cars": 1841,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 34,
-      "hi": 38,
-      "cars": 1492,
+      "occ": 33,
+      "hi": 39,
+      "cars": 1474,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 30,
       "hi": 37,
-      "cars": 1341,
+      "cars": 1340,
       "level": "원활"
      },
      {
       "h": 20,
       "occ": 26,
       "hi": 35,
-      "cars": 1127,
+      "cars": 1128,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 19,
+      "occ": 18,
       "hi": 26,
-      "cars": 831,
+      "cars": 787,
       "level": "원활"
      },
      {
       "h": 22,
       "occ": 12,
       "hi": 17,
-      "cars": 513,
+      "cars": 533,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 10,
+      "occ": 11,
       "hi": 12,
-      "cars": 448,
+      "cars": 466,
       "level": "원활"
      }
     ]
@@ -2379,9 +2075,9 @@
    "audience": "senior",
    "capacity": 3000,
    "weather": {
-    "temp": -1.2,
-    "sky": "흐림",
-    "precip": false,
+    "temp": 5.2,
+    "sky": "비",
+    "precip": true,
     "source": "Open-Meteo 예보"
    },
    "official": {
@@ -2407,114 +2103,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 21,
-      "hi": 40,
-      "cars": 919,
+      "occ": 23,
+      "hi": 37,
+      "cars": 1008,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 24,
-      "hi": 47,
-      "cars": 1071,
+      "occ": 27,
+      "hi": 43,
+      "cars": 1189,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 27,
-      "hi": 48,
-      "cars": 1192,
+      "occ": 29,
+      "hi": 44,
+      "cars": 1275,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 28,
-      "hi": 50,
-      "cars": 1228,
+      "occ": 30,
+      "hi": 46,
+      "cars": 1313,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "hi": 50,
-      "cars": 1178,
+      "occ": 29,
+      "hi": 46,
+      "cars": 1289,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 29,
-      "hi": 51,
-      "cars": 1292,
+      "occ": 32,
+      "hi": 47,
+      "cars": 1415,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 35,
-      "hi": 53,
-      "cars": 1519,
+      "occ": 36,
+      "hi": 49,
+      "cars": 1569,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 43,
-      "hi": 55,
-      "cars": 1874,
+      "occ": 41,
+      "hi": 50,
+      "cars": 1817,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
-      "hi": 55,
-      "cars": 1824,
+      "hi": 49,
+      "cars": 1783,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 38,
-      "hi": 52,
-      "cars": 1669,
+      "hi": 48,
+      "cars": 1658,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 32,
-      "hi": 50,
-      "cars": 1402,
+      "occ": 33,
+      "hi": 47,
+      "cars": 1437,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "hi": 46,
-      "cars": 1352,
+      "hi": 45,
+      "cars": 1367,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 25,
+      "occ": 26,
       "hi": 40,
-      "cars": 1107,
+      "cars": 1127,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 14,
+      "occ": 15,
       "hi": 23,
-      "cars": 616,
+      "cars": 668,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 9,
-      "hi": 14,
-      "cars": 407,
+      "occ": 11,
+      "hi": 15,
+      "cars": 462,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 9,
-      "hi": 14,
-      "cars": 404,
+      "occ": 10,
+      "hi": 15,
+      "cars": 429,
       "level": "원활"
      }
     ]
@@ -2531,10 +2227,10 @@
    "audience": "senior",
    "capacity": 3000,
    "weather": {
-    "temp": 0.2,
-    "sky": null,
-    "precip": false,
-    "source": "평년값"
+    "temp": 2.3,
+    "sky": "눈",
+    "precip": true,
+    "source": "Open-Meteo 예보"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5172",
@@ -2559,114 +2255,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 20,
-      "hi": 39,
-      "cars": 859,
+      "occ": 19,
+      "hi": 35,
+      "cars": 839,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 23,
-      "hi": 45,
-      "cars": 993,
+      "occ": 22,
+      "hi": 41,
+      "cars": 981,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 26,
-      "hi": 46,
-      "cars": 1155,
+      "occ": 25,
+      "hi": 42,
+      "cars": 1118,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 27,
-      "hi": 48,
-      "cars": 1208,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 29,
-      "hi": 49,
-      "cars": 1273,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 35,
-      "hi": 50,
-      "cars": 1538,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 46,
-      "hi": 54,
-      "cars": 2013,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 47,
-      "hi": 55,
-      "cars": 2078,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 47,
-      "hi": 55,
-      "cars": 2047,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 41,
-      "hi": 52,
-      "cars": 1803,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 36,
-      "hi": 49,
-      "cars": 1568,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 32,
-      "hi": 44,
-      "cars": 1424,
-      "level": "원활"
-     },
-     {
-      "h": 20,
       "occ": 26,
-      "hi": 33,
+      "hi": 44,
       "cars": 1124,
       "level": "원활"
      },
      {
+      "h": 12,
+      "occ": 27,
+      "hi": 44,
+      "cars": 1191,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 31,
+      "hi": 45,
+      "cars": 1359,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 38,
+      "hi": 48,
+      "cars": 1680,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 39,
+      "hi": 50,
+      "cars": 1714,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 40,
+      "hi": 48,
+      "cars": 1768,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 36,
+      "hi": 47,
+      "cars": 1580,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 46,
+      "cars": 1458,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 31,
+      "hi": 42,
+      "cars": 1358,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 24,
+      "hi": 33,
+      "cars": 1062,
+      "level": "원활"
+     },
+     {
       "h": 21,
-      "occ": 16,
-      "hi": 21,
-      "cars": 698,
+      "occ": 15,
+      "hi": 22,
+      "cars": 660,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "hi": 14,
-      "cars": 532,
+      "occ": 11,
+      "hi": 15,
+      "cars": 476,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 12,
-      "hi": 14,
-      "cars": 507,
+      "occ": 10,
+      "hi": 15,
+      "cars": 441,
       "level": "원활"
      }
     ]
@@ -2683,9 +2379,9 @@
    "audience": "mz",
    "capacity": 15000,
    "weather": {
-    "temp": -1.2,
-    "sky": "흐림",
-    "precip": false,
+    "temp": 5.2,
+    "sky": "비",
+    "precip": true,
     "source": "Open-Meteo 예보"
    },
    "official": {
@@ -2711,114 +2407,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 21,
-      "hi": 40,
-      "cars": 919,
+      "occ": 23,
+      "hi": 37,
+      "cars": 1008,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 24,
-      "hi": 47,
-      "cars": 1071,
+      "occ": 27,
+      "hi": 43,
+      "cars": 1189,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 27,
-      "hi": 48,
-      "cars": 1192,
+      "occ": 29,
+      "hi": 44,
+      "cars": 1275,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 28,
-      "hi": 50,
-      "cars": 1228,
+      "occ": 30,
+      "hi": 46,
+      "cars": 1313,
       "level": "원활"
      },
      {
       "h": 12,
-      "occ": 27,
-      "hi": 50,
-      "cars": 1178,
+      "occ": 29,
+      "hi": 46,
+      "cars": 1289,
       "level": "원활"
      },
      {
       "h": 13,
-      "occ": 29,
-      "hi": 51,
-      "cars": 1292,
+      "occ": 32,
+      "hi": 47,
+      "cars": 1415,
       "level": "원활"
      },
      {
       "h": 14,
-      "occ": 35,
-      "hi": 53,
-      "cars": 1519,
+      "occ": 36,
+      "hi": 49,
+      "cars": 1569,
       "level": "원활"
      },
      {
       "h": 15,
-      "occ": 43,
-      "hi": 55,
-      "cars": 1874,
+      "occ": 41,
+      "hi": 50,
+      "cars": 1817,
       "level": "원활"
      },
      {
       "h": 16,
       "occ": 41,
-      "hi": 55,
-      "cars": 1824,
+      "hi": 49,
+      "cars": 1783,
       "level": "원활"
      },
      {
       "h": 17,
       "occ": 38,
-      "hi": 52,
-      "cars": 1669,
+      "hi": 48,
+      "cars": 1658,
       "level": "원활"
      },
      {
       "h": 18,
-      "occ": 32,
-      "hi": 50,
-      "cars": 1402,
+      "occ": 33,
+      "hi": 47,
+      "cars": 1437,
       "level": "원활"
      },
      {
       "h": 19,
       "occ": 31,
-      "hi": 46,
-      "cars": 1352,
+      "hi": 45,
+      "cars": 1367,
       "level": "원활"
      },
      {
       "h": 20,
-      "occ": 25,
+      "occ": 26,
       "hi": 40,
-      "cars": 1107,
+      "cars": 1127,
       "level": "원활"
      },
      {
       "h": 21,
-      "occ": 14,
+      "occ": 15,
       "hi": 23,
-      "cars": 616,
+      "cars": 668,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 9,
-      "hi": 14,
-      "cars": 407,
+      "occ": 11,
+      "hi": 15,
+      "cars": 462,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 9,
-      "hi": 14,
-      "cars": 404,
+      "occ": 10,
+      "hi": 15,
+      "cars": 429,
       "level": "원활"
      }
     ]
@@ -2835,10 +2531,10 @@
    "audience": "mz",
    "capacity": 15000,
    "weather": {
-    "temp": 0.2,
-    "sky": null,
-    "precip": false,
-    "source": "평년값"
+    "temp": 2.3,
+    "sky": "눈",
+    "precip": true,
+    "source": "Open-Meteo 예보"
    },
    "official": {
     "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010200&evtSeq=5170",
@@ -2863,114 +2559,114 @@
     "hours": [
      {
       "h": 8,
-      "occ": 20,
-      "hi": 39,
-      "cars": 859,
+      "occ": 19,
+      "hi": 35,
+      "cars": 839,
       "level": "원활"
      },
      {
       "h": 9,
-      "occ": 23,
-      "hi": 45,
-      "cars": 993,
+      "occ": 22,
+      "hi": 41,
+      "cars": 981,
       "level": "원활"
      },
      {
       "h": 10,
-      "occ": 26,
-      "hi": 46,
-      "cars": 1155,
+      "occ": 25,
+      "hi": 42,
+      "cars": 1118,
       "level": "원활"
      },
      {
       "h": 11,
-      "occ": 27,
-      "hi": 48,
-      "cars": 1208,
-      "level": "원활"
-     },
-     {
-      "h": 12,
-      "occ": 29,
-      "hi": 49,
-      "cars": 1273,
-      "level": "원활"
-     },
-     {
-      "h": 13,
-      "occ": 35,
-      "hi": 50,
-      "cars": 1538,
-      "level": "원활"
-     },
-     {
-      "h": 14,
-      "occ": 46,
-      "hi": 54,
-      "cars": 2013,
-      "level": "원활"
-     },
-     {
-      "h": 15,
-      "occ": 47,
-      "hi": 55,
-      "cars": 2078,
-      "level": "원활"
-     },
-     {
-      "h": 16,
-      "occ": 47,
-      "hi": 55,
-      "cars": 2047,
-      "level": "원활"
-     },
-     {
-      "h": 17,
-      "occ": 41,
-      "hi": 52,
-      "cars": 1803,
-      "level": "원활"
-     },
-     {
-      "h": 18,
-      "occ": 36,
-      "hi": 49,
-      "cars": 1568,
-      "level": "원활"
-     },
-     {
-      "h": 19,
-      "occ": 32,
-      "hi": 44,
-      "cars": 1424,
-      "level": "원활"
-     },
-     {
-      "h": 20,
       "occ": 26,
-      "hi": 33,
+      "hi": 44,
       "cars": 1124,
       "level": "원활"
      },
      {
+      "h": 12,
+      "occ": 27,
+      "hi": 44,
+      "cars": 1191,
+      "level": "원활"
+     },
+     {
+      "h": 13,
+      "occ": 31,
+      "hi": 45,
+      "cars": 1359,
+      "level": "원활"
+     },
+     {
+      "h": 14,
+      "occ": 38,
+      "hi": 48,
+      "cars": 1680,
+      "level": "원활"
+     },
+     {
+      "h": 15,
+      "occ": 39,
+      "hi": 50,
+      "cars": 1714,
+      "level": "원활"
+     },
+     {
+      "h": 16,
+      "occ": 40,
+      "hi": 48,
+      "cars": 1768,
+      "level": "원활"
+     },
+     {
+      "h": 17,
+      "occ": 36,
+      "hi": 47,
+      "cars": 1580,
+      "level": "원활"
+     },
+     {
+      "h": 18,
+      "occ": 33,
+      "hi": 46,
+      "cars": 1458,
+      "level": "원활"
+     },
+     {
+      "h": 19,
+      "occ": 31,
+      "hi": 42,
+      "cars": 1358,
+      "level": "원활"
+     },
+     {
+      "h": 20,
+      "occ": 24,
+      "hi": 33,
+      "cars": 1062,
+      "level": "원활"
+     },
+     {
       "h": 21,
-      "occ": 16,
-      "hi": 21,
-      "cars": 698,
+      "occ": 15,
+      "hi": 22,
+      "cars": 660,
       "level": "원활"
      },
      {
       "h": 22,
-      "occ": 12,
-      "hi": 14,
-      "cars": 532,
+      "occ": 11,
+      "hi": 15,
+      "cars": 476,
       "level": "원활"
      },
      {
       "h": 23,
-      "occ": 12,
-      "hi": 14,
-      "cars": 507,
+      "occ": 10,
+      "hi": 15,
+      "cars": 441,
       "level": "원활"
      }
     ]
@@ -6804,7 +6500,7 @@
      "2027-01-09",
      "2027-03-01"
     ],
-    "moreCount": 0
+    "moreCount": 1
    },
    "reco": {
     "carArrive": "10:00",
@@ -6956,7 +6652,7 @@
      "2027-01-09",
      "2027-03-01"
     ],
-    "moreCount": 0
+    "moreCount": 1
    },
    "reco": {
     "carArrive": "10:00",
@@ -7108,7 +6804,7 @@
      "2027-01-09",
      "2027-03-01"
     ],
-    "moreCount": 0
+    "moreCount": 1
    },
    "reco": {
     "carArrive": "13:00",
